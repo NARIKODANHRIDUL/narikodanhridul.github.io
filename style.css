@@ -14,6 +14,17 @@
   box-sizing: border-box; 
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #333;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #90b781; 
+  border-radius: 6px; 
+}
+::-webkit-scrollbar-thumb:hover {  background-color: #669455; }
+::-webkit-scrollbar:hover { transition: 0.3s; }
+
 body {
     margin: 0;
     padding: 0px 0px;
@@ -23,6 +34,7 @@ body {
     width: 100vw;
     box-sizing: border-box;
     overflow-x: hidden;
+    
 }
 
 .topDiv {
@@ -93,7 +105,7 @@ body {
   bottom: 20px;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 1);
   border-radius: 15px ;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 .overlay-button:hover{
   background-color:#90b781;
@@ -103,7 +115,7 @@ body {
 }
 
 .card:hover .imgcontainer img{
-  filter: blur(2px);
+  filter: blur(4px);
 }
 
 .card {
@@ -118,6 +130,7 @@ body {
   word-wrap: break-word;
   background-clip: border-box;
   border-radius: 20px;
+  transition: 0.3s;
 }
 .card:hover {
   scale: 103%;
@@ -164,6 +177,23 @@ body {
   transition: 0.3s;
 }
 
+.bioscontainer{
+  margin: 20px 0px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 600px;
+  height: 180px;
+  /* background-color: #669455; */
+}
+.bioscontainer:hover img{
+  filter: blur(4px);
+} 
+.bioscontainer img{
+  border-radius: 20px;
+  filter: grayscale();
+  width: auto;
+  margin: 5 px;
+}
 .overlay-button {
   visibility: hidden;
   position: absolute;
@@ -187,7 +217,7 @@ body {
   color: antiquewhite;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
   font-size: 20px;
-  transition: 0.2s;
+  transition: 0.3s;
 }
 .bttn:hover{
   background-color:#90b781;
@@ -207,7 +237,7 @@ body {
 }
 .footerBttn:hover{
   background-color:#90b781;
-  transition: 0.8s;
+  transition: 0.3s;
   scale: 110%;
 }
 
