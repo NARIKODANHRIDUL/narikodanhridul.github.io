@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neri@Schoolproj</title>
+    <style>
+        body {
+            margin: 0;
+            color: antiquewhite;
+            background-color: #333;
+            width: 100vw;
+            box-sizing: border-box;
+            overflow-x: hidden;
+            /* padding: 20px; */
+        }
+        
+        h1{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 2.5vw   ;
+        }
+
+        .main {
+            color: blanchedalmond;
+            margin: 10px 10px;
+            font-family: Verdana;
+            letter-spacing: 0.1em;
+            padding: 10px 10px 10px 15px;
+            font-size: 1.5vw;
+            border-radius: 20px;
+            background-color: #111;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 1); 
+            
+        }
+        
+
+        .code {
+            overflow: auto;
+        }
+
+        a:link,
+        a:visited {
+            color: rgb(207, 245, 179);
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 1); ;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #90b781;
+            text-decoration: none;
+        }
+
+        .center {
+            text-align: center;
+            font-size: 1.8em;
+        }
+        .imgcontainer{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .imgcontainer img{
+            padding: 1vw;
+            border-radius: 20px;
+            width: 42vw;
+        }
+        .footerBttn{
+        margin: 10px 5px;
+        border-radius: 50px ;
+        padding: 10px 10px 5px 10px;
+        border: none;
+        background: #333;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+        transition: 0.2s;
+        }
+        .footerBttn:hover{
+        background-color:#90b781;
+        transition: 0.3s;
+        scale: 110%;
+        }
+
+        .footerBttn img{
+        filter: brightness(70%);
+        }
+        .footerBttn:hover img{
+        filter: brightness(0%);
+        }
+
+        .footer {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            margin-top: 20px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 1); 
+            background: #111;
+            color: aliceblue;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        .contactTile{
+            display: flex; flex-wrap: wrap; justify-content: center;
+        }
+ 
+        @media only screen and (max-width: 650px){
+        .main{
+            font-size: 3vw;
+        }
+        
+        .imgcontainer img{
+            width: 95%;
+        }
+        }
+        
+    </style>
+</head>
+
+<body>
+    <h1 id="school-administration-system"><a
+                    href="https://github.com/NARIKODANHRIDUL/PROJECT-SCHOOL-ADMINISTRATION-SYSTEM/tree/master">
+                    <div class="center" >SCHOOL ADMINISTRATION SYSTEM</div>
+                </a></h1>
+        <div class="main">
+            
+            <h2 id="introduction-">INTRODUCTION :</h2>
+            <p>The project titled “SCHOOL ADMINISTRATION SYSTEM” intends to develop a tool that could definitely improve
+                the huge amount of data processing. This project has been developed using C++ which is an
+                object-oriented program.
+                The project was developed with the sum of solving the problem of maintaining the number of files and
+                easy data retrieval according to the need. The main function performed by this tool include entry
+                function, edit function, search function and display function and also to enter then details of the
+                students. The tool has a friendly inter face and environment that makes adding, deleting and modifying
+                of customer details easy. Its aim is faster data access. It is also user friendly and systematic. </p>
+            <hr>
+        </div>
+        <div class="main">
+            <h2 id="demo-video">DEMO VIDEO</h2>
+            <video controls autoplay muted loop
+                src="https://raw.githubusercontent.com/NARIKODANHRIDUL/PROJECT-SCHOOL-ADMINISTRATION-SYSTEM/master/demoVideo.mp4"
+                width=100%>
+                Your browser doesn't support this file format :) </video>
+
+
+            <p><a href="https://drive.google.com/file/d/1AI9xGLYmpNXRHcsP7be54WkAvq49Y5Io/view?usp=sharing">
+                    <div class="center"><img src="https://pngimg.com/uploads/google_drive/google_drive_PNG7.png"
+                            width="90%"></div>
+                </a></p>
+            <hr>
+        </div>
+        <div class="main">
+            <h2 id="existing-system-">EXISTING SYSTEM :</h2>
+            <p>The details of students are manually entered into the booklet</p>
+            <h5 id="limitations-of-current-system">Limitations of current system:</h5>
+            <pre><code><div class="code">  - Consumes much space and time.
+  - Accuracy is less.
+  - Involves implicated manual labor.
+  - Difficult to make changes. 
+
+</div></code></pre>
+            <hr>
+        </div>
+        <div class="main">
+            <h2 id="proposed-system">PROPOSED SYSTEM</h2>
+            In the proposed system we are developing new software carefully. Studying the existing system, customer
+            details can be added, modified, deleted and viewed can be done easily since the program is menu driven.
+            <h5 id="advantages-of-then-current-system">Advantages of then current system:</h5>
+            <pre><code><div class="code">  - Can add student details easily
+  - Can view admission no, name, age, sex, phone number, place.
+  - Can add or delete student record.
+  - Easily modifiable.
+  - User friendly.
+  - Stores details of students.
+
+</div></code></pre>
+            <hr>
+        </div>
+        <div class="main">
+            <h2 id="system-design">SYSTEM DESIGN</h2>
+            <h4 id="system-defition">SYSTEM DEFITION:</h4>
+            <p>A system can be defined as a network of interrelated procedure that are joined together to perform an
+                activity or to accomplish a specific objective. It is in effect all ingredients that make up the whole.
+            </p>
+            <h4 id="class-definition">CLASS DEFINITION:</h4>
+            <p>Class is used to bind data members and member functions together. It provides data security. It is a user
+                defined data type. Class used in program is ‘OSWAL’ and the object is ‘b’.</p>
+            <h4 id="data-members">DATA MEMBERS:</h4>
+            <pre><code><div class="code">- admno : stores admission no
+- name: stores name of the student
+- age   : stores age of the student
+- sex: stores phone no of the student
+- phone : stores phone no of the student
+
+</div></code></pre>
+            <h4 id="member-functions">MEMBER FUNCTIONS:</h4>
+            <pre><code><div class="code">- Void enter(): to enter student details
+- Void display(): to display student details
+- int retadmno(): return student admission no
+- int last_member():return student admission no of last student
+- Void modify_data():modify the existing student details
+
+</div></code></pre>
+            <h4 id="file-definition">FILE DEFINITION:</h4>
+            <p>A file is a collection of logically related information. It is also a means to store data, having an
+                appreciably large storage space. This is done so because data base of this programs are too large, that
+                can’t be stored in a large memory </p>
+            <h4 id="files">FILES:</h4>
+            <p>File used to store student details are student.dat and temp.dat (for deletion menu).</p>
+            <h4 id="stream-objects">STREAM OBJECTS:</h4>
+            <p>The stream objects used for ‘read’ and ‘write’ are f, f2 and file.</p>
+            <hr>
+        </div>
+            <div class="main">
+            <h2 id="source-code">SOURCE CODE</h2>
+            <div class="code">
+                <pre><code>#include&lt;iostream&gt;
+#include&lt;fstream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+#include&lt;string.h&gt;
+#include&lt;ctype.h&gt;
+#include&lt;process.h&gt;
+using namespace std;
+#include &quot;windows.h&quot;
+
+void gotoxy(int x, int y)
+{
+    COORD coord;
+    coord.X = x;
+    coord.Y = y;
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+}
+void add_data();        //adding user
+void viewall();         //show all entries
+void searchadmno();     //searching given roll number
+void delete_();         //deleting given roll number
+void modify();          //modifying given roll number
+void details();
+void sc();              //banner used in every page
+int disp(int bl);
+void screen1();         //screen with admin and exit
+void pass();            //admin login screen
+void adscreen();        //admin screen with all option(6)
+void userscreen();
+void user(int ch);
+void adm(int ch);
+void exi();
+int count();
+
+int main(int argc, char **argv)
+{
+    // system(&quot;cls&quot;);
+//  clrscr();
+     screen1();
+     return 0;
+
+}
+class student
+{
+        int admno;
+        char name[30];
+        int age;
+        char sex[6];
+        char phone[12];
+ public:
+        void enter();
+        void display();
+        int last_member();
+        void modify_data();
+        int retadmno();
+ };
+ fstream f;
+ student a;
+ int student::retadmno()
+ {
+ return admno;
+ }
+ int student::last_member()
+ {
+
+  int count=1000;
+  admno=1000;
+  fstream file;
+  file.open(&quot;student.dat&quot;,ios::in);
+  file.seekg(0,ios::beg);
+  while(file.read((char*)this,sizeof(student)))
+  {
+        count=admno;
+  }
+  file.close();
+  return count;
+  }
+  void student::modify_data()
+  {
+  char nm[20]=&quot; &quot;,sx[20]=&quot; &quot;,ph[20]=&quot; &quot;;
+  int ag;
+  cout&lt;&lt;&quot;ENTER NAME     :                       (enter  .  to retain old one)\n&quot;;
+  cout&lt;&lt;&quot;ENTER AGE      :                       (enter  1  to retain old one)\n&quot;;
+  cout&lt;&lt;&quot;ENTER SEX      :                       (enter  .  to retain old one)\n&quot;;
+  cout&lt;&lt;&quot;ENTER PHONE NO :                       (enter  .  to retain old one)\n&quot;;
+        gotoxy(17,16);
+        cin.ignore();
+        cin.getline(name, sizeof(nm));
+        gotoxy(17,17);
+        cin&gt;&gt;ag;
+        gotoxy(17,18);
+        cin&gt;&gt;sx;
+        gotoxy(17,19);
+        cin&gt;&gt;ph;
+        if(strcmp(nm,&quot;.&quot;)!=0)
+        strcpy(name,nm);
+        if(ag!=1)
+        age=ag;
+        if(strcmp(sx,&quot;.&quot;)!=0)
+        strcpy(sex,sx);
+        if(strcmp(ph,&quot;.&quot;)!=0)
+        strcpy(phone,ph);
+        cout&lt;&lt;&quot;\n\n\n\t\tRecord modified successfully&quot;;
+        gotoxy(25,25);
+        cout&lt;&lt;&quot;press any key to go back!!!!!!!!&quot;;
+        }
+
+        void student::enter()
+        {
+            system(&quot;cls&quot;);
+        // clrscr();
+        sc();
+        cout&lt;&lt;&quot;\n\n                           STUDENT REGISTRATION           \n&quot;;
+        cout&lt;&lt;&quot;                       -=************************=-            &quot;;
+
+        admno=last_member();
+        admno++;
+        cout&lt;&lt;&quot;\n\n\t Enter name \t             :                      (press ! to go back)&quot;;
+        gotoxy(39,9);
+
+        cin.ignore();
+        cin.getline(name, sizeof(name));
+        if(strcmp(name,&quot;!&quot;)==0)
+        {
+        adscreen();
+        }
+        cout&lt;&lt;&quot;\t Enter Age                   : &quot;;
+        cin&gt;&gt;age;
+        cout&lt;&lt;&quot;\t Enter sex                   : &quot;;
+        cin&gt;&gt;sex;
+        cout&lt;&lt;&quot;\t Enter phone number          : &quot;;
+        cin&gt;&gt;phone;
+        // cout&lt;&lt;&quot;\n Thank you for registering.....(:&quot;;
+        cout&lt;&lt;&quot;\n\n\t\tYour admission no is &quot;&lt;&lt;admno;
+
+
+        }
+
+         void student::display()
+         {
+            cout&lt;&lt;&quot;\n&quot;;
+            cout&lt;&lt;&quot;\tDetails of the searched student\n&quot;;
+            cout&lt;&lt;&quot;------------------------------------------------------------------------------\n&quot;;
+            cout&lt;&lt;&quot;\n         Admission Number     :&quot;;
+            cout&lt;&lt;admno&lt;&lt;&quot;\n&quot;;
+            cout&lt;&lt;&quot;         Name                 :&quot;;
+            for(int i=0;name[i]!=&#39;\0&#39;;i++)
+                            name[i]=toupper(name[i]);
+            cout&lt;&lt;name&lt;&lt;&quot;\n&quot;;
+            cout&lt;&lt;&quot;         Age                  :&quot;;
+            cout&lt;&lt;age&lt;&lt;&quot;\n&quot;;
+            cout&lt;&lt;&quot;         Sex                  :&quot;;
+            cout&lt;&lt;sex&lt;&lt;&quot;\n&quot;;
+            cout&lt;&lt;&quot;         Phone                :&quot;;
+            cout&lt;&lt;phone&lt;&lt;&quot;\n&quot;;
+            cout&lt;&lt;&quot;_______________________________________________________________________________\n&quot;;
+            cout&lt;&lt;&quot;_______________________________________________________________________________\n&quot;;
+}
+
+                            void screen1()
+{
+    start:
+    system(&quot;cls&quot;);
+    // clrscr();
+    char ch;
+    sc();
+    cout&lt;&lt;&quot;\n\n&quot;;
+    cout&lt;&lt;&quot;\t\t[A].ADMINISTRATOR\n&quot;;
+    cout&lt;&lt;&quot;\n&quot;;
+    cout&lt;&lt;&quot;\t\t[E].EXIT\n\n&quot;;
+    cout&lt;&lt;&quot;SELECT YOUR OPTION: &quot;;
+    cin&gt;&gt;ch;
+    switch(ch)
+    {
+        case &#39;A&#39;:
+        case &#39;a&#39;:system(&quot;cls&quot;);
+                    // clrscr();
+                    pass();
+                    adm:
+                    adscreen();
+                    goto adm;
+        case &#39;E&#39;:
+        case &#39;e&#39;:exi();
+        default:cout&lt;&lt;&quot;So Sorry!!!Unknown Choice&quot;;
+                    getch();
+                  goto start;
+    }
+}
+                            void pass()
+{
+    sc();
+    char c[20];
+    double x;
+    char user[20];
+    loop:
+    gotoxy(30,12);
+    cout&lt;&lt;&quot;USER NAME:&quot;;
+    gotoxy(30,13);
+    cout&lt;&lt;&quot;PIN      :&quot;;
+    gotoxy(41,12);
+    cin&gt;&gt;user;
+    cout&lt;&lt;&quot;\n\n&quot;;
+    gotoxy(41,13);
+    for(int i=0;i&lt;9;i++)
+    {
+        c[i]=getch();
+        cout&lt;&lt;&quot;*&quot;;
+    }
+    c[9]=&#39;\0&#39;;
+    getch();
+
+if(((strcmp(user,&quot;user&quot;)==0)||(strcmp(user,&quot;USER&quot;)==0))&amp;&amp;(strcmp(c,&quot;narikodan&quot;)==0))
+    {system(&quot;cls&quot;);
+        // clrscr();
+        sc();
+        gotoxy(37,13);
+
+        cout&lt;&lt;&quot;WELCOME&quot;;
+        for(x=0;x&lt;1;x++);
+    }
+    else if((strcmp(user,&quot;narikul&quot;)!=0)&amp;&amp;(strcmp(user,&quot;NARIKUL&quot;)!=0))
+    {
+        system(&quot;cls&quot;);
+        // clrscr();
+        sc();
+        gotoxy(25,13);
+
+        cout&lt;&lt;&quot;Oops!!! ADMINISTRATION NOT RESPONDING\n\t\t\t (user name is wrong!!!!!)&quot;;
+        getch();system(&quot;cls&quot;);
+        pass();
+
+    }
+    else if(strcmp(c,&quot;password&quot;)!=0)
+    {
+        system(&quot;cls&quot;);
+            // clrscr();
+        sc();
+        gotoxy(25,13);
+
+        cout&lt;&lt;&quot;Oops!!! ADMINISTRATION NOT RESPONDING\n\t\t\t (password is wrong!!!!!)&quot;;
+        getch();system(&quot;cls&quot;);
+        pass();
+    }
+}
+                                void sc()
+{
+    cout&lt;&lt;&quot;\n===============================================================================\n&quot;;
+    cout&lt;&lt;&quot;---------------------=+#INDIRA GANDHI PUBLIC SCHOOL#+=-------------------------\n&quot;;
+    cout&lt;&lt;&quot;===============================================================================\n&quot;;
+}
+                                    void adscreen()
+{
+    char ch;
+    system(&quot;cls&quot;);
+    // clrscr();
+    sc();
+    cout&lt;&lt;&quot;\n\t[1] STUDENT REGISTRATION      \n\n&quot;;
+    cout&lt;&lt;&quot;\t[2] SHOW WHOLE ENTRIES      \n\n&quot;;
+    cout&lt;&lt;&quot;\t[3] SEARCH FOR STUDENT BY ADMISSION NO    \n\n&quot;;
+    cout&lt;&lt;&quot;\t[4] MODIFY A STUDENT&#39;S DETAILS        \n\n &quot;;
+    cout&lt;&lt;&quot;\t[5] DELETE A STUDENT&#39;S DETAILS         \n\n&quot;;
+    cout&lt;&lt;&quot;\t[6] Back                    \n\n&quot;;
+    cout&lt;&lt;&quot;\n\t\t## Enter your choice : &quot;;
+    cin&gt;&gt;ch;
+    adm(ch);
+    getch();
+}
+
+                                    void exi()
+{
+    system(&quot;cls&quot;);
+    // clrscr();
+    sc();
+    cout&lt;&lt;&quot;\n\n THANKS FOR USING :).............\n&quot;;
+    cout&lt;&lt;&quot;\n\nDeveloped by NARIKODAN HRIDUL\n\n&quot;;
+    cout&lt;&lt;&quot;          ____      ___     ___     ___         ___         ____\n&quot;;
+    cout&lt;&lt;&quot;        /    \\    /   \\   /   \\   |   \\       |   \\  \\  / |        |  |  |\n&quot;;
+    cout&lt;&lt;&quot;       |         |     | |     |  |    \\      |___/   \\/  |___     |  |  |\n&quot;;
+    cout&lt;&lt;&quot;    |     _   |     | |     |  |    /      |   \\   /   |        |  |  |\n&quot;;
+    cout&lt;&lt;&quot;     \\___/ |   \\___/   \\___/   |___/       |___/  /    |____    o  o  o\n&quot;;
+
+    cout&lt;&lt;&quot;\n\n                              \\(=_= ) (=_=)/\n&quot;;
+    cout&lt;&lt;&quot;\n           *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  \n\n&quot;;
+    exit(0);
+}
+                                    void adm(int ch)
+{
+    switch(ch)
+  {
+
+        case &#39;1&#39;:add_data();
+                 break;
+        case &#39;2&#39;:viewall();
+                 break;
+        case &#39;3&#39;:searchadmno();
+                 break;
+        case &#39;4&#39;:modify();
+                 break;
+        case &#39;5&#39;:delete_();
+                 break;
+        case &#39;6&#39;:screen1();
+                 break;
+        default:cout&lt;&lt;&quot;So Sorry !!!Unknown Choice\n TRY AGAIN....&quot;;
+  }
+}
+                                    void add_data()
+{
+    f.open(&quot;student.dat&quot;,ios::app);
+    a.enter();
+    f.write((char*)&amp;a,sizeof(student));
+    f.close();
+    gotoxy(20,24);
+    cout&lt;&lt;&quot;press any key to go back!!!!!!!!&quot;;
+}
+                                    void viewall()
+{
+    system(&quot;cls&quot;);
+    // clrscr();
+    sc();
+    cout&lt;&lt;&quot;\n    -=SCHOOL REGISTER=-           \n&quot;;
+    cout&lt;&lt;&quot;_______________________________________________________________________________\n&quot;;
+    cout&lt;&lt;&quot;_______________________________________________________________________________\n&quot;;
+    cout&lt;&lt;&quot;_______________________________________________________________________________\n&quot;;
+    int i=1;
+    f.open(&quot;student.dat&quot;,ios::in|ios::binary);
+    while(f.read((char*)&amp;a,sizeof(student)))
+    {
+        cout&lt;&lt;&quot;Sno.:&quot;&lt;&lt;i;
+        a.display();
+        i++;
+        cout&lt;&lt;&quot;_______________________________________________________________________________\n&quot;;
+    }
+    f.close();
+    cout&lt;&lt;&quot;\n\t\tpress any key to go back!!!!!!!!!!!!&quot;;
+}
+                                void searchadmno()
+{
+  int n;
+  system(&quot;cls&quot;);
+//   clrscr();
+  sc();
+  int flag=0;
+  gotoxy(20,13);
+  cout&lt;&lt;&quot;## Enter the student admission no to search: &quot;;
+  cin&gt;&gt;n;
+  f.open(&quot;student.dat&quot;,ios::in);
+  while(f.read((char*)&amp;a,sizeof(student)))
+  {
+        if(a.retadmno()==n)
+        {
+            system(&quot;cls&quot;);
+            // clrscr();
+            sc();
+            a.display();
+            flag=1;
+        }
+  }
+  f.close();
+  if(flag==0)
+  {
+    system(&quot;cls&quot;);
+        // clrscr();
+        sc();
+        gotoxy(28,13);
+        cout&lt;&lt;&quot;Oops !!Record not found!!&quot;;
+        gotoxy(25,20);
+        cout&lt;&lt;&quot;press any key to go back!!!!!!!&quot;;
+  }
+  else
+  {
+        gotoxy(25,20);
+        cout&lt;&lt;&quot;press any key to go back!!!!!!!&quot;;
+  }
+}
+                  int count()
+{
+    int i=1;
+    f.open(&quot;student.dat&quot;,ios::in|ios::binary);
+    while(f.read((char*)&amp;a,sizeof(student)))
+    {
+        i++;
+    }
+    f.close();
+    return i;
+}
+                    int disp(int bl)
+{
+    system(&quot;cls&quot;);
+//   clrscr();
+  sc();
+  int flag=1;
+  f.open(&quot;student.dat&quot;,ios::in);
+  while(f.read((char*)&amp;a,sizeof(student)))
+  {
+        if(a.retadmno()==bl)
+        {
+            a.display();
+            flag=0;
+        }
+  }
+  f.close();
+  if(flag==1)
+  {
+    system(&quot;cls&quot;);
+        // clrscr();
+        sc();
+        gotoxy(28,13);
+        cout&lt;&lt;&quot;Oops !!Record not found!!&quot;;
+        gotoxy(25,20);
+        cout&lt;&lt;&quot;press any key to go back!!!!!!!&quot;;
+  }
+  return flag;
+}
+void modify()
+{
+    system(&quot;cls&quot;);
+    // clrscr();
+    sc();
+    int bl,t;
+    char ch;
+    long pos;
+    gotoxy(20,13);
+    cout&lt;&lt;&quot;## Please Enter the admission no to be modified: &quot;;
+    cin&gt;&gt;bl;
+    t=disp(bl);
+    if(t==0)
+    {
+        f.open(&quot;student.dat&quot;,ios::in|ios::out);
+        cout&lt;&lt;&quot;\t\t\tDo you want to modify it(Y/N)???:&quot;;
+        cin&gt;&gt;ch;
+        if(ch==&#39;y&#39;||ch==&#39;Y&#39;)
+        {
+            while(!f.eof())
+            {
+                pos=f.tellg();
+                f.read((char*)&amp;a,sizeof(student));
+                if(a.retadmno()==bl)
+                {
+                    a.modify_data();
+                    f.seekg(pos);
+                    f.write((char*)&amp;a,sizeof(student));
+                    break;
+                }
+                    }
+        }
+        else
+        {
+            gotoxy(25,25);
+            cout&lt;&lt;&quot;press any key to go back!!!!!!!&quot;;
+        }
+        f.close();
+    }
+}
+                            void delete_()
+{
+ int no,t;
+ char ch;
+ system(&quot;cls&quot;);
+//  clrscr();
+ sc();
+ gotoxy(22,13);
+ cout&lt;&lt;&quot;## Enter the admission no to delete: &quot;;
+ cin&gt;&gt;no;
+ t=disp(no);
+ if(t==0)
+ {
+    gotoxy(21,18);
+    cout&lt;&lt;&quot;DO YOU WANT TO DELETE IT ? (Y/N) : &quot;;
+    cin&gt;&gt;ch;
+    if(ch==&#39;y&#39;||ch==&#39;Y&#39;)
+    {
+        f.open(&quot;student.dat&quot;,ios::in);
+        fstream f2;
+        f2.open(&quot;tem.dat&quot;,ios::out);
+        f2.seekg(0);
+        while(f.read((char*)&amp;a,sizeof(student)))
+        {
+            if(a.retadmno()!=no)
+            {
+                f2.write((char*)&amp;a,sizeof(student));
+            }
+        }
+        f2.close();
+        f.close();
+        remove(&quot;student.dat&quot;);
+        rename(&quot;tem.dat&quot;,&quot;student.dat&quot;);
+        // clrscr();
+        system(&quot;cls&quot;);
+        sc();
+        gotoxy(27,13);
+        cout&lt;&lt;&quot;Record Deleted Successfully&quot;;
+        gotoxy(25,20);
+        cout&lt;&lt;&quot;press any key to go back!!!!!!!&quot;;
+    }
+else
+  {
+    gotoxy(25,25);
+        cout&lt;&lt;&quot;press any key to go back!!!!!!!&quot;;
+  }
+ }
+}
+
+
+</code></pre>
+            </div>
+            <hr>
+            </div>
+            <div class="main">
+            <h3>Whole set of screenshots</h3>
+            <div class="imgcontainer">
+            <img src="https://raw.githubusercontent.com/NARIKODANHRIDUL/PROJECT-SCHOOL-ADMINISTRATION-SYSTEM/master/photos/1-1.png" >
+            <img src="https://raw.githubusercontent.com/NARIKODANHRIDUL/PROJECT-SCHOOL-ADMINISTRATION-SYSTEM/master/photos/2-anushadded.png" >
+            <img src="https://raw.githubusercontent.com/NARIKODANHRIDUL/PROJECT-SCHOOL-ADMINISTRATION-SYSTEM/master/photos/3-2.png" >
+            <img src="https://raw.githubusercontent.com/NARIKODANHRIDUL/PROJECT-SCHOOL-ADMINISTRATION-SYSTEM/master/photos/4-searched%20anush.PNG" >
+            <img src="https://raw.githubusercontent.com/NARIKODANHRIDUL/PROJECT-SCHOOL-ADMINISTRATION-SYSTEM/master/photos/5-3.PNG" >
+            <img src="https://raw.githubusercontent.com/NARIKODANHRIDUL/PROJECT-SCHOOL-ADMINISTRATION-SYSTEM/master/photos/6-seach1005.PNG" >
+            <img src="https://raw.githubusercontent.com/NARIKODANHRIDUL/PROJECT-SCHOOL-ADMINISTRATION-SYSTEM/master/photos/8-4.PNG" >
+            <img src="https://raw.githubusercontent.com/NARIKODANHRIDUL/PROJECT-SCHOOL-ADMINISTRATION-SYSTEM/master/photos/9-modify1005.PNG" >
+            <img src="https://raw.githubusercontent.com/NARIKODANHRIDUL/PROJECT-SCHOOL-ADMINISTRATION-SYSTEM/master/photos/10-anushmodified.PNG" >
+            <img src="https://raw.githubusercontent.com/NARIKODANHRIDUL/PROJECT-SCHOOL-ADMINISTRATION-SYSTEM/master/photos/11-5.PNG" >
+            <img src="https://raw.githubusercontent.com/NARIKODANHRIDUL/PROJECT-SCHOOL-ADMINISTRATION-SYSTEM/master/photos/12-delete1005.PNG" >
+            <img src="https://raw.githubusercontent.com/NARIKODANHRIDUL/PROJECT-SCHOOL-ADMINISTRATION-SYSTEM/master/photos/13-delete%20anush.PNG" >
+            <img src="https://raw.githubusercontent.com/NARIKODANHRIDUL/PROJECT-SCHOOL-ADMINISTRATION-SYSTEM/master/photos/14-deleted%20anush%20successfully.PNG" >
+            <img src="https://raw.githubusercontent.com/NARIKODANHRIDUL/PROJECT-SCHOOL-ADMINISTRATION-SYSTEM/master/photos/15-6.PNG" >
+            <img src="https://raw.githubusercontent.com/NARIKODANHRIDUL/PROJECT-SCHOOL-ADMINISTRATION-SYSTEM/master/photos/16-backed.PNG" >
+            <img src="https://raw.githubusercontent.com/NARIKODANHRIDUL/PROJECT-SCHOOL-ADMINISTRATION-SYSTEM/master/photos/17-exit.PNG" >
+        </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div style="font-size: 22px;" id="Contact">Contact Info</div>
+        <div style="color: #aaa;"><img src="../resources/location.png" height="20px" style="vertical-align: middle; opacity: 70%;">Kannur, Kerala, India</div>
+        <div class="contactTile">
+            <a href="mailto:narikodanhridul@gmail.com" target="_blank"><button class="footerBttn"><img src="../resources/gmail.png" height="40px"></button></a>
+            <a href="https://linkedin.com/in/narikodanhridul" target="_blank"><button class="footerBttn"><img src="../resources/linkedin.png" height="40px"></button></a>
+            <a href="https://instagram.com/narikodanhridul_" target="_blank"><button class="footerBttn"><img src="../resources/insta.jpg" height="40px" ></button></a>
+            <a href="https://github.com/narikodanhridul" target="_blank"><button class="footerBttn"><img src="../resources/github.png" height="40px" ></button></a>
+        </div>
+        <div style="font-size: 13px;">Copyright 2023 © NarikodanHridul</div>
+    </footer>
+</body>
+</html>
