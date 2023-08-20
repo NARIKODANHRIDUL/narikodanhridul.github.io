@@ -99,26 +99,13 @@ body {
   flex-wrap: wrap;
   justify-content: center;
 }
-.card:hover .overlay-button{
-  visibility:visible;
-  opacity: 100;
-  bottom: 20px;
-  box-shadow: 0px 0px 25px rgba(0, 0, 0, 1);
-  border-radius: 15px ;
-  transition: 0.3s;
-}
-.overlay-button:hover{
-  background-color:#90b781;
-  color: #222;
-  scale: 105%;
-  
-}
+
 
 .card:hover .imgcontainer img{
   filter: blur(4px);
 }
 
-.card {
+#bios, .card {
   position: relative;
   flex-direction: column;
   background-color: #222;
@@ -132,6 +119,11 @@ body {
   border-radius: 20px;
   transition: 0.3s;
 }
+
+#bios{
+  width: 620px;
+}
+
 .card:hover {
   scale: 103%;
   transition: 0.3s;
@@ -208,6 +200,20 @@ body {
   opacity: 0;
 }
 
+.card:hover .overlay-button{
+  visibility:visible;
+  opacity: 100;
+  bottom: 20px;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 1);
+  border-radius: 15px ;
+  transition: 0.3s;
+}
+.overlay-button:hover{
+  background-color:#90b781;
+  color: #222;
+  scale: 105%;
+  
+}
 .bttn{
   margin-top: 10px; 
   border-radius: 15px ;
@@ -260,6 +266,7 @@ body {
     
 }
 
+
   @media only screen and (max-width: 1114px){
   
   .intro {
@@ -271,9 +278,28 @@ body {
     width: 90vw;
   }
 }
-@media only screen and (max-width: 1055px){
+@media only screen and (max-width: 650px){
   
-  .introDesc{
-    font-size: 65%;
+  .bioscontainer{
+    flex-direction: column;
+    /* background-color: red; */
+    height: 80%;
+    width: 100%;
+  }
+  .bioscontainer img{
+    border-radius: 20px;
+    /* height: 100px; */
+    /* width: 150px; */
+    width: 100%
+  }
+  .bioscontainer:hover img{
+    filter: blur(4px);
+
+  } 
+
+  #bios{
+    /* background-color: aqua; */
+    height: 480px;
+    width: 300px;
   }
 }
