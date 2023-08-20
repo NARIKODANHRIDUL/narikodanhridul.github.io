@@ -9,12 +9,9 @@
   font-family: 'Syne Mono', monospace; */
 
 * {
-    
-    font-family: 'Poppins', sans-serif;
-    scroll-behavior: smooth;
-    box-sizing: border-box;
-    
-    
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+  box-sizing: border-box; 
 }
 
 body {
@@ -93,12 +90,15 @@ body {
 
 .imgcontainer{
   position: relative;
+  /* padding: 10px; */
+  background-color: #384832;
 }
 
 .imgcontainer img {
   position: absolute;
   top: 0;
   left: 0;
+  border-radius: 20px;
 }
 
 .card {
