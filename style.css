@@ -14,6 +14,7 @@
     scroll-behavior: smooth;
     box-sizing: border-box;
     
+    
 }
 
 body {
@@ -53,6 +54,7 @@ body {
     /* filter: grayscale(); */
 }
 
+
 .intro {
     display: flex;
     padding: 0px;
@@ -62,8 +64,8 @@ body {
     text-align: start;
     columns: 600px 2;
     font-size: 2vw;
-
-    /* width: 80%; */
+    margin: 10px;
+    /* width: 47%; */
     /* background-color: aqua; */
 
 }
@@ -71,18 +73,33 @@ body {
 .intro div {
     padding: 0px;
     /* background-color: red; */
+    width: 47vw;
+    
+
 }
 
+.introDesc{
+  font-size: 60%;
+}
 .secDiv {
-    background-color: #333;
-    /* height: 500px; */
-    padding: 20px 20px;
-    width: 100vw;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  background-color: #333;
+  /* height: 500px; */
+  padding: 20px 20px;
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
+.imgcontainer{
+  position: relative;
+}
+
+.imgcontainer img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 
 .card {
   position: relative;
@@ -165,11 +182,20 @@ body {
     
 }
 
-@media only screen and (max-width: 1050px){
+  @media only screen and (max-width: 1114px){
   
   .intro {
         font-size: 4vw;
         /* background-color: #90b781; */
         
       }
+  .intro div{
+    width: 90vw;
+  }
+}
+@media only screen and (max-width: 1055px){
+  
+  .introDesc{
+    font-size: 65%;
+  }
 }
