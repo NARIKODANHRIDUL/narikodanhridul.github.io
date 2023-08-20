@@ -68,7 +68,7 @@
         margin: 10px 5px;
         border-radius: 50px ;
         padding: 10px 10px 5px 10px;
-        border: 0px solid #384832;
+        border: none;
         background: #333;
         box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
         transition: 0.2s;
@@ -91,7 +91,6 @@
             display: flex;
             flex-direction: column;
             padding: 10px;
-            width: 100vw;
             margin-top: 20px;
             box-shadow: 0px 0px 15px rgba(0, 0, 0, 1); 
             background: #111;
@@ -99,6 +98,9 @@
             justify-content: center;
             align-items: center;
             
+        }
+        .contactTile{
+            display: flex; flex-wrap: wrap; justify-content: center;
         }
  
         @media only screen and (max-width: 650px){
@@ -738,19 +740,18 @@ else
             <img src="https://raw.githubusercontent.com/NARIKODANHRIDUL/PROJECT-SCHOOL-ADMINISTRATION-SYSTEM/master/photos/16-backed.PNG" >
             <img src="https://raw.githubusercontent.com/NARIKODANHRIDUL/PROJECT-SCHOOL-ADMINISTRATION-SYSTEM/master/photos/17-exit.PNG" >
         </div>
-        <hr>
         </div>
     </div>
     <footer class="footer">
         <div style="font-size: 22px;" id="Contact">Contact Info</div>
         <div style="color: #aaa;"><img src="../resources/location.png" height="20px" style="vertical-align: middle; opacity: 70%;">Kannur, Kerala, India</div>
-        <div>
+        <div class="contactTile">
             <a href="mailto:narikodanhridul@gmail.com" target="_blank"><button class="footerBttn"><img src="../resources/gmail.png" height="40px"></button></a>
             <a href="https://linkedin.com/in/narikodanhridul" target="_blank"><button class="footerBttn"><img src="../resources/linkedin.png" height="40px"></button></a>
             <a href="https://instagram.com/narikodanhridul_" target="_blank"><button class="footerBttn"><img src="../resources/insta.jpg" height="40px" ></button></a>
             <a href="https://github.com/narikodanhridul" target="_blank"><button class="footerBttn"><img src="../resources/github.png" height="40px" ></button></a>
         </div>
-        <div style="font-size: 13px;"> Copyright 2023 © NarikodanHridul</div>
+        <div style="font-size: 13px;">Copyright 2023 © NarikodanHridul</div>
     </footer>
 </body>
 </html>
