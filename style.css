@@ -8,6 +8,13 @@
   font-family: 'Rubik Wet Paint', cursive;
   font-family: 'Syne Mono', monospace; */
 
+  @import url('https://fonts.googleapis.com/css2?family=Exo+2&family=Handjet:wght@600&family=Rowdies:wght@300&family=Russo+One&family=Staatliches&display=swap');
+
+  /* font-family: 'Exo 2', sans-serif;
+  font-family: 'Handjet', cursive; pixellated
+  font-family: 'Rowdies', cursive; 
+  font-family: 'Russo One', sans-serif;  heading bold text
+  font-family: 'Staatliches', cursive; good for heading - CAPTIAL ONLY*/ 
 * {
   font-family: 'Poppins', sans-serif;
   scroll-behavior: smooth;
@@ -90,7 +97,9 @@ body {
 .introDesc{
   font-size: 60%;
 }
-.secDiv {
+
+
+.boxCollage {
   background-color: #333;
   /* height: 500px; */
   padding: 20px 20px;
@@ -100,12 +109,23 @@ body {
   justify-content: center;
 }
 
+.heading{
+  margin-left:80px ;
+  font-family: 'Staatliches', cursive;
+  font-size: 50px;
+  color: #cfc;
+  
+}
+.container{
+ /* padding: 20px; */
+ background-color: #333 ;
+}
 
 .card:hover .imgcontainer img{
   filter: blur(4px);
 }
 
-#bios, .card {
+.card {
   position: relative;
   flex-direction: column;
   background-color: #222;
@@ -123,6 +143,19 @@ body {
 #bios{
   width: 620px;
 }
+#education{
+  width: 405px;
+  height: auto;
+  padding: 15px;
+}
+
+.date{
+  font-size: small;
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+  color: #888;
+}
 
 .card:hover {
   scale: 103%;
@@ -133,11 +166,17 @@ body {
   font-size: 30px;
   text-align: center;
 }
+#cardheadereducation{
+  line-height: 30px;
+}
 .cardSubHeader{
   font-size: 20px;
   text-align: center;
   color: #999;
-  line-height: 10px;
+  line-height: 15px;
+}
+#cardsubheadereducation{
+  line-height: 25px;
 }
 
 
