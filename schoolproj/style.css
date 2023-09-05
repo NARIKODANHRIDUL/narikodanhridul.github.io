@@ -12,7 +12,7 @@ body {
     width: 100vw;
     box-sizing: border-box;
     overflow-x: hidden;
-    /* padding: 20px; */
+    /* padding: 0px 60px; */
 }
 
 h1{
@@ -45,6 +45,12 @@ video{
     border-radius: 10px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+#sourcecode{
+    height: 300px;
+}
+/* #sourcecode:hover{
+    height: auto;
+} */
 
 a:link,
 a:visited {
@@ -62,6 +68,16 @@ a:hover {
     font-size: 1.8em;
     font-family:  'Poppins', sans-serif;
     font-weight: 600;
+}
+.system{
+    display: flex;
+    margin: 10px 60px;
+    padding: 0%;
+    /* background-color: #90b781; */
+}
+#system{
+    margin: 0px 15px;
+ /* ''   background-color: aqua; */
 }
 .imgcontainer{
     display: flex;
@@ -118,9 +134,16 @@ filter: brightness(0%);
 }
 
 @media only screen and (max-width: 650px){
-.main{
+
+body{
+    padding: 0px 20px;
+}
+    .main{
     font-size: 3vw;
     margin: 20px 30px;
+}
+.system{
+    display: block;
 }
 
 .imgcontainer img{
