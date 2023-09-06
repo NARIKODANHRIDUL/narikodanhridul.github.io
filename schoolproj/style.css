@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=B612+Mono&family=Passion+One&family=Poppins:wght@300;400;700;800&family=Preahvihear&family=Roboto+Mono&family=Rowdies&family=Rubik+Wet+Paint&family=Syne+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&family=Handjet:wght@600&family=Rowdies:wght@300&family=Russo+One&family=Staatliches&display=swap');
 
 *{
     font-family: 'Poppins', sans-serif;
@@ -29,11 +30,20 @@ body {
     /* padding: 0px 60px; */
 }
 
-h1{
-    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
-    font-size: 1.5vw   ;
+.heading{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-family: 'Staatliches', cursive;
+  font-size: 90px;
+  z-index: -1;
+  
+  line-height: 70px;
+  color: rgba(204, 255, 204, 0.151);
 }
-
+h1{
+    height: 20px;
+}
 .main {
     color: antiquewhite;
     margin: 30px 80px;
@@ -62,14 +72,9 @@ video{
 #sourcecode{
     height: 300px;
 }
-/* #sourcecode:hover{
-    height: auto;
-} */
-
 a:link,
 a:visited {
     color: #90b781;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 1); ;
     text-decoration: none;
 }
 a:hover {
@@ -77,12 +82,6 @@ a:hover {
     text-decoration: none;
 }
 
-.center {
-    text-align: center;
-    font-size: 1.8em;
-    font-family:  'Poppins', sans-serif;
-    font-weight: 600;
-}
 .system{
     display: flex;
     margin: 10px 60px;
@@ -90,6 +89,29 @@ a:hover {
     
     /* background-color: #90b781; */
 }
+.sidebyside{
+    display: flex;
+    justify-content: center;
+    /* justify-content: space-evenly/; */
+}
+.sidebyside div{
+    background-color: #191919;
+    border-radius: 20px;
+    padding: 10px;
+    
+}
+#member1{
+    max-width: calc(2*(100vw - 180px)/5); 
+    min-width: none;
+    margin-right: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+#member2{
+    max-width: calc(3*(100vw - 180px)/5 - 20px); 
+    min-width: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
 #sys1{   
     margin: 0px 15px;
     /* background-color: aqua; */
@@ -171,7 +193,7 @@ filter: brightness(0%);
 body{
     padding: 0px 20px;
 }
-    .main{
+.main{
     font-size: 3vw;
     margin: 20px 30px;
 }
@@ -183,9 +205,10 @@ body{
 .imgcontainer img{
     width: 95%;
 }
-.center{
+
+/* .heading{
     font-size: 4.3em;
-}
+} */
 video{
     border-radius: 8px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 1); 
