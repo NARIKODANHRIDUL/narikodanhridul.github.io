@@ -13,7 +13,18 @@ font-family: 'Syne Mono', monospace; */
     scroll-behavior: smooth;
     box-sizing: border-box;
 }
-
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background-color: #333;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #90b781; 
+    border-radius: 6px; 
+  }
+  ::-webkit-scrollbar-thumb:hover {  background-color: #669455; }
+  ::-webkit-scrollbar:hover { transition: 0.3s; }
+  
 body {
     margin: 0;
     padding: 0px 0px;

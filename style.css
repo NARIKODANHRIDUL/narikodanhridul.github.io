@@ -105,17 +105,20 @@ body {
   height: 550px;width: 550px;
   position: relative;
 }
+
+@keyframes smile{
+  0%,100% {    opacity: 0%;  }
+  50%     {    opacity: 100%;  }
+}
 #mesmile{
   position: absolute;
   top: 0px;
   left: 0px;
   opacity: 0%;
-  transition: 1s;
 }
 #mesmile:hover {
-  opacity: 100%;
-  transition: 1s;
   filter: drop-shadow(0px 0px 0px rgba(0,0,0, 0))grayscale();
+  animation: smile 2s ease 0s forwards;
 }
 
 .boxCollage {
@@ -344,6 +347,9 @@ body {
 }
 @media only screen and (max-width: 650px){
   
+  *{
+    user-select: none;
+  }
   .bioscontainer{
     flex-direction: column;
     /* background-color: red; */
@@ -368,7 +374,9 @@ body {
   }
 
   .heading{
-    font-size: 25vw;
+    font-size: 23vw;
+    /* background-color: #669455; */
+    padding-top: 0.3vw;
   }
   .container{
     padding-top: 14vw;
