@@ -237,17 +237,11 @@ body {
  padding-top: 100px ;
 }
 
-.card:hover .imgcontainer img{
-  filter: blur(4px);
-  
-}
-.card:hover .bioscontainer img{
-  filter: blur(4px)grayscale();
-}
 
-.card {
+.card{
   position: relative;
   flex-direction: column;
+  overflow: hidden;
   background-color: #222;
   width: 300px;
   height: 300px;
@@ -267,6 +261,13 @@ body {
   width: 405px;
   height: auto;
   padding: 15px;
+}
+.card:hover .imgcontainer img{
+  filter: blur(4px);
+  
+}
+.card:hover .bioscontainer img{
+  filter: blur(4px)grayscale();
 }
 
 .date{
@@ -325,6 +326,10 @@ body {
   scale: 110%;
   border: 1px solid #90b78125;
 }
+#codingall:hover ~ .coding{
+  scale: 108%;
+}
+
 
 #python,#cpp,#html,#css,#c,#javascript,#flutter,#bash,#dart,#verilog,#assembly{width: 0%;}
 
@@ -556,7 +561,7 @@ body {
   height: 15px;
   width: 25px;
   border-radius: 10px;
-  border: 3px solid #669455;
+  border: 1px solid #669455;
   animation: tonfro1 10s ease 0s infinite;
   transition: 0.4s;
 }
