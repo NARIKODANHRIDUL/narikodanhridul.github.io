@@ -99,12 +99,14 @@ body {
 .egg:hover{
   box-shadow: 0px 0px 20px #000;
   scale: 1000%;
+  border-radius: 4px;
   transform: translateY(2px)translateX(2px);
   transition: 0.3s;
 }
 .egg:hover .egg1{
   transform: translateY(10px)translateX(10px);
   border: 0.01px solid #90b781b2;
+  border-radius: 5px;
   transition: 8s;
 }
 .egg1{
@@ -119,7 +121,7 @@ body {
 }
 
 .egg1:hover{
-  box-shadow: 0px 0px 20px #000;
+  box-shadow: 0px 0px 5px #000;
   height: 20px;
   width: 20px;
   /* transform: translateX(-505px); */
@@ -144,8 +146,28 @@ body {
   scale: 105%;
   margin-left: 5px;
   transform: translateX(10px);
-  
-
+}
+.caution{
+  position: absolute;
+  right: 100px;
+  top: 2px;
+  height: 50px;
+  width: 80px;
+  border-radius: 30px;
+}
+.caution:hover{
+  box-shadow: 0px 0px 20px #000;
+  scale: 102%;
+}
+.caution img{
+  height: 0px;
+  left: 0px;
+}
+.caution:hover img{
+  height: 150px;
+  position: absolute;
+  left: -100px;
+  transition: 0.3s;
 }
 .intro {
     display: flex;
@@ -217,6 +239,10 @@ body {
 
 .card:hover .imgcontainer img{
   filter: blur(4px);
+  
+}
+.card:hover .bioscontainer img{
+  filter: blur(4px)grayscale();
 }
 
 .card {
@@ -283,10 +309,7 @@ body {
   position: absolute;
   padding: 10px;
   /* background-color: #384832; */
-  justify-content: center;
-  align-items: center;
-  vertical-align: middle;
-  align-content: center;
+  display: flex;
   justify-content: center;
   height: 200px;
   width: 280px;
@@ -299,22 +322,47 @@ body {
   top: 0;
   left: 0;
   border-radius: 20px;
-  filter: drop-shadow(0px 0px 20px #100);
+  filter: drop-shadow(0px 0px 20px rgba(17, 0, 0, 0.6));
   opacity: 95%;
   transition: 0.3s;
 }
 
+.details{
+  visibility: hidden;
+  position: absolute;
+  top: 0px;
+  left: -10px;
+  font-size: 18px;
+  padding: 10px 20px;
+  width: calc(100% + 20px);
+  height: calc(100% + 20px);
+  background-color: #222222b4;
+  text-align: center;
+  font-size: medium;
+}
+.bioscontainer .details{
+  height: calc(100% + 50px);
+  background-color: #222222d4;
+}
+
+
+.card:hover .details{
+  visibility:visible;
+  opacity: 100;
+  top: -20px;
+  border-radius: 15px ;
+  transition: 0.3s;
+}
 .bioscontainer{
+  position: absolute;
   margin: 20px 0px;
   display: flex;
   justify-content: space-evenly;
   width: 600px;
   height: 180px;
-  /* background-color: #669455; */
 }
-.bioscontainer:hover img{
-  filter: blur(4px);
-} 
+
+
 .bioscontainer img{
   border-radius: 20px;
   filter: grayscale();
@@ -325,7 +373,7 @@ body {
   visibility: hidden;
   position: absolute;
   bottom: -10px;
-  left: 25%;
+  /* left: 25%; */
   font-size: 18px;
   padding: 10px 20px;
   border: none;
@@ -343,6 +391,10 @@ body {
   border-radius: 15px ;
   transition: 0.3s;
 }
+.card:hover .bioscontainer .overlay-button{
+  bottom: 0px;
+}
+
 .overlay-button:hover{
   background-color:#90b781;
   color: #222;
@@ -389,7 +441,10 @@ body {
   filter: brightness(0%);
 }
 
-.footer {
+#Contact{
+  color: #90b781;
+}
+.footer{
     display: flex;
     flex-direction: column;
     padding: 10px;
@@ -401,6 +456,36 @@ body {
     
 }
 
+.movingdotbox{
+  height: 20px;
+  width: 400px;
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+  @keyframes tonfro{
+    0%,100%{
+        margin-left:-200px;
+        width: 5px;
+    }
+    25%,75%{
+      width: 20px;
+    }
+    50%{
+      margin-left: 200px;
+      width: 5px;
+    }
+  }
+.dot{
+  margin-left: 0px ;
+  height: 5px;
+  width: 5px;
+  border-radius: 10px;
+  border: 5px solid #90b781;
+  animation: tonfro 2s ease 0s infinite;
+}
+
 
   @media only screen and (max-width: 1114px){
   
@@ -409,6 +494,7 @@ body {
         /* background-color: #90b781; */
         
       }
+    
   .intro div{
     width: 90vw;
   }
@@ -419,27 +505,27 @@ body {
     user-select: none;
   }
   .bioscontainer{
-    flex-direction: column;
-    /* background-color: red; */
-    height: 80%;
-    width: 100%;
+    flex-wrap: wrap;
+    height: 78%;
+    width: 93%;
   }
   .bioscontainer img{
     border-radius: 20px;
-    /* height: 100px; */
-    /* width: 150px; */
     width: 100%
   }
-  .bioscontainer:hover img{
-    filter: blur(4px);
+  .bioscontainer .details{
+    height: calc(100% + 35px);
+  }
 
-  } 
-
+  .introDesc{
+    font-size: 12px;
+  }
   #bios{
     /* background-color: aqua; */
     height: 480px;
     width: 300px;
   }
+  
 
   .heading{
     font-size: 23vw;
