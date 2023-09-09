@@ -328,17 +328,17 @@ body {
 
 #python,#cpp,#html,#css,#c,#javascript,#flutter,#bash,#dart,#verilog,#assembly{width: 0%;}
 
-.coding:hover #python{width: 80%; top: -11px;left: -11px; transition: 0.5s;}
-.coding:hover #cpp{width: 50%; top: -11px;left: -11px; transition: 0.5s;}
-.coding:hover #html{width: 70%; top: -11px;left: -11px; transition: 0.5s;}
-.coding:hover #css{width: 65%; top: -11px;left: -11px; transition: 0.5s;}
-.coding:hover #c{width: 65%; top: -11px;left: -11px; transition: 0.5s;}
-.coding:hover #javascript{width: 20%; top: -11px;left: -11px; transition: 0.5s;}
-.coding:hover #flutter{width: 80%; top: -11px;left: -11px; transition: 0.5s;}
-.coding:hover #bash{width: 50%; top: -11px;left: -11px; transition: 0.5s;}
-.coding:hover #dart{width: 60%; top: -11px;left: -11px; transition: 0.5s;}
-.coding:hover #verilog{width: 50%; top: -11px;left: -11px; transition: 0.5s;}
-.coding:hover #assembly{width: 40%; top: -11px;left: -11px; transition: 0.5s;}
+.coding:hover #python{width: 80%; top: -11px;left: -11px; background-color: #90b78160; transition: 0.5s;}
+.coding:hover #cpp{width: 50%; top: -11px;left: -11px; background-color: #90b78160; transition: 0.5s;}
+.coding:hover #html{width: 70%; top: -11px;left: -11px; background-color: #90b78160; transition: 0.5s;}
+.coding:hover #css{width: 65%; top: -11px;left: -11px; background-color: #90b78160; transition: 0.5s;}
+.coding:hover #c{width: 65%; top: -11px;left: -11px; background-color: #90b78160; transition: 0.5s;}
+.coding:hover #javascript{width: 20%; top: -11px;left: -11px; background-color: #90b78160; transition: 0.5s;}
+.coding:hover #flutter{width: 80%; top: -11px;left: -11px; background-color: #90b78160; transition: 0.5s;}
+.coding:hover #bash{width: 50%; top: -11px;left: -11px; background-color: #90b78160; transition: 0.5s;}
+.coding:hover #dart{width: 60%; top: -11px;left: -11px; background-color: #90b78160; transition: 0.5s;}
+.coding:hover #verilog{width: 50%; top: -11px;left: -11px; background-color: #90b78160; transition: 0.5s;}
+.coding:hover #assembly{width: 40%; top: -11px;left: -11px; background-color: #90b78160; transition: 0.5s;}
 
 #codingall{
   min-width: 70px;
@@ -353,18 +353,18 @@ body {
   margin: 10px;
   transition: 0.5s;
 }
-#codingall:hover #all{width: calc(100% + 2px); top: -11px; left: -11px; transition: 0.5s;}
-#codingall:hover ~ .coding #python{width: 80%; top: -11px;left: -11px; transition: 0.5s;}
-#codingall:hover ~ .coding #cpp{width: 50%; top: -11px;left: -11px; transition: 0.5s;}
-#codingall:hover ~ .coding #html{width: 70%; top: -11px;left: -11px; transition: 0.5s;}
-#codingall:hover ~ .coding #css{width: 65%; top: -11px;left: -11px; transition: 0.5s;}
-#codingall:hover ~ .coding #c{width: 65%; top: -11px;left: -11px; transition: 0.5s;}
-#codingall:hover ~ .coding #javascript{width: 20%; top: -11px;left: -11px; transition: 0.5s;}
-#codingall:hover ~ .coding #flutter{width: 80%; top: -11px;left: -11px; transition: 0.5s;}
-#codingall:hover ~ .coding #bash{width: 50%; top: -11px;left: -11px; transition: 0.5s;}
-#codingall:hover ~ .coding #dart{width: 60%; top: -11px;left: -11px; transition: 0.5s;}
-#codingall:hover ~ .coding #verilog{width: 50%; top: -11px;left: -11px; transition: 0.5s;}
-#codingall:hover ~ .coding #assembly{width: 40%; top: -11px;left: -11px; transition: 0.5s;}
+#codingall:hover #all{width: calc(100% + 2px); top: -11px; left: -11px; background-color: #90b78160; transition: 0.5s;}
+#codingall:hover ~ .coding #python{width: 80%; top: -11px;left: -11px; background-color: #90b78160; transition: 0.5s;}
+#codingall:hover ~ .coding #cpp{width: 50%; top: -11px;left: -11px; background-color: #90b78160; transition: 0.5s;}
+#codingall:hover ~ .coding #html{width: 70%; top: -11px;left: -11px; background-color: #90b78160; transition: 0.5s;}
+#codingall:hover ~ .coding #css{width: 65%; top: -11px;left: -11px; background-color: #90b78160; transition: 0.5s;}
+#codingall:hover ~ .coding #c{width: 65%; top: -11px;left: -11px; background-color: #90b78160; transition: 0.5s;}
+#codingall:hover ~ .coding #javascript{width: 20%; top: -11px;left: -11px; background-color: #90b78160; transition: 0.5s;}
+#codingall:hover ~ .coding #flutter{width: 80%; top: -11px;left: -11px; background-color: #90b78160; transition: 0.5s;}
+#codingall:hover ~ .coding #bash{width: 50%; top: -11px;left: -11px; background-color: #90b78160; transition: 0.5s;}
+#codingall:hover ~ .coding #dart{width: 60%; top: -11px;left: -11px; background-color: #90b78160; transition: 0.5s;}
+#codingall:hover ~ .coding #verilog{width: 50%; top: -11px;left: -11px; background-color: #90b78160; transition: 0.5s;}
+#codingall:hover ~ .coding #assembly{width: 40%; top: -11px;left: -11px; background-color: #90b78160; transition: 0.5s;}
 
 .imgcontainer{
   position: absolute;
@@ -383,7 +383,7 @@ body {
   top: 0;
   left: 0;
   border-radius: 20px;
-  filter: drop-shadow(0px 0px 20px rgba(17, 0, 0, 0.6));
+  filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.8));
   opacity: 95%;
   transition: 0.3s;
 }
@@ -539,6 +539,7 @@ body {
   border-radius: 10px;
   border: 8px solid #90b781;
   animation: tonfro 2s ease 0s infinite;
+  transition: 0.4s;
 }
 @keyframes tonfro1{
   0%,20%,60%,100%{      margin-left:-200px; width: 15px;  } /* 40% */
@@ -557,6 +558,15 @@ body {
   border-radius: 10px;
   border: 3px solid #669455;
   animation: tonfro1 10s ease 0s infinite;
+  transition: 0.4s;
+}
+.dot:hover{
+  scale: 200%;
+  transition: 0.2s;
+}
+.dot1:hover{
+  scale: 200%;
+  transition: 0.2s;
 }
 
   @media only screen and (max-width: 1114px){
