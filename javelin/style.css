@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=B612+Mono&family=Passion+One&family=Poppins:wght@300;400;700;800&family=Preahvihear&family=Roboto+Mono&family=Rowdies&family=Rubik+Wet+Paint&family=Syne+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&family=Handjet:wght@600&family=Rowdies:wght@300&family=Russo+One&family=Staatliches&display=swap');
 
 /* font-family: 'B612 Mono', monospace;
 font-family: 'Poppins', sans-serif;
@@ -29,7 +30,7 @@ body {
     margin: 0;
     padding: 0px 0px;
     color: antiquewhite;
-    background-color: #222;
+    background-color: #333;
     height: 100vh;
     width: 100vw;
     box-sizing: border-box;
@@ -47,9 +48,6 @@ body {
   }
 
   .container{
-    background-color: #333 ;
-    position: relative;
-    overflow-x: hidden;
     padding-top: 100px ;
    }
 
@@ -105,7 +103,7 @@ body {
   .date{
     font-size: small;
     position: absolute;
-    bottom: 15px;
+    bottom: 2px;
     right: 20px;
     color: #888;
   }
@@ -150,4 +148,12 @@ body {
         .container{
             padding-top: 14vw;
           }
+        .card{
+            /* display: flex; */
+            flex-wrap: wrap;
+        }
+        .card img{
+            width: 100%;
+            height: auto;
+        }
     }
