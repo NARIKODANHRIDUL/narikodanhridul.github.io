@@ -1,68 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=B612+Mono&family=Passion+One&family=Poppins:wght@300;400;700;800&family=Preahvihear&family=Roboto+Mono&family=Rowdies&family=Rubik+Wet+Paint&family=Syne+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&family=Handjet:wght@600&family=Rowdies:wght@300&family=Russo+One&family=Staatliches&display=swap');
 
-/* font-family: 'B612 Mono', monospace;
-font-family: 'Poppins', sans-serif;
-font-family: 'Preahvihear', sans-serif;
-font-family: 'Roboto Mono', monospace;
-font-family: 'Rowdies', cursive;
-font-family: 'Rubik Wet Paint', cursive;
-font-family: 'Syne Mono', monospace; */
-
-* {
-    font-family: 'Poppins', sans-serif;
-    scroll-behavior: smooth;
-    box-sizing: border-box;
+video{
+    width: 70%;
+    border-radius: 30px;
+    /* margin: 10px; */
+    margin-top: 130px;
+    z-index: 1;
+    box-shadow: 0px 0px 30px #111;
+}
+.videocontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+}
+.content{
+    padding: 50px 200px;
+    padding-top: 5%;
+    margin-top: -4%;
+    text-align: justify;
+    background-color: #111;
+}
+li{
+    font-size: large;
 }
 
-body {
-    margin: 0;
-    padding: 0px 0px;
-    color: antiquewhite;
-    background-color: #222;
-    height: 100vh;
-    width: 100vw;
-    box-sizing: border-box;
-    overflow-x: hidden;
+@media only screen and (max-width: 900px){
+
+video{
+    width: 90%;
+    border-radius: 15px;
+    margin-top: 20%;
 }
-.footerBttn{
-    margin: 10px 5px;
-    border-radius: 50px ;
-    padding: 10px 10px 5px 10px;
-    border: none;
-    background: #333;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-    transition: 0.2s;
-    }
-    .footerBttn:hover{
-    background-color:#90b781;
-    transition: 0.3s;
-    scale: 110%;
-    }
-    
-    .footerBttn img{
-    filter: brightness(70%);
-    }
-    .footerBttn:hover img{
-    filter: brightness(0%);
-    }
-    
-    .footer{
-        display: flex;
-        flex-direction: column;
-        padding: 10px;
-        margin-top: 20px;
-        box-shadow: 0px 0px 15px rgba(0, 0, 0, 1); 
-        background: #222;
-        color: aliceblue;
-        justify-content: center;
-        align-items: center;
-        
-    }
-    #Contact{
-        color: #90b781;
-        /* font-family: 'Poppins', sans-serif; */
-        /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
-    }
-    .contactTile{
-        display: flex; flex-wrap: wrap; justify-content: center;
-    }
+    .content{
+    padding: 50px;
+}
+}
+
+@media only screen and (max-width: 650px){
+
+.heading{
+    font-size: 23vw;
+    padding-top: 0.3vw;
+  }
+
+}
