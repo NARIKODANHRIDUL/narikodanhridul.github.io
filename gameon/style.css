@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=B612+Mono&family=Passion+One&family=Poppins:wght@300;400;700;800&family=Preahvihear&family=Roboto+Mono&family=Rowdies&family=Rubik+Wet+Paint&family=Syne+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Exo+2&family=Handjet:wght@600&family=Rowdies:wght@300&family=Russo+One&family=Staatliches&display=swap');
 
+body{
+    background-color: #333;
+}
 video{
     width: 70%;
     border-radius: 30px;
@@ -20,7 +23,8 @@ video{
     padding-top: 5%;
     margin-top: -4%;
     text-align: justify;
-    background-color: #111;
+    background-color: #181818;
+    box-shadow: 0px 0px 20px #000;
 }
 li{
     font-size: large;
@@ -29,12 +33,13 @@ li{
 @media only screen and (max-width: 900px){
 
 video{
-    width: 90%;
+    width: 95%;
     border-radius: 15px;
     margin-top: 20%;
 }
     .content{
-    padding: 50px;
+    padding: 20px;
+    padding-top: 40px;
 }
 }
 
