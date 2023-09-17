@@ -1,18 +1,31 @@
+body{
+    background-color: #222 !important;
+}
+
 .content{   
-    padding: 50px 200px;
+    padding: 20px 200px;
     z-index: 10;
-    margin-top: 35px;
-    /* padding-bottom: 100px; */
+    margin-top: 45px;
     min-height: 200px;
     text-align: justify;
-    background-color: #222;
-    box-shadow: 0px 0px 20px #111;
-  }
+
+}
 .contentsidebox{
     display: flex;
     justify-content: space-evenly;
     text-align: justify;
-    /* margin: 0px -100px; */
+}
+#bioscard{
+    background-color: #333;
+}
+#bioscard:hover{
+    box-shadow: 0px 0px 30px #000;
+}
+#bioscardsub{
+    background-color: #33333399;
+}
+#bioscard:hover #bioscardsub{
+    background-color: #33333399;
 }
 .contentside{
     padding: 20px 50px;
@@ -21,7 +34,6 @@
 }
 .sideimg{
     flex: 0.2;
-    /* background-color: red; */
     margin: 10px;
     display: flex;
     justify-content: center;
@@ -49,7 +61,7 @@ a:hover{
         padding: 50px;
     }
 }
-@media only screen and (max-width: 838px){
+@media only screen and (max-width: 830px){
     .content{
         margin-top: 110px;
 
@@ -67,6 +79,19 @@ a:hover{
 .contentside{
     padding-top: 10px;
     padding: 10px 20px;
+}
+.content{
+    margin-top:22vw;
+    padding: 0px 20px;
+}
+.heading {
+    font-size: 23vw;
+    padding-top: 0.3vw;
+    line-height: 17vw;
+  }
+  .contentside{
+    padding: 40px 15px 0px 5px;
+    margin: -20px;
 }
 
 } 
