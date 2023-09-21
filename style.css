@@ -206,17 +206,17 @@ body {
 }
 
 @keyframes smile{
-  0%,100% {    opacity: 0%;  }
-  50%     {    opacity: 100%;  }
+  0%,100% {    opacity: 100%;  }
+  50%     {    opacity: 0%;  }
 }
 #mesmile{
   position: absolute;
   top: 0px;
   left: 0px;
-  opacity: 0%;
+  opacity: 100%;
+  filter: drop-shadow(0px 0px 0px rgba(0,0,0, 0))grayscale();
 }
 #mesmile:hover {
-  filter: drop-shadow(0px 0px 0px rgba(0,0,0, 0))grayscale();
   animation: smile 2s ease 0s forwards;
 }
 

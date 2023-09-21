@@ -24,12 +24,18 @@ body{
     justify-content: center;
     align-items: center;
 }
-.contentcomp{
+.content{
     padding-top: 50px;
 }
 #zindex-1{
     z-index: -1;
 }
+a:link, a:visited,a:hover{
+    text-decoration: none; 
+    color: antiquewhite;
+
+}
+
 
 @media only screen and (max-width: 1200px){
     .content{
@@ -40,10 +46,20 @@ body{
     }
     
 }
+@media only screen and (max-width: 875px){
+    .heading{
+        line-height:110px;
+    }
+    
+}
 
 @media only screen and (max-width: 650px){
     
+.content{
+    margin-top: 20vw;
+}
 .compatriotimg img{
+    max-width: 450px;
     width: 100%;
 }
 .contentcomp{
@@ -51,6 +67,10 @@ body{
     padding: 10px 20px;
 }
 
+.heading{
+    line-height: 17vw;
+    font-size:21vw !important;
+}
 } 
 
     
