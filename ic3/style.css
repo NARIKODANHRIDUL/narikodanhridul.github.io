@@ -1,28 +1,52 @@
 body{
-    background-color: #222 !important;
+    background-color: #333 !important;
 }
-.content{
-    margin-top: 140px;
+.content1{
+    margin-top: -50px;
     margin-bottom: 50px;
+    padding:50px 50px;
     display: flex;
     justify-content: space-evenly;
     z-index: 10;
-    /* background-color: #222;
-    box-shadow: 0px 0px 20px #111; */
+    background-color: #151515;
+    box-shadow: 0px 0px 20px #111;
     text-align: justify;
 
 }
 .contentcomp{
-    padding: 20px 50px;
+    padding: 10px 50px;
     flex: 0.8;    
+}
+@keyframes car{
+    0%,100%{transform: scaleX(1)rotate(10deg); right: 0px;  top: 0px; scale: 90%;}
+    40%{transform: scaleX(1)rotate(10deg); right: calc(100% - 300px); top: 30%; scale: 120%; }
+    42%,98%{transform: scaleX(-1)rotate(10deg); top: 0px;scale: 90%;}
+    98%{top: 30%; scale: 120%;}
+  }
+#ic3car{
+    overflow: hidden;
+    margin-right: 0px;
+    height: 300px;
+    position: relative;
+    
+}
+.container img{
+    width: 300px;
+    position: absolute;
+    right: 0px;
+    animation: car 10s ease 0s infinite;
 }
 .compatriotimg{
     flex: 0.2;
+    display: flex;
+    flex-wrap: wrap;
     /* background-color: red; */
     margin: 10px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content:  start;
     align-items: center;
+    vertical-align: middle;
 }
 .content{
     padding-top: 50px;
@@ -38,17 +62,22 @@ a:link, a:visited,a:hover{
 
 
 @media only screen and (max-width: 1200px){
-    .content{
+    .content1{
         display: flex;
         flex-direction: column-reverse;
-        
-
+    }
+    .compatriotimg{
+        flex-direction: row-reverse;
+        justify-content:  center;
     }
     
 }
 @media only screen and (max-width: 875px){
     .heading{
         line-height:110px;
+    }
+    #firstmain{
+        margin-top: 40px;
     }
     
 }
@@ -63,8 +92,7 @@ a:link, a:visited,a:hover{
     width: 100%;
 }
 .contentcomp{
-    padding-top: 10px;
-    padding: 10px 20px;
+    padding: 10px 0px;;
 }
 
 .heading{

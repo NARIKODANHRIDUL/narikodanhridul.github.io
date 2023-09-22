@@ -16,7 +16,10 @@ iframe{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #333;
+    
+}
+.videocontainer iframe{
+    background-color: #111;
 }
 .content{
     padding: 50px 200px;
