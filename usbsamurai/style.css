@@ -66,3 +66,13 @@ body {
     .contactTile{
         display: flex; flex-wrap: wrap; justify-content: center;
     }
+/* 
+    @media only screen and (max-width: 650px){
+    
+        .heading {
+            font-size: 23vw;
+            padding-top: 0.3vw;
+            line-height: 17vw;
+          }
+        
+        }  */

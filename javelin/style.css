@@ -6,7 +6,7 @@
   scroll-behavior: smooth;
   box-sizing: border-box;
 }
-
+/* 
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -24,8 +24,27 @@
 
 ::-webkit-scrollbar:hover {
   transition: 0.3s;
+} */
+
+body::-webkit-scrollbar {
+  width: 8px;
+  height: 10px;
+  background: #211D21;
+}
+body::-webkit-scrollbar-thumb {
+  /* background: blue; */
+  transition: background-color 0.3s;
+  background: linear-gradient(transparent, #90b781);
+  border-radius: 6px;
 }
 
+body.scrolling-up::-webkit-scrollbar-thumb {
+  transition: background-color 0.3s;
+  /* background: red; */
+  background: linear-gradient( #90b781, transparent);
+  border-radius: 6px;
+
+}
 body {
   margin: 0;
   padding: 0px 0px;

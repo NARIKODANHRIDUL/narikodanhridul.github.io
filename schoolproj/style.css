@@ -8,17 +8,37 @@
 }
 
 
-::-webkit-scrollbar {
+
+body::-webkit-scrollbar {
+    width: 8px;
+    height: 10px;
+    background: #211D21;
+  }
+  body::-webkit-scrollbar-thumb {
+    /* background: blue; */
+    transition: background-color 0.3s;
+    background: linear-gradient(transparent, #90b781);
+    border-radius: 6px;
+  }
+  
+  body.scrolling-up::-webkit-scrollbar-thumb {
+    transition: background-color 0.3s;
+    /* background: red; */
+    background: linear-gradient( #90b781, transparent);
+    border-radius: 6px;
+  
+  }
+ div::-webkit-scrollbar {
     width: 10px;
     height: 8px;
     background-color: #333;
   }
-  ::-webkit-scrollbar-thumb {
+div::-webkit-scrollbar-thumb {
     background-color: #90b781; 
     border-radius: 6px; 
   }
-  ::-webkit-scrollbar-thumb:hover {  background-color: #669455; }
-  ::-webkit-scrollbar:hover { transition: 0.3s; }
+div::-webkit-scrollbar-thumb:hover {  background-color: #669455; }
+div::-webkit-scrollbar:hover { transition: 0.3s; }
   
   
 body {

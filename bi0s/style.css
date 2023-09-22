@@ -90,8 +90,9 @@ a:hover{
     line-height: 17vw;
   }
   .contentside{
-    padding: 40px 15px 0px 5px;
-    margin: -20px;
+    padding: 40px 0px 0px 0px;
+    margin: 0px;
+
 }
 
 } 
