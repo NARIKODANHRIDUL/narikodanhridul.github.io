@@ -153,7 +153,16 @@ body {
 }
 .egg1 a{
   color: #a6df90;
+  text-decoration: none;
+  opacity: 0%;
+  background-color: black;
+  padding: 1px;
+  border-radius: 1px;
   animation: movea 1s ease 0s infinite;
+}
+.egg1:hover a{
+  transition: 1s;
+  opacity: 100%;
 }
 @keyframes movea{
   0%,100%{margin-left: -10px;  }
