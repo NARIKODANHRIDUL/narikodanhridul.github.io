@@ -9,3 +9,22 @@ window.addEventListener('scroll', () => {
     }
     lastScrollTop = scrollTop;
 });
+
+
+function checkBody() {
+    const body = document.body;
+    const bodyPosition = body.getBoundingClientRect().top;
+    const screenHeight = window.innerHeight;
+
+    if (bodyPosition < screenHeight) {
+        body.classList.add('show');
+    }
+}
+
+function handleScroll() {
+    window.addEventListener('scroll', () => {
+        checkBody();
+    });
+}
+
+handleScroll();
