@@ -12,52 +12,35 @@
 <body>
     <div class="container">
         <div class="heading" id="zindex-1">USB Samurai</div>
-            <div class="contentsidebox" style="padding-top: 50px;">
+            <div class="contentsidebox" style="padding: 50px 100px 50px 100px;">
                 <div class="contentside">
-The club, <span class="bold"><a href="www.bi0s.in" >Team bi0s</a></span> have specialized teams focusing on various areas in cyber-security like ...
-<ul>
-<li> bi0s CTF </li>
-<li> bi0s Hardware</li>
-<li> Bi0s Pentest</li>
-</ul>
-Team bi0s is a ...
-<ul>
-<li>cyber-security enthusiast club and </li>
-<li>research group </li>
-<li>from Amrita Vishwa Vidyapeetham (University), India.</li>
-</ul>
-<br>
- &nbsp; &nbsp; The team was formally launched as a CTF team in 2007 under the mentorship of Vipin Pavithran, a faculty at Amrita's Centre for Cyber Security. It was among the first CTF team from India, and ever-since has been spearheading CTFs in the country - from starting InCTF, India's First CTF and consistently ranking No.1 in CTFTime since it was established. Over the years, the team has evolved into a cyber-security research group, with specialized teams in 10+ cyber-security focus areas.
-<br><br>
-The <span class="bold">bi0s Hardware</span> specializes in hardware cyber security. Members of this team have expertise in ...
-<ul>
-<li>Embedded Systems</li>
-<li>Firmware Analysis</li>
-<li>Wireless Security</li>
-<li>Automotive Security</li>
-<li>ICS/SCADA Security</li>
-<li>Side Channel Analysis etc.</li>
-</ul>
+                    The primary objective of this project is to obtain access to the victim's air-gapped
+                    system remotely over the internet, without the victim's knowledge. To achieve this,
+                    we are using an nRF52840 Dongle and a Logitech Unifying dongle. The
+                    model of the Logitech Unifying Dongle we used for this was the C-U0007 and C-U0008. The
+                    Logitech Unifying receiver is a small dedicated USB wireless receiver, based on the
+                    nRF24L-family of RF (Radio Frequency) devices. Logitech Unifying receivers (LURs)
+                    are often included in wireless Logitech keyboards, mice, etc.
+                    <br><br>
+                    Attacker gets the powershell access of the victim, which can further used in transfering
+                    the data from victims PC to attacker's PC. Through RF we can only tranfer text data, hence
+                    when we want to send a file which is not of .txt foromat we can convert the file into a 
+                    base64 encoded data which can be sent through this air-gapped system and convert back to 
+                    its orginal file format. 
 </div>
 <div class="sideimg">
-    <img src="../resources/usbsamurai.png" width="500px" alt="">
+    <img src="../resources/usbsamurai.png" width="400px" alt="">
 </div>
 </div>
-<div class="contentsidebox">
+<div class="contentsidebox" style="padding: 0px 100px 50px 100px;">
 <div class="contentside">
 
-    <div class="bold" style="font-size: x-large;">What do we do ?</div>
-    Here are some of the things our members do:
-    <ol>
-        <li>Learning & Researching on various Cyber Security fields</li>
-        <li>Participating & organizing CTFs across the world</li>
-        <li>Organizing workshops & training programmes</li>
-        <li>Contributing to open-source security tools</li>
-        <li>Designing and testing hardware security modules</li>
-    <li>Collaborating in international cyber-security research projects</li>
-    <li>Penetration testing, bug-bounty hunting & submitting CVEs</li>
-    <li>Providing Cyber Security Consultancy Services</li>
-</ol>
+    <div class="importantword">My Contribution</div>
+<ul>
+ <li>Conducted hardware testing  and rewrote firmware of USB dongles to access shell using uart</li>
+<li>Developed a Python script to automate connection requests, file encoding, transmission, and decoding for original files</li>
+    
+</ul>
 </div>
 <div class="sideimg">
         <img src="../resources/usbsamurai-dongles.jpeg" alt="" width="400px">
