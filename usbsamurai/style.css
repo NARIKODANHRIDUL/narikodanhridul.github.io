@@ -3,3 +3,31 @@ img{
     border-radius: 20px;
     filter: drop-shadow(0px 0px 20px #000);
 }
+
+.contentsidebox1{
+    display: flex;
+    justify-content: space-evenly;
+    /* text-align: justify; */
+    padding: 30px 50px ;
+}
+
+
+@media only screen and (max-width: 1100px){
+    .contentsidebox1{
+        display: flex;
+        flex-direction: column-reverse;
+        padding: 50px 20px 0px 20px;
+    }
+
+    .contentsidebox1 img{
+        width: 65vw;
+    }
+}
+@media only screen and (max-width: 650px){
+    .contentsidebox1{
+        padding: 20px;
+      }
+      .contentsidebox1 img{
+        width: 85vw;
+    }
+}
