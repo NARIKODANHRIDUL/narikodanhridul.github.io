@@ -19,7 +19,7 @@
   font-family: 'Staatliches', cursive; good for heading - CAPTIAL ONLY*/ 
 * {
   font-family: 'Poppins', sans-serif;
-  box-sizing: border-box; 
+  box-sizing: border-box;  
   scroll-behavior: smooth;
 }
 

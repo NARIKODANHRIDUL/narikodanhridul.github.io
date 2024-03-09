@@ -23,11 +23,14 @@ img{
         width: 65vw;
     }
 }
-@media only screen and (max-width: 650px){
+@media only screen and (max-width: 680px){
     .contentsidebox1{
         padding: 20px;
       }
       .contentsidebox1 img{
         width: 85vw;
+    }
+    .sideimg{
+        padding-top: 17vw;
     }
 }
