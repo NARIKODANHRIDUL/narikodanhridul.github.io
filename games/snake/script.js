@@ -131,6 +131,7 @@ let KEY = {
   ArrowRight: false,
   ArrowDown: false,
   ArrowLeft: false,
+  lastPressedDirection: null,
   resetState() {
     this.ArrowUp = false;
     this.ArrowRight = false;
@@ -141,13 +142,15 @@ let KEY = {
     addEventListener(
       "keydown",
       (e) => {
-        if (e.key === "ArrowUp" && this.ArrowDown) return;
-        if (e.key === "ArrowDown" && this.ArrowUp) return;
-        if (e.key === "ArrowLeft" && this.ArrowRight) return;
-        if (e.key === "ArrowRight" && this.ArrowLeft) return;
+        if (e.key === "ArrowUp" && this.lastPressedDirection === "ArrowDown") return;
+        if (e.key === "ArrowDown" && this.lastPressedDirection === "ArrowUp") return;
+        if (e.key === "ArrowLeft" && this.lastPressedDirection === "ArrowRight") return;
+        if (e.key === "ArrowRight" && this.lastPressedDirection === "ArrowLeft") return;
+        
         this[e.key] = true;
+        this.lastPressedDirection = e.key;
         Object.keys(this)
-          .filter((f) => f !== e.key && f !== "listen" && f !== "resetState")
+          .filter((f) => f !== e.key && f !== "listen" && f !== "resetState" && f !== "lastPressedDirection")
           .forEach((k) => {
             this[k] = false;
           });
@@ -160,17 +163,26 @@ let KEY = {
 
 // Add event listeners to buttons
 btnUp.addEventListener("click", () => {
-  this.dir = new helpers.Vec(0, -dir);
+  if (snake.dir.y !== snake.size) { // If not currently moving downwards
+    snake.dir = new helpers.Vec(0, -snake.size);
+  }
 });
 btnDown.addEventListener("click", () => {
-  this.dir = new helpers.Vec(0, dir);
+  if (snake.dir.y !== -snake.size) { // If not currently moving upwards
+    snake.dir = new helpers.Vec(0, snake.size);
+  }
 });
 btnLeft.addEventListener("click", () => {
-  this.dir = new helpers.Vec(-dir, 0);
+  if (snake.dir.x !== snake.size) { // If not currently moving rightwards
+    snake.dir = new helpers.Vec(-snake.size, 0);
+  }
 });
 btnRight.addEventListener("click", () => {
-  this.dir = new helpers.Vec(dir, 0);
+  if (snake.dir.x !== -snake.size) { // If not currently moving leftwards
+    snake.dir = new helpers.Vec(snake.size, 0);
+  }
 });
+
 
 class Snake {
   constructor(i, type) {
@@ -188,14 +200,14 @@ class Snake {
     let { x, y } = this.pos;
     CTX.fillStyle = this.color;
     CTX.shadowBlur = 30;
-    CTX.shadowColor = "rgba(255,255,255,0.5)";
+    CTX.shadowColor = "rgba(180,255,180,0.5)";
     CTX.fillRect(x, y, this.size, this.size);
     CTX.shadowBlur = 10;
     if (this.total >= 2) {
       for (let i = 0; i < this.history.length - 1; i++) {
         let { x, y } = this.history[i];
         CTX.lineWidth = 1;
-        CTX.fillStyle = "rgba(225,225,225,1)";
+        CTX.fillStyle = "rgba(150,150,150,1)";
         CTX.fillRect(x, y, this.size, this.size);
       }
     }
@@ -418,4 +430,3 @@ function reset() {
 }
 
 initialize();
-

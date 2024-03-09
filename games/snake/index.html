@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class="container noselect">
-      <div id="author">
-        <h1>THE SNAKE GAME</h1> 
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container noselect">
+    <div id="author">
+      <h1>THE SNAKE GAME</h1> 
       </div>
       <div class="wrapper">
         <div id="canvas"></div>
@@ -17,20 +18,20 @@
           <h2>SCORE</h2>
           <div id="score">00</div>
           <div class="btn-controls">
-            <div>
-              <button id="btn-up">up</button>
+            <div style="padding-left: 20px;">
+              <button id="btn-up">🡡</button>
               <div style="height: 10px;"></div>
-              <button id="btn-down">down</button>
+              <button id="btn-down">🡣</button>
             </div>
-            <div style="width: 30vw;"></div>
-            <button id="btn-left">left</button>
+            <div style="width: 35vw;"></div>
+            <button id="btn-left">🡠</button>
             <div style="width: 10px;"></div>
-            <button id="btn-right">right</button>
+            <button id="btn-right">🡢</button>
           </div>
         </div>
         <button id="replay"><i class="fas fa-play"></i>RESTART</button>
       </div>
+      <script src="script.js"></script>
     </div>
-    <script src="script.js"></script>
   </body>
   </html>
