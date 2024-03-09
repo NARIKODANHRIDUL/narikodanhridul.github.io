@@ -2,6 +2,13 @@ let dom_replay = document.querySelector("#replay");
 let dom_score = document.querySelector("#score");
 let dom_canvas = document.createElement("canvas");
 document.querySelector("#canvas").appendChild(dom_canvas);
+
+// Define button elements
+let btnUp = document.querySelector("#btn-up");
+let btnDown = document.querySelector("#btn-down");
+let btnLeft = document.querySelector("#btn-left");
+let btnRight = document.querySelector("#btn-right");
+
 let CTX = dom_canvas.getContext("2d");
 
 const W = (dom_canvas.width = 500);
@@ -150,52 +157,20 @@ let KEY = {
   }
 };
 
-// Define variables to track touch start and end positions
-let touchStartX = 0;
-let touchStartY = 0;
-let touchEndX = 0;
-let touchEndY = 0;
 
-// Function to handle touch start event
-function handleTouchStart(event) {
-  touchStartX = event.touches[0].clientX;
-  touchStartY = event.touches[0].clientY;
-}
-
-// Function to handle touch end event
-function handleTouchEnd(event) {
-  touchEndX = event.changedTouches[0].clientX;
-  touchEndY = event.changedTouches[0].clientY;
-  
-  // Calculate swipe direction based on start and end positions
-  let deltaX = touchEndX - touchStartX;
-  let deltaY = touchEndY - touchStartY;
-  
-  // Determine the dominant direction of the swipe
-  if (Math.abs(deltaX) > Math.abs(deltaY)) {
-    // Horizontal swipe
-    if (deltaX > 0) {
-      // Right swipe
-      KEY.ArrowRight = true;
-    } else {
-      // Left swipe
-      KEY.ArrowLeft = true;
-    }
-  } else {
-    // Vertical swipe
-    if (deltaY > 0) {
-      // Down swipe
-      KEY.ArrowDown = true;
-    } else {
-      // Up swipe
-      KEY.ArrowUp = true;
-    }
-  }
-}
-
-// Add event listeners for touch events
-document.addEventListener("touchstart", handleTouchStart, false);
-document.addEventListener("touchend", handleTouchEnd, false);
+// Add event listeners to buttons
+btnUp.addEventListener("click", () => {
+  this.dir = new helpers.Vec(0, -dir);
+});
+btnDown.addEventListener("click", () => {
+  this.dir = new helpers.Vec(0, dir);
+});
+btnLeft.addEventListener("click", () => {
+  this.dir = new helpers.Vec(-dir, 0);
+});
+btnRight.addEventListener("click", () => {
+  this.dir = new helpers.Vec(dir, 0);
+});
 
 class Snake {
   constructor(i, type) {
@@ -248,7 +223,7 @@ class Snake {
     if (KEY.ArrowDown) {
       this.dir = new helpers.Vec(0, dir);
     }
-    if (KEY    .ArrowLeft) {
+    if (KEY.ArrowLeft) {
       this.dir = new helpers.Vec(-dir, 0);
     }
     if (KEY.ArrowRight) {
