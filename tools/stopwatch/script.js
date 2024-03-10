@@ -7,15 +7,30 @@ var time_ele = document.getElementsByClassName("time")[0];
         var l3 = document.getElementById("lap3");
         var l4 = document.getElementById("lap4");
         var l5 = document.getElementById("lap5");
+        var l6 = document.getElementById("lap6");
+        var l7 = document.getElementById("lap7");
+        var l8 = document.getElementById("lap8");
+        var l9 = document.getElementById("lap9");
+        var l10 = document.getElementById("lap10");
 
         let seconds = 0;
         let milli  = 0;
         let interval = null;
         let ctr = 0;
 
-        start_btn.addEventListener("click", start);
+        start_btn.addEventListener("click", toggle);
         lap_btn.addEventListener("click", lap);
         reset_btn.addEventListener("click", reset);
+        document.addEventListener("keydown", function(event) {
+            if(event.key === " ") { // check for the spacebar
+                event.preventDefault(); // prevent the default action (scrolling the page)
+                toggle();
+            } else if(event.key.toUpperCase() === "L") {
+                lap();
+            } else if(event.key.toUpperCase() === "R") {
+                reset();
+            }
+        });
 
         function timer() {
             milli++;
@@ -32,7 +47,7 @@ var time_ele = document.getElementsByClassName("time")[0];
             time_ele.innerHTML = `${hrs}:${mins}:${sec}:${milliSecond}`;
         }
 
-        function start() {
+        function toggle() {
             if(interval) {
                 clearInterval(interval);
                 interval = null;
@@ -45,16 +60,27 @@ var time_ele = document.getElementsByClassName("time")[0];
 
         function lap() {
             ctr++;
-            if(ctr%5==1)
+            if(ctr%10==1)
                 l1.innerHTML="Lap "+ ctr+ ":  " + time_ele.innerHTML;
-            if (ctr%5==2)
+            if (ctr%10==2)
                 l2.innerHTML="Lap "+ ctr+ ":  " + time_ele.innerHTML;
-            if (ctr%5==3)
+            if (ctr%10==3)
                 l3.innerHTML="Lap "+ ctr+ ":  " + time_ele.innerHTML;
-            if (ctr%5==4)
+            if (ctr%10==4)
                 l4.innerHTML="Lap "+ ctr+ ":  " + time_ele.innerHTML;
-            if (ctr%5==0)
+            if (ctr%10==5)
                 l5.innerHTML="Lap "+ ctr+ ":  " + time_ele.innerHTML;
+            if (ctr%10==6)
+                l6.innerHTML="Lap "+ ctr+ ":  " + time_ele.innerHTML;
+            if (ctr%10==7)
+                l7.innerHTML="Lap "+ ctr+ ":  " + time_ele.innerHTML;
+            if (ctr%10==8)
+                l8.innerHTML="Lap "+ ctr+ ":  " + time_ele.innerHTML;
+            if (ctr%10==9)
+                l9.innerHTML="Lap "+ ctr+ ":  " + time_ele.innerHTML;
+            if (ctr%10==0)
+                l10.innerHTML="Lap "+ ctr+ ":  " + time_ele.innerHTML;
+           
         }
 
         function reset() {
@@ -68,4 +94,9 @@ var time_ele = document.getElementsByClassName("time")[0];
             l3.innerHTML = "";
             l4.innerHTML = "";
             l5.innerHTML = "";
+            l6.innerHTML = "";
+            l7.innerHTML = "";
+            l8.innerHTML = "";
+            l9.innerHTML = "";
+            l10.innerHTML = "";
         }

@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+  
+  .timer-container {
+    text-align: center;
+  }
+  
+  .timer {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .controls {
+    margin-top: 20px;
+  }
+  
+  input[type="number"], button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 0 5px;
+    border: none;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  
+  @keyframes flash {
+    0% { background-color: #f0f0f0; }
+    50% { background-color: red; }
+  }
+  

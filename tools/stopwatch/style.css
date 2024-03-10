@@ -6,10 +6,10 @@
 }
 
 body {
-    
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;    
+    font-family: monospace;
     background: #222;
-    font-weight: 800;
+    font-weight: 900;
     color: #a9d995;
 }
 
@@ -33,9 +33,12 @@ h1 {
 }
 
 .time {
-    font-size: 5rem;
+    font-size: 30vh;
     margin-bottom: 10px;
     user-select: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .controls button {

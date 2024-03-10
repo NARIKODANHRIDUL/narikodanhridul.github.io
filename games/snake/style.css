@@ -13,6 +13,7 @@
     color: #6e7888;
     padding: 0px;
     margin: 0px;
+    overflow: hidden;
   }
   body {
     background-color: #a9d995;
@@ -72,6 +73,8 @@
   }
   #replay:hover {
     background: #a9d995;
+    color: #6e7888;
+    border: #6e7888 solid 1px;
     transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   #replay svg {
@@ -137,7 +140,7 @@
       font-size: x-large;
     }
     .btn-controls button:hover {
-      background: #a9d995;
+      background: #8cb47c;
       color: #6e7888;
       transition: 0.3s;
     }
