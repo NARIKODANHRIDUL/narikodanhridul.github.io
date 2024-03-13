@@ -1,39 +1,42 @@
+
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-  }
-  
-  .timer-container {
-    text-align: center;
-  }
-  
-  .timer {
-    font-size: 48px;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  .controls {
-    margin-top: 20px;
-  }
-  
-  input[type="number"], button {
-    padding: 10px 20px;
-    font-size: 16px;
-    margin: 0 5px;
-    border: none;
-  }
-  
-  button {
-    cursor: pointer;
-  }
-  
-  @keyframes flash {
-    0% { background-color: #f0f0f0; }
-    50% { background-color: red; }
-  }
-  
+  font-family: Arial, sans-serif;
+  color: #a9d995;
+  text-align: center;
+  transition: background-color 0.5s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;    
+  font-family: monospace;
+  background: #222;
+  font-weight: 900;
+
+}
+#time {
+  font-size: 30vh;
+  margin-bottom: 10px;
+  user-select: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+button {
+  background-color: #a9d995;
+  color: #333;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+@keyframes flash {
+0% {background-color: #222;}
+50% {background-color: red;}
+100% {background-color: #222;}
+}
+
+.red-flash {
+animation: flash 1s infinite;
+}

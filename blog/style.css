@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=B612+Mono&family=Gabarito:wght@600&family=Passion+One&family=Poppins:wght@300;400;700;800&family=Preahvihear&family=Roboto+Mono&family=Rowdies&family=Rubik+Wet+Paint&family=Space+Mono&family=Syne+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&family=Handjet:wght@600&family=Rowdies:wght@300&family=Russo+One&family=Staatliches&display=swap');
+* {
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;  
+    scroll-behavior: smooth;}
+body::-webkit-scrollbar {
+    width: 8px;
+    height: 10px;
+    background: #211D21;}
+body::-webkit-scrollbar-thumb {
+    transition: background-color 0.3s;
+    background: linear-gradient(transparent, #90b781);
+    border-radius: 6px;}  
+body.scrolling-up::-webkit-scrollbar-thumb {
+    transition: background-color 0.3s;
+    /* background: red; */
+    background: linear-gradient( #90b781, transparent);
+    border-radius: 6px;}
+body {
+        margin: 0;
+        padding: 20px;
+        color: antiquewhite;
+        background-color: #333;
+        width: 100vw;
+        box-sizing: border-box;
+        overflow-x: hidden;   
+}
+    
+.mainHeading{
+    font-size: 100px;
+    font-family: 'Staatliches', cursive;
+}
+
+/* styles.css */
+.copy-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#copy-content {
+    background-color: #555;
+    padding: 5px;
+    border-radius: 10px;
+    width: fit-content;
+    max-width: 90vw;
+}
+.copy-button {
+    background-color: #90b781;
+    color: #fff;
+    border: none;
+    height: 30px;
+    font-weight: 600;
+    border-radius: 20px;
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+.text-container{
+    border-radius: 30px;
+    background-color: #444;
+    padding: 10px;
+}
+
+table {
+    border-radius: 30px;
+    background-color: #444;
+  }
+  
+  th {
+    background-color: #555; /* Dark gray background color */
+    color: #a9d995; /* Light green text color */
+    padding: 10px; /* Add some padding for spacing */
+    text-align: left; /* Align text to the left */
+    border-radius: 10px;
+  }
+  
+  /* Style for table cells (td) */
+  td {
+    border-radius: 30px;
+    background-color: #444;
+    padding: 10px; /* Add padding for spacing */
+    text-align: left; /* Align text to the left */
+  }

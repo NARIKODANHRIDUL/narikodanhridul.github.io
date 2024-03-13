@@ -11,3 +11,17 @@ window.addEventListener('scroll', () => {
 });
 
 
+function myFunction() {
+    var copyText = document.getElementById("copy-content").innerText;
+    var textarea = document.createElement('textarea')
+    textarea.id = 'temp_element'
+    textarea.style.height = 0
+    document.body.appendChild(textarea)
+    textarea.value = copyText
+    var selector = document.querySelector('#temp_element')
+    selector.select()
+    document.execCommand('copy')
+    document.body.removeChild(selector)
+  }
+
+
