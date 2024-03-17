@@ -39,32 +39,17 @@ body::-webkit-scrollbar {
   height: 10px;
   background: #211D21;
 }
-body::-webkit-scrollbar-thumb {
-  /* background: blue; */
-  transition: background-color 0.3s;
-  background: linear-gradient(transparent, #90b781);
-  border-radius: 6px;
-}
-
-body.scrolling-up::-webkit-scrollbar-thumb {
-  transition: background-color 0.3s;
-  /* background: red; */
-  background: linear-gradient( #90b781, transparent);
-  border-radius: 6px;
-
-}
+body::-webkit-scrollbar-thumb {  transition: background-color 0.3s;  background: linear-gradient(transparent, #90b781);  border-radius: 6px;}
+body.scrolling-up::-webkit-scrollbar-thumb {  transition: background-color 0.3s;  background: linear-gradient( #90b781, transparent);  border-radius: 6px;}
 body {
-    
     margin: 0;
     padding: 0px 0px;
     color: antiquewhite;
     background-color: #333;
-    /* height: 100vh; */
     width: 100vw;
     box-sizing: border-box;
     overflow-x: hidden;   
 }
-
 
 ol{
   padding-left: 25px;
@@ -73,14 +58,11 @@ ol{
   font-size:larger;
   font-size:x-large;
   color: #a9d995;
-  text-align: start !important;
-  /* font-family: 'Space Mono', monospace; */
-  /* font-family: 'Roboto Mono', monospace; */
-  
+  text-align: start !important;  
   font-family: 'Syne Mono', monospace;
-  /* font-family: 'Gabarito', cursive; */
   font-weight: 600;
 }
+
 .topDiv {
     background-color: #222;
     padding: 0px 10px;
@@ -90,7 +72,6 @@ ol{
     justify-content: center;
     align-items: center;
     font-size: 50px;
-    /* background-color: violet; */
     width: 100vw;
     
 }

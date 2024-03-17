@@ -90,9 +90,11 @@ a:link, a:visited,a:hover{
         margin-top: 70px;
     }
     .compatriotimg{
+        margin-top: 100px;
         flex-direction: row-reverse;
         justify-content:  center;
     }
+
     #carcontent{
         display: flex;
         flex-direction: column;
