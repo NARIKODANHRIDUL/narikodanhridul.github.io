@@ -3,149 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            color: #a9d995;
-            text-align: center;
-            transition: background-color 0.5s ease-in-out;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            overflow: hidden;    
-            font-family: monospace;
-            background: #222;
-            font-weight: 900;
-
-        }
-        #timer {
-            font-size: 30vh;
-            margin-bottom: 10px;
-            user-select: none;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        button {
-            background-color: #a9d995;
-            color: #333;
-            border: none;
-            padding: 0.5rem 1rem;
-            margin: 0.5rem;
-            cursor: pointer;
-        }
-        @keyframes flash {
-  0% {background-color: #222;}
-  50% {background-color: red;}
-  100% {background-color: #222;}
-}
-
-.red-flash {
-  animation: flash 1s infinite;
-}
-    </style>
+ <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="timer">00:00:00</div>
-    <br>
-    <button id="startPause">Start</button>
-    <button id="addMinute">+1 Minute</button>
-    <button id="reset">Reset</button>
-
-
-    <script>
-        let timerInterval;
-        let totalSeconds = 0;
-        let inputBuffer = "";
-
-        // Add a new button for reset
-        const resetButton = document.getElementById("reset");
-
-        const timerDisplay = document.getElementById("timer");
-        const startPauseButton = document.getElementById("startPause");
-        const addMinuteButton = document.getElementById("addMinute");
-        const body = document.body;
-
-        function updateTimer() {
-            const hours = Math.floor(totalSeconds / 3600);
-            const minutes = Math.floor((totalSeconds % 3600) / 60);
-            const seconds = totalSeconds % 60;
-            timerDisplay.textContent = `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
-        }
-        function handleInput(e) {
-    if (e.key === "Backspace") {
-        inputBuffer = inputBuffer.slice(0, -1);
-    } else {
-        inputBuffer += e.key;
-    }
-    while (inputBuffer.length < 6) {
-        inputBuffer = "0" + inputBuffer;
-    }
-    const parsedHours = parseInt(inputBuffer.slice(-6, -4));
-    const parsedMinutes = parseInt(inputBuffer.slice(-4, -2));
-    const parsedSeconds = parseInt(inputBuffer.slice(-2));
-    if (!isNaN(parsedHours) && !isNaN(parsedMinutes) && !isNaN(parsedSeconds)) {
-        totalSeconds = parsedHours * 3600 + parsedMinutes * 60 + parsedSeconds;
-        updateTimer();
-    }
-}
-timerInterval = setInterval(() => {
-    if (totalSeconds > 0) {
-        totalSeconds--;
-        updateTimer();
-    } else {
-        clearInterval(timerInterval);
-        timerInterval = null;
-        body.classList.add("red-flash");
-    }
-}, 1000);
-        
-        // Reset function
-        function resetTimer() {
-    totalSeconds = 0;
-    inputBuffer = "";
-    updateTimer();
-    body.classList.remove("red-flash");
-    if (timerInterval) {
-        clearInterval(timerInterval);
-        timerInterval = null;
-        startPauseButton.textContent = "Start";
-    }
-}
-
-
-        // Event listener for reset button
-        resetButton.addEventListener("click", resetTimer);
-
-
-        document.addEventListener("keydown", handleInput);
-
-        startPauseButton.addEventListener("click", () => {
-            if (timerInterval) {
-                clearInterval(timerInterval);
-                timerInterval = null;
-                startPauseButton.textContent = "Resume";
-            } else {
-                timerInterval = setInterval(() => {
-                    if (totalSeconds > 0) {
-                        totalSeconds--;
-                        updateTimer();
-                    } else {
-                        clearInterval(timerInterval);
-                        timerInterval = null;
-                        body.classList.add("red-flash");
-                    }
-                }, 1000);
-                startPauseButton.textContent = "Pause";
-            }
-        });
-
-        addMinuteButton.addEventListener("click", () => {
-            totalSeconds += 60;
-            updateTimer();
-        });
-    </script>
+    <h1>timer</h1>
+    <div class="container">
+        <div id="timer">00:00:00</div>
+        <div>
+            <button id="startPause">Start</button>
+            <button id="addMinute">+1 Minute</button>
+            <button id="reset">Reset</button>
+        </div>
+    </div>  
+    <script src="script.js"></script>
 </body>
 </html>

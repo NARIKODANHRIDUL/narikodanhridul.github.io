@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&family=Handjet:wght@600&family=Rowdies:wght@300&family=Russo+One&family=Staatliches&display=swap');
 
 * {
     box-sizing: border-box;
@@ -13,10 +14,6 @@ body {
     color: #a9d995;
 }
 
-h1 {
-    margin: 10px 0 0 20px;
-    user-select: none;
-}
 
 
 .container {
@@ -32,15 +29,23 @@ h1 {
     border-radius: 5px;
 }
 
+h1{
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    font-weight: 100;
+    font-family: 'Staatliches', cursive;
+    font-size: 10vw;
+    color: rgba(204, 255, 204, 0.151);
+}
 .time {
-    font-size: 30vh;
+    font-size: 15vw;
     margin-bottom: 10px;
     user-select: none;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
 .controls button {
     margin-top: 10px; 
     border-radius: 15px ;
@@ -59,9 +64,3 @@ h1 {
     transition: 0.3s;
   }
 
-@media(max-width:500PX) {
-    
-    .time {
-        font-size: 3rem;
-    }
-}

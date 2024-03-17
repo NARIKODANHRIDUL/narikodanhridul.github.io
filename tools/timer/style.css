@@ -1,22 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&family=Handjet:wght@600&family=Rowdies:wght@300&family=Russo+One&family=Staatliches&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
 
 body {
-  font-family: Arial, sans-serif;
-  color: #a9d995;
-  text-align: center;
-  transition: background-color 0.5s ease-in-out;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
   overflow: hidden;    
   font-family: monospace;
   background: #222;
   font-weight: 900;
-
+  color: #a9d995;
 }
-#time {
-  font-size: 30vh;
+
+.container {
+  background: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  margin: 150px auto;
+  padding: 25px;
+  border-radius: 5px;
+}
+
+h1{
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  font-weight: 100;
+  font-family: 'Staatliches', cursive;
+  font-size: 10vw;
+  color: rgba(204, 255, 204, 0.151);
+}
+#timer {
+  font-size: 20vw;
   margin-bottom: 10px;
   user-select: none;
   white-space: nowrap;
@@ -24,19 +45,28 @@ body {
   text-overflow: ellipsis;
 }
 button {
-  background-color: #a9d995;
-  color: #333;
+  margin-top: 10px; 
+  border-radius: 15px ;
   border: none;
-  padding: 0.5rem 1rem;
-  margin: 0.5rem;
-  cursor: pointer;
-}
-@keyframes flash {
-0% {background-color: #222;}
-50% {background-color: red;}
-100% {background-color: #222;}
+  padding: 10px 20px;
+  background: #333;
+  color: antiquewhite;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  font-size: 20px;
+  transition: 0.3s;
 }
 
+button:hover{
+  background-color:#90b781;
+    color: #222;
+    scale: 110%;
+    transition: 0.3s;
+}
+@keyframes flash {
+  0% {background-color: #222;}
+  50% {background-color: red;}
+  100% {background-color: #222;}
+}
 .red-flash {
-animation: flash 1s infinite;
+  animation: flash 1s infinite;
 }
