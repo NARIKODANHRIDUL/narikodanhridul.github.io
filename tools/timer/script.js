@@ -7,7 +7,34 @@ const timerDisplay = document.getElementById("timer");
 const startPauseButton = document.getElementById("startPause");
 const addMinuteButton = document.getElementById("addMinute");
 const body = document.body;
+var audio = document.getElementById("myAudio");
 
+function playAudio() {
+  audio.play();
+}
+
+function pauseAudio() {
+    audio.pause();
+  }
+
+  function addOneminute(){
+    totalSeconds += 60;
+        updateTimer();
+        timerStarted = true;
+        pauseAudio();
+        body.classList.remove("red-flash");
+  }
+
+  function startPause(){
+    if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+        startPauseButton.textContent = "Resume";
+    } else {
+        startTimer();
+        startPauseButton.textContent = "Pause";
+    }
+  }
 function updateTimer() {
     const hours = Math.floor(totalSeconds / 3600);
     const minutes = Math.floor((totalSeconds % 3600) / 60);
@@ -19,7 +46,10 @@ function handleInput(e) {
         inputBuffer = inputBuffer.slice(0, -1);
     } else if (/^\d$/.test(e.key)) { // Check if the key is a digit
         inputBuffer += e.key;
+    } else {
+        return; // Ignore inputs other than Backspace or numeric keys
     }
+
     while (inputBuffer.length < 6) {
         inputBuffer = "0" + inputBuffer;
     }
@@ -34,27 +64,18 @@ function handleInput(e) {
 }
 
 
-
 document.addEventListener("keydown", function(event) {
     if(event.key=== " ") { 
         event.preventDefault(); 
-        if (timerInterval) {
-            clearInterval(timerInterval);
-            timerInterval = null;
-            startPauseButton.textContent = "Resume";
-        } else {
-            startTimer();
-            startPauseButton.textContent = "Pause";
-        }
+        startPause();
     } else if(event.key.toUpperCase() === "A") {
-        addMinuteButton();
+        addOneminute();
     } else if(event.key.toUpperCase() === "R") {
         resetTimer();
     }
 });
 function startTimer() {
     if (!timerStarted) return;
-
     timerInterval = setInterval(() => {
         if (totalSeconds > 0) {
             totalSeconds--;
@@ -63,6 +84,7 @@ function startTimer() {
             clearInterval(timerInterval);
             timerInterval = null;
             body.classList.add("red-flash");
+            playAudio();
         }
     }, 1000);
 }
@@ -77,25 +99,10 @@ function resetTimer() {
         timerInterval = null;
         startPauseButton.textContent = "Start";
     }
+    pauseAudio();
 }
 
 document.addEventListener("keydown", handleInput);
-
-startPauseButton.addEventListener("click", () => {
-    if (timerInterval) {
-        clearInterval(timerInterval);
-        timerInterval = null;
-        startPauseButton.textContent = "Resume";
-    } else {
-        startTimer();
-        startPauseButton.textContent = "Pause";
-    }
-});
-
-addMinuteButton.addEventListener("click", () => {
-    totalSeconds += 60;
-    updateTimer();
-    timerStarted = true;
-});
-
+startPauseButton.addEventListener("click", () => {startPause();});
+addMinuteButton.addEventListener("click", () => {    addOneminute(); });
 document.getElementById("reset").addEventListener("click", resetTimer);
