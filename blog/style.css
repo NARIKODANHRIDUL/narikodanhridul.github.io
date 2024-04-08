@@ -11,7 +11,7 @@ body {
     margin: 0;
     padding: 30px;
     color: antiquewhite;
-    background-color: #222;
+    background-color: #000;
     width: 100vw;
     box-sizing: border-box;
     overflow-x: hidden;   
@@ -37,7 +37,7 @@ h1{
 }
 
 #copy-content {
-    background-color: #444;
+    background-color: #222;
     padding: 5px;
     border-radius: 10px;
     width: fit-content;
@@ -64,23 +64,23 @@ h1{
 .text-container{
     border-radius: 30px;
     width: fit-content;
-    background-color: #333;
+    background-color: #111;
     padding: 10px;
 }
 
 .code{
-  background-color: #444; 
+  background-color: #222; 
   padding: 2px; border-radius: 5px;
 }
 
 table {
     border-radius: 30px;
     padding: 5px;
-    background-color: #333;
+    background-color: #111;
   }
   
   th {
-    background-color: #404140; 
+    background-color: #202120; 
     color: #a9d995; 
     padding: 10px; 
     text-align: left; 
@@ -90,14 +90,14 @@ table {
   
   td {
     border-radius: 30px;
-    background-color: #333;
+    background-color: #111;
     padding: 10px; 
     text-align: left; 
     font-size: medium;
   }
 
   a{
-    color: #777;
+    color: #555;
     font-weight: 700;
     text-decoration: none;
   }
