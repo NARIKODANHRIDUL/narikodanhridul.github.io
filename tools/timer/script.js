@@ -76,6 +76,9 @@ document.addEventListener("keydown", function(event) {
 });
 function startTimer() {
     if (!timerStarted) return;
+    inputs.forEach(input => {
+        input.value = "00";
+    });
     timerInterval = setInterval(() => {
         if (totalSeconds > 0) {
             totalSeconds--;
@@ -92,6 +95,10 @@ function startTimer() {
 function resetTimer() {
     totalSeconds = 0;
     inputBuffer = "";
+    const inputs = document.querySelectorAll('.time-input');
+    inputs.forEach(input => {
+        input.value = "00";
+    });
     updateTimer();
     body.classList.remove("red-flash");
     if (timerInterval) {
@@ -101,6 +108,7 @@ function resetTimer() {
     }
     pauseAudio();
 }
+
 
 document.addEventListener("keydown", handleInput);
 startPauseButton.addEventListener("click", () => {startPause();});
