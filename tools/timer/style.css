@@ -4,6 +4,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  overflow: hidden;
 }
 
 body {
@@ -33,7 +34,7 @@ h1{
   left: 10px;
   font-weight: 100;
   font-family: 'Staatliches', cursive;
-  font-size: 10vw;
+  font-size: 12vw;
   color: rgba(204, 255, 204, 0.151);
 }
 #timer {
@@ -98,4 +99,8 @@ input{
     display: flex;
     align-items: center;
   }
+
+    h1{
+      font-size: 120px;
+    }
 }
