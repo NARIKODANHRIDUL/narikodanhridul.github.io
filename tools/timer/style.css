@@ -62,6 +62,28 @@ button:hover{
     scale: 110%;
     transition: 0.3s;
 }
+
+audio{
+  visibility: hidden;
+}
+#input{
+  font-size: xx-large;
+  display: none;
+}
+input{
+  width: 80px;
+  height: 50px;
+  margin: 5px 0px 5px 0px;
+  text-align: center;
+  border-radius: 20px;
+  border: none;
+  background-color: #444;
+  font-size: xx-large;
+  padding: 10px;
+  color: #a9d995;
+  font-weight: 800;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+}
 @keyframes flash {
   0% {background-color: #222;}
   50% {background-color: red;}
@@ -69,4 +91,11 @@ button:hover{
 }
 .red-flash {
   animation: flash 1s infinite;
+}
+
+@media only screen and (max-width: 600px){
+  #input{
+    display: flex;
+    align-items: center;
+  }
 }

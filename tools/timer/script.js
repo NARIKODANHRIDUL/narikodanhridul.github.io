@@ -44,10 +44,10 @@ function updateTimer() {
 function handleInput(e) {
     if (e.key === "Backspace") {
         inputBuffer = inputBuffer.slice(0, -1);
-    } else if (/^\d$/.test(e.key)) { // Check if the key is a digit
+    } else if (/^\d$/.test(e.key)) { 
         inputBuffer += e.key;
     } else {
-        return; // Ignore inputs other than Backspace or numeric keys
+        return; 
     }
 
     while (inputBuffer.length < 6) {
@@ -106,3 +106,27 @@ document.addEventListener("keydown", handleInput);
 startPauseButton.addEventListener("click", () => {startPause();});
 addMinuteButton.addEventListener("click", () => {    addOneminute(); });
 document.getElementById("reset").addEventListener("click", resetTimer);
+
+function formatInput() {
+    const inputs = document.querySelectorAll('.time-input');
+    let hours = 0, minutes = 0, seconds = 0;
+
+    inputs.forEach(input => {
+        let value = parseInt(input.value);
+        if (isNaN(value)) value = 0;
+        else value = Math.min(Math.max(value, 0), 99);
+
+        const id = input.id;
+        if (id === 'hours') hours = value;
+        else if (id === 'minutes') minutes = value;
+        else if (id === 'seconds') seconds = value;
+
+        const formattedValue = value.toString().padStart(2, '0');
+        input.value = formattedValue;
+
+    });
+
+    totalSeconds = hours * 3600 + minutes * 60 + seconds;
+    updateTimer();
+    timerStarted = true;
+}

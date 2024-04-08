@@ -9,6 +9,14 @@
     <h1>timer</h1>
     <div class="container">
         <div id="timer">00:00:00</div>
+    <div id="input">
+        <input type="number" id="hours" class="time-input" min="0" max="99" value="00" oninput="formatInput()"> 
+        <label for="hours">:</label>
+        <input type="number" id="minutes" class="time-input" min="0" max="59" value="00" oninput="formatInput()"> 
+        <label for="minutes">:</label>
+        <input type="number" id="seconds" class="time-input" min="0" max="59" value="00" oninput="formatInput()">
+        <label for="seconds"></label>   
+    </div>
         <div>
             <button id="startPause">Start</button>
             <button id="addMinute">+1 Minute</button>
