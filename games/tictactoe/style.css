@@ -24,7 +24,7 @@ h1 {
     background-color: #a9d995;
     border-radius: 20px;
     padding: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 30px 2px #111;
 }
 
 .cell {
@@ -41,6 +41,7 @@ h1 {
     font-size: 60px;
     font-weight: 600;
     cursor: pointer;
+    box-shadow: 1px 1px 5px 1px #111;
     transition: background-color 0.3s ease;
 }
 
