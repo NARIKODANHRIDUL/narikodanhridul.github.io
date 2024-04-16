@@ -26,6 +26,9 @@ body {
 h1{
   line-height: 30px;
 }
+h2{
+  line-height: 0px;
+}
 
 /* styles.css */
 .copy-container {
@@ -70,9 +73,20 @@ h1{
 
 .code{
   background-color: #222; 
-  padding: 2px; border-radius: 5px;
+  width: fit-content;
+  min-width: 600px;
+  border-radius: 10px;
 }
-
+.codeHead{
+  background-color: #151515;
+  display: flex;
+  border-radius: 10px;
+  justify-content: end;
+}
+.codeContent{
+  margin: 0px 10px;
+  padding: 5px;
+}
 table {
     border-radius: 30px;
     padding: 5px;
@@ -139,5 +153,8 @@ table {
 
   .colors td{
     font-size: medium !important;
+  }
+  .code{
+    min-width: 90vw;
   }
   }
