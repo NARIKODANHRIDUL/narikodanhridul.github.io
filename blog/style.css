@@ -23,6 +23,7 @@ body {
     font-size: 100px;
     font-family: 'Staatliches', cursive;
     line-height: 80px;
+    
   }
   
   h1{
@@ -56,6 +57,7 @@ body {
   background-color: #90b781;
   color: #fff;
   /* width: 50px; */
+  overflow-x: hidden;
   border: none;
   font-weight: 600;
   padding: 0px;
@@ -66,22 +68,19 @@ body {
   justify-content: center;
   cursor: pointer;
 }
-.text-container{
-  border-radius: 30px;
-  width: fit-content;
-  background-color: #111;
-  padding: 10px;
-}
-pre {
-  padding: 0px 0px 10px 0px;
-  margin: 0px;
-  height: fit-content;
-  overflow-x: auto;
-
+.end{
+  margin-top: 20px;
+  display: flex;
+  color: #90b781;
+  align-items: center;
+  justify-content: center;
+  font-size: small;
+  font-family: 'Space Mono', monospace; 
 }
 .code{
   background-color: #222; 
-  /* width: fit-content; */
+  width: fit-content;
+  max-width: 95vw;
   min-width: 600px;
   border-radius: 10px;
 }
@@ -96,6 +95,8 @@ pre {
   justify-content: space-between;
 }
 pre{
+  padding: 0px 0px 10px 0px;
+  margin: 0px;
   /* font-family: 'Roboto Mono', monospace; */
   overflow-x: auto;
   font-family: 'Space Mono', monospace; 
@@ -105,6 +106,8 @@ pre{
 .codeContent{
   margin: 0px 10px;
   padding: 5px;
+  border-radius: 10px;
+  background-color: #222;
   overflow: auto;
 }
 table {
@@ -179,6 +182,5 @@ img{
   .code{
     min-width: 95vw !important;
     width: 95vw;
-    overflow: auto;
   }
   }

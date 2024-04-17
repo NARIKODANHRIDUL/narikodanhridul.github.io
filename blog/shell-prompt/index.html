@@ -418,8 +418,8 @@
     </table>
     <h3>Format </h3>
     <ul>
-        <li><span class="code">\e[38;2;⟨r⟩;⟨g⟩;⟨b⟩m\] </span> Select RGB foreground color</li>
-        <li><span class="code">\e[48;2;⟨r⟩;⟨g⟩;⟨b⟩m\] </span> Select RGB background color</li>
+        <li><span class="codeContent">\e[38;2;⟨r⟩;⟨g⟩;⟨b⟩m\] </span> Select RGB foreground color</li>
+        <li><span class="codeContent">\e[48;2;⟨r⟩;⟨g⟩;⟨b⟩m\] </span> Select RGB background color</li>
     </ul>
     <h3>Example</h3>
     <div  class="code">
@@ -451,7 +451,7 @@
         </div>
         <div class="codeContent"><pre>PS1="╭─────────🮙🮙 NAME\n│\u 🯊 \w\n╰─>> "</pre></div >
     </div>
-    <hr>
+    <br><br>
     <img src="../../resources/Shell-prompt-2.png" alt="">
     
     <div  class="code">
@@ -462,7 +462,7 @@
         </div>
         <div class="codeContent"><pre>PS1="\[\e[32;1m╭─────────🮙🮙 NAME\n\e[32m│\e[36m\u \e[37m🯊\e[33m\w\n\e[32m╰─>> \e[0m\]"</pre></div >
     </div>
-    <hr>
+    <br><br>
     <img src="../../resources/Shell-prompt-3.png" alt="">
     <div  class="code">
         <div class="codeHead">
@@ -472,7 +472,7 @@
         </div>
         <div class="codeContent"><pre>PS1="\[\e[32;1m\]╭─────────\[\e[37m\]🮙🮙\[\e[32m\]\[\e[47m\] NAME \[\e[0m\]🭬\n\[\e[32m\]│\[\e[47m\]\[\e[36m\]\u \[\e[0m\]🭬\[\e[0m\]\[\e[37m\] \[\e[33m\]\w\n\[\e[32m\]╰─>>\[\[\e[0m\]"</pre></div >
     </div>
-    <hr>
+    <br><br>
     <img src="../../resources/Shell-prompt-4.png" alt="">
     
     <div  class="code">
@@ -481,13 +481,13 @@
             <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
             <span class="tool-tip"> Copied!</span></button>
         </div>
-        <div class="codeContent"><pre>PS1="\[\e[32;1m\]╭─────\[\e[38;2;200;200;160m\]🮙🮙\[\e[38;2;50;50;50;48;2;200;200;160m\]NAME \[\e[0;38;2;200;200;160m\]🭬\n\[\e[32m\]│\[\e[38;2;0;30;30m\]🭨\[\e[32;48;2;0;30;30;1m\] \u\[\e[0;42;38;2;0;30;30m\]🭬\[\e[0;42;38;2;0;40;40;1m\]\w \[\e[0;32m\]🭬\[\e[0;32m\]\n╰─>> \[\e[0m\]"</pre></div >
+        <div class="codeContent"><code><pre>PS1="\[\e[32;1m\]╭─────\[\e[38;2;200;200;160m\]🮙🮙\[\e[38;2;50;50;50;48;2;200;200;160m\]NAME \[\e[0;38;2;200;200;160m\]🭬\n\[\e[32m\]│\[\e[38;2;0;30;30m\]🭨\[\e[32;48;2;0;30;30;1m\] \u\[\e[0;42;38;2;0;30;30m\]🭬\[\e[0;42;38;2;0;40;40;1m\]\w \[\e[0;32m\]🭬\[\e[0;32m\]\n╰─>> \[\e[0m\]"</pre></code></div >
     </div>
     
-    <hr>
+    <br><br>
 
     <h3>FANCY LETTERS</h3>
-    <div class="text-container">
+    <div class="codeContent">
         ░ ▒ ▓ │ ┤ ╡ ╢ ╖ ╕ ╣ ║ ╗ ╝ ╜ ╛ ┐ └ ┴ ┬ ├ ─ ┼ ╞ ╟
         ╚ ╔ ╩ ╦ ╠ ═ ╬ ╧ ╨ ╤ ╥ ╙ ╘ ╒ ╓ ╫ ╪ ┘ ┌ █ ▄ ▌ ▐ ▀
         ⌠ ⌡ ░ ▒ ▓ │ ┤ ╣ ║ ╗ ╝ ┐ C └ ┴ ┬ ├ ─ ┼ ╚ ╔ ╩ ╦ ╠
@@ -515,6 +515,7 @@
     </ul>
 
 
+    <div class="end"> --- End of Blog --- </div>
     <script src="../../script.js"></script>
 </body>
 
