@@ -1,79 +1,87 @@
 @import url('https://fonts.googleapis.com/css2?family=B612+Mono&family=Gabarito:wght@600&family=Passion+One&family=Poppins:wght@300;400;700;800&family=Preahvihear&family=Roboto+Mono&family=Rowdies&family=Rubik+Wet+Paint&family=Space+Mono&family=Syne+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Exo+2&family=Handjet:wght@600&family=Rowdies:wght@300&family=Russo+One&family=Staatliches&display=swap');
 * {
-    font-family: 'Poppins', sans-serif;
-    box-sizing: border-box;  
-    scroll-behavior: smooth;}
+  box-sizing: border-box;  
+  scroll-behavior: smooth;
+  
+}
 body::-webkit-scrollbar {width: 8px;height: 10px;background: #211D21;}
 body::-webkit-scrollbar-thumb {transition: background-color 0.3s;background: linear-gradient(transparent, #90b781);border-radius: 6px;}  
 body.scrolling-up::-webkit-scrollbar-thumb {transition: background-color 0.3s;background: linear-gradient( #90b781, transparent);border-radius: 6px;}
 body {
-    margin: 0;
-    padding: 30px;
+  margin: 0;
+  padding: 30px;
+  font-family: 'Poppins', sans-serif;
     color: antiquewhite;
     background-color: #000;
     width: 100vw;
     box-sizing: border-box;
     overflow-x: hidden;   
-}
-    
-.mainHeading{
+  }
+  
+  .mainHeading{
     font-size: 100px;
     font-family: 'Staatliches', cursive;
     line-height: 80px;
-}
-
-h1{
-  line-height: 30px;
-}
-h2{
+  }
+  
+  h1{
+    line-height: 30px;
+  }
+  h2{
   line-height: 0px;
 }
 
 /* styles.css */
 .copy-container {
-    display: flex;
-    width: 95vw;
-    overflow: hidden;
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  width: 95vw;
+  overflow: hidden;
+  flex-direction: row;
+  align-items: center;
 }
 
 #copy-content {
-    background-color: #222;
-    padding: 5px;
-    border-radius: 10px;
-    width: fit-content;
-    max-width: 90vw;
-    white-space: nowrap;
-    overflow-x: auto;
-    scrollbar-width: thin;
+  background-color: #222;
+  padding: 5px;
+  border-radius: 10px;
+  width: fit-content;
+  max-width: 90vw;
+  white-space: nowrap;
+  overflow-x: auto;
+  scrollbar-width: thin;
 }
 
 .copy-button {
-    background-color: #90b781;
-    color: #fff;
-    /* width: 50px; */
-    border: none;
-    font-weight: 600;
-    padding: 0px;
-    display: flex;
-    border-radius: 10px;
-    padding: 5px;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+  background-color: #90b781;
+  color: #fff;
+  /* width: 50px; */
+  border: none;
+  font-weight: 600;
+  padding: 0px;
+  display: flex;
+  border-radius: 10px;
+  padding: 5px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 .text-container{
-    border-radius: 30px;
-    width: fit-content;
-    background-color: #111;
-    padding: 10px;
+  border-radius: 30px;
+  width: fit-content;
+  background-color: #111;
+  padding: 10px;
 }
+pre {
+  padding: 0px 0px 10px 0px;
+  margin: 0px;
+  height: fit-content;
+  overflow-x: auto;
 
+}
 .code{
   background-color: #222; 
-  width: fit-content;
+  /* width: fit-content; */
   min-width: 600px;
   border-radius: 10px;
 }
@@ -81,17 +89,29 @@ h2{
   background-color: #151515;
   display: flex;
   border-radius: 10px;
-  justify-content: end;
+  padding-left: 10px;
+  align-items: center;
+  font-size: small;
+  color: #555;
+  justify-content: space-between;
+}
+pre{
+  /* font-family: 'Roboto Mono', monospace; */
+  overflow-x: auto;
+  font-family: 'Space Mono', monospace; 
+  font-size: smaller;
+  color: #ded;
 }
 .codeContent{
   margin: 0px 10px;
   padding: 5px;
+  overflow: auto;
 }
 table {
-    border-radius: 30px;
-    padding: 5px;
-    background-color: #111;
-  }
+  border-radius: 30px;
+  padding: 5px;
+  background-color: #111;
+}
   
   th {
     background-color: #202120; 
@@ -120,15 +140,17 @@ table {
     color: lightskyblue;
     text-decoration: underline;
   }
-
+img{
+  border-radius: 15px;
+}
   button img{
     height: 30px;
     opacity: 0.6;
   }
-
   .tool-tip{
     visibility: hidden;
     width: 0px;
+    color: #444;
     font-size: 10px;
   }
 
@@ -155,6 +177,8 @@ table {
     font-size: medium !important;
   }
   .code{
-    min-width: 90vw;
+    min-width: 95vw !important;
+    width: 95vw;
+    overflow: auto;
   }
   }

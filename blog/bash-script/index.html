@@ -21,82 +21,98 @@
     <h2>SHEBANG LINE</h2>
     The shebang line (#!/bin/bash) tells the system which interpreter to use for executing the script. Place it at the beginning of your script.
     <!-- <img src="../../resources/Shell-prompt-1.png" alt=""> -->
+    
     <div  class="code">
         <div class="codeHead">
-            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png"></button>
-            <span class="tool-tip"> Copied!</span>
+            bash
+            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+            <span class="tool-tip"> Copied!</span></button>
         </div>
-        <div id="copy-content" class="codeContent">#!/bin/bash</div >
-    <br><br></div>
+        <div class="codeContent">
+            <code><pre>#!/bin/bash</pre></code></div >
+    </div>
+    <br><br>
     <h2>COMMENTS </h2>
     Comments in Bash start with # and are used for documentation or to add explanations within the script.
     <div  class="code">
         <div class="codeHead">
-            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png"></button>
-            <span class="tool-tip"> Copied!</span>
+            bash
+            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+            <span class="tool-tip"> Copied!</span></button>
         </div>
-        <div class="codeContent"># This is a comment explaining what the script does</div >
-    <br><br></div>
+        <div class="codeContent">
+            <code><pre># This is a comment explaining what the script does</pre></code></div >
+    </div>
+    <br><br>
     <h2>VARIABLES </h2>
     Declare variables to store data. Variable names are case-sensitive and should start with a letter or underscore.
     <div  class="code">
         <div class="codeHead">
-            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png"></button>
-            <span class="tool-tip"> Copied!</span>
+            bash
+            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+            <span class="tool-tip"> Copied!</span></button>
         </div>
         <div class="codeContent">
             <code><pre>
 name="John"
-age=30                
-            </pre></code>
+age=30</pre> 
+        </code>      
         </div >
     </div>
+
+<br>
     To access the value of a variable, prefix its name with $.
+
     <div  class="code">
         <div class="codeHead">
-            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png"></button>
-            <span class="tool-tip"> Copied!</span>
+            bash
+            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+            <span class="tool-tip"> Copied!</span></button>
         </div>
         <div class="codeContent">
             <code><pre>
-echo "Hello, $name! You are $age years old."
-            </pre></code>
+echo "Hello, $name! You are $age years old."</pre></code>
         </div >
     </div>
     <br><br>
+
     <h2>INPUT/OUTPUT</h2>
     User Input: Use read to get input from the user.
     <div  class="code">
         <div class="codeHead">
-            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png"></button>
-            <span class="tool-tip"> Copied!</span>
+            bash
+            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+            <span class="tool-tip"> Copied!</span></button>
         </div>
         <div class="codeContent">
             <code><pre>
 echo "What's your name?"
-read name                
-            </pre></code>
+read name</pre></code>
         </div >
     </div>
+    <br>
+
     Output: Use echo to display output.
     <div  class="code">
         <div class="codeHead">
-            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png"></button>
-            <span class="tool-tip"> Copied!</span>
+            bash
+            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+            <span class="tool-tip"> Copied!</span></button>
         </div>
         <div class="codeContent">
             <code><pre>
-echo "Hello, $name!"
-            </pre></code>
+echo "Hello, $name!"</pre></code>
         </div >
     </div>
 <br><br>
-    <h2>CONTROL STRUCTURES</h2>
+    
+<h2>CONTROL STRUCTURES</h2>
     if Statement: Use if, elif, and else for conditional execution.
     <div  class="code">
         <div class="codeHead">
-            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png"></button>
-            <span class="tool-tip"> Copied!</span>
+            bash
+            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+            <span class="tool-tip"> Copied!</span></button>
         </div>
         <div class="codeContent">
             <code><pre>
@@ -104,30 +120,32 @@ if [ "$age" -ge 18 ]; then
     echo "You are an adult."
 else
     echo "You are a minor."
-fi        
-            </pre></code>
+fi</pre></code>
         </div >
     </div>
 
+    <br>
     for Loop: Iterate over a list of items.
     <div  class="code">
         <div class="codeHead">
-            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png"></button>
-            <span class="tool-tip"> Copied!</span>
+            bash
+            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+            <span class="tool-tip"> Copied!</span></button>
         </div>
         <div class="codeContent">
             <code><pre>
 for i in {1..5}; do
     echo "Iteration $i"
-done        
-            </pre></code>
+done</pre></code>
         </div >
     </div>
+    <br>
     while Loop: Execute a block of code while a condition is true.
     <div  class="code">
         <div class="codeHead">
-            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png"></button>
-            <span class="tool-tip"> Copied!</span>
+            bash
+            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+            <span class="tool-tip"> Copied!</span></button>
         </div>
         <div class="codeContent">
             <code><pre>
@@ -135,8 +153,7 @@ count=0
 while [ $count -lt 5 ]; do
     echo "Count: $count"
     ((count++))
-done                
-            </pre></code>
+done</pre></code>
         </div >
     </div>
     <br><br>
@@ -144,8 +161,9 @@ done
     Define functions to group code into reusable blocks.
     <div  class="code">
         <div class="codeHead">
-            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png"></button>
-            <span class="tool-tip"> Copied!</span>
+            bash
+            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+            <span class="tool-tip"> Copied!</span></button>
         </div>
         <div class="codeContent">
             <code><pre>
@@ -153,8 +171,7 @@ greet() {
     echo "Hello, $1!"
 }
 
-greet "Alice"                
-            </pre></code>
+greet "Alice"</pre></code>
         </div >
     </div>
 
@@ -163,8 +180,9 @@ greet "Alice"
     Perform file-related operations like reading, writing, and executing files.
     <div  class="code">
         <div class="codeHead">
-            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png"></button>
-            <span class="tool-tip"> Copied!</span>
+            bash
+            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+            <span class="tool-tip"> Copied!</span></button>
         </div>
         <div class="codeContent">
             <code><pre>
@@ -178,8 +196,7 @@ echo "Some data" > "output.txt"
 
 # Execute a file
 chmod +x script.sh
-./script.sh 
-            </pre></code>
+./script.sh</pre></code>
         </div >
     </div>
 
@@ -188,16 +205,16 @@ chmod +x script.sh
     Every command in Bash returns an exit status. You can check this status using the $? variable.
     <div  class="code">
         <div class="codeHead">
-            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png"></button>
-            <span class="tool-tip"> Copied!</span>
+            bash
+            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+            <span class="tool-tip"> Copied!</span></button>
         </div>
         <div class="codeContent">
             <code><pre>
 ls /nonexistent_dir
 if [ $? -ne 0 ]; then
     echo "Directory does not exist."
-fi                
-            </pre></code>
+fi</pre></code>
         </div >
     </div>
 
@@ -206,8 +223,9 @@ fi
     Here's a simple example of a Bash script that incorporates these concepts:
     <div  class="code">
         <div class="codeHead">
-            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png"></button>
-            <span class="tool-tip"> Copied!</span>
+            bash
+            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+            <span class="tool-tip"> Copied!</span></button>
         </div>
         <div class="codeContent">
             <code><pre>
@@ -230,8 +248,8 @@ elif [ "$name" == "Bob" ]; then
     echo "You're cool too!"
 else
     echo "Nice to meet you, $name."
-fi                
-            </pre></code>
+fi
+</pre></code>
         </div >
     </div>
 

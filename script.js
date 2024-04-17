@@ -9,9 +9,8 @@ window.addEventListener('scroll', () => {
     }
     lastScrollTop = scrollTop;
 });
-
 function copy(button) {
-    var copyText = button.parentElement.querySelector("#copy-content").innerText;
+    var copyText = button.closest('.code').querySelector(".codeContent").innerText;
     var textarea = document.createElement('textarea');
     textarea.id = 'temp_element';
     textarea.style.height = 0;
@@ -22,3 +21,4 @@ function copy(button) {
     document.execCommand('copy');
     document.body.removeChild(selector);
 }
+
