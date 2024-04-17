@@ -17,7 +17,15 @@
         displaying the primary prompt. The PS1 variable contains the value of the default prompt. </p>
 
         <br>
-        Just take out the terminal and try typing <div class="text-container">PS1="hello >> "</div>
+        Just take out the terminal and try typing 
+        <div  class="code">
+            <div class="codeHead">
+                bash
+                <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+                <span class="tool-tip"> Copied!</span></button>
+            </div>
+            <div class="codeContent"><pre>PS1="hello >> "</pre></div >
+        </div><br>
         Now you might understand how it works.
         <br>
         So If you put this command in your bashrc file, you get this shell prompt forever.
@@ -414,42 +422,68 @@
         <li><span class="code">\e[48;2;⟨r⟩;⟨g⟩;⟨b⟩m\] </span> Select RGB background color</li>
     </ul>
     <h3>Example</h3>
-    <div class="text-container">\[\e[38;2;0;30;30m\]</div> 
-    <div class="text-container">\[\e[48;2;0;30;30m\]</div> 
+    <div  class="code">
+        <div class="codeHead">
+            bash
+            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+            <span class="tool-tip"> Copied!</span></button>
+        </div>
+        <div class="codeContent"><pre>\[\e[38;2;0;30;30m\]</pre></div >
+    </div>
+    <br>
+    <div  class="code">
+        <div class="codeHead">
+            bash
+            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+            <span class="tool-tip"> Copied!</span></button>
+        </div>
+        <div class="codeContent"><pre>\[\e[48;2;0;30;30m\]</pre></div >
+    </div>
 
     <br><br>
     <h2>EXAMPLES</h2>
     <img src="../../resources/Shell-prompt-1.png" alt="">
-    <div class="copy-container">
-        <p id="copy-content"> PS1="╭─────────🮙🮙 NAME\n│\u 🯊 \w\n╰─>> "</p>
-        <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
-        <span class="tool-tip"> Copied!</span>
-        </button>
+    <div  class="code">
+        <div class="codeHead">
+            bash
+            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+            <span class="tool-tip"> Copied!</span></button>
+        </div>
+        <div class="codeContent"><pre>PS1="╭─────────🮙🮙 NAME\n│\u 🯊 \w\n╰─>> "</pre></div >
     </div>
     <hr>
     <img src="../../resources/Shell-prompt-2.png" alt="">
-    <div class="copy-container">
-        <p id="copy-content"> PS1="\[\e[32;1m╭─────────🮙🮙 NAME\n\e[32m│\e[36m\u \e[37m🯊\e[33m\w\n\e[32m╰─>> \e[0m\]"</p>
-        <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
-        <span class="tool-tip"> Copied!</span>
-    </button>
+    
+    <div  class="code">
+        <div class="codeHead">
+            bash
+            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+            <span class="tool-tip"> Copied!</span></button>
+        </div>
+        <div class="codeContent"><pre>PS1="\[\e[32;1m╭─────────🮙🮙 NAME\n\e[32m│\e[36m\u \e[37m🯊\e[33m\w\n\e[32m╰─>> \e[0m\]"</pre></div >
     </div>
     <hr>
     <img src="../../resources/Shell-prompt-3.png" alt="">
-    <div class="copy-container">
-        <p id="copy-content"> PS1="\[\e[32;1m\]╭─────────\[\e[37m\]🮙🮙\[\e[32m\]\[\e[47m\] NAME \[\e[0m\]🭬\n\[\e[32m\]│\[\e[47m\]\[\e[36m\]\u \[\e[0m\]🭬\[\e[0m\]\[\e[37m\] \[\e[33m\]\w\n\[\e[32m\]╰─>>\[\[\e[0m\]"</p>
-        <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
-        <span class="tool-tip"> Copied!</span>
-    </button>
+    <div  class="code">
+        <div class="codeHead">
+             bash
+            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+            <span class="tool-tip"> Copied!</span></button>
+        </div>
+        <div class="codeContent"><pre>PS1="\[\e[32;1m\]╭─────────\[\e[37m\]🮙🮙\[\e[32m\]\[\e[47m\] NAME \[\e[0m\]🭬\n\[\e[32m\]│\[\e[47m\]\[\e[36m\]\u \[\e[0m\]🭬\[\e[0m\]\[\e[37m\] \[\e[33m\]\w\n\[\e[32m\]╰─>>\[\[\e[0m\]"</pre></div >
     </div>
     <hr>
     <img src="../../resources/Shell-prompt-4.png" alt="">
-    <div class="copy-container">
-        <p id="copy-content"> PS1="\[\e[32;1m\]╭─────\[\e[38;2;200;200;160m\]🮙🮙\[\e[38;2;50;50;50;48;2;200;200;160m\]NAME \[\e[0;38;2;200;200;160m\]🭬\n\[\e[32m\]│\[\e[38;2;0;30;30m\]🭨\[\e[32;48;2;0;30;30;1m\] \u\[\e[0;42;38;2;0;30;30m\]🭬\[\e[0;42;38;2;0;40;40;1m\]\w \[\e[0;32m\]🭬\[\e[0;32m\]\n╰─>> \[\e[0m\]"</p>
-        <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
-        <span class="tool-tip"> Copied!</span>
-    </button>
+    
+    <div  class="code">
+        <div class="codeHead">
+            bash
+            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+            <span class="tool-tip"> Copied!</span></button>
+        </div>
+        <div class="codeContent"><pre>PS1="\[\e[32;1m\]╭─────\[\e[38;2;200;200;160m\]🮙🮙\[\e[38;2;50;50;50;48;2;200;200;160m\]NAME \[\e[0;38;2;200;200;160m\]🭬\n\[\e[32m\]│\[\e[38;2;0;30;30m\]🭨\[\e[32;48;2;0;30;30;1m\] \u\[\e[0;42;38;2;0;30;30m\]🭬\[\e[0;42;38;2;0;40;40;1m\]\w \[\e[0;32m\]🭬\[\e[0;32m\]\n╰─>> \[\e[0m\]"</pre></div >
     </div>
+    
     <hr>
 
     <h3>FANCY LETTERS</h3>
