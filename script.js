@@ -22,3 +22,38 @@ function copy(button) {
     document.body.removeChild(selector);
 }
 
+function openNav() {
+    var sidenav = document.getElementById("mySidenav");
+    sidenav.style.width = "250px";
+    document.getElementsByClassName("openbtn")[0].style.display = "none";
+    // Add event listener to close sidebar when clicking outside of it
+    if (window.innerWidth <= 600) {
+      document.addEventListener("click", closeNavOutside);
+    }
+  }
+  
+  function closeNav() {
+    var sidenav = document.getElementById("mySidenav");
+    sidenav.style.width = "0";
+    document.getElementsByClassName("openbtn")[0].style.display = "block";
+    // Remove event listener when sidebar is closed
+    document.removeEventListener("click", closeNavOutside);
+  }
+  
+  function toggleNav() {
+    var sidenav = document.getElementById("mySidenav");
+    if (sidenav.style.width === "250px") {
+      closeNav();
+    } else {
+      openNav();
+    }
+  }
+  
+  function closeNavOutside(event) {
+    var sidenav = document.getElementById("mySidenav");
+    var openbtn = document.getElementsByClassName("openbtn")[0];
+    if (!sidenav.contains(event.target) && event.target !== openbtn) {
+      closeNav();
+    }
+  }
+  

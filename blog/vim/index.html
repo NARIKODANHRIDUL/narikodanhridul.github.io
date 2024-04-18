@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>Vim</title>
+</head>
+
+<body>
+    <div class="sidenav" id="mySidenav">
+        <h1 style="margin-left: 5px;"> Index</h2>
+        <a href="#Basic Navigation">Basic Navigation</a>
+            <ul style="list-style-type: none;">
+                <li><a href="#Moving the Cursor">Moving the Cursor</a></li>
+                <li><a href="#Jumping between Lines">Jumping between Lines</a></li>
+                <li><a href="#Scrolling">Scrolling</a></li>
+            </ul>
+        <a href="#Editing Text">Editing Text</a>
+            <ul style="list-style-type: none;">
+                <li><a href="#Entering Insert Mode">Entering Insert Mode</a></li>
+                <li><a href="#Moving the Cursor">Moving the Cursor</a></li>
+                <li><a href="#Deleting Text">Deleting Text</a></li>
+            </ul>
+        <a href="#Saving and Quitting">Saving and Quitting</a>
+            <ul style="list-style-type: none;">
+                <li><a href="#Saving">Saving</a></li>
+                <li><a href="#Quitting without Saving">Quitting without Saving</a></li>
+            </ul>
+        <a href="#Advanced Techniques">Advanced Techniques</a>
+            <ul style="list-style-type: none;">
+                <li><a href="#Undo and Redo">Undo and Redo</a></li>
+                <li><a href="#Searching">Searching</a></li>
+                <li><a href="#Copying, Cutting, and Pasting">Copying, Cutting, and Pasting</a></li>
+                <li><a href="#Registers">Registers</a></li>
+            </ul>
+        <a href="#Visual Mode">Visual Mode</a>
+            <ul style="list-style-type: none;">
+                <li><a href="#Entering and exiting">Entering and exiting</a></li>
+                <li><a href="#Operations in Visual Mode">Operations in Visual Mode</a></li>
+                <li><a href="#Advanced Visual Mode Shortcuts">Advanced Visual Mode Shortcuts</a></li>
+            </ul>
+    </div>
+    
+      <div class="main">
+        <button class="openbtn" onclick="toggleNav()">☰</button>
+    <div class="mainHeading">VIM EDITOR</div>
+    <h1>Mastering VIM: A Comprehensive Tutorial</h1>
+    <p>VIM, short for "Vi IMproved," is a highly configurable text 
+        editor built to enable efficient text editing. It's a command-line based editor, meaning it doesn't 
+        rely on a graphical interface like other text editors such as Sublime Text or VSCode. VIM is 
+        pre-installed on most Unix-based systems (Linux, macOS), and it's available for Windows as well.
+    </p>
+
+    <br id="Basic Navigation">        
+    <h2 id="Moving the Cursor">Basic Navigation</h2>
+        <h3 >Moving the Cursor:</h3>
+    <table>
+        <thead>
+            <tr><th>Key</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>h, j, k, l</td><td>Move the cursor left, down, up, and right respectively.</td></tr>
+            <tr><td>w</td> <td>Move forward to the beginning of the next word.</td></tr>
+            <tr><td>b</td> <td>Move backward to the beginning of the previous word.</td></tr>
+            <tr><td>e</td> <td>Move to the end of the current word.</td></tr>
+       </tbody>
+    </table>
+
+    <br id="Jumping between Lines">
+   <h3>Jumping between Lines:</h3>
+    <table>
+        <thead>
+            <tr><th>Key</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>0</td><td>Move to the beginning of the current line.</td></tr>
+            <tr><td>^</td><td>Move to the first non-blank character of the line.</td></tr>
+            <tr><td>$</td><td>Move to the end of the current line.</td></tr>
+            <tr><td>gg</td><td>Move to the beginning of the file.</td></tr>
+            <tr><td>G</td><td>Move to the end of the file.</td></tr>
+       </tbody>
+    </table>
+
+    <br id="Scrolling">
+    <h3>Scrolling:</h3>
+    <table>
+        <thead>
+            <tr><th>Key</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Ctrl + u</td><td>Scroll up half a screen.</td></tr>
+            <tr><td>Ctrl + d</td><td>Scroll down half a screen.</td></tr>
+            <tr><td>Ctrl + b</td><td>Scroll up one full screen.</td></tr>
+            <tr><td>Ctrl + f</td><td>Scroll down one full screen.</td></tr>
+       </tbody>
+    </table>
+
+    <br id="Editing Text">
+    <h2 id="Entering Insert Mode">Editing Text</h2>
+    <h3 >Entering Insert Mode:</h3>
+    <table>
+        <thead>
+            <tr><th>Key</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>i</td> <td>Enter insert mode before the cursor.</td></tr>
+            <tr><td>a</td> <td>Enter insert mode after the cursor.</td></tr>
+            <tr><td>I</td> <td>Enter insert mode at the beginning of the line.</td></tr>
+            <tr><td>A</td> <td>Enter insert mode at the end of the line.</td></tr>
+            <tr><td>o</td> <td>Open a new line below the current line and enter insert mode.</td></tr>
+            <tr><td>O</td> <td>Open a new line above the current line and enter insert mode.</td></tr>
+       </tbody>
+    </table>
+
+    <br id="Editing Text">
+    <h3>Moving the Cursor:</h3>
+    <table>
+        <thead>
+            <tr><th>Key</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Esc</td><td> Exit insert mode and return to normal mode.</td></tr>
+       </tbody>
+    </table>
+
+    <br id="Deleting Text">
+    <h3 >Deleting Text:</h3>
+    <table>
+        <thead>
+            <tr><th>Key</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>x</td> <td>Delete the character under the cursor.</td></tr>
+            <tr><td>dw</td> <td>Delete from the cursor to the beginning of the next word.</td></tr>
+            <tr><td>d$</td> <td>Delete from the cursor to the end of the line.</td></tr>
+            <tr><td>dd</td> <td>Delete the current line.</td></tr>
+            <tr><td>D</td> <td>Delete from the cursor to the end of the line</td></tr>
+       </tbody>
+    </table>
+
+    <br id="Saving and Quitting">
+    <h2 id="Saving">Saving and Quitting</h2>
+    <h3 >Saving:</h3>
+    <table>
+        <thead>
+            <tr><th>Key</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>:w </td> <td>Save changes to the file.</td></tr>
+            <tr><td>:wq </td><td>Save changes and quit.</td></tr>
+            <tr><td>:x </td> <td>Save changes and quit (same as :wq).</td></tr>
+            <tr><td>ZZ </td> <td>Save changes and quit (if changes have been made).</td></tr>
+       </tbody>
+    </table>
+
+    <br id="Quitting without Saving">
+    <h3 >Quitting without Saving:</h3>
+    <table>
+        <thead>
+            <tr><th>Key</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>:q!</td> <td> Quit without saving changes.</td></tr>
+            <tr><td>:qa!</td><td> Quit all open files without saving changes.</td></tr>
+       </tbody>
+    </table>
+
+    <br id="Advanced Techniques">
+    <h2 id="Undo and Redo">Advanced Techniques</h2>    
+    <h3 >Undo and Redo:</h3>
+    <table>
+        <thead>
+            <tr><th>Key</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>u</td> <td>Undo the last change.</td></tr>
+            <tr><td>Ctrl + r</td> <td>Redo the last undone change.</td></tr>
+       </tbody>
+    </table>
+
+    <br id="Searching">
+    <h3 >Searching:</h3>
+    <table>
+        <thead>
+            <tr><th>Key</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>/search_term </td><td>Search forward for search_term.</td></tr>
+            <tr><td>?search_term </td><td>Search backward for search_term.</td></tr>
+            <tr><td>n </td><td>Move to the next occurrence of the search term.</td></tr>
+            <tr><td>N </td><td>Move to the previous occurrence of the search term.</td></tr>
+       </tbody>
+    </table>
+
+    <br id="Copying, Cutting, and Pasting">
+    <h3 >Copying, Cutting, and Pasting:</h3>
+    <table>
+        <thead>
+            <tr><th>Key</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>yy</td> <td>Copy the current line.</td></tr>
+            <tr><td>dd</td> <td>Cut the current line.</td></tr>
+            <tr><td>p</td> <td>Paste the copied or cut text after the cursor.</td></tr>
+            <tr><td>P</td> <td>Paste the copied or cut text before the cursor.</td></tr>
+       </tbody>
+    </table>
+    
+    <br id="Registers">
+    <h3 >Registers</h3>
+    <table>
+        <thead>
+            <tr><th>Key</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>"[regNum]yy</td><td>Yank (copy) text into register [regNum].</td></tr>
+            <tr><td>"[regNum]p</td><td>Paste text from register [regNum].</td></tr>
+            <tr><td>:reg</td><td>Display contents of all registers.</td></tr>
+            <tr><td>:reg [regNum]</td><td>Display contents of a specific register.</td></tr>
+       </tbody>
+    </table>
+    <br id="Visual Mode">
+    <h2 >Visual Mode</h2>
+    Visual mode in Vim is a powerful feature that allows you to select text for editing, copying, cutting, 
+    or formatting. When you enter Visual mode, you can visually highlight text using movement commands. 
+    Once you've selected the desired text, you can perform various operations on it.
+    <br id="Entering and exiting">
+    <h3>Entering and exiting:</h3>
+    <table>
+        <thead>
+            <tr><th>Key</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>v</td><td>Enter Visual mode character-wise. </td></tr>
+            <tr><td>V</td><td>Enter Visual mode line-wise. </td></tr>
+            <tr><td>Ctrl + v</td><td>Enter Visual block wise. Select in a rectangular block shape by moving the cursor.</td></tr>
+            <tr><td>Esc</td><td>Pressing Esc exits Visual mode without performing any operation.</td></tr>
+        </tbody>
+    </table>
+<br  id="Operations in Visual Mode">
+    <h3>Operations in Visual Mode:</h3>
+    <table>
+        <thead>
+            <tr><th>Key</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>y</td><td>Yank (copy) the selected text.</td></tr>
+            <tr><td>d</td><td>Delete (cut) the selected text.</td></tr>
+            <tr><td>~</td><td>Toggle case of the selected text.</td></tr>
+            <tr><td>**></td><td>Indent the selected text.</td></tr>
+            <tr><td><</td><td>Unindent the selected text.</td></tr>
+            <tr><td>c</td><td>Change (replace) the selected text.</td></tr>
+        </tbody>
+    </table>
+   <br id="Advanced Visual Mode Shortcuts">
+    <h3 >Advanced Visual Mode Shortcuts:</h3>
+    <table>
+        <thead>
+            <tr><th>Key</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>gv</td><td>Reselect the last visual selection.</td></tr>
+            <tr><td>o</td><td>Move the cursor to the other end of the selected text.</td></tr>
+            <tr><td>U</td><td>Convert the selected text to uppercase.</td></tr>
+            <tr><td>u</td><td>Convert the selected text to lowercase.</td></tr>
+            <tr><td>:s</td><td>Perform a substitution on the selected text.</td></tr>
+        </tbody>
+    </table>
+
+    <div class="end"> --- End of Blog --- </div>
+</div>
+    <script src="../../script.js"></script>
+</body>
+
+</html>

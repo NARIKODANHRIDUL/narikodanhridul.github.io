@@ -28,9 +28,15 @@ body {
   
   h1{
     line-height: 30px;
+    margin: 0px;
+    padding: 0px;
   }
   h2{
+  line-height: 5px;
+}
+h3{
   line-height: 0px;
+  color: #cec;
 }
 
 /* styles.css */
@@ -113,6 +119,8 @@ pre{
 table {
   border-radius: 30px;
   padding: 5px;
+  min-width: 600px;
+  overflow-y: hidden;
   background-color: #111;
 }
   
@@ -165,22 +173,107 @@ img{
     margin-right: 5px;
     transition: 0.1s;
   }
+  .sidenav {
+    height: 100vh;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    padding-top: 0px;
+    margin-top: 0px;
+    background-color: #0f0f0f;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.2s;
+    /* -ms-overflow-style: none; scrollbar-width: none;   */
+  }
 
-  @media only screen and (max-width: 1114px){
+.sidenav::-webkit-scrollbar { 
+    background-color: transparent;
+    width: 5px;
+}
+.sidenav::-webkit-scrollbar-thumb { 
+    background-color: #222;
+    border-radius: 100px;
+}
+
+  .sidenav a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    color: #818181;
+    display: block;
+    margin: 0px 0px 0px 5px;
+    padding: 0px;
+  }
+  .sidenav a:hover {
+    color: #dfd;
+  }
+  .sidenav ul li a{
+    font-size: 15px;
+    margin: 0px;
+    padding: 0px;
+  }
+  .sidenav ul{
+    margin: 0px 0px 0px 30px;
+    padding: 0px;
+  }
   
-  body{
+
+  .main {
+    margin-left: 250px; /* Same width as the sidebar */
+    padding: 0px 10px;
+  }
+  
+  /* Style the open button */
+  .openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    height: 50px;
+    width: 50px;
+    background: #a9d99533;
+    border-radius: 35px;
+    color: white;
     padding: 10px;
-  }    
-
-  td:nth-child(2), td:nth-child(3){
-      font-size: small;
+    position: fixed;
+    top: 0;
+    left: 0;
   }
-
-  .colors td{
-    font-size: medium !important;
-  }
-  .code{
-    min-width: 95vw !important;
-    width: 95vw;
-  }
-  }
+  
+    @media only screen and (max-width: 1114px){
+    
+    body{
+      padding: 10px;
+    }    
+  
+    td:nth-child(2), td:nth-child(3){
+        font-size: small;
+    }
+  
+    .colors td{
+      font-size: medium !important;
+    }
+    .code{
+      min-width: 95vw !important;
+      width: 95vw;
+    }
+    }
+    @media only screen and (max-width: 600px){
+      table{
+        min-width: 100px;
+        width: 95vw;
+      }
+      .sidenav {
+        width: 0;
+      }
+      .main {
+        margin-left: 0;
+      }
+      .openbtn {
+        display: block;
+      }
+    }
