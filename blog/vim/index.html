@@ -22,6 +22,7 @@
                 <li><a href="#Entering Insert Mode">Entering Insert Mode</a></li>
                 <li><a href="#Moving the Cursor">Moving the Cursor</a></li>
                 <li><a href="#Deleting Text">Deleting Text</a></li>
+                <li><a href="#Undo and Redo">Undo and Redo</a></li>
             </ul>
         <a href="#Saving and Quitting">Saving and Quitting</a>
             <ul style="list-style-type: none;">
@@ -30,10 +31,10 @@
             </ul>
         <a href="#Advanced Techniques">Advanced Techniques</a>
             <ul style="list-style-type: none;">
-                <li><a href="#Undo and Redo">Undo and Redo</a></li>
                 <li><a href="#Searching">Searching</a></li>
                 <li><a href="#Copying, Cutting, and Pasting">Copying, Cutting, and Pasting</a></li>
                 <li><a href="#Registers">Registers</a></li>
+                <li><a href="#Splitting Screen">Splitting Screen</a></li>
             </ul>
         <a href="#Visual Mode">Visual Mode</a>
             <ul style="list-style-type: none;">
@@ -139,6 +140,18 @@
             <tr><td>D</td> <td>Delete from the cursor to the end of the line</td></tr>
        </tbody>
     </table>
+    <br id="Undo and Redo">
+    <h3 >Undo and Redo:</h3>
+    <table>
+        <thead>
+            <tr><th>Key</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>u</td> <td>Undo the last change.</td></tr>
+            <tr><td>Ctrl + r</td> <td>Redo the last undone change.</td></tr>
+       </tbody>
+    </table>
+
 
     <br id="Saving and Quitting">
     <h2 id="Saving">Saving and Quitting</h2>
@@ -168,19 +181,7 @@
     </table>
 
     <br id="Advanced Techniques">
-    <h2 id="Undo and Redo">Advanced Techniques</h2>    
-    <h3 >Undo and Redo:</h3>
-    <table>
-        <thead>
-            <tr><th>Key</th><th>Purpose</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>u</td> <td>Undo the last change.</td></tr>
-            <tr><td>Ctrl + r</td> <td>Redo the last undone change.</td></tr>
-       </tbody>
-    </table>
-
-    <br id="Searching">
+    <h2 id="Searching">Advanced Techniques</h2>    
     <h3 >Searching:</h3>
     <table>
         <thead>
@@ -220,6 +221,27 @@
             <tr><td>:reg</td><td>Display contents of all registers.</td></tr>
             <tr><td>:reg [regNum]</td><td>Display contents of a specific register.</td></tr>
        </tbody>
+    </table>
+   <br id="Splitting Screen">
+    <h3 >Splitting Screen:</h3>
+    Anything starting with ':' is a command. After typing the command press RETURN to see the changes. Also 
+    the split screen you can quit from the split screen of your choice by changing the focus to the desired 
+    split screen and then using the normal <a href="#Saving and Quitting">saving and quitting</a> commands to exit.
+        <table>
+        <thead>
+            <tr><th>Key</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>:split [FILENAME]</td><td>split horizontally with [FILENAME].</td></tr>
+            <tr><td>:vsplit [FILENAME]</td><td>split vertically with [FILENAME].</td></tr>
+            <tr><td>Ctrl + w + ARROW_KEY</td><td>Move focus to desired splitted screen in the given direction.</td></tr>
+            <tr><td>Ctrl + w + <</td> <td>Decrease the width of the split (vertical split).</td></tr>
+            <tr><td>Ctrl + w + ></td> <td>Increase the width of the split (vertical split).</td></tr>
+            <tr><td>Ctrl + w + -</td> <td>Decrease the height of the split (horizontal split).</td></tr>
+            <tr><td>Ctrl + w + +</td> <td>Increase the height of the split (horizontal split).</td></tr>
+            <tr><td>Ctrl + w + w</td> <td>Cycle forward through open splits.</td></tr>
+            <tr><td>Ctrl + w + W</td> <td>Cycle backward through open splits.</td></tr>
+        </tbody>
     </table>
     <br id="Visual Mode">
     <h2 >Visual Mode</h2>
