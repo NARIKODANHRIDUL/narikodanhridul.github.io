@@ -37,11 +37,12 @@
                 <li><a href="#Splitting Screen">Splitting Screen</a></li>
             </ul>
         <a href="#Visual Mode">Visual Mode</a>
-            <ul style="list-style-type: none;">
-                <li><a href="#Entering and exiting">Entering and exiting</a></li>
-                <li><a href="#Operations in Visual Mode">Operations in Visual Mode</a></li>
-                <li><a href="#Advanced Visual Mode Shortcuts">Advanced Visual Mode Shortcuts</a></li>
-            </ul>
+        <ul style="list-style-type: none;">
+            <li><a href="#Entering and exiting">Entering and exiting</a></li>
+            <li><a href="#Operations in Visual Mode">Operations in Visual Mode</a></li>
+            <li><a href="#Advanced Visual Mode Shortcuts">Advanced Visual Mode Shortcuts</a></li>
+        </ul>
+        <a href="#Vimrc File">Vimrc File</a>
     </div>
     
       <div class="main">
@@ -291,6 +292,59 @@
         </tbody>
     </table>
 
+    <br id="Vimrc File">
+    <h2>Vimrc File</h2>
+    These are the configuration for making the vim better. Anything written after " is a comment.
+    <div  class="code">
+        <div class="codeHead">
+            .vimrc
+            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+            <span class="tool-tip"> Copied!</span></button>
+        </div>
+        <div class="codeContent">
+            <pre><code>
+"set number
+syntax on
+set nocompatible
+set ts=4 sw=4 smartindent
+set incsearch
+color elflord
+
+nnoremap &lt;S-Up&gt; :m .-2&lt;CR&gt;==
+vnoremap &lt;S-Up&gt; :m '&lt;-2&lt;CR&gt;gv==gv
+nnoremap &lt;S-Down&gt; :m .+1&lt;CR&gt;==
+vnoremap &lt;S-Down&gt; :m '&gt;+1&lt;CR&gt;gv==gv
+
+"wont work for multiple lines in visual mode
+nnoremap &lt;A-Up&gt; :t-&lt;CR&gt;
+vnoremap &lt;A-Up&gt; :t'&lt;-CR&gt;gv==gv
+nnoremap &lt;A-Down&gt; ddPp
+vnoremap &lt;A-Down&gt; ddPp
+
+" Enable auto completion menu after pressing TAB.
+set wildmenu
+" Make wildmenu behave like similar to Bash completion.
+set wildmode=list:longest
+" There are certain files that we would never want to edit with Vim.
+" Wildmenu will ignore files with these extensions.
+set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
+
+
+" STATUS LINE ------------------------------------------------------------ {{{
+" Clear status line when vimrc is reloaded.
+set statusline=
+" Status line left side.
+set statusline+=\ %F\ %M\ %Y\ %R
+" Use a divider to separate the left side from the right side.
+set statusline+=%=
+" Status line right side.
+set statusline+=\ ascii:\ %b\ hex:\ 0x%B\ row:\ %l\ col:\ %c\ percent:\ %p%%
+" Show the status on the second to last line.
+set laststatus=2
+" }}}</pre></code>
+        </div >
+    </div>
+    <br>
     <div class="end"> --- End of Blog --- </div>
 </div>
     <script src="../../script.js"></script>
