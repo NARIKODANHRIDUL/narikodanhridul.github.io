@@ -244,6 +244,10 @@ img{
     left: 0;
   }
   
+  hr{
+    margin: 5px;
+    border-color: #444;
+  }
     @media only screen and (max-width: 1114px){
     
     body{

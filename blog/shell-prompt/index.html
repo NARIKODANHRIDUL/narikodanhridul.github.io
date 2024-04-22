@@ -9,7 +9,25 @@
 </head>
 
 <body>
-
+    <div class="sidenav" id="mySidenav">
+        <h1 style="margin-left: 5px;"> Index</h2>
+        
+        <hr><a onclick="closeNav()" href="#Key Points">Key Points</a>
+        <a onclick="closeNav()" href="#Escape sequences and Color Codes">Escape sequences and Color Codes</a>
+        <ul style="list-style-type: none;">
+            <li><a onclick="closeNav()" href="#Commonly Used Escape Sequence">Commonly Used Escape Sequence</a></li>
+            <li><a onclick="closeNav()" href="#Graphics Redention Parameter">Graphics Redention Parameter</a></li>
+            <li><a onclick="closeNav()" href="#Background and Text Color">Background and Text Color</a></li>
+            <li><a onclick="closeNav()" href="#Format">Format</a></li>
+            <li><a onclick="closeNav()" href="#Example">Example</a></li>
+        </ul>
+        <hr><a onclick="closeNav()" href="#PS1 Examples">PS1 Examples</a>
+        <hr><a onclick="closeNav()" href="#Fancy Letters">Fancey Letters</a>
+        <hr><a onclick="closeNav()" href="#Resources">Resources</a>
+        <hr>
+    </div>
+    
+      <div class="main"><button class="openbtn" onclick="toggleNav()">☰</button>
     <div class="mainHeading">SHELL PROMPT</div>
     <h1>SHELL PROMPT CUSTOMISATION USING <strong>PS1</strong></h1>
     <p>The special shell variable is used to control the bash prompt. These shell variables are PS1, PS2, PS3, and PS4.
@@ -31,7 +49,8 @@
         So If you put this command in your bashrc file, you get this shell prompt forever.
         <br>
         You can have fancy charectors and different colors in your prompt. You can also fetch some information like username, time, current working directory etc as well.  
-        <h2>KEYPOINTS</h2>
+        <br id="Key Points">
+        <h2 >Key Points</h2>
         <ul>
             <li>PS1=" "</li>
             <li>replace old PS1 with new one in ~/.bashrc</li>
@@ -42,386 +61,120 @@
                 </ul>
             </li>
         </ul>
-    <h3>COMMONLY USED ESCAPE SEQUENCE</h3>
-
+        <br  id="Escape sequences and Color Codes">
+    <h2 id="Commonly Used Escape Sequence">Escape sequences and Color Codes</h2>
+    <h3>Commonly Used Escape Sequence</h3>
     <table>
         <thead>
-            <tr>
-                <th>backlash-escaped Character</th>
-                <th>purpose</th>
-            </tr>
+            <tr><th>backlash-escaped Character</th><th>purpose</th></tr>
         </thead>
         <tbody>
-            <tr>
-                <td>\u</td>
-                <td>It is used to display the current username.</td>
-            </tr>
-            <tr>
-                <td>\h</td>
-                <td>It is used to the name of the computer name.</td>
-            </tr>
-            <tr>
-                <td>\H</td>
-                <td>It is used to the name of the hostname.</td>
-            </tr>
-            <tr>
-                <td>\d</td>
-                <td>It is used to display the date with weekday name, month name, and date.</td>
-            </tr>
-            <tr>
-                <td>\w</td>
-                <td>It is used to display the full path of the current working directory.</td>
-            </tr>
-            <tr>
-                <td>\W</td>
-                <td>It is used to display the last fragment of the current working directory.</td>
-            </tr>
-            <tr>
-                <td>\t</td>
-                <td>It is used to display the current time in 24-hour format.</td>
-            </tr>
-            <tr>
-                <td>\T</td>
-                <td>It is used to display the current time in 12-hour format.</td>
-            </tr>
-            <tr>
-                <td>\@</td>
-                <td>It is used to display the current time in 12-hour format with AM/PM.</td>
-            </tr>
-            <tr>
-                <td>\n</td>
-                <td>JIt is used to add the new line.</td>
-            </tr>
-            <tr>
-                <td>\e</td>
-                <td>It is used to add an ASCII escape character.</td>
-            </tr>
-            <tr>
-                <td>\v</td>
-                <td>It is used to display the version of the bash.</td>
-            </tr>
-            <tr>
-                <td>Jill</td>
-                <td>Smith</td>
-            </tr>
-            <tr>
-                <td>\V</td>
-                <td>It is used to display the version of the bash with patch level.</td>
-            </tr>
+            <tr><td>\u</td><td>It is used to display the current username.</td></tr>
+            <tr><td>\h</td><td>It is used to the name of the computer name.</td></tr>
+            <tr><td>\H</td><td>It is used to the name of the hostname.</td></tr>
+            <tr><td>\d</td><td>It is used to display the date with weekday name, month name, and date.</td></tr>
+            <tr><td>\w</td><td>It is used to display the full path of the current working directory.</td></tr>
+            <tr><td>\W</td><td>It is used to display the last fragment of the current working directory.</td></tr>
+            <tr><td>\t</td><td>It is used to display the current time in 24-hour format.</td></tr>
+            <tr><td>\T</td><td>It is used to display the current time in 12-hour format.</td></tr>
+            <tr><td>\@</td><td>It is used to display the current time in 12-hour format with AM/PM.</td></tr>
+            <tr><td>\n</td><td>JIt is used to add the new line.</td></tr>
+            <tr><td>\e</td><td>It is used to add an ASCII escape character.</td></tr>
+            <tr><td>\v</td><td>It is used to display the version of the bash.</td></tr>
+            <tr><td>Jill</td><td>Smith</td></tr>
+            <tr><td>\V</td><td>It is used to display the version of the bash with patch level.</td></tr>
         </tbody>
     </table>
 
-    <br><br>
+    <br><br  id="Graphics Redention Parameter">
 
-    <h3>SELECT GRAPHICS REDENTION PARAMETER</h3>
+    <h3>Graphics Redention Parameter</h3>
     <table>
         <thead>
-            <tr>
-                <th>n</th>
-                <th >Name</th>
-                <th >Note</th>
-            </tr>
+            <tr><th>n</th><th >Name</th><th >Note</th></tr>
         </thead>
         <tbody>
-            <tr>
-                <td>0</td>
-                <td >Reset or normal</td>
-                <td >All attributes off</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td >Bold or increased intensity</td>
-                <td >As with faint, the color change is a PC (SCO / CGA) invention.[38][better
-                    source needed]</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td >Faint, decreased intensity, or dim</td>
-                <td >May be implemented as a light font weight like bold.[39]</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td >Italic</td>
-                <td >Not widely supported. Sometimes treated as inverse or blink.[38]</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td >Underline</td>
-                <td >Style extensions exist for Kitty, VTE, mintty and iTerm2.[40][41]</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td >Slow blink</td>
-                <td >Sets blinking to less than 150 times per minute</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td >Rapid blink</td>
-                <td >MS-DOS ANSI.SYS, 150+ per minute; not widely supported</td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td >Reverse video or invert</td>
-                <td >Swap foreground and background colors; inconsistent emulation[42]</td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td >Conceal or hide</td>
-                <td >Not widely supported.</td>
-            </tr>
-            <tr>
-                <td>9</td>
-                <td >Crossed-out, or strike</td>
-                <td >Characters legible but marked as if for deletion. Not supported in
-                    Terminal.app</td>
-            </tr>
-            <tr>
-                <td>10</td>
-                <td >Primary (default) font</td>
-                <td > - </td>
-            </tr>
-            <tr>
-                <td>11–19</td>
-                <td >Alternative font</td>
-                <td >Select alternative font n − 10</td>
-            </tr>
-            <tr>
-                <td>20</td>
-                <td >Fraktur (Gothic)</td>
-                <td >Rarely supported</td>
-            </tr>
-            <tr>
-                <td>21</td>
-                <td >Doubly underlined; or: not bold</td>
-                <td >Double-underline per ECMA-48,[5]: 8.3.117  but instead disables bold
+            <tr><td>0</td><td >Reset or normal</td><td >All attributes off</td></tr>
+            <tr><td>1</td><td >Bold or increased intensity</td><td >As with faint, the color change is a PC (SCO / CGA) invention.[38][better
+                    source needed]</td></tr>
+            <tr><td>2</td><td >Faint, decreased intensity, or dim</td><td >May be implemented as a light font weight like bold.[39]</td></tr>
+            <tr><td>3</td><td >Italic</td><td >Not widely supported. Sometimes treated as inverse or blink.[38]</td></tr>
+            <tr><td>4</td><td >Underline</td><td >Style extensions exist for Kitty, VTE, mintty and iTerm2.[40][41]</td></tr>
+            <tr><td>5</td><td >Slow blink</td><td >Sets blinking to less than 150 times per minute</td></tr>
+            <tr><td>6</td><td >Rapid blink</td><td >MS-DOS ANSI.SYS, 150+ per minute; not widely supported</td></tr>
+            <tr><td>7</td><td >Reverse video or invert</td><td >Swap foreground and background colors; inconsistent emulation[42]</td></tr>
+            <tr><td>8</td><td >Conceal or hide</td><td >Not widely supported.</td></tr>
+            <tr><td>9</td><td >Crossed-out, or strike</td><td >Characters legible but marked as if for deletion. Not supported in Terminal.app</td></tr>
+            <tr><td>10</td><td >Primary (default) font</td><td > - </td></tr>
+            <tr><td>11–19</td><td >Alternative font</td><td >Select alternative font n − 10</td></tr>
+            <tr><td>20</td><td >Fraktur (Gothic)</td><td >Rarely supported</td></tr>
+            <tr><td>21</td><td >Doubly underlined; or: not bold</td><td >Double-underline per ECMA-48,[5]: 8.3.117  but instead disables bold
                     intensity on several terminals, including in the Linux kernel&#39;s console before version 4.17.
-                </td>
-            </tr>
-            <tr>
-                <td>22</td>
-                <td >Normal intensity</td>
-                <td >Neither bold nor faint; color changes where intensity is implemented as
-                    such.</td>
-            </tr>
-            <tr>
-                <td>23</td>
-                <td >Neither italic, nor blackletter</td>
-                <td > - </td>
-            </tr>
-            <tr>
-                <td>24</td>
-                <td >Not underlined</td>
-                <td >Neither singly nor doubly underlined</td>
-            </tr>
-            <tr>
-                <td>25</td>
-                <td >Not blinking</td>
-                <td >Turn blinking off</td>
-            </tr>
-            <tr>
-                <td>26</td>
-                <td >Proportional spacing</td>
-                <td >ITU T.61 and T.416, not known to be used on terminals</td>
-            </tr>
-            <tr>
-                <td>27</td>
-                <td >Not reversed</td>
-                <td > - </td>
-            </tr>
-            <tr>
-                <td>28</td>
-                <td >Reveal</td>
-                <td >Not concealed</td>
-            </tr>
-            <tr>
-                <td>29</td>
-                <td >Not crossed out</td>
-                <td >Given in above table</td>
-            </tr>
-            <tr>
-                <td>30–37</td>
-                <td >Set foreground color</td>
-                <td >Given in above table</td>
-            </tr>
-            <tr>
-                <td>38</td>
-                <td >Set foreground color</td>
-                <td >Next arguments are 5;n or 2;r;g;b</td>
-            </tr>
-            <tr>
-                <td>39</td>
-                <td >Default foreground color</td>
-                <td >Implementation defined (according to standard)</td>
-            </tr>
-            <tr>
-                <td>40–47</td>
-                <td >Set background color</td>
-                <td >Given in above table</td>
-            </tr>
-            <tr>
-                <td>48</td>
-                <td >Set background color</td>
-                <td >Next arguments are 5;n or 2;r;g;b</td>
-            </tr>
-            <tr>
-                <td>49</td>
-                <td >Default background color</td>
-                <td >Implementation defined (according to standard)</td>
-            </tr>
-            <tr>
-                <td>50</td>
-                <td >Disable proportional spacing</td>
-                <td >T.61 and T.416</td>
-            </tr>
-            <tr>
-                <td>51</td>
-                <td >Framed</td>
-                <td >Implemented as &quot;emoji variation selector&quot; in mintty</td>
-            </tr>
-            <tr>
-                <td>52</td>
-                <td >Encircled</td>
-                <td >Implemented as &quot;emoji variation selector&quot; in mintty</td>
-            </tr>
-            <tr>
-                <td>53</td>
-                <td >Overlined</td>
-                <td >Not supported in Terminal.app</td>
-            </tr>
-            <tr>
-                <td>54</td>
-                <td >Neither framed nor encircled</td>
-                <td > - </td>
-            </tr>
-            <tr>
-                <td>55</td>
-                <td >Not overlined</td>
-                <td > - </td>
-            </tr>
-            <tr>
-                <td>58</td>
-                <td >Set underline color</td>
-                <td >Not in standard; implemented in Kitty, VTE, mintty, and iTerm2. Next
-                    arguments are 5;n or 2;r;g;b.</td>
-            </tr>
-            <tr>
-                <td>59</td>
-                <td >Default underline color</td>
-                <td >Not in standard; implemented in Kitty, VTE, mintty, and iTerm2. `</td>
-            </tr>
-            <tr>
-                <td>60</td>
-                <td >Ideogram underline or right side line</td>
-                <td >Rarely supported</td>
-            </tr>
-            <tr>
-                <td>61</td>
-                <td >Ideogram double underline, or double line on the right side</td>
-                <td >Rarely supported</td>
-            </tr>
-            <tr>
-                <td>62</td>
-                <td >Ideogram overline or left side line</td>
-                <td >Rarely supported</td>
-            </tr>
-            <tr>
-                <td>63</td>
-                <td >Ideogram double overline, or double line on the left side</td>
-                <td >Rarely supported</td>
-            </tr>
-            <tr>
-                <td>64</td>
-                <td >Ideogram stress marking</td>
-                <td >Rarely supported</td>
-            </tr>
-            <tr>
-                <td>65</td>
-                <td >No ideogram attributes</td>
-                <td >Reset the effects of all of 60-64</td>
-            </tr>
-            <tr>
-                <td>73</td>
-                <td >Superscript</td>
-                <td >Implemented only in mintty</td>
-            </tr>
-            <tr>
-                <td>74</td>
-                <td >Subscript</td>
-                <td >Implemented only in mintty</td>
-            </tr>
-            <tr>
-                <td>75</td>
-                <td >Neither superscript nor subscript</td>
-                <td >Implemented only in mintty</td>
-            </tr>
-            <tr>
-                <td>90–97</td>
-                <td >Set bright foreground color</td>
-                <td >Not in standard; originally implemented by aixterm</td>
-            </tr>
-            <tr>
-                <td>100–107</td>
-                <td >Set bright background color</td>
-                <td >Not in standard; originally implemented by aixterm</td>
-            </tr>
+                </td></tr>
+            <tr><td>22</td><td >Normal intensity</td><td >Neither bold nor faint; color changes where intensity is implemented as
+                    such.</td></tr>
+            <tr><td>23</td><td >Neither italic, nor blackletter</td><td > - </td></tr>
+            <tr><td>24</td><td >Not underlined</td><td >Neither singly nor doubly underlined</td></tr>
+            <tr><td>25</td><td >Not blinking</td><td >Turn blinking off</td></tr>
+            <tr><td>26</td><td >Proportional spacing</td><td >ITU T.61 and T.416, not known to be used on terminals</td></tr>
+            <tr><td>27</td><td >Not reversed</td><td > - </td></tr>
+            <tr><td>28</td><td >Reveal</td><td >Not concealed</td></tr>
+            <tr><td>29</td><td >Not crossed out</td><td >Given in above table</td></tr>
+            <tr><td>30–37</td><td >Set foreground color</td><td >Given in above table</td></tr>
+            <tr><td>38</td><td >Set foreground color</td><td >Next arguments are 5;n or 2;r;g;b</td></tr>
+            <tr><td>39</td><td >Default foreground color</td><td >Implementation defined (according to standard)</td></tr>
+            <tr><td>40–47</td><td >Set background color</td><td >Given in above table</td></tr>
+            <tr><td>48</td><td >Set background color</td><td >Next arguments are 5;n or 2;r;g;b</td></tr>
+            <tr><td>49</td><td >Default background color</td><td >Implementation defined (according to standard)</td></tr>
+            <tr><td>50</td><td >Disable proportional spacing</td><td >T.61 and T.416</td></tr>
+            <tr><td>51</td><td >Framed</td><td >Implemented as &quot;emoji variation selector&quot; in mintty</td></tr>
+            <tr><td>52</td><td >Encircled</td><td >Implemented as &quot;emoji variation selector&quot; in mintty</td></tr>
+            <tr><td>53</td><td >Overlined</td><td >Not supported in Terminal.app</td></tr>
+            <tr><td>54</td><td >Neither framed nor encircled</td><td > - </td></tr>
+            <tr><td>55</td><td >Not overlined</td><td > - </td></tr>
+            <tr><td>58</td><td >Set underline color</td><td >Not in standard; implemented in Kitty, VTE, mintty, and iTerm2. Next
+                    arguments are 5;n or 2;r;g;b.</td></tr>
+            <tr><td>59</td><td >Default underline color</td><td >Not in standard; implemented in Kitty, VTE, mintty, and iTerm2. `</td></tr>
+            <tr><td>60</td><td >Ideogram underline or right side line</td><td >Rarely supported</td></tr>
+            <tr><td>61</td><td >Ideogram double underline, or double line on the right side</td><td >Rarely supported</td></tr>
+            <tr><td>62</td><td >Ideogram overline or left side line</td><td >Rarely supported</td></tr>
+            <tr><td>63</td><td >Ideogram double overline, or double line on the left side</td><td >Rarely supported</td></tr>
+            <tr><td>64</td><td >Ideogram stress marking</td><td >Rarely supported</td></tr>
+            <tr><td>65</td><td >No ideogram attributes</td><td >Reset the effects of all of 60-64</td></tr>
+            <tr><td>73</td><td >Superscript</td><td >Implemented only in mintty</td></tr>
+            <tr><td>74</td><td >Subscript</td><td >Implemented only in mintty</td></tr>
+            <tr><td>75</td><td >Neither superscript nor subscript</td><td >Implemented only in mintty</td></tr>
+            <tr><td>90–97</td><td >Set bright foreground color</td><td >Not in standard; originally implemented by aixterm</td></tr>
+            <tr><td>100–107</td><td >Set bright background color</td><td >Not in standard; originally implemented by aixterm</td></tr>
         </tbody>
     </table>
 
-    <br><br>
+    <br><br id="Background and Text Color">
     
-    <h3>COLORS - background and text color</h3>
+    <h3>Background and Text Color</h3>
     <table class="colors">
         <thead>
-            <tr>
-                <th>Background Colors</th>
-                <th>Foreground Colors</th>
-            </tr>
+            <tr><th>Background Colors</th><th>Foreground Colors</th></tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Black = 40</td>
-                <td>Black = 30</td>
-            </tr>
-            <tr>
-                <td>Red = 41</td>
-                <td>Red = 31</td>
-            </tr>
-            <tr>
-                <td>Green = 42</td>
-                <td>Green = 32</td>
-            </tr>
-            <tr>
-                <td>Yellow = 43</td>
-                <td>Yellow = 33</td>
-            </tr>
-            <tr>
-                <td>Blue = 44</td>
-                <td>Blue = 34</td>
-            </tr>
-            <tr>
-                <td>Purple = 45</td>
-                <td>Purple = 35</td>
-            </tr>
-            <tr>
-                <td>Cyan = 46</td>
-                <td>Cyan = 36</td>
-            </tr>
-            <tr>
-                <td>White = 47</td>
-                <td>White = 37</td>
-            </tr>
-            <tr>
-                <td>RGB colors = 48</td>
-                <td>RGB Colors = 38</td>
-            </tr>
+            <tr><td>Black = 40</td><td>Black = 30</td></tr>
+            <tr><td>Red = 41</td><td>Red = 31</td></tr>
+            <tr><td>Green = 42</td><td>Green = 32</td></tr>
+            <tr><td>Yellow = 43</td><td>Yellow = 33</td></tr>
+            <tr><td>Blue = 44</td><td>Blue = 34</td></tr>
+            <tr><td>Purple = 45</td><td>Purple = 35</td></tr>
+            <tr><td>Cyan = 46</td><td>Cyan = 36</td></tr>
+            <tr><td>White = 47</td><td>White = 37</td></tr>
+            <tr><td>RGB colors = 48</td><td>RGB Colors = 38</td></tr>
         </tbody>
     </table>
-    <h3>Format </h3>
+    <br id="Format">>
+    <h3>Format</h3>
     <ul>
         <li><span class="codeContent">\e[38;2;⟨r⟩;⟨g⟩;⟨b⟩m\] </span> Select RGB foreground color</li>
         <li><span class="codeContent">\e[48;2;⟨r⟩;⟨g⟩;⟨b⟩m\] </span> Select RGB background color</li>
     </ul>
-    <h3>Example</h3>
+    <h3 id="Example">Example</h3>
     <div  class="code">
         <div class="codeHead">
             bash
@@ -440,8 +193,8 @@
         <div class="codeContent"><pre>\[\e[48;2;0;30;30m\]</pre></div >
     </div>
 
-    <br><br>
-    <h2>EXAMPLES</h2>
+    <br><br id="PS1 Examples">
+    <h2>PS1 Examples</h2>
     <img src="../../resources/Shell-prompt-1.png" alt="">
     <div  class="code">
         <div class="codeHead">
@@ -494,9 +247,9 @@
         <div class="codeContent"><code><pre> PS1="\[\e[32;1m\]╭─────\[\e[38;2;200;200;160m\]\[\e[38;2;50;50;50;48;2;200;200;160m\] \t \[\e[0;38;2;200;200;160m\]\n\[\e[32m\]│\[\e[38;2;0;30;30m\]\[\e[32;48;2;0;30;30;1m\] \u\[\e[0;42;38;2;0;30;30m\]\[\e[0;42;38;2;0;40;40;1m\] \w \[\e[0;32m\]\[\e[0;32m\]\n╰─>> \[\e[0m\]"</pre></code></div >
     </div>
     
-    <br><br>
+    <br><br id="Fancy Letters">
 
-    <h3>FANCY LETTERS</h3>
+    <h3 >Fancy Letters</h3>
     <div class="codeContent">
         ░ ▒ ▓ │ ┤ ╡ ╢ ╖ ╕ ╣ ║ ╗ ╝ ╜ ╛ ┐ └ ┴ ┬ ├ ─ ┼ ╞ ╟
         ╚ ╔ ╩ ╦ ╠ ═ ╬ ╧ ╨ ╤ ╥ ╙ ╘ ╒ ╓ ╫ ╪ ┘ ┌ █ ▄ ▌ ▐ ▀
@@ -515,7 +268,8 @@
         ╨ ╩ ╪ ╫ ╬ ╭ ╮ ╯ ╰ ╱ ╲ ╳ ╴ ╵ ╶ ╷ ╸ ╹ ╺ ╻ ╼ ╽ ╾ ╿
 
     </div>
-    <h3>RESOURCES</h3>
+    <br id="Resources">
+    <h3>Resources</h3>
     <ul>
         <li><a href="https://en.wikipedia.org/wiki/ANSI_escape_code"> WIKI - ALL DETAILS </a></li>
         <li><a href="https://en.wikipedia.org/wiki/Box-drawing_character"> FANCY CHARACTORS </a></li>
@@ -526,6 +280,7 @@
 
 
     <div class="end"> --- End of Blog --- </div>
+      </div>
     <script src="../../script.js"></script>
 </body>
 

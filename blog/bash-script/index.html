@@ -9,15 +9,30 @@
 </head>
 
 <body>
-
+    <div class="sidenav" id="mySidenav">
+        <h1 style="margin-left: 5px;"> Index</h2>
+        <hr><a onclick="closeNav()" href="#SETTING UP">SETTING UP</a>
+        <hr><a onclick="closeNav()" href="#SHEBANG LINE">SHEBANG LINE</a>
+        <hr><a onclick="closeNav()" href="#COMMENTS ">COMMENTS </a>
+        <hr><a onclick="closeNav()" href="#VARIABLES ">VARIABLES </a>
+        <hr><a onclick="closeNav()" href="#INPUT/OUTPUT">INPUT/OUTPUT</a>
+        <hr><a onclick="closeNav()" href="#CONTROL STRUCTURES">CONTROL STRUCTURES</a>
+        <hr><a onclick="closeNav()" href="#FUNCTIONS">FUNCTIONS</a>
+        <hr><a onclick="closeNav()" href="#FILE OPERATIONS">FILE OPERATIONS</a>
+        <hr><a onclick="closeNav()" href="#EXIT STATUS">EXIT STATUS</a>
+        <hr><a onclick="closeNav()" href="#EXAMPLE">EXAMPLE</a>
+        <hr>
+    </div>
+    
+      <div class="main"><button class="openbtn" onclick="toggleNav()">☰</button>
     <div class="mainHeading">BASH SCRIPT</div>
     <h1>A BRIEF OVERVIEW</h1>
     <p>Bash scripting refers to the process of writing and executing scripts using the Bash(short for "Bourne Again Shell") shell. Bash scripting allows users
         to automate repetitive tasks, write complex commands, and create custom solutions by writing scripts in the Bash programming language.</p>
-<br>
+<br id="SETTING UP">
     <h2>SETTING UP</h2>
     Before we start writing Bash scripts, ensure you have a text editor installed (like VSCode, Sublime Text, or Vim) and access to a terminal or command prompt where you can run Bash commands.
-<br><br>
+<br><br id="SHEBANG LINE">
     <h2>SHEBANG LINE</h2>
     The shebang line (#!/bin/bash) tells the system which interpreter to use for executing the script. Place it at the beginning of your script.
     <!-- <img src="../../resources/Shell-prompt-1.png" alt=""> -->
@@ -31,8 +46,8 @@
         <div class="codeContent">
             <code><pre>#!/bin/bash</pre></code></div >
     </div>
-    <br><br>
-    <h2>COMMENTS </h2>
+    <br><br id="COMMENTS">
+    <h2>COMMENTS</h2>
     Comments in Bash start with # and are used for documentation or to add explanations within the script.
     <div  class="code">
         <div class="codeHead">
@@ -43,8 +58,8 @@
         <div class="codeContent">
             <code><pre># This is a comment explaining what the script does</pre></code></div >
     </div>
-    <br><br>
-    <h2>VARIABLES </h2>
+    <br><br id="VARIABLES">
+    <h2>VARIABLES</h2>
     Declare variables to store data. Variable names are case-sensitive and should start with a letter or underscore.
     <div  class="code">
         <div class="codeHead">
@@ -74,7 +89,7 @@ age=30</pre>
 echo "Hello, $name! You are $age years old."</pre></code>
         </div >
     </div>
-    <br><br>
+    <br><br id="INPUT/OUTPUT">
 
     <h2>INPUT/OUTPUT</h2>
     User Input: Use read to get input from the user.
@@ -104,7 +119,7 @@ read name</pre></code>
 echo "Hello, $name!"</pre></code>
         </div >
     </div>
-<br><br>
+<br><br id="CONTROL STRUCTURES">
     
 <h2>CONTROL STRUCTURES</h2>
     if Statement: Use if, elif, and else for conditional execution.
@@ -156,7 +171,7 @@ while [ $count -lt 5 ]; do
 done</pre></code>
         </div >
     </div>
-    <br><br>
+    <br><br id="FUNCTIONS">
     <h2>FUNCTIONS</h2>
     Define functions to group code into reusable blocks.
     <div  class="code">
@@ -175,7 +190,7 @@ greet "Alice"</pre></code>
         </div >
     </div>
 
-<br><br>
+<br><br id="FILE OPERATIONS">
     <h2>FILE OPERATIONS</h2>
     Perform file-related operations like reading, writing, and executing files.
     <div  class="code">
@@ -200,7 +215,7 @@ chmod +x script.sh
         </div >
     </div>
 
-<br><br>
+<br><br id="EXIT STATUS">
     <h2>EXIT STATUS</h2>
     Every command in Bash returns an exit status. You can check this status using the $? variable.
     <div  class="code">
@@ -218,7 +233,7 @@ fi</pre></code>
         </div >
     </div>
 
-<br><br>
+<br><br id="EXAMPLE">
     <h2>EXAMPLE</h2>
     Here's a simple example of a Bash script that incorporates these concepts:
     <div  class="code">
@@ -254,6 +269,8 @@ fi
     </div>
 
     <div class="end"> --- End of Blog --- </div>
+    </div>
+
     <script src="../../script.js"></script>
 </body>
 
