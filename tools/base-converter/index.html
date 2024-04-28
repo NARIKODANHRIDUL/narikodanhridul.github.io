@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bit Conversion Tool</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Base converter</h1>
+    <div class="mainContainer">
+        <div class="container">
+            <div class="input-container">
+                <label for="binary">Binary:</label>
+                <div class="copyBox">
+                    <input type="text" id="binary" oninput="convert('binary')" autocomplete="off">
+                    <button class="copy-button" onclick="copyText('binary')"><img src="../../resources/copy.png">
+                        <span class="tool-tip"> Copied!</span></button>  
+                </div>
+            </div>
+            <div class="input-container">
+                <label for="decimal">Decimal:</label>
+                <div class="copyBox">
+                    <input type="text" id="decimal" oninput="convert('decimal')" autocomplete="off">
+                    <button class="copy-button" onclick="copyText('decimal')"><img src="../../resources/copy.png">
+                            <span class="tool-tip"> Copied!</span></button>          
+                </div>
+            </div>
+            <div class="input-container">
+                <label for="octal">Octal:</label>
+                <div class="copyBox">
+                    <input type="text" id="octal" oninput="convert('octal')" autocomplete="off">
+                    <button class="copy-button" onclick="copyText('octal')"><img src="../../resources/copy.png">
+                        <span class="tool-tip"> Copied!</span></button>            
+                </div>
+            </div>
+            <div class="input-container">
+                <label for="hexadecimal">Hexadecimal:</label>
+                <div class="copyBox">
+                    <input type="text" id="hexadecimal" oninput="convert('hexadecimal')" autocomplete="off">
+                    <button class="copy-button" onclick="copyText('hexadecimal')"><img src="../../resources/copy.png">
+                        <span class="tool-tip"> Copied!</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
