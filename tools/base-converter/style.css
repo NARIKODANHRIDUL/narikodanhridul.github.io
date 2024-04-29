@@ -103,7 +103,6 @@ input[type="text"]:focus {
 .copy-button {
     background-color: #90b781;
     color: #fff;
-    /* width: 50px; */
     margin: 5px 0px 0px 5px;
     max-width: 100px;
     overflow-x: hidden;
@@ -116,6 +115,7 @@ input[type="text"]:focus {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    height: 50px;
   }
   .tool-tip{
     visibility: hidden;
@@ -155,17 +155,22 @@ input[type="text"]:focus {
         margin-bottom: 20px;
         
     }
+    input[type="text"] {
+        width: calc(95vw - 50px);
+        margin-right: 5px;
+    }
     .copyBox{
-        width: 98vw;
+        width: 95vw;
         padding: 5px;
         font-size: large;
         margin: 0px;
         padding: 0px;
-        height: 50px;
+        align-items: center;
     }
     .copy-button{
         margin: 0px;
         height: 45px;
+        width: 45px;
     }
     
 }
