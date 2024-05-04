@@ -20,7 +20,7 @@
         <hr> <a onClick="closeNav()" href="#Editing Text">Editing Text</a>
             <ul style="list-style-type: none;">
                 <li><a onClick="closeNav()" href="#Entering Insert Mode">Entering Insert Mode</a></li>
-                <li><a onClick="closeNav()" href="#Moving the Cursor">Moving the Cursor</a></li>
+                <li><a onClick="closeNav()" href="#Exiting from any Mode">Exiting from any Mode</a></li>
                 <li><a onClick="closeNav()" href="#Deleting Text">Deleting Text</a></li>
                 <li><a onClick="closeNav()" href="#Undo and Redo">Undo and Redo</a></li>
             </ul>
@@ -117,8 +117,8 @@
        </tbody>
     </table>
 
-    <br id="Editing Text">
-    <h3>Moving the Cursor:</h3>
+    <br id="Exiting from any Mode">
+    <h3>Exiting from any Mode:</h3>
     <table>
         <thead>
             <tr><th>Key</th><th>Purpose</th></tr>
@@ -304,23 +304,30 @@
         </div>
         <div class="codeContent">
             <pre><code>
-"set number
-syntax on
+"set number " uncomment to get line number
 set nocompatible
-set ts=4 sw=4 smartindent
-set incsearch
-color elflord
+set ts=4 sw=4 smartindent "setting up indenation
+set incsearch "autosearch while trying to search using / or ?
+color elflord "setting bg color
+syntax on "syntax highlighing
 
+"shift+(Up/Down) shifts the line up/down
+"works on single and multiple line
 nnoremap &lt;S-Up&gt; :m .-2&lt;CR&gt;==
 vnoremap &lt;S-Up&gt; :m '&lt;-2&lt;CR&gt;gv==gv
 nnoremap &lt;S-Down&gt; :m .+1&lt;CR&gt;==
 vnoremap &lt;S-Down&gt; :m '&gt;+1&lt;CR&gt;gv==gv
 
+"Alt+(Up/Down) makes a copt moves the line up/down
 "wont work for multiple lines in visual mode
 nnoremap &lt;A-Up&gt; :t-&lt;CR&gt;
 vnoremap &lt;A-Up&gt; :t'&lt;-CR&gt;gv==gv
 nnoremap &lt;A-Down&gt; ddPp
 vnoremap &lt;A-Down&gt; ddPp
+
+"To change the position of a character to left or right
+nnoremap &lt;A-Left&gt; x&lt;Left&gt;P
+nnoremap &lt;A-Right&gt; xp
 
 " Enable auto completion menu after pressing TAB.
 set wildmenu
@@ -329,7 +336,6 @@ set wildmode=list:longest
 " There are certain files that we would never want to edit with Vim.
 " Wildmenu will ignore files with these extensions.
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
-
 
 " STATUS LINE ------------------------------------------------------------ {{{
 " Clear status line when vimrc is reloaded.
@@ -342,7 +348,44 @@ set statusline+=%=
 set statusline+=\ ascii:\ %b\ hex:\ 0x%B\ row:\ %l\ col:\ %c\ percent:\ %p%%
 " Show the status on the second to last line.
 set laststatus=2
-" }}}</pre></code>
+" }}}
+
+" Preventing Ctrl+z to stop vim abruptly
+nnoremap &lt;C-z&gt; &lt;Esc&gt;
+
+" Ctrl + /
+nnoremap &lt;C-_&gt; : call CommentToggle()&lt;CR&gt;
+" Ctrl + / (visual mode)
+vnoremap &lt;C-_&gt; : call CommentToggle()&lt;CR&gt;
+
+" function to toggle comments in c,cpp,python.
+function! CommentToggle()
+    let l:filetype = &amp;filetype
+    let l:line = getline('.')
+    let l:trimmed_line = substitute(l:line, '^\s*\(.\{-}\)\s*$', '\1', '')
+
+    if (l:filetype ==# 'c' || l:filetype ==# 'cpp' || l:filetype ==# 'java' || l:filetype ==# 'javascript' || l:filetype==# 'css')
+        if l:trimmed_line[:1] !=# '/*'
+            execute "normal! I/* &lt;Esc&gt;A */&lt;Esc&gt;"
+        else
+            execute "normal! ^xxx$xxx"
+        endif
+    elseif (l:filetype ==# 'python' || l:filetype ==# 'sh')
+        if (l:trimmed_line[:1] !=# '# ')
+            execute "normal! I# &lt;Esc&gt;"
+        else
+            execute "normal! ^xx&lt;Esc&gt;"
+        endif
+    elseif (l:filetype ==# 'html' || l:filetype ==# 'xml')
+        if l:trimmed_line[:3] !=# '&lt;!--'
+            execute "normal! I&lt;!-- &lt;Esc&gt;A --&gt;&lt;Esc&gt;"
+        else
+            execute "normal! ^xxxxx$xxxx"
+        endif
+    endif
+        echo "fileType: " . l:filetype
+endfunction
+            </pre></code>
         </div >
     </div>
     <br>
