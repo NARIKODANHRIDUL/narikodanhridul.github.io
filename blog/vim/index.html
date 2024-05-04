@@ -305,13 +305,6 @@
         </div>
         <div class="codeContent">
             <pre><code>
-"set number " uncomment to get line number
-set nocompatible
-set ts=4 sw=4 smartindent "setting up indenation
-set incsearch "autosearch while trying to search using / or ?
-color elflord "setting bg color
-syntax on "syntax highlighing
-
 "shift+(Up/Down) shifts the line up/down
 "works on single and multiple line
 nnoremap &lt;S-Up&gt; :m .-2&lt;CR&gt;==
@@ -321,7 +314,7 @@ vnoremap &lt;S-Down&gt; :m '&gt;+1&lt;CR&gt;gv==gv
 
 "Alt+(Up/Down) makes a copt moves the line up/down
 "wont work for multiple lines in visual mode
-nnoremap &lt;A-Up&gt; :t-&lt;CR&gt;
+nnoremap &lt;A-Up&gt; :t-<CR>
 vnoremap &lt;A-Up&gt; :t'&lt;-CR&gt;gv==gv
 nnoremap &lt;A-Down&gt; ddPp
 vnoremap &lt;A-Down&gt; ddPp
@@ -330,26 +323,12 @@ vnoremap &lt;A-Down&gt; ddPp
 nnoremap &lt;A-Left&gt; x&lt;Left&gt;P
 nnoremap &lt;A-Right&gt; xp
 
-" Enable auto completion menu after pressing TAB.
-set wildmenu
-" Make wildmenu behave like similar to Bash completion.
-set wildmode=list:longest
-" There are certain files that we would never want to edit with Vim.
-" Wildmenu will ignore files with these extensions.
-set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
+"Ctrl+s will save
+nnoremap &lt;C-S&gt; :w&lt;CR&gt;
 
-" STATUS LINE ------------------------------------------------------------ {{{
-" Clear status line when vimrc is reloaded.
-set statusline=
-" Status line left side.
-set statusline+=\ %F\ %M\ %Y\ %R
-" Use a divider to separate the left side from the right side.
-set statusline+=%=
-" Status line right side.
-set statusline+=\ ascii:\ %b\ hex:\ 0x%B\ row:\ %l\ col:\ %c\ percent:\ %p%%
-" Show the status on the second to last line.
-set laststatus=2
-" }}}
+"Ctrl+w will quit without saving
+nnoremap &lt;C-w&gt; :q!<CR>
+
 
 " Preventing Ctrl+z to stop vim abruptly
 nnoremap &lt;C-z&gt; &lt;Esc&gt;
@@ -381,11 +360,43 @@ function! CommentToggle()
         if l:trimmed_line[:3] !=# '&lt;!--'
             execute "normal! I&lt;!-- &lt;Esc&gt;A --&gt;&lt;Esc&gt;"
         else
-            execute "normal! ^xxxxx$xxxx"
+                        execute "normal! ^xxxxx$xxxx"
         endif
-    endif
+    elseif (l:filetype ==# 'vim')
+        if (l:trimmed_line[:0] !=# '"')
+            execute "normal! I\"&lt;Esc&gt;"
+        else
+            execute "normal! ^x&lt;Esc&gt;"
+        endif
+        endif
         echo "fileType: " . l:filetype
 endfunction
+
+
+" Make :w and :W do the same thing
+cnoreabbrev W w
+
+set wildmenu "Enable auto completion menu after pressing TAB.
+set wildmode=list:longest "Make wildmenu behave like similar to Bash completion.
+set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx "Wildmenu will ignore files with these extensions.
+
+
+" STATUS LINE ------------------------------------------------------------ {{{
+set statusline= "Clear status line when vimrc is reloaded.
+set statusline+=\ %F\ %M\ %Y\ %R "Status line left side.
+set statusline+=%= "Use a divider to separate the left side from the right side.
+set statusline+=\ ascii:\ %b\ hex:\ 0x%B\ row:\ %l\ col:\ %c\ percent:\ %p%% "Status line right side.
+set laststatus=2 "Show the status on the second to last line.
+" }}}
+
+
+"set number " uncomment to get line number
+set nocompatible
+set ts=4 sw=4 smartindent "setting up indenation
+set incsearch "autosearch while trying to search using / or ?
+color elflord "setting bg color
+syntax on "syntax highlighing
+                
             </pre></code>
         </div >
     </div>
