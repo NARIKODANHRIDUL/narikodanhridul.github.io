@@ -305,73 +305,103 @@
         </div>
         <div class="codeContent">
             <pre><code>
+" KEY BINDINGS ------------------------------------------------------------ {{{
 "shift+(Up/Down) shifts the line up/down
 "works on single and multiple line
 nnoremap &lt;S-Up&gt; :m .-2&lt;CR&gt;==
-vnoremap &lt;S-Up&gt; :m '&lt;-2&lt;CR&gt;gv==gv
+inoremap &lt;S-Up&gt; &lt;Esc&gt;:m .-2&lt;CR&gt;==&lt;Esc&gt;i
+vnoremap &lt;S-Up&gt; :m '&lt;-2&lt;CR&gt;gv=gv
 nnoremap &lt;S-Down&gt; :m .+1&lt;CR&gt;==
-vnoremap &lt;S-Down&gt; :m '&gt;+1&lt;CR&gt;gv==gv
+inoremap &lt;S-Down&gt; &lt;Esc&gt;:m .+1&lt;CR&gt;==&lt;Esc&gt;i
+vnoremap &lt;S-Down&gt; :m '&gt;+1&lt;CR&gt;gv=gv
 
-"Alt+(Up/Down) makes a copt moves the line up/down
+"Alt+(Up/Down) makes a copy moves the line up/down
 "wont work for multiple lines in visual mode
-nnoremap &lt;A-Up&gt; :t-<CR>
-vnoremap &lt;A-Up&gt; :t'&lt;-CR&gt;gv==gv
+nnoremap &lt;A-Up&gt; :t-&lt;CR&gt;==
+inoremap &lt;A-Up&gt; &lt;Esc&gt;:t-&lt;CR&gt;==&lt;Esc&gt;i
+vnoremap &lt;A-Up&gt; :t'&lt;-CR&gt;gv=gv
 nnoremap &lt;A-Down&gt; ddPp
-vnoremap &lt;A-Down&gt; ddPp
+inoremap &lt;A-Down&gt; &lt;Esc&gt;ddPpi
+vnoremap &lt;A-Down&gt; :t '&gt;&lt;CR&gt;gv=gv
 
 "To change the position of a character to left or right
 nnoremap &lt;A-Left&gt; x&lt;Left&gt;P
+inoremap &lt;A-Left&gt; &lt;Esc&gt;x&lt;Left&gt;Pi
 nnoremap &lt;A-Right&gt; xp
+inoremap &lt;A-Right&gt; &lt;Esc&gt;xpi
 
 "Ctrl+s will save
 nnoremap &lt;C-S&gt; :w&lt;CR&gt;
+inoremap &lt;C-S&gt; &lt;Esc&gt;:w&lt;CR&gt;
 
-"Ctrl+w will quit without saving
-nnoremap &lt;C-w&gt; :q!<CR>
-
+"Ctrl+Shift+w will quit without saving
+nnoremap &lt;C-S-w&gt; :q!&lt;CR&gt;
 
 " Preventing Ctrl+z to stop vim abruptly
-nnoremap &lt;C-z&gt; &lt;Esc&gt;
+" Ctrl Shift Z for redoing is already there by default
+nnoremap &lt;C-z&gt; &lt;Esc&gt;u&lt;Esc&gt;
+inoremap &lt;C-z&gt; &lt;Esc&gt;ui
+
+" Predefined key binding with CTRL set to work in insert mode as well.
+:imap &lt;C-a&gt; &lt;Esc&gt;&lt;C-a&gt;i
+:imap &lt;C-x&gt; &lt;Esc&gt;&lt;C-x&gt;i
 
 " Ctrl + /
 nnoremap &lt;C-_&gt; : call CommentToggle()&lt;CR&gt;
-" Ctrl + / (visual mode)
-vnoremap &lt;C-_&gt; : call CommentToggle()&lt;CR&gt;
+inoremap &lt;C-_&gt; &lt;Esc&gt;: call CommentToggle()&lt;CR&gt;i
+vnoremap &lt;C-_&gt; : call CommentToggle()&lt;CR&gt;gv
+" Ctrl + Shift + /
+nnoremap &lt;C-S-_&gt; : call CommentShiftToggle()&lt;CR&gt;
+inoremap &lt;C-S-_&gt; &lt;Esc&gt;: call CommentShiftToggle()&lt;CR&gt;i
+vnoremap &lt;C-S-_&gt; : call CommentShiftToggle()&lt;CR&gt;gv
 
 " function to toggle comments in c,cpp,python.
 function! CommentToggle()
-    let l:filetype = &amp;filetype
+    let l:filetype = &filetype
     let l:line = getline('.')
     let l:trimmed_line = substitute(l:line, '^\s*\(.\{-}\)\s*$', '\1', '')
 
     if (l:filetype ==# 'c' || l:filetype ==# 'cpp' || l:filetype ==# 'java' || l:filetype ==# 'javascript' || l:filetype==# 'css')
         if l:trimmed_line[:1] !=# '/*'
-            execute "normal! I/* &lt;Esc&gt;A */&lt;Esc&gt;"
+            execute "normal! I// \&lt;Esc&gt;"
         else
-            execute "normal! ^xxx$xxx"
+            execute "normal! ^xxx"
         endif
     elseif (l:filetype ==# 'python' || l:filetype ==# 'sh')
         if (l:trimmed_line[:1] !=# '# ')
-            execute "normal! I# &lt;Esc&gt;"
+            execute "normal! I# \&lt;Esc&gt;"
         else
-            execute "normal! ^xx&lt;Esc&gt;"
+            execute "normal! ^xx\&lt;Esc&gt;"
         endif
     elseif (l:filetype ==# 'html' || l:filetype ==# 'xml')
         if l:trimmed_line[:3] !=# '&lt;!--'
-            execute "normal! I&lt;!-- &lt;Esc&gt;A --&gt;&lt;Esc&gt;"
+            execute "normal! I&lt;!-- \&lt;Esc&gt;A --&gt;\&lt;Esc&gt;"
         else
                         execute "normal! ^xxxxx$xxxx"
         endif
     elseif (l:filetype ==# 'vim')
         if (l:trimmed_line[:0] !=# '"')
-            execute "normal! I\"&lt;Esc&gt;"
+            execute "normal! I\"\&lt;Esc&gt;"
         else
-            execute "normal! ^x&lt;Esc&gt;"
+            execute "normal! ^x\&lt;Esc&gt;"
         endif
         endif
-        echo "fileType: " . l:filetype
+        silent echo "fileType: " . l:filetype
 endfunction
 
+function! CommentiShiftToggle()
+    let l:filetype = &filetype
+    let l:line = getline('.')
+    let l:trimmed_line = substitute(l:line, '^\s*\(.\{-}\)\s*$', '\1', '')
+
+    if (l:filetype ==# 'c' || l:filetype ==# 'cpp' || l:filetype ==# 'java' || l:filetype ==# 'javascript' || l:filetype==# 'css')
+        if l:trimmed_line[:1] !=# '/*'
+            execute "normal! I/* \&lt;Esc&gt;A */\&lt;Esc&gt;"
+        else
+            execute "normal! ^xxx$xxx"
+endfunction
+
+" }}}
 
 " Make :w and :W do the same thing
 cnoreabbrev W w
@@ -389,14 +419,14 @@ set statusline+=\ ascii:\ %b\ hex:\ 0x%B\ row:\ %l\ col:\ %c\ percent:\ %p%% "St
 set laststatus=2 "Show the status on the second to last line.
 " }}}
 
-
+" SETTING UP ENVIRONMENT ------------------------------------------------------------ {{{
 "set number " uncomment to get line number
 set nocompatible
 set ts=4 sw=4 smartindent "setting up indenation
 set incsearch "autosearch while trying to search using / or ?
 color elflord "setting bg color
 syntax on "syntax highlighing
-                
+" }}}                
             </pre></code>
         </div >
     </div>
