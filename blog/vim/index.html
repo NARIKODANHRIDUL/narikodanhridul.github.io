@@ -362,7 +362,7 @@ function! CommentToggle()
     let l:trimmed_line = substitute(l:line, '^\s*\(.\{-}\)\s*$', '\1', '')
 
     if (l:filetype ==# 'c' || l:filetype ==# 'cpp' || l:filetype ==# 'java' || l:filetype ==# 'javascript' || l:filetype==# 'css')
-        if l:trimmed_line[:1] !=# '/*'
+        if l:trimmed_line[:1] !=# '//'
             execute "normal! I// \&lt;Esc&gt;"
         else
             execute "normal! ^xxx"
