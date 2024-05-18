@@ -75,6 +75,7 @@ document.addEventListener("keydown", function(event) {
     }
 });
 function startTimer() {
+    const inputs = document.querySelectorAll('.time-input');
     if (!timerStarted) return;
     inputs.forEach(input => {
         input.value = "00";
