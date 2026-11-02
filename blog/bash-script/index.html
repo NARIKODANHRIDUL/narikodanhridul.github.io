@@ -6,270 +6,596 @@
     <meta name="google-site-verification" content="lORx1_5INaOkYprqHs1zZeleoQ080VWsUrxp-5coH4A" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
-    <title>Bash script</title>
+    <link rel="icon" href="../../resources/sparkle.png" sizes="192x192" />
+    <title>Bash Scripting | The Definitive Guide</title>
 </head>
 
 <body>
     <div class="sidenav" id="mySidenav">
-        <h1 style="margin-left: 5px;"> Index</h2>
-        <hr><a onclick="closeNav()" href="#SETTING UP">SETTING UP</a>
-        <hr><a onclick="closeNav()" href="#SHEBANG LINE">SHEBANG LINE</a>
-        <hr><a onclick="closeNav()" href="#COMMENTS ">COMMENTS </a>
-        <hr><a onclick="closeNav()" href="#VARIABLES ">VARIABLES </a>
-        <hr><a onclick="closeNav()" href="#INPUT/OUTPUT">INPUT/OUTPUT</a>
-        <hr><a onclick="closeNav()" href="#CONTROL STRUCTURES">CONTROL STRUCTURES</a>
-        <hr><a onclick="closeNav()" href="#FUNCTIONS">FUNCTIONS</a>
-        <hr><a onclick="closeNav()" href="#FILE OPERATIONS">FILE OPERATIONS</a>
-        <hr><a onclick="closeNav()" href="#EXIT STATUS">EXIT STATUS</a>
-        <hr><a onclick="closeNav()" href="#EXAMPLE">EXAMPLE</a>
+        <h1 style="margin-left: 15px; font-size: 22px;">Index</h1>
+        <hr><a onclick="closeNav()" href="#SETTING-UP">SETTING UP & SHEBANG</a>
+        <hr><a onclick="closeNav()" href="#VARIABLES">VARIABLES & SPECIAL PARAMS</a>
+        <hr><a onclick="closeNav()" href="#CLI-ARGS">CLI ARGUMENTS & GETOPTS</a>
+        <hr><a onclick="closeNav()" href="#PARAMETER-EXPANSION">PARAMETER EXPANSION</a>
+        <hr><a onclick="closeNav()" href="#REDIRECTIONS">I/O, PIPES & HEREDOCS</a>
+        <hr><a onclick="closeNav()" href="#ARITHMETIC">ARITHMETIC</a>
+        <hr><a onclick="closeNav()" href="#CONDITIONALS">CONDITIONALS & TESTS</a>
+        <hr><a onclick="closeNav()" href="#LOOPS">LOOPS (FOR, WHILE, UNTIL)</a>
+        <hr><a onclick="closeNav()" href="#ARRAYS">ARRAYS & HASHMAPS</a>
+        <hr><a onclick="closeNav()" href="#FUNCTIONS">FUNCTIONS & SCOPING</a>
+        <hr><a onclick="closeNav()" href="#DEFENSIVE-BASH">STRICT MODE & TRAPS</a>
+        <hr><a onclick="closeNav()" href="#FILE-OPS">FILE & DIRECTORY OPS</a>
+        <hr><a onclick="closeNav()" href="#PRODUCTION-EXAMPLE">PRODUCTION SCRIPT</a>
         <hr>
     </div>
-    
-      <div class="main"><button class="openbtn" onclick="toggleNav()">☰</button>
-    <div class="mainHeading">BASH SCRIPT</div>
-    <h1>A BRIEF OVERVIEW</h1>
-    <p>Bash scripting refers to the process of writing and executing scripts using the Bash(short for "Bourne Again Shell") shell. Bash scripting allows users
-        to automate repetitive tasks, write complex commands, and create custom solutions by writing scripts in the Bash programming language.</p>
-<br id="SETTING UP">
-    <h2>SETTING UP</h2>
-    Before we start writing Bash scripts, ensure you have a text editor installed (like VSCode, Sublime Text, or Vim) and access to a terminal or command prompt where you can run Bash commands.
-<br><br id="SHEBANG LINE">
-    <h2>SHEBANG LINE</h2>
-    The shebang line (#!/bin/bash) tells the system which interpreter to use for executing the script. Place it at the beginning of your script.
-    <!-- <img src="../../resources/Shell-prompt-1.png" alt=""> -->
-    
-    <div  class="code">
-        <div class="codeHead">
-            bash
-            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
-            <span class="tool-tip"> Copied!</span></button>
-        </div>
-        <div class="codeContent">
-            <code><pre>#!/bin/bash</pre></code></div >
-    </div>
-    <br><br id="COMMENTS">
-    <h2>COMMENTS</h2>
-    Comments in Bash start with # and are used for documentation or to add explanations within the script.
-    <div  class="code">
-        <div class="codeHead">
-            bash
-            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
-            <span class="tool-tip"> Copied!</span></button>
-        </div>
-        <div class="codeContent">
-            <code><pre># This is a comment explaining what the script does</pre></code></div >
-    </div>
-    <br><br id="VARIABLES">
-    <h2>VARIABLES</h2>
-    Declare variables to store data. Variable names are case-sensitive and should start with a letter or underscore.
-    <div  class="code">
-        <div class="codeHead">
-            bash
-            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
-            <span class="tool-tip"> Copied!</span></button>
-        </div>
-        <div class="codeContent">
-            <code><pre>
-name="John"
-age=30</pre> 
-        </code>      
-        </div >
-    </div>
 
-<br>
-    To access the value of a variable, prefix its name with $.
+    <div class="main">
+        <button class="openbtn" onclick="toggleNav()">☰</button>
+        <div class="mainHeading">BASH SCRIPT</div>
+        <h1>THE DEFINITIVE GUIDE TO MODERN BASH SCRIPTING</h1>
+        <p>Bash (Bourne Again Shell) is the universal command language of Unix-like systems. From rapid task automation, hardware security research, and CTF exploit tooling to robust DevOps deployment pipelines, mastering Bash empowers you to manipulate processes, files, and streams with unmatched speed and control.</p>
 
-    <div  class="code">
-        <div class="codeHead">
-            bash
-            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
-            <span class="tool-tip"> Copied!</span></button>
-        </div>
-        <div class="codeContent">
-            <code><pre>
-echo "Hello, $name! You are $age years old."</pre></code>
-        </div >
-    </div>
-    <br><br id="INPUT/OUTPUT">
+        <!-- SECTION 1: SETTING UP & SHEBANG -->
+        <br id="SETTING-UP">
+        <h2>SETTING UP & THE SHEBANG LINE</h2>
+        <p>A Bash script is simply an executable plain text file containing a sequence of commands. Always ensure your script begins with a shebang (<code>#!</code>), which tells the OS loader which interpreter binary to invoke.</p>
 
-    <h2>INPUT/OUTPUT</h2>
-    User Input: Use read to get input from the user.
-    <div  class="code">
-        <div class="codeHead">
-            bash
-            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
-            <span class="tool-tip"> Copied!</span></button>
+        <div class="code">
+            <div class="codeHead">
+                bash
+                <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+                <span class="tool-tip">Copied!</span></button>
+            </div>
+            <div class="codeContent">
+                <code><pre>#!/usr/bin/env bash
+# Best practice: '/usr/bin/env bash' locates the bash binary in the user's $PATH 
+# rather than hardcoding /bin/bash (essential for macOS / BSD portability)</pre></code>
+            </div>
         </div>
-        <div class="codeContent">
-            <code><pre>
-echo "What's your name?"
-read name</pre></code>
-        </div >
-    </div>
-    <br>
 
-    Output: Use echo to display output.
-    <div  class="code">
-        <div class="codeHead">
-            bash
-            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
-            <span class="tool-tip"> Copied!</span></button>
-        </div>
-        <div class="codeContent">
-            <code><pre>
-echo "Hello, $name!"</pre></code>
-        </div >
-    </div>
-<br><br id="CONTROL STRUCTURES">
-    
-<h2>CONTROL STRUCTURES</h2>
-    if Statement: Use if, elif, and else for conditional execution.
-    <div  class="code">
-        <div class="codeHead">
-            bash
-            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
-            <span class="tool-tip"> Copied!</span></button>
-        </div>
-        <div class="codeContent">
-            <code><pre>
-if [ "$age" -ge 18 ]; then
-    echo "You are an adult."
-else
-    echo "You are a minor."
-fi</pre></code>
-        </div >
-    </div>
+        <p>Make your script executable using <code>chmod</code> and execute it directly:</p>
 
-    <br>
-    for Loop: Iterate over a list of items.
-    <div  class="code">
-        <div class="codeHead">
-            bash
-            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
-            <span class="tool-tip"> Copied!</span></button>
+        <div class="code">
+            <div class="codeHead">
+                bash
+                <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+                <span class="tool-tip">Copied!</span></button>
+            </div>
+            <div class="codeContent">
+                <code><pre>chmod +x myscript.sh
+./myscript.sh</pre></code>
+            </div>
         </div>
-        <div class="codeContent">
-            <code><pre>
-for i in {1..5}; do
-    echo "Iteration $i"
-done</pre></code>
-        </div >
-    </div>
-    <br>
-    while Loop: Execute a block of code while a condition is true.
-    <div  class="code">
-        <div class="codeHead">
-            bash
-            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
-            <span class="tool-tip"> Copied!</span></button>
+
+        <!-- SECTION 2: VARIABLES & SPECIAL PARAMETERS -->
+        <br id="VARIABLES">
+        <h2>VARIABLES & SPECIAL PARAMETERS</h2>
+        <p>In Bash, variable assignment must have <strong>NO spaces</strong> around the <code>=</code> sign. Prefix the variable name with <code>$</code> (or <code>${VAR}</code>) to reference its contents.</p>
+
+        <div class="code">
+            <div class="codeHead">
+                bash
+                <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+                <span class="tool-tip">Copied!</span></button>
+            </div>
+            <div class="codeContent">
+                <code><pre># Assignment (NO spaces around =)
+NAME="Narikodan"
+AGE=23
+READONLY_VAR="Immutable value"
+readonly READONLY_VAR
+
+# Referencing variables
+echo "Welcome, ${NAME}! You are ${AGE} years old."</pre></code>
+            </div>
         </div>
-        <div class="codeContent">
-            <code><pre>
-count=0
-while [ $count -lt 5 ]; do
-    echo "Count: $count"
-    ((count++))
-done</pre></code>
-        </div >
-    </div>
-    <br><br id="FUNCTIONS">
-    <h2>FUNCTIONS</h2>
-    Define functions to group code into reusable blocks.
-    <div  class="code">
-        <div class="codeHead">
-            bash
-            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
-            <span class="tool-tip"> Copied!</span></button>
-        </div>
-        <div class="codeContent">
-            <code><pre>
-greet() {
-    echo "Hello, $1!"
+
+        <h3>Special Built-in Variables Table</h3>
+        <table>
+            <thead>
+                <tr><th>Variable</th><th>Meaning / Description</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><code>$0</code></td><td>Name of the running script.</td></tr>
+                <tr><td><code>$1, $2, ... $9, ${10}</code></td><td>Positional command-line arguments passed to the script.</td></tr>
+                <tr><td><code>$#</code></td><td>Total number of positional arguments passed.</td></tr>
+                <tr><td><code>$@</code></td><td>All positional arguments as individual quoted words (e.g. <code>"$1" "$2" ...</code>). Always prefer this!</td></tr>
+                <tr><td><code>$*</code></td><td>All positional arguments joined into a single string separated by the first char of <code>$IFS</code> (usually space).</td></tr>
+                <tr><td><code>$?</code></td><td>Exit status of the most recently executed command (<code>0</code> = success, non-zero = error).</td></tr>
+                <tr><td><code>$$</code></td><td>Process ID (PID) of the current running shell/script.</td></tr>
+                <tr><td><code>$!</code></td><td>Process ID (PID) of the most recently spawned background job.</td></tr>
+            </tbody>
+        </table>
+
+        <!-- SECTION 3: CLI ARGUMENTS & GETOPTS -->
+        <br id="CLI-ARGS">
+        <h2>CLI ARGUMENTS & FLAG PARSING WITH <code>getopts</code></h2>
+        <p>Hardcoding values makes scripts brittle. You can pass arguments on invocation or parse standard Unix flags (e.g., <code>./tool.sh -u admin -p 8080 -v</code>) using the built-in <code>getopts</code> utility:</p>
+
+        <div class="code">
+            <div class="codeHead">
+                bash
+                <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+                <span class="tool-tip">Copied!</span></button>
+            </div>
+            <div class="codeContent">
+                <code><pre>#!/usr/bin/env bash
+
+# Default values
+PORT=8080
+VERBOSE=false
+
+usage() {
+    echo "Usage: $0 [-u user] [-p port] [-v] [-h]"
+    exit 1
 }
 
-greet "Alice"</pre></code>
-        </div >
-    </div>
+# The leading ':' silences default error messages; letters followed by ':' require an argument
+while getopts ":u:p:vh" opt; do
+    case "$opt" in
+        u) USERNAME="$OPTARG" ;;
+        p) PORT="$OPTARG" ;;
+        v) VERBOSE=true ;;
+        h) usage ;;
+        :) echo "Error: Option -$OPTARG requires an argument." >&2; exit 1 ;;
+        \?) echo "Error: Invalid option -$OPTARG." >&2; usage ;;
+    esac
+done
+shift $((OPTIND - 1)) # Discard parsed options, remaining are positional arguments
 
-<br><br id="FILE OPERATIONS">
-    <h2>FILE OPERATIONS</h2>
-    Perform file-related operations like reading, writing, and executing files.
-    <div  class="code">
-        <div class="codeHead">
-            bash
-            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
-            <span class="tool-tip"> Copied!</span></button>
+echo "Deploying for User: ${USERNAME:-'Guest'} on Port: ${PORT}"
+$VERBOSE && echo "[INFO] Verbose mode enabled."</pre></code>
+            </div>
         </div>
-        <div class="codeContent">
-            <code><pre>
-# Read from a file
-while read line; do
-    echo "Line: $line"
-done < "file.txt"
 
-# Write to a file
-echo "Some data" > "output.txt"
+        <!-- SECTION 4: PARAMETER EXPANSION -->
+        <br id="PARAMETER-EXPANSION">
+        <h2>PARAMETER EXPANSION & STRING HACKS (PURE BASH)</h2>
+        <p>Avoid spawning external subshells like <code>sed</code>, <code>awk</code>, or <code>cut</code> for simple string parsing. Bash's native parameter expansion runs orders of magnitude faster in memory:</p>
 
-# Execute a file
-chmod +x script.sh
-./script.sh</pre></code>
-        </div >
-    </div>
+        <div class="code">
+            <div class="codeHead">
+                bash
+                <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+                <span class="tool-tip">Copied!</span></button>
+            </div>
+            <div class="codeContent">
+                <code><pre>FILE_PATH="/var/log/nginx/access.log.tar.gz"
 
-<br><br id="EXIT STATUS">
-    <h2>EXIT STATUS</h2>
-    Every command in Bash returns an exit status. You can check this status using the $? variable.
-    <div  class="code">
-        <div class="codeHead">
-            bash
-            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
-            <span class="tool-tip"> Copied!</span></button>
+# 1. Default value fallback (If unset, use default)
+PORT="${CONFIG_PORT:-8080}"
+
+# 2. String length
+echo "Length of FILE_PATH: ${#FILE_PATH}"
+
+# 3. Substring extraction: ${VAR:offset:length}
+STR="HardwareSecurity"
+echo "${STR:0:8}"  # Outputs: Hardware
+echo "${STR:8}"    # Outputs: Security
+
+# 4. Strip prefix: ${VAR#pattern} (shortest) | ${VAR##pattern} (longest)
+echo "${FILE_PATH##*/}" # Strips everything up to last slash -> "access.log.tar.gz" (Pure basename!)
+
+# 5. Strip suffix: ${VAR%pattern} (shortest) | ${VAR%%pattern} (longest)
+FILENAME="backup_2026.tar.gz"
+echo "${FILENAME%.*}"   # Strips last extension -> "backup_2026.tar"
+echo "${FILENAME%%.*}"  # Strips all extensions -> "backup_2026"
+
+# 6. Search and Replace: ${VAR/pattern/replacement}
+GREETING="Hello World World"
+echo "${GREETING/World/Bash}"   # Replaces first match -> "Hello Bash World"
+echo "${GREETING//World/Bash}"  # Replaces all matches -> "Hello Bash Bash"</pre></code>
+            </div>
         </div>
-        <div class="codeContent">
-            <code><pre>
-ls /nonexistent_dir
-if [ $? -ne 0 ]; then
-    echo "Directory does not exist."
-fi</pre></code>
-        </div >
-    </div>
 
-<br><br id="EXAMPLE">
-    <h2>EXAMPLE</h2>
-    Here's a simple example of a Bash script that incorporates these concepts:
-    <div  class="code">
-        <div class="codeHead">
-            bash
-            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
-            <span class="tool-tip"> Copied!</span></button>
+        <!-- SECTION 5: REDIRECTIONS, PIPES & HEREDOCS -->
+        <br id="REDIRECTIONS">
+        <h2>I/O REDIRECTIONS, PIPELINES & HEREDOCS</h2>
+        <p>In Unix, everything is a stream. Programs read from standard input (File Descriptor 0 / <code>stdin</code>), write to standard output (FD 1 / <code>stdout</code>), and send diagnostics to standard error (FD 2 / <code>stderr</code>).</p>
+
+        <table>
+            <thead>
+                <tr><th>Syntax</th><th>Operator</th><th>Function</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><code>cmd > file</code></td><td>Redirect Stdout</td><td>Overwrites <code>file</code> with output from <code>cmd</code>.</td></tr>
+                <tr><td><code>cmd >> file</code></td><td>Append Stdout</td><td>Appends output of <code>cmd</code> to the end of <code>file</code>.</td></tr>
+                <tr><td><code>cmd 2> file</code></td><td>Redirect Stderr</td><td>Redirects errors only into <code>file</code>.</td></tr>
+                <tr><td><code>cmd > file 2>&1</code> or <code>cmd &> file</code></td><td>Redirect Both</td><td>Merges <code>stdout</code> and <code>stderr</code> into <code>file</code>.</td></tr>
+                <tr><td><code>cmd &> /dev/null</code></td><td>Silent / Discard</td><td>Throws away all standard and error output completely.</td></tr>
+                <tr><td><code>cmd1 | cmd2</code></td><td>Pipe</td><td>Connects <code>stdout</code> of <code>cmd1</code> to <code>stdin</code> of <code>cmd2</code>.</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Heredocs & Herestrings</h3>
+        <p>Heredocs let you stream multi-line configuration blocks or templates directly into files or commands without messy multi-line <code>echo</code> statements:</p>
+
+        <div class="code">
+            <div class="codeHead">
+                bash
+                <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+                <span class="tool-tip">Copied!</span></button>
+            </div>
+            <div class="codeContent">
+                <code><pre># Generate a multi-line configuration file with variable interpolation
+TARGET_IP="192.168.1.50"
+cat &lt;&lt;EOF > /tmp/target.conf
+# Auto-generated configuration
+Host: target-node
+IP: ${TARGET_IP}
+Timestamp: $(date '+%Y-%m-%d %H:%M:%S')
+EOF
+
+# Quoting 'EOF' prevents variable expansion (ideal for code generators):
+cat &lt;&lt;'EOF' > /tmp/script_template.sh
+#!/usr/bin/env bash
+echo "This $VARIABLE will NOT be evaluated right now."
+EOF
+
+# Herestring: Feed a variable directly into stdin of a command
+MESSAGE="CRITICAL: Memory threshold exceeded"
+grep "CRITICAL" &lt;&lt;&lt; "$MESSAGE"</pre></code>
+            </div>
         </div>
-        <div class="codeContent">
-            <code><pre>
-#!/bin/bash
 
-# Function to greet a person
-greet() {
-    echo "Hello, $1!"
-}
+        <!-- SECTION 6: ARITHMETIC -->
+        <br id="ARITHMETIC">
+        <h2>ARITHMETIC & NUMERIC OPERATIONS</h2>
+        <p>Bash natively performs integer arithmetic using <code>$(( ... ))</code> or the evaluation statement <code>(( ... ))</code>. Floating-point operations require <code>bc</code> or <code>awk</code>.</p>
 
-# Main script starts here
-echo "What's your name?"
-read name
+        <div class="code">
+            <div class="codeHead">
+                bash
+                <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+                <span class="tool-tip">Copied!</span></button>
+            </div>
+            <div class="codeContent">
+                <code><pre>A=15
+B=4
 
-greet "$name"
+# Basic integer arithmetic
+SUM=$(( A + B ))       # 19
+DIFF=$(( A - B ))      # 11
+PROD=$(( A * B ))      # 60
+DIV=$(( A / B ))       # 3 (integer division truncates)
+MOD=$(( A % B ))       # 3
+POW=$(( 2 ** 8 ))      # 256
 
-if [ "$name" == "Alice" ]; then
-    echo "You're awesome!"
-elif [ "$name" == "Bob" ]; then
-    echo "You're cool too!"
-else
-    echo "Nice to meet you, $name."
+# Increment / Decrement
+(( A++ ))              # A becomes 16
+(( B += 10 ))          # B becomes 14
+
+# Floating point calculation via 'bc'
+FLOAT_RES=$(echo "scale=3; 15 / 4" | bc)
+echo "Float result: $FLOAT_RES"  # Outputs: 3.750</pre></code>
+            </div>
+        </div>
+
+        <!-- SECTION 7: CONDITIONALS & TESTS -->
+        <br id="CONDITIONALS">
+        <h2>TEST OPERATORS & CONDITIONALS (<code>[[ ... ]]</code>)</h2>
+        <p>Always prefer the modern double bracket test <code>[[ ... ]]</code> over the obsolete POSIX single bracket <code>[ ... ]</code>. Double brackets prevent word splitting, allow boolean operators (<code>&&</code>, <code>||</code>), and enable powerful regex matching with <code>=~</code>.</p>
+
+        <div class="code">
+            <div class="codeHead">
+                bash
+                <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+                <span class="tool-tip">Copied!</span></button>
+            </div>
+            <div class="codeContent">
+                <code><pre>FILE="/etc/hosts"
+USER_INPUT="192.168.1.100"
+
+# File test operators
+if [[ -f "$FILE" && -r "$FILE" ]]; then
+    echo "$FILE exists and is a readable regular file."
 fi
-</pre></code>
-        </div >
-    </div>
 
-    <div class="end"> --- End of Blog --- </div>
+# String & Regex matching (=~)
+if [[ -z "$EMPTY_VAR" ]]; then
+    echo "Variable is empty or unset."
+fi
+
+if [[ "$USER_INPUT" =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
+    echo "Valid IPv4 address syntax confirmed."
+else
+    echo "Invalid IP format." >&2
+fi</pre></code>
+            </div>
+        </div>
+
+        <h3>Essential Test Flags Cheatsheet</h3>
+        <table>
+            <thead>
+                <tr><th>Flag</th><th>Category</th><th>Condition Evaluated to True</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><code>-e file</code></td><td>File</td><td>Path exists (file, directory, socket, device).</td></tr>
+                <tr><td><code>-f file</code></td><td>File</td><td>Path exists and is a <strong>regular file</strong>.</td></tr>
+                <tr><td><code>-d path</code></td><td>File</td><td>Path exists and is a <strong>directory</strong>.</td></tr>
+                <tr><td><code>-s file</code></td><td>File</td><td>File exists and has a size <strong>greater than zero</strong>.</td></tr>
+                <tr><td><code>-x file</code></td><td>File</td><td>File exists and has <strong>execute permission</strong>.</td></tr>
+                <tr><td><code>-z str</code></td><td>String</td><td>String length is <strong>zero (empty)</strong>.</td></tr>
+                <tr><td><code>-n str</code></td><td>String</td><td>String length is <strong>non-zero</strong>.</td></tr>
+                <tr><td><code>s1 == s2</code></td><td>String</td><td>Strings are identical (supports glob pattern in <code>[[ ]]</code>).</td></tr>
+                <tr><td><code>n1 -eq n2</code></td><td>Integer</td><td>Numeric equal (also <code>-ne</code>, <code>-lt</code>, <code>-le</code>, <code>-gt</code>, <code>-ge</code>).</td></tr>
+            </tbody>
+        </table>
+
+        <!-- SECTION 8: LOOPS -->
+        <br id="LOOPS">
+        <h2>LOOPS: FOR, WHILE & UNTIL</h2>
+
+        <div class="code">
+            <div class="codeHead">
+                bash
+                <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+                <span class="tool-tip">Copied!</span></button>
+            </div>
+            <div class="codeContent">
+                <code><pre># 1. C-style for loop
+for ((i = 1; i <= 5; i++)); do
+    echo "Step: $i"
+done
+
+# 2. Iterating through files matching a pattern safely (handles spaces!)
+for conf in /etc/*.conf; do
+    [[ -e "$conf" ]] || continue # Guard against empty matches
+    echo "Auditing config: $conf"
+done
+
+# 3. Reading a file line by line safely (preserving whitespace and tabs)
+while IFS= read -r line || [[ -n "$line" ]]; do
+    echo "Processing line: $line"
+done < "targets.txt"
+
+# 4. Until loop (runs until condition turns true)
+RETRY=0
+until ping -c 1 -W 1 google.com &>/dev/null; do
+    echo "Waiting for internet connection..."
+    sleep 2
+    (( RETRY++ ))
+    [[ $RETRY -ge 5 ]] && { echo "Connection timeout"; break; }
+done</pre></code>
+            </div>
+        </div>
+
+        <!-- SECTION 9: ARRAYS & HASHMAPS -->
+        <br id="ARRAYS">
+        <h2>ARRAYS & ASSOCIATIVE MAPS (HASHMAPS)</h2>
+        <p>Bash supports both zero-indexed linear arrays and associative key-value dictionaries (hashmaps in Bash 4+):</p>
+
+        <div class="code">
+            <div class="codeHead">
+                bash
+                <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+                <span class="tool-tip">Copied!</span></button>
+            </div>
+            <div class="codeContent">
+                <code><pre># --- Indexed Arrays ---
+SERVERS=("gateway-01" "db-primary" "cache-node")
+
+# Append element
+SERVERS+=("worker-node")
+
+# Array size
+echo "Total servers: ${#SERVERS[@]}"
+
+# Iterate over elements
+for server in "${SERVERS[@]}"; do
+    echo "Connecting to: $server"
+done
+
+# --- Associative Arrays (Hashmaps, requires Bash 4+) ---
+declare -A PORT_MAP=(
+    ["http"]=80
+    ["https"]=443
+    ["ssh"]=22
+    ["mysql"]=3306
+)
+
+PORT_MAP["redis"]=6379
+
+# Accessing keys and values
+echo "SSH Port is: ${PORT_MAP["ssh"]}"
+
+# Iterate over all keys
+for service in "${!PORT_MAP[@]}"; do
+    echo "Service: $service -> Port: ${PORT_MAP[$service]}"
+done</pre></code>
+            </div>
+        </div>
+
+        <!-- SECTION 10: FUNCTIONS -->
+        <br id="FUNCTIONS">
+        <h2>FUNCTIONS & LOCAL VARIABLE SCOPE</h2>
+        <p>By default, all variables in Bash are <strong>global</strong>, even when declared inside functions! This is a massive source of bugs. Always declare internal function variables with <code>local</code>.</p>
+
+        <div class="code">
+            <div class="codeHead">
+                bash
+                <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+                <span class="tool-tip">Copied!</span></button>
+            </div>
+            <div class="codeContent">
+                <code><pre># Function definition
+calculate_sha256() {
+    local target_file="$1" # Scoped locally to this function only
+    
+    if [[ ! -f "$target_file" ]]; then
+        echo "Error: File '$target_file' not found." >&2
+        return 1 # Non-zero return signals failure
+    fi
+    
+    local hash
+    hash=$(sha256sum "$target_file" | awk '{print $1}')
+    echo "$hash" # Functions return data to caller via stdout
+    return 0     # Exit code 0 denotes success
+}
+
+# Invoking function with command substitution
+MY_HASH=$(calculate_sha256 "/bin/ls")
+if [[ $? -eq 0 ]]; then
+    echo "SHA256 Hash: $MY_HASH"
+fi</pre></code>
+            </div>
+        </div>
+
+        <!-- SECTION 11: DEFENSIVE BASH & STRICT MODE -->
+        <br id="DEFENSIVE-BASH">
+        <h2>DEFENSIVE BASH: STRICT MODE & SIGNAL TRAPS</h2>
+        <p>Production Bash scripts should never fail silently. Adopting <strong>Unofficial Bash Strict Mode</strong> (<code>set -euo pipefail</code>) ensures immediate execution termination when an error occurs, uninitialized variables are accessed, or pipeline steps fail.</p>
+
+        <div class="code">
+            <div class="codeHead">
+                bash
+                <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+                <span class="tool-tip">Copied!</span></button>
+            </div>
+            <div class="codeContent">
+                <code><pre>#!/usr/bin/env bash
+set -e          # Exit immediately if any command returns a non-zero status
+set -u          # Treat unset variables as an error and exit immediately
+set -o pipefail # Pipeline status is the code of the LAST failed command (not the last command)
+
+# Safe temporary directory creation with guaranteed cleanup
+TMP_DIR=$(mktemp -d)
+
+# Signal Trapping: Runs cleanup function automatically on EXIT, Ctrl+C (INT), or TERM
+cleanup() {
+    local exit_code=$?
+    echo "[INFO] Cleaning up temporary directory $TMP_DIR..."
+    rm -rf "$TMP_DIR"
+    exit "$exit_code"
+}
+trap cleanup EXIT INT TERM
+
+# Now your script can safely do work:
+echo "Doing work inside $TMP_DIR..."</pre></code>
+            </div>
+        </div>
+
+        <!-- SECTION 12: FILE OPERATIONS -->
+        <br id="FILE-OPS">
+        <h2>FILE & DIRECTORY OPERATIONS</h2>
+        <p>Real-world file manipulation patterns:</p>
+
+        <div class="code">
+            <div class="codeHead">
+                bash
+                <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+                <span class="tool-tip">Copied!</span></button>
+            </div>
+            <div class="codeContent">
+                <code><pre>LOG_DIR="/var/log/myapp"
+
+# Create directories recursively only if they don't exist
+mkdir -p "$LOG_DIR"
+
+# Atomically copy files with preserved timestamps
+cp -p "$FILE" "$LOG_DIR/"
+
+# Finding and deleting files older than 14 days
+find "$LOG_DIR" -name "*.log" -type f -mtime +14 -exec rm -f {} +
+
+# Reading space-delimited or CSV data cleanly
+while IFS=',' read -r col1 col2 col3; do
+    echo "Column 1: $col1 | Column 2: $col2"
+done < "data.csv"</pre></code>
+            </div>
+        </div>
+
+        <!-- SECTION 13: PRODUCTION SCRIPT -->
+        <br id="PRODUCTION-EXAMPLE">
+        <h2>REAL-WORLD PRODUCTION SCRIPT: SYSTEM BACKUP & HEALTH MONITOR</h2>
+        <p>Here is an end-to-end, production-grade automation script incorporating command-line flags, strict mode, colored status reporting, temporary storage, and signal trapping:</p>
+
+        <div class="code">
+            <div class="codeHead">
+                bash
+                <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+                <span class="tool-tip">Copied!</span></button>
+            </div>
+            <div class="codeContent">
+                <code><pre>#!/usr/bin/env bash
+set -euo pipefail
+
+# ANSI color codes for terminal logging
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+log_info()  { echo -e "${GREEN}[INFO]${NC}  $*"; }
+log_warn()  { echo -e "${YELLOW}[WARN]${NC}  $*"; }
+log_error() { echo -e "${RED}[ERROR]${NC} $*" >&2; }
+
+# Default parameters
+BACKUP_DIR="/tmp/backups"
+SOURCE_DIR=""
+RETENTION_DAYS=7
+
+usage() {
+    cat &lt;&lt;EOF
+Usage: $0 -s &lt;source_directory&gt; [-d &lt;backup_destination&gt;] [-r &lt;retention_days&gt;]
+Options:
+  -s  Source directory to back up (Mandatory)
+  -d  Destination backup directory (Default: /tmp/backups)
+  -r  Retention in days (Default: 7)
+  -h  Show this help message
+EOF
+    exit 1
+}
+
+while getopts ":s:d:r:h" opt; do
+    case "$opt" in
+        s) SOURCE_DIR="$OPTARG" ;;
+        d) BACKUP_DIR="$OPTARG" ;;
+        r) RETENTION_DAYS="$OPTARG" ;;
+        h) usage ;;
+        :) log_error "Option -$OPTARG requires an argument."; exit 1 ;;
+        \?) log_error "Unknown option -$OPTARG."; usage ;;
+    esac
+done
+
+[[ -z "$SOURCE_DIR" ]] && { log_error "Source directory (-s) is mandatory."; usage; }
+[[ ! -d "$SOURCE_DIR" ]] && { log_error "Source directory '$SOURCE_DIR' does not exist."; exit 1; }
+
+# Safe temp workspace
+WORK_DIR=$(mktemp -d)
+cleanup() {
+    rm -rf "$WORK_DIR"
+    log_info "Workspace clean. Execution terminated."
+}
+trap cleanup EXIT INT TERM
+
+log_info "Initiating backup for: $SOURCE_DIR"
+mkdir -p "$BACKUP_DIR"
+
+TIMESTAMP=$(date '+%Y%m%d_%H%M%S')
+ARCHIVE_NAME="backup_$(basename "$SOURCE_DIR")_${TIMESTAMP}.tar.gz"
+TARGET_PATH="${BACKUP_DIR}/${ARCHIVE_NAME}"
+
+# Create compressed archive
+tar -czf "$TARGET_PATH" -C "$(dirname "$SOURCE_DIR")" "$(basename "$SOURCE_DIR")"
+log_info "Archive generated: $TARGET_PATH ($(du -h "$TARGET_PATH" | cut -f1))"
+
+# Check disk space percentage
+DISK_USAGE=$(df -h "$BACKUP_DIR" | awk 'NR==2 {print $5}' | tr -d '%')
+if [[ "$DISK_USAGE" -gt 85 ]]; then
+    log_warn "Backup volume is at ${DISK_USAGE}% capacity!"
+fi
+
+# Prune older archives
+log_info "Purging archives older than ${RETENTION_DAYS} days..."
+find "$BACKUP_DIR" -name "backup_*.tar.gz" -type f -mtime +"$RETENTION_DAYS" -exec rm -v {} +
+
+log_info "Backup routine completed successfully."
+exit 0</pre></code>
+            </div>
+        </div>
+
+        <div class="end"> --- End of Blog --- </div>
     </div>
 
     <script src="../../script.js"></script>

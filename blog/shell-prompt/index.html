@@ -6,282 +6,259 @@
     <meta name="google-site-verification" content="lORx1_5INaOkYprqHs1zZeleoQ080VWsUrxp-5coH4A" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
-    <title>Shell Prompt</title>
+    <link rel="icon" href="../../resources/sparkle.png" sizes="192x192" />
+    <title>Shell Prompt Customisation | PS1 Guide</title>
 </head>
 
 <body>
     <div class="sidenav" id="mySidenav">
-        <h1 style="margin-left: 5px;"> Index</h2>
-        
+        <h1 style="margin-left: 15px; font-size: 22px;">Index</h1>
         <hr><a onclick="closeNav()" href="#Key Points">Key Points</a>
-        <hr><a onclick="closeNav()" href="#Escape sequences and Color Codes">Escape sequences and Color Codes</a>
+        <hr><a onclick="closeNav()" href="#Escape sequences and Color Codes">Escape Sequences & Color Codes</a>
         <ul style="list-style-type: none;">
-            <li><a onclick="closeNav()" href="#Commonly Used Escape Sequence">Commonly Used Escape Sequence</a></li>
-            <li><a onclick="closeNav()" href="#Graphics Redention Parameter">Graphics Redention Parameter</a></li>
-            <li><a onclick="closeNav()" href="#Background and Text Color">Background and Text Color</a></li>
-            <li><a onclick="closeNav()" href="#Format">Format</a></li>
-            <li><a onclick="closeNav()" href="#Example">Example</a></li>
+            <li><a onclick="closeNav()" href="#Commonly Used Escape Sequence">Commonly Used Escape Sequences</a></li>
+            <li><a onclick="closeNav()" href="#Graphics Redention Parameter">Graphics Rendition Parameters</a></li>
+            <li><a onclick="closeNav()" href="#Background and Text Color">Background & Text Colors</a></li>
+            <li><a onclick="closeNav()" href="#Format">RGB TrueColor Format</a></li>
         </ul>
         <hr><a onclick="closeNav()" href="#PS1 Examples">PS1 Examples</a>
-        <hr><a onclick="closeNav()" href="#Fancy Letters">Fancey Letters</a>
+        <hr><a onclick="closeNav()" href="#Dynamic Git and Exit Status">Git Branch & Exit Status in PS1</a>
+        <hr><a onclick="closeNav()" href="#Fancy Letters">Fancy Characters</a>
         <hr><a onclick="closeNav()" href="#Resources">Resources</a>
         <hr>
     </div>
     
-      <div class="main"><button class="openbtn" onclick="toggleNav()">☰</button>
-    <div class="mainHeading">SHELL PROMPT</div>
-    <h1>SHELL PROMPT CUSTOMISATION USING <strong>PS1</strong></h1>
-    <p>The special shell variable is used to control the bash prompt. These shell variables are PS1, PS2, PS3, and PS4.
-        Each variable is used for specific purposes. The value of these variables is executed as a command before
-        displaying the primary prompt. The PS1 variable contains the value of the default prompt. </p>
+    <div class="main">
+        <button class="openbtn" onclick="toggleNav()">☰</button>
+        <div class="mainHeading">SHELL PROMPT</div>
+        <h1>SHELL PROMPT CUSTOMISATION USING <strong>PS1</strong></h1>
+        <p>In Bash, your command line prompt is controlled by special shell environment variables: <code>PS1</code>, <code>PS2</code>, <code>PS3</code>, and <code>PS4</code>. The <code>PS1</code> (Prompt String 1) variable defines the primary interactive prompt you see every time you type a command. Customizing <code>PS1</code> turns an uninspiring terminal into an informative, aesthetically pleasing dashboard.</p>
 
         <br>
-        Just take out the terminal and try typing 
-        <div  class="code">
+        Open your terminal and test it out right now:
+        <div class="code">
             <div class="codeHead">
                 bash
                 <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
-                <span class="tool-tip"> Copied!</span></button>
+                <span class="tool-tip">Copied!</span></button>
             </div>
-            <div class="codeContent"><pre>PS1="hello >> "</pre></div >
-        </div><br>
-        Now you might understand how it works.
-        <br>
-        So If you put this command in your bashrc file, you get this shell prompt forever.
-        <br>
-        You can have fancy charectors and different colors in your prompt. You can also fetch some information like username, time, current working directory etc as well.  
+            <div class="codeContent"><pre>PS1="hello >> "</pre></div>
+        </div>
+        <p>To persist your custom prompt permanently across terminal sessions, place the <code>export PS1="..."</code> definition in your <code>~/.bashrc</code> (or <code>~/.zshrc</code>).</p>
+
         <br id="Key Points">
-        <h2 >Key Points</h2>
+        <h2>Key Points</h2>
         <ul>
-            <li>PS1=" "</li>
-            <li>replace old PS1 with new one in ~/.bashrc</li>
-            <li><span class="code">\e </span> is used for styling</li>
-            <li><span class="code">[**]</span> helps the bash to calculate the length of PS1
-                <ul>
-                    <li>This should be given to everything which is used for styling <span class="code">[\e*]</span> </li>
-                </ul>
-            </li>
+            <li><strong>Non-Printing Characters:</strong> Always wrap ANSI color escape sequences in <code>\[ ... \]</code>. This informs Bash that those characters occupy zero display width on the screen, preventing broken line-wrapping and history scrolling bugs.</li>
+            <li><strong>Resetting Colors:</strong> Always conclude your prompt with <code>\[\e[0m\]</code> to ensure that commands typed by the user stay in the default terminal font color.</li>
+            <li><strong>Portability:</strong> Standard ANSI 8-color and 16-color codes work everywhere. 24-bit TrueColor (RGB) gives beautiful pastel tones on modern terminal emulators (Kitty, Alacritty, iTerm2, Windows Terminal).</li>
         </ul>
-        <br  id="Escape sequences and Color Codes">
-    <h2 id="Commonly Used Escape Sequence">Escape sequences and Color Codes</h2>
-    <h3>Commonly Used Escape Sequence</h3>
-    <table>
-        <thead>
-            <tr><th>backlash-escaped Character</th><th>purpose</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>\u</td><td>It is used to display the current username.</td></tr>
-            <tr><td>\h</td><td>It is used to the name of the computer name.</td></tr>
-            <tr><td>\H</td><td>It is used to the name of the hostname.</td></tr>
-            <tr><td>\d</td><td>It is used to display the date with weekday name, month name, and date.</td></tr>
-            <tr><td>\w</td><td>It is used to display the full path of the current working directory.</td></tr>
-            <tr><td>\W</td><td>It is used to display the last fragment of the current working directory.</td></tr>
-            <tr><td>\t</td><td>It is used to display the current time in 24-hour format.</td></tr>
-            <tr><td>\T</td><td>It is used to display the current time in 12-hour format.</td></tr>
-            <tr><td>\@</td><td>It is used to display the current time in 12-hour format with AM/PM.</td></tr>
-            <tr><td>\n</td><td>JIt is used to add the new line.</td></tr>
-            <tr><td>\e</td><td>It is used to add an ASCII escape character.</td></tr>
-            <tr><td>\v</td><td>It is used to display the version of the bash.</td></tr>
-            <tr><td>Jill</td><td>Smith</td></tr>
-            <tr><td>\V</td><td>It is used to display the version of the bash with patch level.</td></tr>
-        </tbody>
-    </table>
 
-    <br><br  id="Graphics Redention Parameter">
+        <br id="Escape sequences and Color Codes">
+        <h2 id="Commonly Used Escape Sequence">Escape sequences and Color Codes</h2>
+        <h3>Commonly Used Escape Sequences</h3>
+        <table>
+            <thead>
+                <tr><th>Escape Sequence</th><th>Purpose / Description</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><code>\u</code></td><td>Displays the username of the current user.</td></tr>
+                <tr><td><code>\h</code></td><td>Displays the hostname up to the first dot (e.g., <code>archlinux</code>).</td></tr>
+                <tr><td><code>\H</code></td><td>Displays the full qualified domain hostname.</td></tr>
+                <tr><td><code>\w</code></td><td>Displays the full path of the current working directory (with <code>~</code> for $HOME).</td></tr>
+                <tr><td><code>\W</code></td><td>Displays only the basename of the current working directory.</td></tr>
+                <tr><td><code>\d</code></td><td>Displays date in "Weekday Month Date" format (e.g., "Tue Nov 3").</td></tr>
+                <tr><td><code>\t</code></td><td>Displays the current time in 24-hour HH:MM:SS format.</td></tr>
+                <tr><td><code>\T</code></td><td>Displays the current time in 12-hour HH:MM:SS format.</td></tr>
+                <tr><td><code>\@</code></td><td>Displays the current time in 12-hour am/pm format.</td></tr>
+                <tr><td><code>\n</code></td><td>Inserts a newline character (creates multi-line prompts).</td></tr>
+                <tr><td><code>\e</code></td><td>ASCII escape character (initiates an ANSI escape sequence).</td></tr>
+                <tr><td><code>\$</code></td><td>Displays <code>#</code> if effective UID is 0 (root), otherwise displays <code>$</code>.</td></tr>
+                <tr><td><code>\v</code></td><td>Displays the version of Bash running.</td></tr>
+                <tr><td><code>\!</code></td><td>Displays the history number of this command.</td></tr>
+            </tbody>
+        </table>
 
-    <h3>Graphics Redention Parameter</h3>
-    <table>
-        <thead>
-            <tr><th>n</th><th >Name</th><th >Note</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>0</td><td >Reset or normal</td><td >All attributes off</td></tr>
-            <tr><td>1</td><td >Bold or increased intensity</td><td >As with faint, the color change is a PC (SCO / CGA) invention.[38][better
-                    source needed]</td></tr>
-            <tr><td>2</td><td >Faint, decreased intensity, or dim</td><td >May be implemented as a light font weight like bold.[39]</td></tr>
-            <tr><td>3</td><td >Italic</td><td >Not widely supported. Sometimes treated as inverse or blink.[38]</td></tr>
-            <tr><td>4</td><td >Underline</td><td >Style extensions exist for Kitty, VTE, mintty and iTerm2.[40][41]</td></tr>
-            <tr><td>5</td><td >Slow blink</td><td >Sets blinking to less than 150 times per minute</td></tr>
-            <tr><td>6</td><td >Rapid blink</td><td >MS-DOS ANSI.SYS, 150+ per minute; not widely supported</td></tr>
-            <tr><td>7</td><td >Reverse video or invert</td><td >Swap foreground and background colors; inconsistent emulation[42]</td></tr>
-            <tr><td>8</td><td >Conceal or hide</td><td >Not widely supported.</td></tr>
-            <tr><td>9</td><td >Crossed-out, or strike</td><td >Characters legible but marked as if for deletion. Not supported in Terminal.app</td></tr>
-            <tr><td>10</td><td >Primary (default) font</td><td > - </td></tr>
-            <tr><td>11–19</td><td >Alternative font</td><td >Select alternative font n − 10</td></tr>
-            <tr><td>20</td><td >Fraktur (Gothic)</td><td >Rarely supported</td></tr>
-            <tr><td>21</td><td >Doubly underlined; or: not bold</td><td >Double-underline per ECMA-48,[5]: 8.3.117  but instead disables bold
-                    intensity on several terminals, including in the Linux kernel&#39;s console before version 4.17.
-                </td></tr>
-            <tr><td>22</td><td >Normal intensity</td><td >Neither bold nor faint; color changes where intensity is implemented as
-                    such.</td></tr>
-            <tr><td>23</td><td >Neither italic, nor blackletter</td><td > - </td></tr>
-            <tr><td>24</td><td >Not underlined</td><td >Neither singly nor doubly underlined</td></tr>
-            <tr><td>25</td><td >Not blinking</td><td >Turn blinking off</td></tr>
-            <tr><td>26</td><td >Proportional spacing</td><td >ITU T.61 and T.416, not known to be used on terminals</td></tr>
-            <tr><td>27</td><td >Not reversed</td><td > - </td></tr>
-            <tr><td>28</td><td >Reveal</td><td >Not concealed</td></tr>
-            <tr><td>29</td><td >Not crossed out</td><td >Given in above table</td></tr>
-            <tr><td>30–37</td><td >Set foreground color</td><td >Given in above table</td></tr>
-            <tr><td>38</td><td >Set foreground color</td><td >Next arguments are 5;n or 2;r;g;b</td></tr>
-            <tr><td>39</td><td >Default foreground color</td><td >Implementation defined (according to standard)</td></tr>
-            <tr><td>40–47</td><td >Set background color</td><td >Given in above table</td></tr>
-            <tr><td>48</td><td >Set background color</td><td >Next arguments are 5;n or 2;r;g;b</td></tr>
-            <tr><td>49</td><td >Default background color</td><td >Implementation defined (according to standard)</td></tr>
-            <tr><td>50</td><td >Disable proportional spacing</td><td >T.61 and T.416</td></tr>
-            <tr><td>51</td><td >Framed</td><td >Implemented as &quot;emoji variation selector&quot; in mintty</td></tr>
-            <tr><td>52</td><td >Encircled</td><td >Implemented as &quot;emoji variation selector&quot; in mintty</td></tr>
-            <tr><td>53</td><td >Overlined</td><td >Not supported in Terminal.app</td></tr>
-            <tr><td>54</td><td >Neither framed nor encircled</td><td > - </td></tr>
-            <tr><td>55</td><td >Not overlined</td><td > - </td></tr>
-            <tr><td>58</td><td >Set underline color</td><td >Not in standard; implemented in Kitty, VTE, mintty, and iTerm2. Next
-                    arguments are 5;n or 2;r;g;b.</td></tr>
-            <tr><td>59</td><td >Default underline color</td><td >Not in standard; implemented in Kitty, VTE, mintty, and iTerm2. `</td></tr>
-            <tr><td>60</td><td >Ideogram underline or right side line</td><td >Rarely supported</td></tr>
-            <tr><td>61</td><td >Ideogram double underline, or double line on the right side</td><td >Rarely supported</td></tr>
-            <tr><td>62</td><td >Ideogram overline or left side line</td><td >Rarely supported</td></tr>
-            <tr><td>63</td><td >Ideogram double overline, or double line on the left side</td><td >Rarely supported</td></tr>
-            <tr><td>64</td><td >Ideogram stress marking</td><td >Rarely supported</td></tr>
-            <tr><td>65</td><td >No ideogram attributes</td><td >Reset the effects of all of 60-64</td></tr>
-            <tr><td>73</td><td >Superscript</td><td >Implemented only in mintty</td></tr>
-            <tr><td>74</td><td >Subscript</td><td >Implemented only in mintty</td></tr>
-            <tr><td>75</td><td >Neither superscript nor subscript</td><td >Implemented only in mintty</td></tr>
-            <tr><td>90–97</td><td >Set bright foreground color</td><td >Not in standard; originally implemented by aixterm</td></tr>
-            <tr><td>100–107</td><td >Set bright background color</td><td >Not in standard; originally implemented by aixterm</td></tr>
-        </tbody>
-    </table>
+        <br><br id="Graphics Redention Parameter">
+        <h3>Graphics Rendition Parameters</h3>
+        <table>
+            <thead>
+                <tr><th>Code</th><th>Name</th><th>Effect / Usage</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>0</td><td>Reset</td><td>Turns off all styles and color attributes.</td></tr>
+                <tr><td>1</td><td>Bold / Bright</td><td>Bolds the text font or boosts intensity.</td></tr>
+                <tr><td>2</td><td>Dim / Faint</td><td>Decreased font intensity.</td></tr>
+                <tr><td>3</td><td>Italic</td><td>Italicized text font (supported on modern terminals).</td></tr>
+                <tr><td>4</td><td>Underline</td><td>Draws an underline beneath the prompt text.</td></tr>
+                <tr><td>7</td><td>Invert</td><td>Reverses foreground and background colors.</td></tr>
+                <tr><td>30–37</td><td>Foreground Color</td><td>Sets text color to one of the 8 standard colors.</td></tr>
+                <tr><td>40–47</td><td>Background Color</td><td>Sets background fill to one of the 8 standard colors.</td></tr>
+                <tr><td>90–97</td><td>Bright Foreground</td><td>High-intensity text colors.</td></tr>
+                <tr><td>100–107</td><td>Bright Background</td><td>High-intensity background colors.</td></tr>
+            </tbody>
+        </table>
 
-    <br><br id="Background and Text Color">
+        <br><br id="Background and Text Color">
+        <h3>Background and Text Colors</h3>
+        <table class="colors">
+            <thead>
+                <tr><th>Color</th><th>Standard Foreground</th><th>Bright Foreground</th><th>Background Code</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Black</td><td>30</td><td>90</td><td>40</td></tr>
+                <tr><td>Red</td><td>31</td><td>91</td><td>41</td></tr>
+                <tr><td>Green</td><td>32</td><td>92</td><td>42</td></tr>
+                <tr><td>Yellow</td><td>33</td><td>93</td><td>43</td></tr>
+                <tr><td>Blue</td><td>34</td><td>94</td><td>44</td></tr>
+                <tr><td>Magenta / Purple</td><td>35</td><td>95</td><td>45</td></tr>
+                <tr><td>Cyan</td><td>36</td><td>96</td><td>46</td></tr>
+                <tr><td>White</td><td>37</td><td>97</td><td>47</td></tr>
+            </tbody>
+        </table>
+
+        <br id="Format">
+        <h3>24-Bit TrueColor (RGB) Format</h3>
+        <ul>
+            <li><code>\[\e[38;2;⟨R⟩;⟨G⟩;⟨B⟩m\]</code> &mdash; Sets precise 24-bit RGB Foreground color.</li>
+            <li><code>\[\e[48;2;⟨R⟩;⟨G⟩;⟨B⟩m\]</code> &mdash; Sets precise 24-bit RGB Background color.</li>
+        </ul>
+
+        <div class="code">
+            <div class="codeHead">
+                bash
+                <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+                <span class="tool-tip">Copied!</span></button>
+            </div>
+            <div class="codeContent"><pre># Custom emerald green text on dark slate background:
+PS1="\[\e[38;2;166;223;144;48;2;20;25;20m\] \u@\h \[\e[0m\] \w >> "</pre></div>
+        </div>
+
+        <br><br id="PS1 Examples">
+        <h2>PS1 Examples</h2>
+        <img src="../../resources/Shell-prompt-1.png" alt="">
+        <div class="code">
+            <div class="codeHead">
+                bash
+                <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+                <span class="tool-tip">Copied!</span></button>
+            </div>
+            <div class="codeContent"><pre>PS1="╭─────────🮙🮙 NAME\n│\u 🯊 \w\n╰─>> "</pre></div>
+        </div>
+        <br><br>
+        <img src="../../resources/Shell-prompt-2.png" alt="">
+        <div class="code">
+            <div class="codeHead">
+                bash
+                <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+                <span class="tool-tip">Copied!</span></button>
+            </div>
+            <div class="codeContent"><pre>PS1="\[\e[32;1m\]╭─────────🮙🮙 NAME\n\[\e[32m\]│\[\e[36m\]\u \[\e[37m\]🯊 \[\e[33m\]\w\n\[\e[32m\]╰─>> \[\e[0m\]"</pre></div>
+        </div>
+        <br><br>
+        <img src="../../resources/Shell-prompt-3.png" alt="">
+        <div class="code">
+            <div class="codeHead">
+                bash
+                <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+                <span class="tool-tip">Copied!</span></button>
+            </div>
+            <div class="codeContent"><pre>PS1="\[\e[32;1m\]╭─────────\[\e[37m\]🮙🮙\[\e[32m\]\[\e[47m\] NAME \[\e[0m\]🭬\n\[\e[32m\]│\[\e[47m\]\[\e[36m\]\u \[\e[0m\]🭬\[\e[0m\]\[\e[37m\] \[\e[33m\]\w\n\[\e[32m\]╰─>>\[\e[0m\]"</pre></div>
+        </div>
+        <br><br>
+        <img src="../../resources/Shell-prompt-4.png" alt="">
+        <div class="code">
+            <div class="codeHead">
+                bash
+                <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+                <span class="tool-tip">Copied!</span></button>
+            </div>
+            <div class="codeContent"><code><pre>PS1="\[\e[32;1m\]╭─────\[\e[38;2;200;200;160m\]🮙🮙\[\e[38;2;50;50;50;48;2;200;200;160m\]NAME \[\e[0;38;2;200;200;160m\]🭬\n\[\e[32m\]│\[\e[38;2;0;30;30m\]🭨\[\e[32;48;2;0;30;30;1m\] \u\[\e[0;42;38;2;0;30;30m\]🭬\[\e[0;42;38;2;0;40;40;1m\]\w \[\e[0;32m\]🭬\[\e[0;32m\]\n╰─>> \[\e[0m\]"</pre></code></div>
+        </div>
+        <br><br>
+        <img src="../../resources/Shell-prompt-5.png" alt="">
+        <div class="code">
+            <div class="codeHead">
+                bash
+                <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+                <span class="tool-tip">Copied!</span></button>
+            </div>
+            <div class="codeContent"><code><pre>PS1="\[\e[32;1m\]╭─────\[\e[38;2;200;200;160m\]\[\e[38;2;50;50;50;48;2;200;200;160m\] \t \[\e[0;38;2;200;200;160m\]\n\[\e[32m\]│\[\e[38;2;0;30;30m\]\[\e[32;48;2;0;30;30;1m\] \u\[\e[0;42;38;2;0;30;30m\]\[\e[0;42;38;2;0;40;40;1m\] \w \[\e[0;32m\]\[\e[0;32m\]\n╰─>> \[\e[0m\]"</pre></code></div>
+        </div>
+
+        <!-- NEW ADVANCED SECTION -->
+        <br id="Dynamic Git and Exit Status">
+        <h2>PRO TIP: DYNAMIC GIT BRANCH & EXIT STATUS IN PS1 (PURE BASH)</h2>
+        <p>You don't need heavyweight plugins like Oh-My-Zsh or Starship to see your Git status and previous command success. You can write a lightweight pure Bash prompt in your <code>~/.bashrc</code> that loads instantly:</p>
+
+        <div class="code">
+            <div class="codeHead">
+                ~/.bashrc
+                <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
+                <span class="tool-tip">Copied!</span></button>
+            </div>
+            <div class="codeContent"><code><pre># Function: Returns current git branch with clean/dirty indicators
+parse_git_branch() {
+    local branch
+    branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null) || return
+    local status=""
+    # Check if working tree has unstaged or staged changes
+    [[ -n $(git status --porcelain 2>/dev/null) ]] && status="*"
+    echo " (git:${branch}${status})"
+}
+
+# Function: Shows green checkmark if last command succeeded, or red cross + exit code
+format_exit_status() {
+    local exit_code=$1
+    if [[ $exit_code -eq 0 ]]; then
+        echo "\[\e[32m\]✔\[\e[0m\]"
+    else
+        echo "\[\e[31m\]✘ [${exit_code}]\[\e[0m\]"
+    fi
+}
+
+# PROMPT_COMMAND runs right before PS1 is displayed
+set_prompt() {
+    local LAST_STATUS=$?
+    local STATUS_STR
+    STATUS_STR=$(format_exit_status "$LAST_STATUS")
     
-    <h3>Background and Text Color</h3>
-    <table class="colors">
-        <thead>
-            <tr><th>Background Colors</th><th>Foreground Colors</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Black = 40</td><td>Black = 30</td></tr>
-            <tr><td>Red = 41</td><td>Red = 31</td></tr>
-            <tr><td>Green = 42</td><td>Green = 32</td></tr>
-            <tr><td>Yellow = 43</td><td>Yellow = 33</td></tr>
-            <tr><td>Blue = 44</td><td>Blue = 34</td></tr>
-            <tr><td>Purple = 45</td><td>Purple = 35</td></tr>
-            <tr><td>Cyan = 46</td><td>Cyan = 36</td></tr>
-            <tr><td>White = 47</td><td>White = 37</td></tr>
-            <tr><td>RGB colors = 48</td><td>RGB Colors = 38</td></tr>
-        </tbody>
-    </table>
-    <br id="Format">>
-    <h3>Format</h3>
-    <ul>
-        <li><span class="codeContent">\e[38;2;⟨r⟩;⟨g⟩;⟨b⟩m\] </span> Select RGB foreground color</li>
-        <li><span class="codeContent">\e[48;2;⟨r⟩;⟨g⟩;⟨b⟩m\] </span> Select RGB background color</li>
-    </ul>
-    <h3 id="Example">Example</h3>
-    <div  class="code">
-        <div class="codeHead">
-            bash
-            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
-            <span class="tool-tip"> Copied!</span></button>
-        </div>
-        <div class="codeContent"><pre>\[\e[38;2;0;30;30m\]</pre></div >
-    </div>
-    <br>
-    <div  class="code">
-        <div class="codeHead">
-            bash
-            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
-            <span class="tool-tip"> Copied!</span></button>
-        </div>
-        <div class="codeContent"><pre>\[\e[48;2;0;30;30m\]</pre></div >
-    </div>
+    PS1="${STATUS_STR} \[\e[38;2;166;223;144;1m\]\u@\h\[\e[0m\]:\[\e[38;2;100;180;255m\]\w\[\e[38;2;255;180;80m\]\$(parse_git_branch)\[\e[0m\]\n\$ "
+}
 
-    <br><br id="PS1 Examples">
-    <h2>PS1 Examples</h2>
-    <img src="../../resources/Shell-prompt-1.png" alt="">
-    <div  class="code">
-        <div class="codeHead">
-            bash
-            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
-            <span class="tool-tip"> Copied!</span></button>
+PROMPT_COMMAND=set_prompt</pre></code></div>
         </div>
-        <div class="codeContent"><pre>PS1="╭─────────🮙🮙 NAME\n│\u 🯊 \w\n╰─>> "</pre></div >
-    </div>
-    <br><br>
-    <img src="../../resources/Shell-prompt-2.png" alt="">
-    
-    <div  class="code">
-        <div class="codeHead">
-            bash
-            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
-            <span class="tool-tip"> Copied!</span></button>
-        </div>
-        <div class="codeContent"><pre>PS1="\[\e[32;1m╭─────────🮙🮙 NAME\n\e[32m│\e[36m\u \e[37m🯊\e[33m\w\n\e[32m╰─>> \e[0m\]"</pre></div >
-    </div>
-    <br><br>
-    <img src="../../resources/Shell-prompt-3.png" alt="">
-    <div  class="code">
-        <div class="codeHead">
-             bash
-            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
-            <span class="tool-tip"> Copied!</span></button>
-        </div>
-        <div class="codeContent"><pre>PS1="\[\e[32;1m\]╭─────────\[\e[37m\]🮙🮙\[\e[32m\]\[\e[47m\] NAME \[\e[0m\]🭬\n\[\e[32m\]│\[\e[47m\]\[\e[36m\]\u \[\e[0m\]🭬\[\e[0m\]\[\e[37m\] \[\e[33m\]\w\n\[\e[32m\]╰─>>\[\[\e[0m\]"</pre></div >
-    </div>
-    <br><br>
-    <img src="../../resources/Shell-prompt-4.png" alt="">
-    <div  class="code">
-        <div class="codeHead">
-            bash
-            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
-            <span class="tool-tip"> Copied!</span></button>
-        </div>
-        <div class="codeContent"><code><pre>PS1="\[\e[32;1m\]╭─────\[\e[38;2;200;200;160m\]🮙🮙\[\e[38;2;50;50;50;48;2;200;200;160m\]NAME \[\e[0;38;2;200;200;160m\]🭬\n\[\e[32m\]│\[\e[38;2;0;30;30m\]🭨\[\e[32;48;2;0;30;30;1m\] \u\[\e[0;42;38;2;0;30;30m\]🭬\[\e[0;42;38;2;0;40;40;1m\]\w \[\e[0;32m\]🭬\[\e[0;32m\]\n╰─>> \[\e[0m\]"</pre></code></div >
-    </div>
-    
-    <br><br>
-    <img src="../../resources/Shell-prompt-5.png" alt="">
-    <div  class="code">
-        <div class="codeHead">
-            bash
-            <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png">
-            <span class="tool-tip"> Copied!</span></button>
-        </div>
-        <div class="codeContent"><code><pre> PS1="\[\e[32;1m\]╭─────\[\e[38;2;200;200;160m\]\[\e[38;2;50;50;50;48;2;200;200;160m\] \t \[\e[0;38;2;200;200;160m\]\n\[\e[32m\]│\[\e[38;2;0;30;30m\]\[\e[32;48;2;0;30;30;1m\] \u\[\e[0;42;38;2;0;30;30m\]\[\e[0;42;38;2;0;40;40;1m\] \w \[\e[0;32m\]\[\e[0;32m\]\n╰─>> \[\e[0m\]"</pre></code></div >
-    </div>
-    
-    <br><br id="Fancy Letters">
 
-    <h3 >Fancy Letters</h3>
-    <div class="codeContent">
-        ░ ▒ ▓ │ ┤ ╡ ╢ ╖ ╕ ╣ ║ ╗ ╝ ╜ ╛ ┐ └ ┴ ┬ ├ ─ ┼ ╞ ╟
-        ╚ ╔ ╩ ╦ ╠ ═ ╬ ╧ ╨ ╤ ╥ ╙ ╘ ╒ ╓ ╫ ╪ ┘ ┌ █ ▄ ▌ ▐ ▀
-        ⌠ ⌡ ░ ▒ ▓ │ ┤ ╣ ║ ╗ ╝ ┐ C └ ┴ ┬ ├ ─ ┼ ╚ ╔ ╩ ╦ ╠
-        ═ ╬ D ┘ ┌ █ ▄ ▀ ╝ ╗ ╔ ╚ ╣ ╩ ╦ ╠ ═ ║ ╬ ▀ ▄ ┘ ┐ ┌
-        └ ┤ ┴ ┬ ├ ─ │ ┼ █ ┘ ┐ ┌ └ ┼ ─ ├ ┤ ┴ ┬ │ ╷ ╶ ┌ ╴
-        ┐ ─ ┬ ╵ │ └ ├ ┘ ┤ ┴ ┼ ╭ ╮ ╰ ╯ ▘ ▝ ▀ ▖ ▍ ▞ ▛ ▗
-        ▚ ▐ ▜ ▃ ▙ ▟ ▉ ╵ ╶ └ ╷ │ ┌ ├ ╴ ┘ ─ ┴ ┐ ┤ ┬ ┼ ╧
-        - ╟ ╚ ╤ ║ ╔ ╠ ╢ ╝ ═ ╩ ╗ ╣ ╦ ╬ ╵ ╶ └ ╷ │ ┌ ├ ╴ ┘
-        ─ ┴ ┐ ┤ ┬ ┼ ▀ ▁ ▂ ▃ ▄ ▅ ▆ ▇ █ ▉ ▊ ▋ ▌ ▍ ▎ ▏ ▐
-        ░ ▒ ▓ ▔ ▕ ▖ ▗ ▘ ▙ ▚ ▛ ▜ ▝ ▞ ▟ ─ ━ │ ┃ ┄ ┅ ┆
-        ┇ ┈ ┉ ┊ ┋ ┌ ┍ ┎ ┏ ┐ ┑ ┒ ┓ └ ┕ ┖ ┗ ┘ ┙ ┚ ┛ ├ ┝ ┞ ┟
-        ┠ ┡ ┢ ┣ ┤ ┥ ┦ ┧ ┨ ┩ ┪ ┫ ┬ ┭ ┮ ┯ ┰ ┱ ┲ ┳ ┴ ┵ ┶ ┷ ┸
-        ┹ ┺ ┻ ┼ ┽ ┾ ┿ ╀ ╁ ╂ ╃ ╄ ╅ ╆ ╇ ╈ ╉ ╊ ╋ ╌ ╍ ╎ ╏
-        ═ ║ ╒ ╓ ╔ ╕ ╖ ╗ ╘ ╙ ╚ ╛ ╜ ╝ ╞ ╟ ╠ ╡ ╢ ╣ ╤ ╥ ╦ ╧
-        ╨ ╩ ╪ ╫ ╬ ╭ ╮ ╯ ╰ ╱ ╲ ╳ ╴ ╵ ╶ ╷ ╸ ╹ ╺ ╻ ╼ ╽ ╾ ╿
+        <br id="Fancy Letters">
+        <h3>Fancy Characters</h3>
+        <div class="codeContent">
+            ░ ▒ ▓ │ ┤ ╡ ╢ ╖ ╕ ╣ ║ ╗ ╝ ╜ ╛ ┐ └ ┴ ┬ ├ ─ ┼ ╞ ╟
+            ╚ ╔ ╩ ╦ ╠ ═ ╬ ╧ ╨ ╤ ╥ ╙ ╘ ╒ ╓ ╫ ╪ ┘ ┌ █ ▄ ▌ ▐ ▀
+            ⌠ ⌡ ░ ▒ ▓ │ ┤ ╣ ║ ╗ ╝ ┐ C └ ┴ ┬ ├ ─ ┼ ╚ ╔ ╩ ╦ ╠
+            ═ ╬ D ┘ ┌ █ ▄ ▀ ╝ ╗ ╔ ╚ ╣ ╩ ╦ ╠ ═ ║ ╬ ▀ ▄ ┘ ┐ ┌
+            └ ┤ ┴ ┬ ├ ─ │ ┼ █ ┘ ┐ ┌ └ ┼ ─ ├ ┤ ┴ ┬ │ ╷ ╶ ┌ ╴
+            ┐ ─ ┬ ╵ │ └ ├ ┘ ┤ ┴ ┼ ╭ ╮ ╰ ╯ ▘ ▝ ▀ ▖ ▍ ▞ ▛ ▗
+            ▚ ▐ ▜ ▃ ▙ ▟ ▉ ╵ ╶ └ ╷ │ ┌ ├ ╴ ┘ ─ ┴ ┐ ┤ ┬ ┼ ╧
+            - ╟ ╚ ╤ ║ ╔ ╠ ╢ ╝ ═ ╩ ╗ ╣ ╦ ╬ ╵ ╶ └ ╷ │ ┌ ├ ╴ ┘
+            ─ ┴ ┐ ┤ ┬ ┼ ▀ ▁ ▂ ▃ ▄ ▅ ▆ ▇ █ ▉ ▊ ▋ ▌ ▍ ▎ ▏ ▐
+            ░ ▒ ▓ ▔ ▕ ▖ ▗ ▘ ▙ ▚ ▛ ▜ ▝ ▞ ▟ ─ ━ │ ┃ ┄ ┅ ┆
+            ┇ ┈ ┉ ┊ ┋ ┌ ┍ ┎ ┏ ┐ ┑ ┒ ┓ └ ┕ ┖ ┗ ┘ ┙ ┚ ┛ ├ ┝ ┞ ┟
+            ┠ ┡ ┢ ┣ ┤ ┥ ┦ ┧ ┨ ┩ ┪ ┫ ┬ ┭ ┮ ┯ ┰ ┱ ┲ ┳ ┴ ┵ ┶ ┷ ┸
+            ┹ ┺ ┻ ┼ ┽ ┾ ┿ ╀ ╁ ╂ ╃ ╄ ╅ ╆ ╇ ╈ ╉ ╊ ╋ ╌ ╍ ╎ ╏
+            ═ ║ ╒ ╓ ╔ ╕ ╖ ╗ ╘ ╙ ╚ ╛ ╜ ╝ ╞ ╟ ╠ ╡ ╢ ╣ ╤ ╥ ╦ ╧
+            ╨ ╩ ╪ ╫ ╬ ╭ ╮ ╯ ╰ ╱ ╲ ╳ ╴ ╵ ╶ ╷ ╸ ╹ ╺ ╻ ╼ ╽ ╾ ╿
+        </div>
 
+        <br id="Resources">
+        <h3>Resources</h3>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/ANSI_escape_code">Wikipedia: ANSI Escape Codes</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Box-drawing_character">Wikipedia: Box Drawing Characters</a></li>
+            <li><a href="https://coolsymbol.com/">CoolSymbol: Unicode Glyphs</a></li>
+        </ul>
+
+        <div class="end"> --- End of Blog --- </div>
     </div>
-    <br id="Resources">
-    <h3>Resources</h3>
-    <ul>
-        <li><a href="https://en.wikipedia.org/wiki/ANSI_escape_code"> WIKI - ALL DETAILS </a></li>
-        <li><a href="https://en.wikipedia.org/wiki/Box-drawing_character"> FANCY CHARACTORS </a></li>
-        <li><a href="https://linuxhint.com/bash-ps1-customization/"> GETTING ENV VARIABLES </a></li>
-        <li><a href="https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html"> OTHER </a></li>
-        <li><a href="https://coolsymbol.com/">https://coolsymbol.com/</a></li>
-    </ul>
-
-
-    <div class="end"> --- End of Blog --- </div>
-      </div>
     <script src="../../script.js"></script>
 </body>
 
