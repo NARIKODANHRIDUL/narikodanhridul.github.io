@@ -88,11 +88,21 @@
             line-height: 1.3;
         }
 
-        .nutri-card p {
-            margin: 6px 0;
-            font-size: 0.95rem;
-            color: #ccc;
+        /* Bulleted lists inside cards & sections */
+        ul.card-list, ul.fact-list, ul.source-list, ul.callout-list {
+            margin: 8px 0;
+            padding-left: 18px;
+            color: #ddd;
+            font-size: 0.92rem;
             line-height: 1.5;
+        }
+
+        ul.card-list li, ul.fact-list li, ul.source-list li, ul.callout-list li {
+            margin-bottom: 6px;
+        }
+
+        ul.card-list li::marker, ul.fact-list li::marker, ul.source-list li::marker, ul.callout-list li::marker {
+            color: var(--accent-green-bright);
         }
 
         .nutri-stat {
@@ -100,10 +110,11 @@
             font-size: 0.85rem;
             color: #88c070;
             background: #112011;
-            padding: 3px 8px;
+            padding: 4px 10px;
             border-radius: 6px;
             display: inline-block;
-            margin-top: 6px;
+            margin-top: 10px;
+            border: 1px solid rgba(144, 183, 129, 0.2);
         }
 
         /* Mythbusters section */
@@ -139,28 +150,10 @@
             text-transform: uppercase;
         }
 
-        .pill-fact {
-            background: #142a17;
-            color: var(--accent-green-bright);
-            font-weight: 700;
-            font-size: 0.75rem;
-            padding: 3px 9px;
-            border-radius: 12px;
-            border: 1px solid rgba(166, 223, 144, 0.3);
-            text-transform: uppercase;
-        }
-
         .myth-title {
             font-weight: 700;
             font-size: 1.05rem;
             color: #ffb4b4;
-        }
-
-        .fact-body {
-            color: #ddd;
-            font-size: 0.93rem;
-            line-height: 1.5;
-            margin: 4px 0 0 0;
         }
 
         /* Dos and Don'ts */
@@ -253,7 +246,6 @@
             border-radius: 12px;
             padding: 16px;
             border: 1px solid #333;
-            text-align: center;
         }
 
         .plate-section.greens {
@@ -277,6 +269,7 @@
             font-family: 'Staatliches', cursive;
             display: block;
             margin-bottom: 4px;
+            text-align: center;
         }
 
         .plate-section.greens .plate-pct { color: #a6df90; }
@@ -288,12 +281,19 @@
             font-size: 1rem;
             color: #eee;
             margin-bottom: 6px;
+            text-align: center;
         }
 
-        .plate-desc {
-            font-size: 0.82rem;
+        .plate-list {
+            margin: 6px 0 0 0;
+            padding-left: 18px;
+            font-size: 0.84rem;
             color: #bbb;
-            line-height: 1.4;
+            line-height: 1.45;
+        }
+
+        .plate-list li {
+            margin-bottom: 4px;
         }
 
         /* Bangalore hacks */
@@ -310,13 +310,6 @@
             margin: 0 0 8px 0;
             color: var(--accent-green-bright);
             font-size: 1.1rem;
-        }
-
-        .bangalore-callout p {
-            margin: 0;
-            color: #dedede;
-            font-size: 0.93rem;
-            line-height: 1.5;
         }
 
         /* Interactive Cheat Sheet Table Enhancements */
@@ -354,17 +347,6 @@
         tr:nth-child(even) td {
             background-color: #171717;
         }
-
-        .source-pill {
-            display: inline-block;
-            background: #222;
-            padding: 2px 7px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            margin: 2px;
-            color: #a9d995;
-            border: 1px solid #333;
-        }
     </style>
 </head>
 
@@ -395,67 +377,102 @@
         </div>
 
         <p class="tagline">
-            Eating healthy isn’t about eating bland boiled broccoli or expensive avocado toast. It is about understanding human biochemical fuel, embracing the nutrient density of traditional Indian cuisine, and navigating modern city life (desk jobs, Swiggy, and 4 PM chai breaks) with smart, effortless choices.
+            Eating healthy isn’t about choking down raw boiled salads or surviving on avocado toast. It is about understanding your biological fuel, unlocking the powerhouse nutrition in traditional Indian cooking, and navigating modern city life — long desk hours, Swiggy deliveries, and 4 PM chai breaks — with effortless, practical daily habits.
         </p>
 
         <!-- SECTION 1: OVERVIEW & BLUEPRINT -->
         <br id="OVERVIEW">
         <div class="badge" id="BLUEPRINT">Section 1</div>
         <h2>THE HUMAN NUTRIENT BLUEPRINT</h2>
-        <p>The human body needs two fundamental tiers of nutrients to generate energy, repair cells, and regulate hormones:</p>
+        <p>The human body requires two foundational tiers of nutrients to generate energy, build immunity, and regulate hormone production:</p>
 
         <div class="card-grid">
             <div class="nutri-card">
-                <h3>🥩 1. Protein (The Building Blocks)</h3>
-                <p>Repairs tissue, powers immune enzymes, produces neurotransmitters, and preserves muscle mass.</p>
-                <div class="nutri-stat">Target: 1.2 – 1.6g / kg bodyweight</div>
+                <h3>🥩 1. Protein (Building Blocks)</h3>
+                <ul class="card-list">
+                    <li><strong>Tissue Repair:</strong> Rebuilds muscle fibers, skin, and organs.</li>
+                    <li><strong>Biochemical Defense:</strong> Synthesizes antibodies and metabolic enzymes.</li>
+                    <li><strong>Neurotransmitters:</strong> Powers dopamine and serotonin production.</li>
+                    <li><strong>High Satiety:</strong> Keeps you full longer and suppresses hunger spikes.</li>
+                </ul>
+                <div class="nutri-stat">🎯 Target: 1.2 – 1.6g / kg bodyweight</div>
             </div>
 
             <div class="nutri-card">
                 <h3>🌾 2. Complex Carbs & Fiber</h3>
-                <p>Primary fuel for the brain and muscles. Soluble and insoluble fiber regulate gut microbiome and stabilize blood glucose.</p>
-                <div class="nutri-stat">Target: 45–55% energy | 30g+ Fiber</div>
+                <ul class="card-list">
+                    <li><strong>Glycogen Storage:</strong> Primary glucose fuel for brain and skeletal muscles.</li>
+                    <li><strong>Prebiotic Soluble Fiber:</strong> Nourishes healthy gut microbiome bacteria.</li>
+                    <li><strong>Insoluble Fiber:</strong> Prevents constipation and controls blood cholesterol.</li>
+                    <li><strong>Sustained Energy:</strong> Prevents sudden post-meal insulin crashes.</li>
+                </ul>
+                <div class="nutri-stat">🎯 Target: 45–55% energy | 30g+ Fiber</div>
             </div>
 
             <div class="nutri-card">
                 <h3>🥑 3. Essential Fats (MUFA / PUFA)</h3>
-                <p>Required to build cell membranes, produce steroid hormones (testosterone, estrogen), and absorb Vitamins A, D, E, K.</p>
-                <div class="nutri-stat">Target: 20–30% energy | Focus on Omega-3</div>
+                <ul class="card-list">
+                    <li><strong>Steroid Hormones:</strong> Essential for testosterone, estrogen, and cortisol.</li>
+                    <li><strong>Cell Membranes:</strong> Maintains phospholipid fluidity in every human cell.</li>
+                    <li><strong>Brain Density:</strong> 60% of the brain is structural fat.</li>
+                    <li><strong>Vitamin Vehicle:</strong> Required to absorb Vitamins A, D, E, and K.</li>
+                </ul>
+                <div class="nutri-stat">🎯 Target: 20–30% energy | Focus on Omega-3</div>
             </div>
 
             <div class="nutri-card">
                 <h3>💧 4. Water & Electrolytes</h3>
-                <p>Maintains blood volume, transports nutrients, regulates temperature, and prevents brain fog.</p>
-                <div class="nutri-stat">Target: 2.5 – 3.5 Litres / day</div>
+                <ul class="card-list">
+                    <li><strong>Blood Volume:</strong> Ensures smooth oxygen transport across vital organs.</li>
+                    <li><strong>Osmotic Balance:</strong> Regulated by Sodium, Potassium, and Magnesium.</li>
+                    <li><strong>Joint Lubrication:</strong> Protects synovial fluid in joints and spine.</li>
+                    <li><strong>Brain Function:</strong> A 2% drop in hydration causes brain fog and fatigue.</li>
+                </ul>
+                <div class="nutri-stat">🎯 Target: 2.5 – 3.5 Litres / day</div>
             </div>
 
             <div class="nutri-card">
-                <h3>☀️ 5. Fat-Soluble Vitamins (A, D3, E, K)</h3>
-                <p><strong>D3:</strong> Immunity, bone density, and mood.<br>
-                <strong>A & E:</strong> Vision, skin repair, cellular antioxidant defense.<br>
-                <strong>K2:</strong> Directs calcium into bones, away from arteries.</p>
-                <div class="nutri-stat">Critical: 80%+ Urban Indians lack D3</div>
+                <h3>☀️ 5. Fat-Soluble Vitamins (A, D, E, K)</h3>
+                <ul class="card-list">
+                    <li><strong>Vitamin D3:</strong> Regulates 1,000+ genes, bone density, and mood.</li>
+                    <li><strong>Vitamin A:</strong> Preserves night vision and epithelial skin lining.</li>
+                    <li><strong>Vitamin E:</strong> Shields cell membranes against oxidative damage.</li>
+                    <li><strong>Vitamin K2:</strong> Directs calcium into bones and away from arteries.</li>
+                </ul>
+                <div class="nutri-stat">⚠️ 85%+ Urban Indians lack Vitamin D3</div>
             </div>
 
             <div class="nutri-card">
-                <h3>⚡ 6. Water-Soluble Vitamins (B-Complex & C)</h3>
-                <p><strong>B-Complex (B1-B12):</strong> Mitochondrial energy conversion and nerve health.<br>
-                <strong>Vitamin C:</strong> Collagen synthesis & triples non-heme iron absorption.</p>
-                <div class="nutri-stat">Note: B12 is strictly non-plant</div>
+                <h3>⚡ 6. Water-Soluble Vitamins (B & C)</h3>
+                <ul class="card-list">
+                    <li><strong>B-Complex (B1–B9):</strong> Converts food carbohydrates and fats into ATP energy.</li>
+                    <li><strong>Vitamin B12:</strong> Critical for nerve sheath integrity and RBC formation.</li>
+                    <li><strong>Vitamin C:</strong> Crucial for collagen synthesis and antioxidant defense.</li>
+                    <li><strong>Iron Booster:</strong> Triples absorption of plant-based non-heme iron.</li>
+                </ul>
+                <div class="nutri-stat">⚠️ Vitamin B12 is strictly non-plant</div>
             </div>
 
             <div class="nutri-card">
-                <h3>⚙️ 7. Key Minerals (Mg, Fe, Ca, Zn, K)</h3>
-                <p><strong>Magnesium:</strong> 300+ enzymatic reactions, deep sleep & anti-stress.<br>
-                <strong>Iron:</strong> Hemoglobin & oxygen transport.<br>
-                <strong>Zinc:</strong> Immunity & hormone regulation.</p>
-                <div class="nutri-stat">Must pair Plant Iron with Vit C</div>
+                <h3>⚙️ 7. Key Minerals (Mg, Fe, Ca, Zn)</h3>
+                <ul class="card-list">
+                    <li><strong>Magnesium:</strong> Regulates 300+ enzymes, relaxes muscles, aids deep sleep.</li>
+                    <li><strong>Iron:</strong> Transports oxygen via hemoglobin to prevent chronic fatigue.</li>
+                    <li><strong>Calcium:</strong> Provides skeletal strength and neuromuscular signaling.</li>
+                    <li><strong>Zinc:</strong> Accelerates wound healing and supports immune T-cells.</li>
+                </ul>
+                <div class="nutri-stat">💡 Always pair Plant Iron with Vitamin C</div>
             </div>
 
             <div class="nutri-card">
                 <h3>🦠 8. Gut Microbiome / Probiotics</h3>
-                <p>70% of your immune system resides in your gut. Fermented foods produce Short Chain Fatty Acids (SCFAs) that protect mental health.</p>
-                <div class="nutri-stat">Daily: Homemade Curd / Majjige</div>
+                <ul class="card-list">
+                    <li><strong>Immune Headquarters:</strong> Over 70% of human immune cells reside in the gut.</li>
+                    <li><strong>SCFA Production:</strong> Ferments fiber into butyrate to protect intestinal walls.</li>
+                    <li><strong>Gut-Brain Axis:</strong> 90% of bodily serotonin is generated in the digestive tract.</li>
+                    <li><strong>Daily Staples:</strong> Fresh homemade curd and spiced buttermilk (majjige).</li>
+                </ul>
+                <div class="nutri-stat">🥛 Probiotic Staple: Daily Curd / Majjige</div>
             </div>
         </div>
 
@@ -463,119 +480,169 @@
         <br id="MYTHS">
         <div class="badge">Section 2</div>
         <h2>TOP 8 NUTRITION MYTHS BUSTED</h2>
-        <p>Common myths shared across social media and office WhatsApp groups that ruin everyday health:</p>
+        <p>Common myths shared across social media and office WhatsApp groups that sabotage everyday health:</p>
 
         <div class="myth-card">
             <div class="myth-header">
-                <span class="pill-myth">Myth</span>
-                <span class="myth-title">"Carbs make you fat — avoid rice and rotis completely."</span>
+                <span class="pill-myth">Myth 1</span>
+                <span class="myth-title">"Carbs make you fat — eliminate rice and rotis completely."</span>
             </div>
-            <p class="fact-body"><span class="pill-fact">Fact</span> Carbs don't cause fat gain; a chronic <strong>caloric surplus</strong> does. Complex carbs (millets, oats, red rice) provide steady glucose and vital prebiotic fiber. What you must minimize are ultra-processed refined carbs: maida bakery items, colas, and hidden sugars.</p>
+            <ul class="fact-list">
+                <li><strong>Caloric Surplus:</strong> Fat gain is driven by chronic excess calories, not carbohydrates.</li>
+                <li><strong>Brain & Muscle Fuel:</strong> Complex carbs (millets, red rice, oats) provide sustained energy and vital prebiotic fiber.</li>
+                <li><strong>The Real Culprits:</strong> Ultra-processed refined carbs like bakery maida, sugary beverages, and deep-fried snacks.</li>
+            </ul>
         </div>
 
         <div class="myth-card">
             <div class="myth-header">
-                <span class="pill-myth">Myth</span>
+                <span class="pill-myth">Myth 2</span>
                 <span class="myth-title">"Indian vegetarian food cannot provide sufficient protein."</span>
             </div>
-            <p class="fact-body"><span class="pill-fact">Fact</span> While single grains lack complete amino acids, complementary combinations like <strong>Dal + Chawal</strong> or <strong>Rajma + Rice</strong> form complete proteins. Incorporating soya chunks (52% protein by weight!), paneer, sattu, tofu, and Greek yogurt makes hitting 80-100g protein daily very simple.</p>
+            <ul class="fact-list">
+                <li><strong>Complementary Proteins:</strong> Classic pairings like Dal + Chawal or Rajma + Rice provide complete amino acid profiles.</li>
+                <li><strong>Power Staples:</strong> Soya chunks contain 52% protein by weight — higher than any meat or poultry.</li>
+                <li><strong>Easy Targets:</strong> Adding paneer, tofu, sattu, and Greek yogurt makes hitting 80–100g daily protein seamless without powders.</li>
+            </ul>
         </div>
 
         <div class="myth-card">
             <div class="myth-header">
-                <span class="pill-myth">Myth</span>
+                <span class="pill-myth">Myth 3</span>
                 <span class="myth-title">"Desi Ghee clogs arteries and leads straight to heart attacks."</span>
             </div>
-            <p class="fact-body"><span class="pill-fact">Fact</span> Desi ghee is rich in butyric acid (heals gut lining) and has a high smoke point (doesn't oxidize into carcinogens during cooking like cheap vegetable oils). 1–2 teaspoons daily supports hormone health. The true villains are repeatedly reheated palm oils used in commercial deep frying.</p>
+            <ul class="fact-list">
+                <li><strong>Gut Healing:</strong> Pure desi ghee is loaded with butyric acid, which repairs and nourishes the intestinal lining.</li>
+                <li><strong>Thermal Stability:</strong> High smoke point prevents toxic lipid peroxidation during Indian cooking.</li>
+                <li><strong>The Real Hazard:</strong> Repeatedly reheated commercial palm oils and trans-fat shortenings used in street frying.</li>
+            </ul>
         </div>
 
         <div class="myth-card">
             <div class="myth-header">
-                <span class="pill-myth">Myth</span>
+                <span class="pill-myth">Myth 4</span>
                 <span class="myth-title">"Egg yolks are bad for cholesterol; eat only egg whites."</span>
             </div>
-            <p class="fact-body"><span class="pill-fact">Fact</span> Dietary cholesterol has minimal impact on blood cholesterol for 75%+ of the population. The yolk contains almost all the choline (essential for brain health), Vitamin D, Vitamin B12, and eye-protective lutein. Eating 1–2 whole eggs daily is exceptionally healthy.</p>
+            <ul class="fact-list">
+                <li><strong>Minimal Blood Impact:</strong> Dietary cholesterol does not meaningfully raise blood LDL in 75%+ of the population.</li>
+                <li><strong>Nutrient Reservoir:</strong> Yolks contain 90% of the egg's micronutrients: choline (for brain health), Vitamins A, D, and B12.</li>
+                <li><strong>Optimal Dose:</strong> 1–2 whole eggs daily supports cardiovascular and neurological health.</li>
+            </ul>
         </div>
 
         <div class="myth-card">
             <div class="myth-header">
-                <span class="pill-myth">Myth</span>
+                <span class="pill-myth">Myth 5</span>
                 <span class="myth-title">"Jaggery (Gur) and Honey are healthy, guilt-free sugar replacements."</span>
             </div>
-            <p class="fact-body"><span class="pill-fact">Fact</span> Chemically, jaggery is 90%+ sucrose/glucose/fructose, and honey is ~80% fructose and glucose. While they offer tiny trace minerals, their metabolic impact and insulin spike are virtually identical to table sugar. Treat them as sugar, not superfoods.</p>
+            <ul class="fact-list">
+                <li><strong>Identical Sugar Content:</strong> Jaggery is ~90% sucrose/glucose, and honey is ~80% fructose/glucose.</li>
+                <li><strong>Glycemic Impact:</strong> Both trigger the exact same insulin spike and visceral fat accumulation as white table sugar.</li>
+                <li><strong>The Takeaway:</strong> Enjoy them for authentic flavor, but never treat them as weight-loss foods.</li>
+            </ul>
         </div>
 
         <div class="myth-card">
             <div class="myth-header">
-                <span class="pill-myth">Myth</span>
+                <span class="pill-myth">Myth 6</span>
                 <span class="myth-title">"Detox green juices and teas flush out bodily toxins."</span>
             </div>
-            <p class="fact-body"><span class="pill-fact">Fact</span> Your liver and kidneys detoxify your body 24 hours a day. Juicing strips away the insoluble fiber, leaving concentrated liquid sugars that trigger a rapid insulin surge. Eat whole fruits and vegetables instead.</p>
+            <ul class="fact-list">
+                <li><strong>Natural Detox Organs:</strong> Your liver, kidneys, lungs, and skin detoxify your body around the clock.</li>
+                <li><strong>Juicing Downsides:</strong> Juicing removes essential fiber, leaving concentrated liquid fructose that stresses the liver.</li>
+                <li><strong>Better Choice:</strong> Eat whole raw fruits and steamed vegetables with intact natural fiber.</li>
+            </ul>
         </div>
 
         <div class="myth-card">
             <div class="myth-header">
-                <span class="pill-myth">Myth</span>
-                <span class="myth-title">"You need 4–5 liters of water daily, preferably alkaline water."</span>
+                <span class="pill-myth">Myth 7</span>
+                <span class="myth-title">"You must drink 4–5 liters of water daily, preferably alkaline water."</span>
             </div>
-            <p class="fact-body"><span class="pill-fact">Fact</span> Human stomach acid has a pH of 1.5–2.0; alkaline water is instantly neutralized upon entering the stomach. Excessive fluid intake without minerals causes hyponatremia (electrolyte dilution) and fatigue. 2.5–3.5 liters of clean filtered water is optimal.</p>
+            <ul class="fact-list">
+                <li><strong>Stomach Acid Reality:</strong> Stomach acid has a pH of 1.5–2.0; alkaline water is neutralized immediately upon swallowing.</li>
+                <li><strong>Hyponatremia Risk:</strong> Guzzling excessive plain water flushes out sodium and potassium, causing brain fog and muscle cramps.</li>
+                <li><strong>Optimal Rule:</strong> 2.5–3.5 liters of filtered mineral-rich water is ideal for most urban adults.</li>
+            </ul>
         </div>
 
         <div class="myth-card">
             <div class="myth-header">
-                <span class="pill-myth">Myth</span>
+                <span class="pill-myth">Myth 8</span>
                 <span class="myth-title">"Eating food after 8 PM instantly turns into stored body fat."</span>
             </div>
-            <p class="fact-body"><span class="pill-fact">Fact</span> Weight regulation is governed by your total 24-hour energy balance. A calorie at 9 PM has the same thermal energy as a calorie at 9 AM. However, eating heavy meals right before bedtime disrupts deep sleep and causes acid reflux, so finish dinner 2 hours before sleep.</p>
+            <ul class="fact-list">
+                <li><strong>Metabolic Clock:</strong> Total 24-hour calorie intake dictates fat gain, not the time displayed on the clock.</li>
+                <li><strong>Sleep Impact:</strong> Heavy dinners eaten right before bed do disrupt REM sleep and provoke acid reflux.</li>
+                <li><strong>Golden Rule:</strong> Finish your last meal 2 hours before sleeping for restorative rest.</li>
+            </ul>
         </div>
 
         <!-- SECTION 3: INDIAN & BANGALORE SOURCES -->
         <br id="INDIAN-SOURCES">
         <div class="badge">Section 3</div>
         <h2>NUTRIENT SOURCES: INDIAN CUISINE & BANGALORE REALITY</h2>
-        <p>Readily available, highly affordable foods you can grab from your local Darshini, Kirana store, Zepto/Blinkit, or local market:</p>
+        <p>Readily available, affordable everyday foods from your local Darshini, Kirana store, Zepto/Blinkit, or local market:</p>
 
         <div class="card-grid">
             <div class="nutri-card">
                 <h3>🍗 Protein Powerhouses</h3>
-                <p><strong>Traditional:</strong> Soya chunks (Nutrela), Paneer, Moong Dal, Chana, Rajma, Sattu, Eggs, Chicken Breast, Mackerel (Bangda).</p>
-                <p><strong>Bangalore City Picks:</strong> Milky Mist paneer / Epigamia Greek curd (10-15g protein), Zepto fresh tofu, roasted chana, tandoori items from local eateries (request less oil).</p>
-                <div class="nutri-stat">Pro Tip: 50g Soya Chunks = 26g Protein (Cost: ₹15)</div>
+                <ul class="source-list">
+                    <li><strong>Desi Staples:</strong> Soya chunks (Nutrela), Paneer, Moong Dal, Chana, Rajma, Sattu, Eggs, Chicken breast.</li>
+                    <li><strong>Bangalore Quick Access:</strong> Milky Mist paneer, Epigamia Greek curd (10–15g protein), Zepto organic tofu.</li>
+                    <li><strong>Darshini Order:</strong> Tandoori chicken or double-egg bhurji with minimal oil.</li>
+                </ul>
+                <div class="nutri-stat">💡 50g Soya Chunks = 26g Protein (Cost: ~₹15)</div>
             </div>
 
             <div class="nutri-card">
                 <h3>🌾 Fiber & Clean Carbohydrates</h3>
-                <p><strong>Traditional:</strong> Ragi (Karnataka staple: Ragi Mudde, Ragi Dosa), Jowar, Bajra, Red Matta rice, Poha, Palak, Bhindi, Methi, Moringa.</p>
-                <p><strong>Bangalore City Picks:</strong> Local Chakki fresh ragi flour, steel-cut oats, chia seeds, EatFit/Curefoods millet bowls.</p>
-                <div class="nutri-stat">Karnataka Gem: Ragi has 344mg Calcium/100g</div>
+                <ul class="source-list">
+                    <li><strong>Desi Staples:</strong> Ragi (Ragi Mudde, Ragi Dosa), Jowar, Bajra, Red Matta rice, Poha, Palak, Bhindi, Methi.</li>
+                    <li><strong>Bangalore Quick Access:</strong> Fresh Chakki ragi flour, steel-cut oats, chia seeds, EatFit millet bowls.</li>
+                    <li><strong>Local Superfood:</strong> Drumstick greens (Moringa) in South Indian sambar.</li>
+                </ul>
+                <div class="nutri-stat">🌾 Ragi has 344mg Calcium/100g — Beats Milk!</div>
             </div>
 
             <div class="nutri-card">
                 <h3>🥥 Healthy Fats & Omega-3</h3>
-                <p><strong>Traditional:</strong> Desi cow ghee, cold-pressed groundnut/mustard/coconut oil, sesame seeds (til), walnuts, flaxseeds (alsi).</p>
-                <p><strong>Bangalore City Picks:</strong> Fresh tender coconut (yelaneeru), Bangda/Sardines from local fish counters, raw pumpkin seeds.</p>
-                <div class="nutri-stat">Bangda fish is the cheapest Omega-3 in South India</div>
+                <ul class="source-list">
+                    <li><strong>Desi Staples:</strong> Desi cow ghee, cold-pressed groundnut/mustard/coconut oil, sesame seeds (til), walnuts.</li>
+                    <li><strong>Bangalore Quick Access:</strong> Fresh tender coconut (yelaneeru), raw pumpkin seeds on quick delivery.</li>
+                    <li><strong>Fish Counters:</strong> Indian Mackerel (Bangda) and Sardines — highest EPA/DHA omega-3 per rupee.</li>
+                </ul>
+                <div class="nutri-stat">🐟 Bangda is South India's cheapest Omega-3</div>
             </div>
 
             <div class="nutri-card">
                 <h3>🍋 Iron & Vitamin C Absorption</h3>
-                <p><strong>Traditional:</strong> Moringa (drumstick leaves - South Indian superfood), Palak, Beetroot, Bajra, Poha, Amla (Indian gooseberry).</p>
-                <p><strong>Bioavailability Hack:</strong> Plant iron (non-heme) is poorly absorbed. Squeezing half a fresh lemon (Vitamin C) on dal triples iron absorption!</p>
-                <div class="nutri-stat">Crucial: Never drink tea/coffee with meals</div>
+                <ul class="source-list">
+                    <li><strong>Desi Staples:</strong> Moringa leaves, Palak, Beetroot, Bajra, Poha, Amla (Indian gooseberry).</li>
+                    <li><strong>Bioavailability Rule:</strong> Squeezing half a fresh lemon (Vitamin C) on dal triples non-heme iron uptake!</li>
+                    <li><strong>The Iron Killer:</strong> Drinking cutting chai or filter coffee with meals blocks up to 70% of iron.</li>
+                </ul>
+                <div class="nutri-stat">☕ Keep 60-min gap between Chai & Meals</div>
             </div>
 
             <div class="nutri-card">
-                <h3>⚡ The Techie Vitamin D & B12 Dilemma</h3>
-                <p><strong>Urban Reality:</strong> 85%+ of Bangalore tech workers are Vitamin D deficient due to indoor AC offices and sunscreens.</p>
-                <p><strong>Action:</strong> 15 mins of midday sun (11 AM–1 PM) on skin, or a doctor-prescribed weekly 60,000 IU supplement. Strict vegetarians must supplement Vitamin B12.</p>
-                <div class="nutri-stat">B12 + D3 fixes unexplained fatigue & brain fog</div>
+                <h3>⚡ Techie Vitamin D & B12 Crisis</h3>
+                <ul class="source-list">
+                    <li><strong>The IT Corridor Dilemma:</strong> 85%+ of Bangalore techies are deficient due to AC offices and window UV filters.</li>
+                    <li><strong>Vitamin D3 Fix:</strong> 15 mins midday sunlight (11 AM–1 PM) or doctor-prescribed 60k IU supplement.</li>
+                    <li><strong>Vitamin B12 Fix:</strong> Dahi, eggs, paneer, or sublingual methylcobalamin tablets for strict vegetarians.</li>
+                </ul>
+                <div class="nutri-stat">🔋 B12 + D3 cures chronic 3 PM brain fog</div>
             </div>
 
             <div class="nutri-card">
                 <h3>🥥 Magnesium & Potassium (Anti-Stress)</h3>
-                <p><strong>The Bangalore Street Champion:</strong> <em>Yelaneeru</em> (Tender Coconut) from street stalls is nature's finest isotonic electrolyte.</p>
-                <p><strong>Other Picks:</strong> Nanjangud bananas, soaked almonds, dark green leafy vegetables (sambar/saag).</p>
-                <div class="nutri-stat">Replaces sugary sports drinks instantly</div>
+                <ul class="source-list">
+                    <li><strong>Bangalore Street Hero:</strong> <em>Yelaneeru</em> (Tender Coconut) on every corner — natural isotonic electrolytes.</li>
+                    <li><strong>Other Top Picks:</strong> Nanjangud bananas, soaked almonds, dark green leafy vegetables.</li>
+                    <li><strong>Physical Benefits:</strong> Eliminates restless legs, tight neck muscles, and workday tension.</li>
+                </ul>
+                <div class="nutri-stat">🌴 Replaces chemical energy drinks instantly</div>
             </div>
         </div>
 
@@ -583,27 +650,39 @@
         <br id="BALANCED-PLATE">
         <div class="badge">Section 4</div>
         <h2>THE BALANCED INDIAN PLATE</h2>
-        <p>Most traditional Indian plates are 75% rice/roti and 10% protein. Flip the formula to thrive without calorie counting:</p>
+        <p>Most traditional Indian plates are 75% rice/roti and only 10% protein. Flip the formula to thrive without obsessive calorie counting:</p>
 
         <div class="plate-box">
             <div class="plate-diagram">
                 <div class="plate-section greens">
                     <span class="plate-pct">50%</span>
                     <div class="plate-label">Vegetables & Fiber</div>
-                    <div class="plate-desc">Palak, Bhindi, Methi, Cucumber, Tomato, Carrot salad, Moringa drumsticks. Low calorie, high micronutrients, feeds gut microbiome.</div>
+                    <ul class="plate-list">
+                        <li>Palak, Bhindi, Methi, Moringa drumsticks.</li>
+                        <li>Fresh cucumber, tomato, carrot salad.</li>
+                        <li>Slows glucose absorption by up to 35%.</li>
+                    </ul>
                 </div>
                 <div class="plate-section protein">
                     <span class="plate-pct">25%</span>
                     <div class="plate-label">Quality Protein</div>
-                    <div class="plate-desc">Paneer, Tofu, Soya chunks, Eggs, Chicken breast, Fish, or Sprouted Moong. Crucial for muscle retention and long satiety.</div>
+                    <ul class="plate-list">
+                        <li>Paneer, Tofu, Soya chunks, Eggs, Chicken.</li>
+                        <li>Sprouted moong, thick dal, or fish.</li>
+                        <li>Preserves lean muscle and controls cravings.</li>
+                    </ul>
                 </div>
                 <div class="plate-section carbs">
                     <span class="plate-pct">25%</span>
                     <div class="plate-label">Complex Carbs</div>
-                    <div class="plate-desc">Ragi Mudde, Jowar/Bajra roti, Brown/Matta rice, or Whole Wheat phulka. Provides clean, steady mental and physical energy.</div>
+                    <ul class="plate-list">
+                        <li>Ragi Mudde, Jowar / Bajra roti.</li>
+                        <li>Red Matta rice or whole wheat phulka.</li>
+                        <li>Delivers sustained, even mental energy.</li>
+                    </ul>
                 </div>
             </div>
-            <p style="text-align: center; color: #aaa; margin: 10px 0 0 0; font-size: 0.9rem;">
+            <p style="text-align: center; color: #aaa; margin: 12px 0 0 0; font-size: 0.9rem;">
                 <strong>Side Additions:</strong> 1 bowl of fresh Curd / Spiced Majjige (Buttermilk) + 1 teaspoon pure Desi Ghee.
             </p>
         </div>
@@ -615,19 +694,28 @@
 
         <div class="bangalore-callout">
             <h4>🛵 The Swiggy / Zomato Ordering Filter</h4>
-            <p><strong>Avoid:</strong> "Makhani", "Lababdar", and "Shahi" curries — they are emulsified with heavy palm oil, cashews, and refined sugar.<br>
-            <strong>Order Instead:</strong> Tandoori Chicken/Paneer, Yellow Dal Tadka, Grilled fish, steamed Idli-Sambar, or protein salad bowls from modern cloud kitchens (EatFit / Curefoods).</p>
+            <ul class="callout-list">
+                <li><strong style="color: #ff9d9d;">Avoid:</strong> "Makhani", "Lababdar", and "Shahi" curries — emulsified with cheap palm oil, heavy cashews, and refined sugar.</li>
+                <li><strong style="color: #a6df90;">Order Instead:</strong> Tandoori Chicken/Paneer, Yellow Dal Tadka, Grilled Fish, steamed Idli-Sambar, or protein millet bowls (EatFit / Curefoods).</li>
+                <li><strong>Restaurant Hack:</strong> Add "Less oil / no butter on roti" in your delivery cooking instructions.</li>
+            </ul>
         </div>
 
         <div class="bangalore-callout">
             <h4>☕ The 4 PM Chai-Samosa Slump Fix</h4>
-            <p>The 4 PM canteen run (bajji + sweet filter coffee) triggers a massive 5:30 PM insulin crash and brain fog.<br>
-            <strong>Swap with:</strong> Spiced Majjige (curry leaves, ginger, green chili, rock salt) or a handful of roasted makhana / roasted chana. Instant sustained alertness without the sugar crash.</p>
+            <ul class="callout-list">
+                <li><strong style="color: #ff9d9d;">The Problem:</strong> Deep-fried bajjis and sugary filter coffee spark a 5:30 PM insulin crash and brain fog.</li>
+                <li><strong style="color: #a6df90;">Smart Swap 1:</strong> Spiced Majjige (buttermilk with curry leaves, crushed ginger, and rock salt) — gut cooling and probiotic.</li>
+                <li><strong style="color: #a6df90;">Smart Swap 2:</strong> Roasted makhana (foxnuts) or roasted black chana — high fiber, slow-burning fuel.</li>
+            </ul>
         </div>
 
         <div class="bangalore-callout">
             <h4>⚡ Zepto / Blinkit 10-Minute Cart Upgrades</h4>
-            <p>Instead of ordering biscuits, namkeen, or instant noodles, keep your fridge stocked with: Greek yogurt cups, high-protein paneer, vacuum-packed sprouts, tender coconuts, and chia seeds.</p>
+            <ul class="callout-list">
+                <li><strong>Remove from Cart:</strong> Biscuits, processed mixtures, and instant cup noodles.</li>
+                <li><strong>Stock in Fridge:</strong> Greek yogurt cups, high-protein paneer blocks, vacuum-packed sprouts, tender coconuts, and chia seeds.</li>
+            </ul>
         </div>
 
         <!-- SECTION 6: DOS AND DON'TS -->
@@ -640,23 +728,23 @@
                 <h3>✅ THE DO'S</h3>
                 <div class="checklist-item">
                     <span class="check-icon" style="color: #a6df90;">✔</span>
-                    <div><strong>Frontload Protein at Breakfast:</strong> Start your day with eggs, paneer bhurji, or a sprouted moong cheela to eliminate 11 AM cravings.</div>
+                    <div><strong>Frontload Protein at Breakfast:</strong> Start with eggs, paneer bhurji, or sprouted moong cheela to extinguish 11 AM sugar cravings.</div>
                 </div>
                 <div class="checklist-item">
                     <span class="check-icon" style="color: #a6df90;">✔</span>
-                    <div><strong>Squeeze Lemon on Meals:</strong> Vitamin C triples plant-based iron absorption from dals and green leafy vegetables.</div>
+                    <div><strong>Squeeze Lemon on Meals:</strong> Vitamin C triples plant-based non-heme iron absorption from dals and leafy greens.</div>
                 </div>
                 <div class="checklist-item">
                     <span class="check-icon" style="color: #a6df90;">✔</span>
-                    <div><strong>Eat Your Greens First:</strong> Eating fiber/salad before rice or roti slows gastric emptying and cuts post-meal glucose spikes by up to 35%.</div>
+                    <div><strong>Eat Greens & Salad First:</strong> Consuming fiber before rice or rotis slows gastric emptying and reduces post-meal glucose spikes by up to 35%.</div>
                 </div>
                 <div class="checklist-item">
                     <span class="check-icon" style="color: #a6df90;">✔</span>
-                    <div><strong>Hydrate with Minerals:</strong> Sip tender coconut water or buttermilk with rock salt rather than guzzling gallons of plain water.</div>
+                    <div><strong>Hydrate with Minerals:</strong> Sip tender coconut water or majjige with rock salt rather than chugging plain filtered water mindlessly.</div>
                 </div>
                 <div class="checklist-item">
                     <span class="check-icon" style="color: #a6df90;">✔</span>
-                    <div><strong>Walk 10 Mins After Meals:</strong> A brief post-meal stroll engages GLUT4 transporters to clear blood glucose without insulin spikes.</div>
+                    <div><strong>Walk 10 Mins After Meals:</strong> A short brisk post-meal stroll activates muscle GLUT4 receptors to soak up blood glucose without insulin spikes.</div>
                 </div>
             </div>
 
@@ -664,23 +752,23 @@
                 <h3>❌ THE DON'TS</h3>
                 <div class="checklist-item">
                     <span class="check-icon" style="color: #ff9d9d;">✖</span>
-                    <div><strong>Don't Drink Chai/Coffee with Meals:</strong> Tannins and polyphenols in tea/coffee bind to dietary iron and block up to 70% of absorption. Keep a 1-hour gap!</div>
+                    <div><strong>Don't Drink Chai/Coffee with Meals:</strong> Tannins and polyphenols bind to dietary iron and block up to 70% of absorption. Keep a 1-hour gap!</div>
                 </div>
                 <div class="checklist-item">
                     <span class="check-icon" style="color: #ff9d9d;">✖</span>
-                    <div><strong>Don't Reheat Cooking Oils:</strong> Reheating oil past smoke point forms toxic lipid peroxides and trans-fats. Throw used frying oil away.</div>
+                    <div><strong>Don't Reheat Cooking Oils:</strong> Reheating oils beyond smoke point creates carcinogenic trans-fats and lipid peroxides. Discard used frying oil.</div>
                 </div>
                 <div class="checklist-item">
                     <span class="check-icon" style="color: #ff9d9d;">✖</span>
-                    <div><strong>Don't Drink Your Fruit:</strong> Packaged juices and juice stalls strip all dietary fiber, dumping pure liquid fructose into your liver.</div>
+                    <div><strong>Don't Drink Your Fruit:</strong> Packaged juices and juice stalls remove all dietary fiber, dumping concentrated liquid fructose straight into your liver.</div>
                 </div>
                 <div class="checklist-item">
                     <span class="check-icon" style="color: #ff9d9d;">✖</span>
-                    <div><strong>Don't Fall for "Zero Sugar" Jaggery Snacks:</strong> Jaggery sweets spike blood glucose almost just as severely as white refined sugar.</div>
+                    <div><strong>Don't Fall for "Zero Sugar" Jaggery Snacks:</strong> Jaggery sweets spike blood glucose and insulin almost just as sharply as white table sugar.</div>
                 </div>
                 <div class="checklist-item">
                     <span class="check-icon" style="color: #ff9d9d;">✖</span>
-                    <div><strong>Don't Rely Solely on Plain Dals for Protein:</strong> A standard bowl of watery dal has only 3–5g protein and 20g carbs. Add paneer, soya, or curd to balance it.</div>
+                    <div><strong>Don't Rely Solely on Plain Dal for Protein:</strong> A standard bowl of watery dal contains only 3–5g protein and 20g carbs. Add paneer, soya, or curd to balance it.</div>
                 </div>
             </div>
         </div>
