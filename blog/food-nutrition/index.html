@@ -22,7 +22,7 @@
 
         .hero-banner {
             width: 100%;
-            max-width: 900px;
+            max-width: 950px;
             margin: 15px 0 25px 0;
             border-radius: 16px;
             overflow: hidden;
@@ -42,7 +42,7 @@
             font-size: 1.15rem;
             color: #dedede;
             line-height: 1.6;
-            max-width: 850px;
+            max-width: 950px;
             margin-bottom: 25px;
         }
 
@@ -60,6 +60,105 @@
             letter-spacing: 1px;
         }
 
+        /* Interactive Search Section */
+        .search-container {
+            background: linear-gradient(145deg, #181c17 0%, #10130f 100%);
+            border: 1px solid #2d3b2a;
+            border-radius: 14px;
+            padding: 16px 20px;
+            max-width: 950px;
+            margin: 20px 0 30px 0;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 10px;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+        }
+
+        .search-input-box {
+            display: flex;
+            align-items: center;
+            background: #0a0c0a;
+            border: 1px solid #334430;
+            border-radius: 10px;
+            padding: 8px 14px;
+            gap: 10px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .search-input-box:focus-within {
+            border-color: var(--accent-green-bright);
+            box-shadow: 0 0 12px rgba(166, 223, 144, 0.25);
+        }
+
+        .search-input-box input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #fff;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .search-input-box input::placeholder {
+            color: #777;
+            font-size: 0.95rem;
+        }
+
+        .clear-btn {
+            background: transparent;
+            border: none;
+            color: #888;
+            font-size: 1.1rem;
+            cursor: pointer;
+            padding: 0 4px;
+            display: none;
+        }
+
+        .clear-btn:hover {
+            color: #fff;
+        }
+
+        .search-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+            gap: 10px;
+        }
+
+        .search-count {
+            font-size: 0.82rem;
+            color: #88c070;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .quick-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .quick-tag {
+            background: #192318;
+            border: 1px solid #2b3d29;
+            color: #c4e4b7;
+            font-size: 0.75rem;
+            padding: 3px 9px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .quick-tag:hover, .quick-tag.active {
+            background: var(--accent-green);
+            color: #000;
+            font-weight: 700;
+        }
+
+        /* Card grid */
         .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -312,7 +411,197 @@
             font-size: 1.1rem;
         }
 
-        /* Interactive Cheat Sheet Table Enhancements */
+        /* Reference Baseline & Calculator Box */
+        .baseline-card {
+            background: linear-gradient(135deg, #151a14 0%, #0d110c 100%);
+            border: 1px solid #2d422a;
+            border-radius: 16px;
+            padding: 24px;
+            max-width: 950px;
+            margin: 25px 0;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+        }
+
+        .calc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .calc-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .calc-control {
+            background: #111610;
+            border: 1px solid #22321f;
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .calc-control label {
+            font-weight: 700;
+            color: #a6df90;
+            font-size: 0.95rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .slider-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .slider-row input[type=range] {
+            flex: 1;
+            accent-color: #a6df90;
+            height: 6px;
+            border-radius: 5px;
+            background: #222;
+        }
+
+        .slider-val {
+            font-family: 'Space Mono', monospace;
+            background: #1e2e1c;
+            color: #a6df90;
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-weight: 700;
+            min-width: 65px;
+            text-align: center;
+        }
+
+        .calc-results {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        @media only screen and (max-width: 550px) {
+            .calc-results {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .result-pill {
+            background: #182216;
+            border: 1px solid #2d432b;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .result-pill .val {
+            font-family: 'Staatliches', cursive;
+            font-size: 1.5rem;
+            color: #a6df90;
+            display: block;
+        }
+
+        .result-pill .lbl {
+            font-size: 0.75rem;
+            color: #aaa;
+            text-transform: uppercase;
+        }
+
+        /* Top 5 Foods per Nutrient Section */
+        .nutrient-top5-card {
+            background: #141414;
+            border: 1px solid #272727;
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 22px;
+            max-width: 950px;
+            transition: border-color 0.2s;
+        }
+
+        .nutrient-top5-card:hover {
+            border-color: #3b5037;
+        }
+
+        .top5-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            border-bottom: 1px solid #262626;
+            padding-bottom: 10px;
+            margin-bottom: 14px;
+            gap: 10px;
+        }
+
+        .top5-header h3 {
+            margin: 0;
+            font-size: 1.3rem;
+            color: var(--accent-green-bright);
+        }
+
+        .top5-rda-badge {
+            background: #1b2619;
+            color: #a6df90;
+            border: 1px solid #2d402b;
+            font-size: 0.8rem;
+            font-family: 'Space Mono', monospace;
+            padding: 3px 9px;
+            border-radius: 6px;
+        }
+
+        .top5-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+            margin-top: 8px;
+        }
+
+        .top5-table th {
+            background-color: #1a2218;
+            color: #a6df90;
+            padding: 10px 12px;
+            text-align: left;
+            border: 1px solid #2e382b;
+            border-radius: 0;
+        }
+
+        .top5-table td {
+            padding: 10px 12px;
+            border: 1px solid #242424;
+            background-color: #111;
+            color: #ddd;
+            border-radius: 0;
+        }
+
+        .top5-table tr:nth-child(even) td {
+            background-color: #161616;
+        }
+
+        .food-rank {
+            font-weight: 700;
+            color: #88c070;
+            margin-right: 6px;
+        }
+
+        .nutrient-amount {
+            font-family: 'Space Mono', monospace;
+            color: #a6df90;
+            font-weight: 700;
+        }
+
+        .rda-pct {
+            background: #172415;
+            color: #bbf0a8;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.78rem;
+            font-family: 'Space Mono', monospace;
+            display: inline-block;
+        }
+
+        /* General Tables */
         .table-responsive {
             max-width: 950px;
             overflow-x: auto;
@@ -354,6 +643,7 @@
     <!-- Side navigation -->
     <div class="sidenav" id="mySidenav">
         <h1 style="margin-left: 15px; font-size: 22px;">Index</h1>
+        <hr><a onclick="closeNav()" href="#SEARCH-SECTION">SEARCH</a>
         <hr><a onclick="closeNav()" href="#OVERVIEW">OVERVIEW</a>
         <hr><a onclick="closeNav()" href="#BLUEPRINT">NUTRIENT BLUEPRINT</a>
         <hr><a onclick="closeNav()" href="#MYTHS">MYTHS BUSTED</a>
@@ -361,7 +651,9 @@
         <hr><a onclick="closeNav()" href="#BALANCED-PLATE">BALANCED PLATE</a>
         <hr><a onclick="closeNav()" href="#BLR-HACKS">BANGALORE LIFE HACKS</a>
         <hr><a onclick="closeNav()" href="#DOS-DONTS">DOS & DON'TS</a>
+        <hr><a onclick="closeNav()" href="#BASELINE-CALC">HUMAN BASELINE & CALC</a>
         <hr><a onclick="closeNav()" href="#CHEAT-SHEET">QUICK CHEAT SHEET</a>
+        <hr><a onclick="closeNav()" href="#TOP-FOODS">TOP 5 FOODS PER NUTRIENT</a>
         <hr>
     </div>
 
@@ -380,6 +672,31 @@
             Eating healthy isn’t about choking down raw boiled salads or surviving on avocado toast. It is about understanding your biological fuel, unlocking the powerhouse nutrition in traditional Indian cooking, and navigating modern city life — long desk hours, Swiggy deliveries, and 4 PM chai breaks — with effortless, practical daily habits.
         </p>
 
+        <!-- INTERACTIVE SEARCH BAR -->
+        <div class="search-container" id="SEARCH-SECTION">
+            <div class="search-input-box">
+                <span style="font-size: 1.1rem; opacity: 0.8;">🔍</span>
+                <input type="text" id="nutrientSearch" placeholder="Search nutrients, foods, myths, or city hacks (e.g., 'Ragi', 'Iron', 'Bangda', 'B12', 'Curd')..." autocomplete="off">
+                <button class="clear-btn" id="clearSearchBtn" title="Clear search">✕</button>
+            </div>
+            <div class="search-meta">
+                <div class="search-count" id="searchCount">Displaying all sections</div>
+                <div class="quick-tags">
+                    <span class="quick-tag active" data-filter="all">All</span>
+                    <span class="quick-tag" data-filter="protein">Protein</span>
+                    <span class="quick-tag" data-filter="fiber">Fiber</span>
+                    <span class="quick-tag" data-filter="iron">Iron</span>
+                    <span class="quick-tag" data-filter="calcium">Calcium</span>
+                    <span class="quick-tag" data-filter="vitamin d">Vitamin D</span>
+                    <span class="quick-tag" data-filter="b12">B12</span>
+                    <span class="quick-tag" data-filter="omega-3">Omega-3</span>
+                    <span class="quick-tag" data-filter="bangalore">Bangalore Hacks</span>
+                    <span class="quick-tag" data-filter="myth">Myths</span>
+                    <span class="quick-tag" data-filter="top 5">Top 5 Foods</span>
+                </div>
+            </div>
+        </div>
+
         <!-- SECTION 1: OVERVIEW & BLUEPRINT -->
         <br id="OVERVIEW">
         <div class="badge" id="BLUEPRINT">Section 1</div>
@@ -387,7 +704,7 @@
         <p>The human body requires two foundational tiers of nutrients to generate energy, build immunity, and regulate hormone production:</p>
 
         <div class="card-grid">
-            <div class="nutri-card">
+            <div class="nutri-card searchable">
                 <h3>🥩 1. Protein (Building Blocks)</h3>
                 <ul class="card-list">
                     <li><strong>Tissue Repair:</strong> Rebuilds muscle fibers, skin, and organs.</li>
@@ -398,7 +715,7 @@
                 <div class="nutri-stat">🎯 Target: 1.2 – 1.6g / kg bodyweight</div>
             </div>
 
-            <div class="nutri-card">
+            <div class="nutri-card searchable">
                 <h3>🌾 2. Complex Carbs & Fiber</h3>
                 <ul class="card-list">
                     <li><strong>Glycogen Storage:</strong> Primary glucose fuel for brain and skeletal muscles.</li>
@@ -409,7 +726,7 @@
                 <div class="nutri-stat">🎯 Target: 45–55% energy | 30g+ Fiber</div>
             </div>
 
-            <div class="nutri-card">
+            <div class="nutri-card searchable">
                 <h3>🥑 3. Essential Fats (MUFA / PUFA)</h3>
                 <ul class="card-list">
                     <li><strong>Steroid Hormones:</strong> Essential for testosterone, estrogen, and cortisol.</li>
@@ -420,7 +737,7 @@
                 <div class="nutri-stat">🎯 Target: 20–30% energy | Focus on Omega-3</div>
             </div>
 
-            <div class="nutri-card">
+            <div class="nutri-card searchable">
                 <h3>💧 4. Water & Electrolytes</h3>
                 <ul class="card-list">
                     <li><strong>Blood Volume:</strong> Ensures smooth oxygen transport across vital organs.</li>
@@ -431,7 +748,7 @@
                 <div class="nutri-stat">🎯 Target: 2.5 – 3.5 Litres / day</div>
             </div>
 
-            <div class="nutri-card">
+            <div class="nutri-card searchable">
                 <h3>☀️ 5. Fat-Soluble Vitamins (A, D, E, K)</h3>
                 <ul class="card-list">
                     <li><strong>Vitamin D3:</strong> Regulates 1,000+ genes, bone density, and mood.</li>
@@ -442,7 +759,7 @@
                 <div class="nutri-stat">⚠️ 85%+ Urban Indians lack Vitamin D3</div>
             </div>
 
-            <div class="nutri-card">
+            <div class="nutri-card searchable">
                 <h3>⚡ 6. Water-Soluble Vitamins (B & C)</h3>
                 <ul class="card-list">
                     <li><strong>B-Complex (B1–B9):</strong> Converts food carbohydrates and fats into ATP energy.</li>
@@ -453,7 +770,7 @@
                 <div class="nutri-stat">⚠️ Vitamin B12 is strictly non-plant</div>
             </div>
 
-            <div class="nutri-card">
+            <div class="nutri-card searchable">
                 <h3>⚙️ 7. Key Minerals (Mg, Fe, Ca, Zn)</h3>
                 <ul class="card-list">
                     <li><strong>Magnesium:</strong> Regulates 300+ enzymes, relaxes muscles, aids deep sleep.</li>
@@ -464,7 +781,7 @@
                 <div class="nutri-stat">💡 Always pair Plant Iron with Vitamin C</div>
             </div>
 
-            <div class="nutri-card">
+            <div class="nutri-card searchable">
                 <h3>🦠 8. Gut Microbiome / Probiotics</h3>
                 <ul class="card-list">
                     <li><strong>Immune Headquarters:</strong> Over 70% of human immune cells reside in the gut.</li>
@@ -482,7 +799,7 @@
         <h2>TOP 8 NUTRITION MYTHS BUSTED</h2>
         <p>Common myths shared across social media and office WhatsApp groups that sabotage everyday health:</p>
 
-        <div class="myth-card">
+        <div class="myth-card searchable">
             <div class="myth-header">
                 <span class="pill-myth">Myth 1</span>
                 <span class="myth-title">"Carbs make you fat — eliminate rice and rotis completely."</span>
@@ -494,7 +811,7 @@
             </ul>
         </div>
 
-        <div class="myth-card">
+        <div class="myth-card searchable">
             <div class="myth-header">
                 <span class="pill-myth">Myth 2</span>
                 <span class="myth-title">"Indian vegetarian food cannot provide sufficient protein."</span>
@@ -506,7 +823,7 @@
             </ul>
         </div>
 
-        <div class="myth-card">
+        <div class="myth-card searchable">
             <div class="myth-header">
                 <span class="pill-myth">Myth 3</span>
                 <span class="myth-title">"Desi Ghee clogs arteries and leads straight to heart attacks."</span>
@@ -518,7 +835,7 @@
             </ul>
         </div>
 
-        <div class="myth-card">
+        <div class="myth-card searchable">
             <div class="myth-header">
                 <span class="pill-myth">Myth 4</span>
                 <span class="myth-title">"Egg yolks are bad for cholesterol; eat only egg whites."</span>
@@ -530,7 +847,7 @@
             </ul>
         </div>
 
-        <div class="myth-card">
+        <div class="myth-card searchable">
             <div class="myth-header">
                 <span class="pill-myth">Myth 5</span>
                 <span class="myth-title">"Jaggery (Gur) and Honey are healthy, guilt-free sugar replacements."</span>
@@ -542,7 +859,7 @@
             </ul>
         </div>
 
-        <div class="myth-card">
+        <div class="myth-card searchable">
             <div class="myth-header">
                 <span class="pill-myth">Myth 6</span>
                 <span class="myth-title">"Detox green juices and teas flush out bodily toxins."</span>
@@ -554,7 +871,7 @@
             </ul>
         </div>
 
-        <div class="myth-card">
+        <div class="myth-card searchable">
             <div class="myth-header">
                 <span class="pill-myth">Myth 7</span>
                 <span class="myth-title">"You must drink 4–5 liters of water daily, preferably alkaline water."</span>
@@ -566,7 +883,7 @@
             </ul>
         </div>
 
-        <div class="myth-card">
+        <div class="myth-card searchable">
             <div class="myth-header">
                 <span class="pill-myth">Myth 8</span>
                 <span class="myth-title">"Eating food after 8 PM instantly turns into stored body fat."</span>
@@ -585,7 +902,7 @@
         <p>Readily available, affordable everyday foods from your local Darshini, Kirana store, Zepto/Blinkit, or local market:</p>
 
         <div class="card-grid">
-            <div class="nutri-card">
+            <div class="nutri-card searchable">
                 <h3>🍗 Protein Powerhouses</h3>
                 <ul class="source-list">
                     <li><strong>Desi Staples:</strong> Soya chunks (Nutrela), Paneer, Moong Dal, Chana, Rajma, Sattu, Eggs, Chicken breast.</li>
@@ -595,7 +912,7 @@
                 <div class="nutri-stat">💡 50g Soya Chunks = 26g Protein (Cost: ~₹15)</div>
             </div>
 
-            <div class="nutri-card">
+            <div class="nutri-card searchable">
                 <h3>🌾 Fiber & Clean Carbohydrates</h3>
                 <ul class="source-list">
                     <li><strong>Desi Staples:</strong> Ragi (Ragi Mudde, Ragi Dosa), Jowar, Bajra, Red Matta rice, Poha, Palak, Bhindi, Methi.</li>
@@ -605,7 +922,7 @@
                 <div class="nutri-stat">🌾 Ragi has 344mg Calcium/100g — Beats Milk!</div>
             </div>
 
-            <div class="nutri-card">
+            <div class="nutri-card searchable">
                 <h3>🥥 Healthy Fats & Omega-3</h3>
                 <ul class="source-list">
                     <li><strong>Desi Staples:</strong> Desi cow ghee, cold-pressed groundnut/mustard/coconut oil, sesame seeds (til), walnuts.</li>
@@ -615,7 +932,7 @@
                 <div class="nutri-stat">🐟 Bangda is South India's cheapest Omega-3</div>
             </div>
 
-            <div class="nutri-card">
+            <div class="nutri-card searchable">
                 <h3>🍋 Iron & Vitamin C Absorption</h3>
                 <ul class="source-list">
                     <li><strong>Desi Staples:</strong> Moringa leaves, Palak, Beetroot, Bajra, Poha, Amla (Indian gooseberry).</li>
@@ -625,7 +942,7 @@
                 <div class="nutri-stat">☕ Keep 60-min gap between Chai & Meals</div>
             </div>
 
-            <div class="nutri-card">
+            <div class="nutri-card searchable">
                 <h3>⚡ Techie Vitamin D & B12 Crisis</h3>
                 <ul class="source-list">
                     <li><strong>The IT Corridor Dilemma:</strong> 85%+ of Bangalore techies are deficient due to AC offices and window UV filters.</li>
@@ -635,7 +952,7 @@
                 <div class="nutri-stat">🔋 B12 + D3 cures chronic 3 PM brain fog</div>
             </div>
 
-            <div class="nutri-card">
+            <div class="nutri-card searchable">
                 <h3>🥥 Magnesium & Potassium (Anti-Stress)</h3>
                 <ul class="source-list">
                     <li><strong>Bangalore Street Hero:</strong> <em>Yelaneeru</em> (Tender Coconut) on every corner — natural isotonic electrolytes.</li>
@@ -652,7 +969,7 @@
         <h2>THE BALANCED INDIAN PLATE</h2>
         <p>Most traditional Indian plates are 75% rice/roti and only 10% protein. Flip the formula to thrive without obsessive calorie counting:</p>
 
-        <div class="plate-box">
+        <div class="plate-box searchable">
             <div class="plate-diagram">
                 <div class="plate-section greens">
                     <span class="plate-pct">50%</span>
@@ -692,7 +1009,7 @@
         <div class="badge">Section 5</div>
         <h2>BANGALORE URBAN LIFE & TECH WORKER HACKS</h2>
 
-        <div class="bangalore-callout">
+        <div class="bangalore-callout searchable">
             <h4>🛵 The Swiggy / Zomato Ordering Filter</h4>
             <ul class="callout-list">
                 <li><strong style="color: #ff9d9d;">Avoid:</strong> "Makhani", "Lababdar", and "Shahi" curries — emulsified with cheap palm oil, heavy cashews, and refined sugar.</li>
@@ -701,7 +1018,7 @@
             </ul>
         </div>
 
-        <div class="bangalore-callout">
+        <div class="bangalore-callout searchable">
             <h4>☕ The 4 PM Chai-Samosa Slump Fix</h4>
             <ul class="callout-list">
                 <li><strong style="color: #ff9d9d;">The Problem:</strong> Deep-fried bajjis and sugary filter coffee spark a 5:30 PM insulin crash and brain fog.</li>
@@ -710,7 +1027,7 @@
             </ul>
         </div>
 
-        <div class="bangalore-callout">
+        <div class="bangalore-callout searchable">
             <h4>⚡ Zepto / Blinkit 10-Minute Cart Upgrades</h4>
             <ul class="callout-list">
                 <li><strong>Remove from Cart:</strong> Biscuits, processed mixtures, and instant cup noodles.</li>
@@ -724,7 +1041,7 @@
         <h2>PRACTICAL DOS & DON'TS</h2>
 
         <div class="dos-donts-grid">
-            <div class="do-box">
+            <div class="do-box searchable">
                 <h3>✅ THE DO'S</h3>
                 <div class="checklist-item">
                     <span class="check-icon" style="color: #a6df90;">✔</span>
@@ -748,7 +1065,7 @@
                 </div>
             </div>
 
-            <div class="dont-box">
+            <div class="dont-box searchable">
                 <h3>❌ THE DON'TS</h3>
                 <div class="checklist-item">
                     <span class="check-icon" style="color: #ff9d9d;">✖</span>
@@ -773,18 +1090,63 @@
             </div>
         </div>
 
-        <!-- SECTION 7: QUICK REFERENCE CHEAT SHEET -->
-        <br id="CHEAT-SHEET">
+        <!-- SECTION 7: HUMAN BASELINE & CALCULATOR -->
+        <br id="BASELINE-CALC">
         <div class="badge">Section 7</div>
-        <h2>QUICK NUTRIENT REFERENCE CHEAT SHEET</h2>
-        <p>A fast lookup guide for optimal daily intake and smart urban food choices:</p>
+        <h2>THE HUMAN BASELINE & CUSTOM CALCULATOR</h2>
+        <p>Nutrient requirements are not arbitrary numbers. They are calibrated against official medical reference standards (ICMR-National Institute of Nutrition 2020 & WHO):</p>
 
-        <div class="table-responsive">
+        <div class="baseline-card searchable">
+            <h3 style="margin-top:0; color: #a6df90;">Standard Reference Human (ICMR-NIN & WHO Baseline):</h3>
+            <ul class="card-list" style="margin-bottom: 16px;">
+                <li><strong>Reference Adult Male:</strong> Body Weight: <strong>65 kg (143 lbs)</strong> | Height: <strong>172 cm (5'8")</strong> | BMI: <strong>22.0</strong></li>
+                <li><strong>Reference Adult Female:</strong> Body Weight: <strong>55 kg (121 lbs)</strong> | Height: <strong>160 cm (5'3")</strong> | BMI: <strong>21.5</strong></li>
+                <li><strong>Proportional Scaling Rule:</strong>
+                    <ul>
+                        <li><strong>Protein:</strong> Scales at <strong>0.8 – 1.0g / kg</strong> for sedentary individuals, and <strong>1.2 – 1.6g / kg</strong> for active adults/weightlifters. If you weigh 80 kg, your target scales up to 96–128g; if you weigh 50 kg, it scales down to 60–80g.</li>
+                        <li><strong>Water:</strong> Scales at <strong>35 ml per kg</strong> of body weight (+500ml for heavy sweating or workout sessions).</li>
+                        <li><strong>Fiber:</strong> Scales with total caloric turnover (~14g per 1,000 kcal consumed; baseline 30–38g for men, 25–30g for women).</li>
+                        <li><strong>Micronutrients (Vitamins & Minerals):</strong> Remain largely constant based on biological sex and organ volume (e.g. Iron is higher for menstruating women: 29 mg vs 19 mg in men; Calcium is 1000 mg across all adults).</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- Interactive Calculator -->
+            <div class="calc-control">
+                <label for="weightInput">⚡ Calculate Your Custom Daily Targets by Body Weight:</label>
+                <div class="slider-row">
+                    <input type="range" id="weightSlider" min="40" max="120" value="65" step="1">
+                    <span class="slider-val" id="weightDisplay">65 kg</span>
+                </div>
+                <div class="calc-results">
+                    <div class="result-pill">
+                        <span class="val" id="calcProtein">65 - 104g</span>
+                        <span class="lbl">Daily Protein</span>
+                    </div>
+                    <div class="result-pill">
+                        <span class="val" id="calcWater">2.3 L</span>
+                        <span class="lbl">Daily Hydration</span>
+                    </div>
+                    <div class="result-pill">
+                        <span class="val" id="calcFiber">30g</span>
+                        <span class="lbl">Daily Fiber</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 8: QUICK REFERENCE CHEAT SHEET -->
+        <br id="CHEAT-SHEET">
+        <div class="badge">Section 8</div>
+        <h2>QUICK NUTRIENT REFERENCE CHEAT SHEET</h2>
+        <p>A fast lookup summary for optimal daily intake and smart urban food choices:</p>
+
+        <div class="table-responsive searchable">
             <table>
                 <thead>
                     <tr>
                         <th>Nutrient</th>
-                        <th>Daily RDA / Target</th>
+                        <th>Baseline RDA (65kg Male / 55kg Female)</th>
                         <th>Top Indian Sources</th>
                         <th>Bangalore City Quick Access</th>
                         <th>Golden Pro-Tip</th>
@@ -793,14 +1155,14 @@
                 <tbody>
                     <tr>
                         <td><strong>Protein</strong></td>
-                        <td>1.2 – 1.6 g/kg</td>
+                        <td>65g (male) / 55g (female)<br><small style="color:#aaa;">(Scales 1.2–1.6g/kg if active)</small></td>
                         <td>Soya chunks, Paneer, Dals, Sattu, Eggs, Fish</td>
                         <td>Milky Mist paneer, Greek yogurt, Zepto tofu, Tandoori</td>
                         <td>Soya chunks have 52% protein — highest value per ₹.</td>
                     </tr>
                     <tr>
                         <td><strong>Fiber</strong></td>
-                        <td>30 – 38 g</td>
+                        <td>30 – 38 g (male) / 25 – 30 g (female)</td>
                         <td>Ragi, Jowar, Poha, Palak, Bhindi, Methi, Guava</td>
                         <td>Chakki Ragi flour, Red rice, Chia seeds, Sprouts</td>
                         <td>Eat raw salad 5 minutes before your main grain meal.</td>
@@ -814,7 +1176,7 @@
                     </tr>
                     <tr>
                         <td><strong>Iron</strong></td>
-                        <td>17 – 21 mg</td>
+                        <td>19 mg (male) / 29 mg (female)</td>
                         <td>Moringa leaves, Palak, Beetroot, Bajra, Poha</td>
                         <td>Fresh local greens, Drumstick sambar, Poha</td>
                         <td>Always pair with lemon (Vit C); avoid tea with meals.</td>
@@ -835,17 +1197,671 @@
                     </tr>
                     <tr>
                         <td><strong>Magnesium</strong></td>
-                        <td>350 – 420 mg</td>
+                        <td>400 mg (male) / 320 mg (female)</td>
                         <td>Pumpkin seeds, Almonds, Spinach, Bananas</td>
                         <td>Tender coconut (Yelaneeru), Nanjangud bananas</td>
                         <td>Relaxes muscle spasms and significantly improves sleep.</td>
                     </tr>
                     <tr>
+                        <td><strong>Potassium</strong></td>
+                        <td>3500 mg</td>
+                        <td>Tender coconut, Bananas, Spinach, Boiled potatoes</td>
+                        <td>Street tender coconut stall, Local produce</td>
+                        <td>1 tender coconut gives ~650mg natural potassium.</td>
+                    </tr>
+                    <tr>
                         <td><strong>Omega-3</strong></td>
-                        <td>1 – 2 g (EPA/DHA)</td>
+                        <td>1.1 – 1.6 g (EPA/DHA & ALA)</td>
                         <td>Flaxseeds (Alsi), Walnuts, Mackerel (Bangda)</td>
                         <td>Local coastal fish counters, raw walnuts, chia seeds</td>
                         <td>Bangda (Mackerel) is the top local superfood for heart.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vitamin C</strong></td>
+                        <td>65 – 80 mg</td>
+                        <td>Amla (Gooseberry), Guava, Capsicum, Lemon</td>
+                        <td>Fresh nimbu, local fruits, papaya</td>
+                        <td>1 Amla provides ~300mg Vitamin C — 400% of daily RDA!</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Zinc</strong></td>
+                        <td>12 – 17 mg</td>
+                        <td>Pumpkin seeds, Cashews, Chicken, Chana, Paneer</td>
+                        <td>Zepto seeds, dairy, local poultry</td>
+                        <td>Essential for testosterone, immunity, and skin barrier.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECTION 9: TOP 5 FOODS PER NUTRIENT -->
+        <br id="TOP-FOODS">
+        <div class="badge">Section 9</div>
+        <h2>TOP 5 NUTRIENT-DENSE FOODS PER NUTRIENT</h2>
+        <p>A granular breakdown of the 5 richest Indian and city-available foods for each essential nutrient, exact amounts, and percentage of daily requirements (calibrated for a 65 kg adult male / 55 kg adult female):</p>
+
+        <!-- 1. Protein -->
+        <div class="nutrient-top5-card searchable">
+            <div class="top5-header">
+                <h3>1. 🥩 Protein (Amino Acids)</h3>
+                <span class="top5-rda-badge">RDA: 65g (65kg male) | 55g (55kg female) | Active: 80–104g+</span>
+            </div>
+            <p style="color:#aaa; font-size:0.88rem; margin:0 0 10px 0;"><strong>Scaling Rule:</strong> Requires 1.0g per kg of bodyweight (sedentary) to 1.6g/kg (active/lifting).</p>
+            <table class="top5-table">
+                <thead>
+                    <tr>
+                        <th>Food Item</th>
+                        <th>Measure / Serving</th>
+                        <th>Protein Content</th>
+                        <th>% Baseline RDA</th>
+                        <th>Indian Culinary Context</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="food-rank">#1</span> <strong>Soya Chunks (Nutrela)</strong></td>
+                        <td>100g (dry)</td>
+                        <td class="nutrient-amount">52.0 g</td>
+                        <td><span class="rda-pct">80% – 95%</span></td>
+                        <td>Highest protein density on Indian shelves; great in pulao/curry.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#2</span> <strong>Chicken Breast (Skinless)</strong></td>
+                        <td>100g (cooked)</td>
+                        <td class="nutrient-amount">31.0 g</td>
+                        <td><span class="rda-pct">48% – 56%</span></td>
+                        <td>Lean, complete amino acid profile; tandoori or home curry.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#3</span> <strong>Roasted Bengal Gram (Bhuna Chana / Sattu)</strong></td>
+                        <td>100g</td>
+                        <td class="nutrient-amount">22.5 g</td>
+                        <td><span class="rda-pct">35% – 41%</span></td>
+                        <td>Cheap, shelf-stable snack or sattu drink with roasted cumin & lemon.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#4</span> <strong>Paneer (Cottage Cheese)</strong></td>
+                        <td>100g</td>
+                        <td class="nutrient-amount">18.3 g</td>
+                        <td><span class="rda-pct">28% – 33%</span></td>
+                        <td>Rich in casein protein and calcium; pan-tossed paneer bhurji.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#5</span> <strong>Whole Eggs</strong></td>
+                        <td>2 Large Eggs (~100g)</td>
+                        <td class="nutrient-amount">13.0 g</td>
+                        <td><span class="rda-pct">20% – 24%</span></td>
+                        <td>Gold standard biological value (BV 100); contains choline and D3.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 2. Dietary Fiber -->
+        <div class="nutrient-top5-card searchable">
+            <div class="top5-header">
+                <h3>2. 🌾 Dietary Fiber</h3>
+                <span class="top5-rda-badge">RDA: 30–38g (male) | 25–30g (female)</span>
+            </div>
+            <p style="color:#aaa; font-size:0.88rem; margin:0 0 10px 0;"><strong>Scaling Rule:</strong> Requires 14g per 1,000 kcal intake. Increases with higher calorie consumption.</p>
+            <table class="top5-table">
+                <thead>
+                    <tr>
+                        <th>Food Item</th>
+                        <th>Measure / Serving</th>
+                        <th>Fiber Content</th>
+                        <th>% Baseline RDA</th>
+                        <th>Indian Culinary Context</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="food-rank">#1</span> <strong>Chia Seeds / Sabja (Basil Seeds)</strong></td>
+                        <td>100g (approx 2 tbsp = 28g)</td>
+                        <td class="nutrient-amount">34.4 g (9.6g / 2 tbsp)</td>
+                        <td><span class="rda-pct">110% (32% per serving)</span></td>
+                        <td>Soak in water or buttermilk; gelatinous soluble fiber heals gut.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#2</span> <strong>Flaxseeds (Alsi)</strong></td>
+                        <td>100g (approx 2 tbsp = 20g)</td>
+                        <td class="nutrient-amount">27.3 g (5.5g / 2 tbsp)</td>
+                        <td><span class="rda-pct">90% (18% per serving)</span></td>
+                        <td>Roast and powder; mix into roti dough, dal, or curd.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#3</span> <strong>Ragi (Finger Millet) / Rajma</strong></td>
+                        <td>100g (raw grain/bean)</td>
+                        <td class="nutrient-amount">11.5 g</td>
+                        <td><span class="rda-pct">35% – 42%</span></td>
+                        <td>Ragi mudde or rajma curry; low glycemic index keeps you full.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#4</span> <strong>Rolled Oats</strong></td>
+                        <td>100g (dry)</td>
+                        <td class="nutrient-amount">10.6 g</td>
+                        <td><span class="rda-pct">32% – 38%</span></td>
+                        <td>Loaded with Beta-Glucan, proven to lower LDL blood cholesterol.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#5</span> <strong>Guava (Amrood)</strong></td>
+                        <td>1 Medium Fruit (~150g)</td>
+                        <td class="nutrient-amount">8.1 g (5.4g / 100g)</td>
+                        <td><span class="rda-pct">25% – 30%</span></td>
+                        <td>Cheap, widespread Indian street fruit; eat with skin and seeds.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 3. Calcium -->
+        <div class="nutrient-top5-card searchable">
+            <div class="top5-header">
+                <h3>3. 🦴 Calcium</h3>
+                <span class="top5-rda-badge">RDA: 1,000 mg / day (Adults)</span>
+            </div>
+            <p style="color:#aaa; font-size:0.88rem; margin:0 0 10px 0;"><strong>Scaling Rule:</strong> Constant at 1,000 mg across 55–65 kg adults; rises to 1,200 mg for adults 50+.</p>
+            <table class="top5-table">
+                <thead>
+                    <tr>
+                        <th>Food Item</th>
+                        <th>Measure / Serving</th>
+                        <th>Calcium Content</th>
+                        <th>% Baseline RDA</th>
+                        <th>Indian Culinary Context</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="food-rank">#1</span> <strong>Sesame Seeds (Til)</strong></td>
+                        <td>100g (approx 1 tbsp = 15g)</td>
+                        <td class="nutrient-amount">975 mg (146 mg / tbsp)</td>
+                        <td><span class="rda-pct">98% (15% per tbsp)</span></td>
+                        <td>Til laddoos, sesame chutney, or sprinkled over vegetable stir-fries.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#2</span> <strong>Paneer (Cottage Cheese)</strong></td>
+                        <td>100g</td>
+                        <td class="nutrient-amount">480 mg</td>
+                        <td><span class="rda-pct">48%</span></td>
+                        <td>Dairy calcium with high bioavailability; pairs protein + calcium.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#3</span> <strong>Moringa Leaves (Drumstick Greens)</strong></td>
+                        <td>100g (fresh)</td>
+                        <td class="nutrient-amount">440 mg</td>
+                        <td><span class="rda-pct">44%</span></td>
+                        <td>South Indian tree superfood; cooked into dal, sambar, or poriyal.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#4</span> <strong>Ragi (Finger Millet)</strong></td>
+                        <td>100g (raw flour)</td>
+                        <td class="nutrient-amount">344 mg</td>
+                        <td><span class="rda-pct">34%</span></td>
+                        <td>Karnataka staple (Mudde / Roti); contains 3x more calcium than milk.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#5</span> <strong>Homemade Curd (Dahi)</strong></td>
+                        <td>1 Medium Bowl (200g)</td>
+                        <td class="nutrient-amount">320 mg (160 mg / 100g)</td>
+                        <td><span class="rda-pct">32%</span></td>
+                        <td>Lactic acid in curd enhances intestinal calcium absorption.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 4. Iron -->
+        <div class="nutrient-top5-card searchable">
+            <div class="top5-header">
+                <h3>4. 🩸 Iron</h3>
+                <span class="top5-rda-badge">RDA: 19 mg (65kg male) | 29 mg (55kg female)</span>
+            </div>
+            <p style="color:#aaa; font-size:0.88rem; margin:0 0 10px 0;"><strong>Scaling Rule:</strong> Higher in adult females due to monthly blood loss. Always pair plant iron with lemon (Vitamin C).</p>
+            <table class="top5-table">
+                <thead>
+                    <tr>
+                        <th>Food Item</th>
+                        <th>Measure / Serving</th>
+                        <th>Iron Content</th>
+                        <th>% Baseline RDA</th>
+                        <th>Indian Culinary Context</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="food-rank">#1</span> <strong>Garden Cress Seeds (Halim / Aliv)</strong></td>
+                        <td>1 Tablespoon (12g)</td>
+                        <td class="nutrient-amount">12.0 mg (100 mg / 100g)</td>
+                        <td><span class="rda-pct">41% (women) | 63% (men)</span></td>
+                        <td>Soak in warm water with lemon or milk; number one remedy for low hemoglobin.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#2</span> <strong>Moringa Leaves (Drumstick greens)</strong></td>
+                        <td>100g (dried / cooked)</td>
+                        <td class="nutrient-amount">28.2 mg (dry) / 4.0mg (fresh)</td>
+                        <td><span class="rda-pct">97% (men) | 65% (women)</span></td>
+                        <td>Incorporate fresh leaves into sambar or rasam twice a week.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#3</span> <strong>Poha (Flattened Beaten Rice)</strong></td>
+                        <td>100g (dry)</td>
+                        <td class="nutrient-amount">20.0 mg</td>
+                        <td><span class="rda-pct">100% (men) | 69% (women)</span></td>
+                        <td>Made on iron rollers; cook with peanuts, mustard seeds, and fresh lemon.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#4</span> <strong>Bajra (Pearl Millet)</strong></td>
+                        <td>100g</td>
+                        <td class="nutrient-amount">8.0 mg</td>
+                        <td><span class="rda-pct">42% (men) | 28% (women)</span></td>
+                        <td>Traditional winter roti in North & Western India; rich in trace minerals.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#5</span> <strong>Boiled Black Chana (Bengal Gram)</strong></td>
+                        <td>1 Cup Cooked (~170g)</td>
+                        <td class="nutrient-amount">7.6 mg (4.5 mg / 100g)</td>
+                        <td><span class="rda-pct">40% (men) | 26% (women)</span></td>
+                        <td>Boiled chana chaat with onions, tomatoes, and generous lemon juice.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 5. Vitamin D3 -->
+        <div class="nutrient-top5-card searchable">
+            <div class="top5-header">
+                <h3>5. ☀️ Vitamin D3 (Cholecalciferol)</h3>
+                <span class="top5-rda-badge">RDA: 600 – 2,000 IU / day (15 – 50 mcg)</span>
+            </div>
+            <p style="color:#aaa; font-size:0.88rem; margin:0 0 10px 0;"><strong>Scaling Rule:</strong> Constant across body size, but heavier/adipose individuals need higher doses as D3 gets sequestered in fat tissue.</p>
+            <table class="top5-table">
+                <thead>
+                    <tr>
+                        <th>Food / Source</th>
+                        <th>Measure / Serving</th>
+                        <th>Vitamin D Content</th>
+                        <th>% Baseline RDA</th>
+                        <th>Indian Culinary Context</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="food-rank">#1</span> <strong>Midday Sun Exposure (Arms & Legs)</strong></td>
+                        <td>15 – 20 mins (11 AM – 1 PM)</td>
+                        <td class="nutrient-amount">10,000 – 20,000 IU</td>
+                        <td><span class="rda-pct">500%+</span></td>
+                        <td>Endogenous skin synthesis via UVB rays; zero cost. Glass windows block 100% of UVB!</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#2</span> <strong>Indian Mackerel (Bangda / Rohu)</strong></td>
+                        <td>100g (cooked)</td>
+                        <td class="nutrient-amount">450 IU (11.2 mcg)</td>
+                        <td><span class="rda-pct">75%</span></td>
+                        <td>Naturally fatty coastal fish; pan fry with turmeric and chili powder.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#3</span> <strong>Sun-Exposed Button Mushrooms</strong></td>
+                        <td>100g</td>
+                        <td class="nutrient-amount">400 – 800 IU</td>
+                        <td><span class="rda-pct">65% – 130%</span></td>
+                        <td>Keep fresh mushrooms in direct midday sunlight for 30 mins before cooking!</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#4</span> <strong>Fortified Cow's Milk (Amul / Nandini)</strong></td>
+                        <td>1 Big Glass (250 ml)</td>
+                        <td class="nutrient-amount">200 IU (5 mcg)</td>
+                        <td><span class="rda-pct">33%</span></td>
+                        <td>Government regulations require fortification of packaged milk with A & D.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#5</span> <strong>Whole Egg Yolk</strong></td>
+                        <td>2 Large Yolks</td>
+                        <td class="nutrient-amount">100 IU (2.5 mcg)</td>
+                        <td><span class="rda-pct">16%</span></td>
+                        <td>The yolk contains virtually all vitamin D in the egg; never throw it out.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 6. Vitamin B12 -->
+        <div class="nutrient-top5-card searchable">
+            <div class="top5-header">
+                <h3>6. ⚡ Vitamin B12 (Cobalamin)</h3>
+                <span class="top5-rda-badge">RDA: 2.4 mcg / day (Adults)</span>
+            </div>
+            <p style="color:#aaa; font-size:0.88rem; margin:0 0 10px 0;"><strong>Scaling Rule:</strong> Constant across body sizes; strictly absent in unfortified plant foods.</p>
+            <table class="top5-table">
+                <thead>
+                    <tr>
+                        <th>Food Item</th>
+                        <th>Measure / Serving</th>
+                        <th>B12 Content</th>
+                        <th>% Baseline RDA</th>
+                        <th>Indian Culinary Context</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="food-rank">#1</span> <strong>Chicken Liver / Mutton Liver</strong></td>
+                        <td>100g</td>
+                        <td class="nutrient-amount">16.5 mcg</td>
+                        <td><span class="rda-pct">680%</span></td>
+                        <td>Extremely bioavailable; 1 small serving fulfills weekly requirement.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#2</span> <strong>Indian Mackerel / Sardines</strong></td>
+                        <td>100g</td>
+                        <td class="nutrient-amount">8.9 mcg</td>
+                        <td><span class="rda-pct">370%</span></td>
+                        <td>Affordable coastal staples; protects nervous system and red blood cells.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#3</span> <strong>Whole Eggs</strong></td>
+                        <td>2 Large Eggs</td>
+                        <td class="nutrient-amount">1.2 mcg (0.6 mcg / egg)</td>
+                        <td><span class="rda-pct">50%</span></td>
+                        <td>Easily absorbed through egg yolk proteins; boiled or omelette.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#4</span> <strong>Homemade Curd (Dahi)</strong></td>
+                        <td>1 Bowl (200g)</td>
+                        <td class="nutrient-amount">0.9 mcg (0.45 mcg / 100g)</td>
+                        <td><span class="rda-pct">38%</span></td>
+                        <td>Bacterial fermentation in milk generates small amounts of active B12.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#5</span> <strong>Paneer (Cottage Cheese)</strong></td>
+                        <td>100g</td>
+                        <td class="nutrient-amount">0.9 mcg</td>
+                        <td><span class="rda-pct">38%</span></td>
+                        <td>Key daily B12 contributor for lacto-vegetarians.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 7. Magnesium -->
+        <div class="nutrient-top5-card searchable">
+            <div class="top5-header">
+                <h3>7. 🧘 Magnesium</h3>
+                <span class="top5-rda-badge">RDA: 400 mg (65kg male) | 320 mg (55kg female)</span>
+            </div>
+            <p style="color:#aaa; font-size:0.88rem; margin:0 0 10px 0;"><strong>Scaling Rule:</strong> Slightly increases with heavier muscular mass and high physical activity.</p>
+            <table class="top5-table">
+                <thead>
+                    <tr>
+                        <th>Food Item</th>
+                        <th>Measure / Serving</th>
+                        <th>Magnesium Content</th>
+                        <th>% Baseline RDA</th>
+                        <th>Indian Culinary Context</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="food-rank">#1</span> <strong>Pumpkin Seeds (Pepitas)</strong></td>
+                        <td>100g (approx 2 tbsp = 28g)</td>
+                        <td class="nutrient-amount">592 mg (165 mg / serving)</td>
+                        <td><span class="rda-pct">148% (45% per serving)</span></td>
+                        <td>Dry roast and sprinkle on oats, salads, or eat as evening snack.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#2</span> <strong>Soaked Almonds (Badam)</strong></td>
+                        <td>100g (approx 10–12 almonds = 20g)</td>
+                        <td class="nutrient-amount">270 mg (54 mg / serving)</td>
+                        <td><span class="rda-pct">68% (15% per serving)</span></td>
+                        <td>Traditional Indian morning habit; peel skin after soaking overnight.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#3</span> <strong>Dark Chocolate (70–85% Cocoa)</strong></td>
+                        <td>100g (approx 3 squares = 30g)</td>
+                        <td class="nutrient-amount">228 mg (68 mg / serving)</td>
+                        <td><span class="rda-pct">57% (18% per serving)</span></td>
+                        <td>Satisfies sweet tooth while delivering magnesium and flavonoids.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#4</span> <strong>Cooked Spinach (Palak)</strong></td>
+                        <td>1 Cup Cooked (~180g)</td>
+                        <td class="nutrient-amount">157 mg (87 mg / 100g)</td>
+                        <td><span class="rda-pct">40% – 50%</span></td>
+                        <td>Magnesium sits at the exact biochemical core of chlorophyll.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#5</span> <strong>Tender Coconut Water (Yelaneeru)</strong></td>
+                        <td>1 Fresh Coconut (~250 ml)</td>
+                        <td class="nutrient-amount">65 mg (25 mg / 100ml)</td>
+                        <td><span class="rda-pct">16% – 20%</span></td>
+                        <td>Natural bioavailable electrolyte; soothes nervous system tension.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 8. Potassium -->
+        <div class="nutrient-top5-card searchable">
+            <div class="top5-header">
+                <h3>8. ⚡ Potassium</h3>
+                <span class="top5-rda-badge">RDA: 3,500 mg / day (Adults)</span>
+            </div>
+            <p style="color:#aaa; font-size:0.88rem; margin:0 0 10px 0;"><strong>Scaling Rule:</strong> Offsets excess dietary sodium; essential for healthy blood pressure.</p>
+            <table class="top5-table">
+                <thead>
+                    <tr>
+                        <th>Food Item</th>
+                        <th>Measure / Serving</th>
+                        <th>Potassium Content</th>
+                        <th>% Baseline RDA</th>
+                        <th>Indian Culinary Context</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="food-rank">#1</span> <strong>Tender Coconut Water (Yelaneeru)</strong></td>
+                        <td>1 Whole Coconut (~280 ml)</td>
+                        <td class="nutrient-amount">700 mg (250 mg / 100ml)</td>
+                        <td><span class="rda-pct">20%</span></td>
+                        <td>Bangalore street lifesaver; beats bananas in fluid potassium per calorie.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#2</span> <strong>Boiled Potatoes (with Skin)</strong></td>
+                        <td>1 Large Potato (~200g)</td>
+                        <td class="nutrient-amount">1,070 mg (535 mg / 100g)</td>
+                        <td><span class="rda-pct">30%</span></td>
+                        <td>Boiled aloo with peel is an extraordinarily rich potassium source.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#3</span> <strong>Cooked Spinach (Palak)</strong></td>
+                        <td>1 Cup Cooked (~180g)</td>
+                        <td class="nutrient-amount">840 mg (466 mg / 100g)</td>
+                        <td><span class="rda-pct">24%</span></td>
+                        <td>Palak dal or steamed greens; balances restaurant sodium intake.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#4</span> <strong>Cooked Rajma / Toor Dal</strong></td>
+                        <td>1 Cup Cooked (~180g)</td>
+                        <td class="nutrient-amount">750 mg (420 mg / 100g)</td>
+                        <td><span class="rda-pct">21%</span></td>
+                        <td>Staple legume broths provide foundational intracellular potassium.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#5</span> <strong>Bananas (Nanjangud / Robusta)</strong></td>
+                        <td>1 Large Banana (~120g)</td>
+                        <td class="nutrient-amount">450 mg (358 mg / 100g)</td>
+                        <td><span class="rda-pct">13%</span></td>
+                        <td>Readily available across all Indian fruit stalls; perfect pre-workout fuel.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 9. Omega-3 -->
+        <div class="nutrient-top5-card searchable">
+            <div class="top5-header">
+                <h3>9. 🐟 Omega-3 Fatty Acids (EPA / DHA & ALA)</h3>
+                <span class="top5-rda-badge">RDA: 1.1 – 1.6 g / day</span>
+            </div>
+            <p style="color:#aaa; font-size:0.88rem; margin:0 0 10px 0;"><strong>Scaling Rule:</strong> Active EPA & DHA forms from marine life are 10x more efficiently utilized than plant ALA.</p>
+            <table class="top5-table">
+                <thead>
+                    <tr>
+                        <th>Food Item</th>
+                        <th>Measure / Serving</th>
+                        <th>Omega-3 Content</th>
+                        <th>% Baseline RDA</th>
+                        <th>Indian Culinary Context</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="food-rank">#1</span> <strong>Flaxseeds (Alsi)</strong></td>
+                        <td>1 Tablespoon (~10g)</td>
+                        <td class="nutrient-amount">2.3 g ALA (22.8g / 100g)</td>
+                        <td><span class="rda-pct">160%</span></td>
+                        <td>Must be ground into powder for digestion; store in fridge to prevent oxidation.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#2</span> <strong>Indian Mackerel (Bangda)</strong></td>
+                        <td>100g (cooked)</td>
+                        <td class="nutrient-amount">2.3 g Active EPA + DHA</td>
+                        <td><span class="rda-pct">150%</span></td>
+                        <td>Superstar South Indian coastal fish; direct anti-inflammatory EPA/DHA.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#3</span> <strong>Chia Seeds</strong></td>
+                        <td>1 Tablespoon (~12g)</td>
+                        <td class="nutrient-amount">2.1 g ALA (17.8g / 100g)</td>
+                        <td><span class="rda-pct">140%</span></td>
+                        <td>Gel-forming seeds; blend into smoothies or stir into curd.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#4</span> <strong>Walnuts (Akhrot)</strong></td>
+                        <td>7 Halves (~28g)</td>
+                        <td class="nutrient-amount">2.5 g ALA (9.1g / 100g)</td>
+                        <td><span class="rda-pct">170%</span></td>
+                        <td>Nut resembling human brain; protects cerebral vasculature and memory.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#5</span> <strong>Sardines (Mathi / Tarli)</strong></td>
+                        <td>100g</td>
+                        <td class="nutrient-amount">1.4 g Active EPA + DHA</td>
+                        <td><span class="rda-pct">100%</span></td>
+                        <td>Small, short-lived fish with near-zero mercury buildup; very affordable.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 10. Vitamin C -->
+        <div class="nutrient-top5-card searchable">
+            <div class="top5-header">
+                <h3>10. 🍋 Vitamin C (Ascorbic Acid)</h3>
+                <span class="top5-rda-badge">RDA: 65 – 80 mg / day</span>
+            </div>
+            <p style="color:#aaa; font-size:0.88rem; margin:0 0 10px 0;"><strong>Scaling Rule:</strong> Smokers require an extra 35 mg/day due to accelerated oxidative turnover.</p>
+            <table class="top5-table">
+                <thead>
+                    <tr>
+                        <th>Food Item</th>
+                        <th>Measure / Serving</th>
+                        <th>Vitamin C Content</th>
+                        <th>% Baseline RDA</th>
+                        <th>Indian Culinary Context</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="food-rank">#1</span> <strong>Indian Gooseberry (Amla)</strong></td>
+                        <td>1 Single Amla (~50g)</td>
+                        <td class="nutrient-amount">300 mg (600 mg / 100g)</td>
+                        <td><span class="rda-pct">400%</span></td>
+                        <td>King of Vitamin C; heat-stable due to natural tannins. Amla juice or raw bite.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#2</span> <strong>Guava (Amrood)</strong></td>
+                        <td>1 Medium Fruit (~100g)</td>
+                        <td class="nutrient-amount">228 mg</td>
+                        <td><span class="rda-pct">300%</span></td>
+                        <td>Contains 4x more Vitamin C than oranges; available year-round.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#3</span> <strong>Capsicum / Bell Peppers (Yellow/Green)</strong></td>
+                        <td>100g</td>
+                        <td class="nutrient-amount">128 mg</td>
+                        <td><span class="rda-pct">170%</span></td>
+                        <td>Add raw or lightly sautéed in stir-fries to preserve heat-sensitive Vitamin C.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#4</span> <strong>Fresh Lemon (Nimbu)</strong></td>
+                        <td>1 Whole Lemon (~50g)</td>
+                        <td class="nutrient-amount">27 mg (53 mg / 100g)</td>
+                        <td><span class="rda-pct">35%</span></td>
+                        <td>Squeeze directly on warm dal/sabzi; triples absorption of plant iron.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#5</span> <strong>Papaya</strong></td>
+                        <td>1 Cup Cubes (~145g)</td>
+                        <td class="nutrient-amount">88 mg (62 mg / 100g)</td>
+                        <td><span class="rda-pct">110%</span></td>
+                        <td>Digestive enzyme papain + immune-boosting ascorbic acid.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 11. Zinc -->
+        <div class="nutrient-top5-card searchable">
+            <div class="top5-header">
+                <h3>11. 🛡️ Zinc</h3>
+                <span class="top5-rda-badge">RDA: 12 – 17 mg / day</span>
+            </div>
+            <p style="color:#aaa; font-size:0.88rem; margin:0 0 10px 0;"><strong>Scaling Rule:</strong> Essential for testosterone synthesis, skin barrier, and T-cell mediated immunity.</p>
+            <table class="top5-table">
+                <thead>
+                    <tr>
+                        <th>Food Item</th>
+                        <th>Measure / Serving</th>
+                        <th>Zinc Content</th>
+                        <th>% Baseline RDA</th>
+                        <th>Indian Culinary Context</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="food-rank">#1</span> <strong>Pumpkin Seeds (Pepitas)</strong></td>
+                        <td>100g (approx 2 tbsp = 28g)</td>
+                        <td class="nutrient-amount">7.8 mg (2.2 mg / serving)</td>
+                        <td><span class="rda-pct">52% (15% per serving)</span></td>
+                        <td>Number one vegetarian zinc source; excellent for male reproductive health.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#2</span> <strong>Cashews (Kaju) / Sesame Seeds</strong></td>
+                        <td>100g</td>
+                        <td class="nutrient-amount">5.8 mg</td>
+                        <td><span class="rda-pct">38% – 48%</span></td>
+                        <td>A small handful of raw cashews (28g) gives ~1.6 mg bioavailable zinc.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#3</span> <strong>Chicken Thighs / Mutton</strong></td>
+                        <td>100g (cooked)</td>
+                        <td class="nutrient-amount">3.5 mg</td>
+                        <td><span class="rda-pct">25% – 29%</span></td>
+                        <td>Animal zinc is absorbed without phytate interference.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#4</span> <strong>Paneer (Cottage Cheese)</strong></td>
+                        <td>100g</td>
+                        <td class="nutrient-amount">2.7 mg</td>
+                        <td><span class="rda-pct">18% – 22%</span></td>
+                        <td>Provides bioavailable dairy zinc alongside calcium and protein.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#5</span> <strong>Sprouted Bengal Gram (Chana)</strong></td>
+                        <td>100g (sprouted)</td>
+                        <td class="nutrient-amount">2.5 mg</td>
+                        <td><span class="rda-pct">17% – 20%</span></td>
+                        <td>Sprouting deactivates phytates, doubling the intestinal absorption of zinc.</td>
                     </tr>
                 </tbody>
             </table>
@@ -855,6 +1871,98 @@
     </div>
 
     <script src="../../script.js"></script>
+    <script>
+        // Interactive Weight Slider Calculator
+        const weightSlider = document.getElementById('weightSlider');
+        const weightDisplay = document.getElementById('weightDisplay');
+        const calcProtein = document.getElementById('calcProtein');
+        const calcWater = document.getElementById('calcWater');
+        const calcFiber = document.getElementById('calcFiber');
+
+        function updateCalculator(weight) {
+            weightDisplay.textContent = weight + ' kg';
+            const proteinMin = Math.round(weight * 1.0);
+            const proteinMax = Math.round(weight * 1.6);
+            calcProtein.textContent = proteinMin + ' - ' + proteinMax + 'g';
+            
+            const water = (weight * 0.035).toFixed(1);
+            calcWater.textContent = water + ' L';
+
+            const fiber = Math.round(weight * 0.46);
+            calcFiber.textContent = fiber + 'g';
+        }
+
+        if (weightSlider) {
+            weightSlider.addEventListener('input', (e) => {
+                updateCalculator(e.target.value);
+            });
+        }
+
+        // Real-Time Search & Quick-Filter Functionality
+        const searchInput = document.getElementById('nutrientSearch');
+        const clearBtn = document.getElementById('clearSearchBtn');
+        const searchCount = document.getElementById('searchCount');
+        const quickTags = document.querySelectorAll('.quick-tag');
+        const searchableItems = document.querySelectorAll('.searchable');
+
+        function performSearch(query) {
+            query = query.trim().toLowerCase();
+            if (clearBtn) {
+                clearBtn.style.display = query.length > 0 ? 'block' : 'none';
+            }
+
+            if (!query) {
+                searchableItems.forEach(item => item.style.display = '');
+                searchCount.textContent = 'Displaying all sections';
+                return;
+            }
+
+            let matchCount = 0;
+            searchableItems.forEach(item => {
+                const text = item.innerText.toLowerCase();
+                if (text.includes(query)) {
+                    item.style.display = '';
+                    matchCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            searchCount.textContent = matchCount === 1 ? '1 section matching' : matchCount + ' sections matching';
+        }
+
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                quickTags.forEach(tag => tag.classList.remove('active'));
+                performSearch(e.target.value);
+            });
+        }
+
+        if (clearBtn) {
+            clearBtn.addEventListener('click', () => {
+                searchInput.value = '';
+                quickTags.forEach(tag => tag.classList.remove('active'));
+                document.querySelector('.quick-tag[data-filter="all"]').classList.add('active');
+                performSearch('');
+                searchInput.focus();
+            });
+        }
+
+        quickTags.forEach(tag => {
+            tag.addEventListener('click', () => {
+                quickTags.forEach(t => t.classList.remove('active'));
+                tag.classList.add('active');
+                const filter = tag.getAttribute('data-filter');
+                if (filter === 'all') {
+                    searchInput.value = '';
+                    performSearch('');
+                } else {
+                    searchInput.value = filter;
+                    performSearch(filter);
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
