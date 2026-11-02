@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
     <link rel="icon" href="../../resources/sparkle.png" sizes="192x192" />
-    <title>Food & Nutrients | Modern Indian Survival Guide</title>
+    <title>Food & Nutrients | Modern Indian & Kerala Survival Guide</title>
     <style>
         /* Scoped modern styles for crisp readability */
         :root {
@@ -188,7 +188,7 @@
         }
 
         /* Bulleted lists inside cards & sections */
-        ul.card-list, ul.fact-list, ul.source-list, ul.callout-list {
+        ul.card-list, ul.fact-list, ul.source-list, ul.callout-list, ul.pair-list {
             margin: 8px 0;
             padding-left: 18px;
             color: #ddd;
@@ -196,11 +196,11 @@
             line-height: 1.5;
         }
 
-        ul.card-list li, ul.fact-list li, ul.source-list li, ul.callout-list li {
+        ul.card-list li, ul.fact-list li, ul.source-list li, ul.callout-list li, ul.pair-list li {
             margin-bottom: 6px;
         }
 
-        ul.card-list li::marker, ul.fact-list li::marker, ul.source-list li::marker, ul.callout-list li::marker {
+        ul.card-list li::marker, ul.fact-list li::marker, ul.source-list li::marker, ul.callout-list li::marker, ul.pair-list li::marker {
             color: var(--accent-green-bright);
         }
 
@@ -253,6 +253,110 @@
             font-weight: 700;
             font-size: 1.05rem;
             color: #ffb4b4;
+        }
+
+        /* Absorption Pairing Matrix */
+        .pair-card {
+            background: linear-gradient(135deg, #161b15 0%, #10140f 100%);
+            border: 1px solid #2d3e2b;
+            border-radius: 14px;
+            padding: 18px 20px;
+            margin-bottom: 16px;
+            max-width: 950px;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+
+        .pair-card:hover {
+            border-color: var(--accent-green-bright);
+            transform: translateY(-2px);
+        }
+
+        .pair-header {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .pair-badge-plus {
+            background: #172b16;
+            color: #a6df90;
+            border: 1px solid #2f542d;
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 3px 10px;
+            border-radius: 14px;
+            text-transform: uppercase;
+        }
+
+        .pair-badge-minus {
+            background: #331515;
+            color: #ff9191;
+            border: 1px solid #572929;
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 3px 10px;
+            border-radius: 14px;
+            text-transform: uppercase;
+        }
+
+        .pair-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #e2f5dc;
+        }
+
+        .pair-equation {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 10px 0;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+        }
+
+        .eq-item {
+            background: #0f140e;
+            border: 1px solid #293826;
+            padding: 5px 12px;
+            border-radius: 8px;
+            color: #d8eed2;
+        }
+
+        .eq-sign {
+            color: #a6df90;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .eq-result {
+            background: #1b2e18;
+            border: 1px solid #3c6237;
+            padding: 5px 12px;
+            border-radius: 8px;
+            color: #a6df90;
+            font-weight: 700;
+        }
+
+        /* Kerala Specials */
+        .kerala-card {
+            background: linear-gradient(145deg, #151a13 0%, #0d120c 100%);
+            border: 1px solid #2d422a;
+            border-radius: 14px;
+            padding: 18px 20px;
+            margin-bottom: 16px;
+            max-width: 950px;
+        }
+
+        .kerala-title {
+            color: #a6df90;
+            font-size: 1.25rem;
+            margin: 0 0 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         /* Dos and Don'ts */
@@ -646,6 +750,8 @@
         <hr><a onclick="closeNav()" href="#SEARCH-SECTION">SEARCH</a>
         <hr><a onclick="closeNav()" href="#OVERVIEW">OVERVIEW</a>
         <hr><a onclick="closeNav()" href="#BLUEPRINT">NUTRIENT BLUEPRINT</a>
+        <hr><a onclick="closeNav()" href="#ABSORPTION-SYNERGY">ABSORPTION PAIRS ("EAT THIS + THAT")</a>
+        <hr><a onclick="closeNav()" href="#KERALA-SPECIALS">KERALA SUPERFOODS</a>
         <hr><a onclick="closeNav()" href="#MYTHS">MYTHS BUSTED</a>
         <hr><a onclick="closeNav()" href="#INDIAN-SOURCES">INDIAN & BLR SOURCES</a>
         <hr><a onclick="closeNav()" href="#BALANCED-PLATE">BALANCED PLATE</a>
@@ -662,27 +768,29 @@
 
         <div class="badge">Nutrition & Health</div>
         <div class="mainHeading">FOOD & NUTRIENTS</div>
-        <h1>THE MODERN INDIAN & BANGALORE SURVIVAL GUIDE</h1>
+        <h1>THE MODERN INDIAN, KERALA & BANGALORE SURVIVAL GUIDE</h1>
 
         <div class="hero-banner">
             <img src="../../resources/food-nutrition.png" alt="Food & Nutrition Modern Indian Guide">
         </div>
 
         <p class="tagline">
-            Eating healthy isn’t about choking down raw boiled salads or surviving on avocado toast. It is about understanding your biological fuel, unlocking the powerhouse nutrition in traditional Indian cooking, and navigating modern city life — long desk hours, Swiggy deliveries, and 4 PM chai breaks — with effortless, practical daily habits.
+            Eating healthy isn’t about choking down raw boiled salads or surviving on avocado toast. It is about understanding your biological fuel, unlocking the powerhouse nutrition in traditional Indian and Kerala coastal cooking, and navigating modern city life — long desk hours, Swiggy deliveries, and 4 PM chai breaks — with effortless, practical daily habits.
         </p>
 
         <!-- INTERACTIVE SEARCH BAR -->
         <div class="search-container" id="SEARCH-SECTION">
             <div class="search-input-box">
                 <span style="font-size: 1.1rem; opacity: 0.8;">🔍</span>
-                <input type="text" id="nutrientSearch" placeholder="Search nutrients, foods, myths, or city hacks (e.g., 'Ragi', 'Iron', 'Bangda', 'B12', 'Curd')..." autocomplete="off">
+                <input type="text" id="nutrientSearch" placeholder="Search nutrients, foods, Kerala staples, absorption pairs, or myths (e.g., 'Mathi', 'Absorption', 'Pazhamkanji', 'Iron', 'B12')..." autocomplete="off">
                 <button class="clear-btn" id="clearSearchBtn" title="Clear search">✕</button>
             </div>
             <div class="search-meta">
                 <div class="search-count" id="searchCount">Displaying all sections</div>
                 <div class="quick-tags">
                     <span class="quick-tag active" data-filter="all">All</span>
+                    <span class="quick-tag" data-filter="absorption">⚡ Absorption Pairs</span>
+                    <span class="quick-tag" data-filter="kerala">🌴 Kerala Staples</span>
                     <span class="quick-tag" data-filter="protein">Protein</span>
                     <span class="quick-tag" data-filter="fiber">Fiber</span>
                     <span class="quick-tag" data-filter="iron">Iron</span>
@@ -690,7 +798,6 @@
                     <span class="quick-tag" data-filter="vitamin d">Vitamin D</span>
                     <span class="quick-tag" data-filter="b12">B12</span>
                     <span class="quick-tag" data-filter="omega-3">Omega-3</span>
-                    <span class="quick-tag" data-filter="bangalore">Bangalore Hacks</span>
                     <span class="quick-tag" data-filter="myth">Myths</span>
                     <span class="quick-tag" data-filter="top 5">Top 5 Foods</span>
                 </div>
@@ -787,15 +894,229 @@
                     <li><strong>Immune Headquarters:</strong> Over 70% of human immune cells reside in the gut.</li>
                     <li><strong>SCFA Production:</strong> Ferments fiber into butyrate to protect intestinal walls.</li>
                     <li><strong>Gut-Brain Axis:</strong> 90% of bodily serotonin is generated in the digestive tract.</li>
-                    <li><strong>Daily Staples:</strong> Fresh homemade curd and spiced buttermilk (majjige).</li>
+                    <li><strong>Daily Staples:</strong> Fresh homemade curd and spiced buttermilk (sambharam / majjige).</li>
                 </ul>
-                <div class="nutri-stat">🥛 Probiotic Staple: Daily Curd / Majjige</div>
+                <div class="nutri-stat">🥛 Probiotic Staple: Daily Curd / Sambharam</div>
             </div>
         </div>
 
-        <!-- SECTION 2: MYTHBUSTERS -->
-        <br id="MYTHS">
+        <!-- SECTION 2: NUTRIENT ABSORPTION MATRIX ("EAT THIS WITH THAT") -->
+        <br id="ABSORPTION-SYNERGY">
         <div class="badge">Section 2</div>
+        <h2>NUTRIENT ABSORPTION MATRIX ("EAT THIS WITH THAT")</h2>
+        <p>Nutrients do not act in isolation. Eating a nutrient-rich food is only half the battle — your gut must absorb it. Pairing specific foods unlocks maximum bioavailability, while wrong combinations block absorption completely:</p>
+
+        <!-- Pair 1: Iron + Vit C -->
+        <div class="pair-card searchable">
+            <div class="pair-header">
+                <span class="pair-badge-plus">300% – 400% Uptake</span>
+                <span class="pair-title">1. Plant Iron + Vitamin C (The Bioavailability Multiplier)</span>
+            </div>
+            <div class="pair-equation">
+                <span class="eq-item">🌱 Non-Heme Iron (Cheera / Muringayila / Kadala / Dal)</span>
+                <span class="eq-sign">+</span>
+                <span class="eq-item">🍋 Vitamin C (Lemon / Nellikka / Raw Mango / Kudampuli)</span>
+                <span class="eq-sign">=</span>
+                <span class="eq-result">⚡ 3x–4x Higher Hemoglobin Synthesis</span>
+            </div>
+            <ul class="pair-list">
+                <li><strong>The Science:</strong> Plant-based non-heme iron ($Fe^{3+}$) is insoluble in the alkaline small intestine. Vitamin C (Ascorbic acid) chemically reduces ferric iron into soluble ferrous ($Fe^{2+}$), which easily binds to the DMT-1 intestinal transporter.</li>
+                <li><strong>Plate Hack:</strong> Always squeeze half a fresh lemon over your <em>Kadala curry</em> or <em>Cherupayar</em>, or have fresh <em>Nellikka (Amla) chammandi</em> alongside rice and dal.</li>
+            </ul>
+        </div>
+
+        <!-- Pair 2: Fat Soluble Vitamins + Lipids -->
+        <div class="pair-card searchable">
+            <div class="pair-header">
+                <span class="pair-badge-plus">500% Absorption</span>
+                <span class="pair-title">2. Fat-Soluble Vitamins (A, D, E, K) + Healthy Lipids</span>
+            </div>
+            <div class="pair-equation">
+                <span class="eq-item">🥕 Carotenoids / Vitamins (Muringa / Cheera / Pumpkin / Carrots)</span>
+                <span class="eq-sign">+</span>
+                <span class="eq-item">🥥 Healthy Fats (Cold-Pressed Coconut Oil / Ghee / Grated Coconut)</span>
+                <span class="eq-sign">=</span>
+                <span class="eq-result">⚡ Full Enterocyte Micelle Absorption</span>
+            </div>
+            <ul class="pair-list">
+                <li><strong>The Science:</strong> Beta-carotene and fat-soluble vitamins (A, D, E, K) are hydrophobic. Without dietary fats, they cannot form lipid micelles and pass straight out unabsorbed (&lt;10% uptake when boiled plain).</li>
+                <li><strong>Plate Hack:</strong> The traditional Kerala <em>Thoran</em> — sautéing greens in a teaspoon of pure cold-pressed coconut oil (<em>velichenna</em>) with freshly grated coconut — is biologically perfect.</li>
+            </ul>
+        </div>
+
+        <!-- Pair 3: Turmeric + Black Pepper -->
+        <div class="pair-card searchable">
+            <div class="pair-header">
+                <span class="pair-badge-plus">2,000% Uptake</span>
+                <span class="pair-title">3. Turmeric (Curcumin) + Black Pepper (Piperine)</span>
+            </div>
+            <div class="pair-equation">
+                <span class="eq-item">🟡 Curcumin (Manjal / Turmeric)</span>
+                <span class="eq-sign">+</span>
+                <span class="eq-item">⚫ Piperine (Crushed Kurumolaku / Black Pepper)</span>
+                <span class="eq-sign">=</span>
+                <span class="eq-result">⚡ 20x Circulating Anti-Inflammatory Bioavailability</span>
+            </div>
+            <ul class="pair-list">
+                <li><strong>The Science:</strong> Curcumin is quickly metabolized by hepatic glucuronidation in the liver and eliminated. Piperine in black pepper halts this breakdown enzyme, skyrocketing curcumin bloodstream absorption by <strong>2,000%</strong>.</li>
+                <li><strong>Plate Hack:</strong> Authentic Kerala <em>Rasam</em> and traditional <em>Meen Curry</em> always simmer turmeric alongside freshly crushed black pepper and ginger.</li>
+            </ul>
+        </div>
+
+        <!-- Pair 4: Fermentation + Mineral Liberation -->
+        <div class="pair-card searchable">
+            <div class="pair-header">
+                <span class="pair-badge-plus">15x Mineral Liberation</span>
+                <span class="pair-title">4. Fermentation: The Phytic Acid Destroyer</span>
+            </div>
+            <div class="pair-equation">
+                <span class="eq-item">🍚 Matta Rice / Dosa Batter / Grains</span>
+                <span class="eq-sign">+</span>
+                <span class="eq-item">🏺 12-Hour Clay Pot Overnight Fermentation</span>
+                <span class="eq-sign">=</span>
+                <span class="eq-result">⚡ 1500% More Free Iron & B-Vitamins</span>
+            </div>
+            <ul class="pair-list">
+                <li><strong>The Science:</strong> Grains and pulses contain phytic acid, which locks down minerals like zinc, iron, and calcium. Overnight lactic fermentation activates native phytases that dissolve this bond, liberating up to <strong>15x higher free iron</strong> and multiplying Vitamin B12.</li>
+                <li><strong>Plate Hack:</strong> <em>Pazhamkanji</em> (soaked overnight Matta rice) with shallots (<em>cheriya ulli</em>), green chilies, and a dollop of curd is an ancestral gut-healing clinic.</li>
+            </ul>
+        </div>
+
+        <!-- Pair 5: Calcium + D3 + Magnesium -->
+        <div class="pair-card searchable">
+            <div class="pair-header">
+                <span class="pair-badge-plus">Bone Matrix Triad</span>
+                <span class="pair-title">5. Calcium + Vitamin D3 + Magnesium (Skeletal Deposition)</span>
+            </div>
+            <div class="pair-equation">
+                <span class="eq-item">🦴 Calcium (Natholi bones / Ragi / Curd)</span>
+                <span class="eq-sign">+</span>
+                <span class="eq-item">☀️ D3 (Midday Sun / Mathi / Egg yolks)</span>
+                <span class="eq-sign">+</span>
+                <span class="eq-item">⚡ Magnesium (Coconut Water / Spinach)</span>
+                <span class="eq-sign">=</span>
+                <span class="eq-result">⚡ Strong Bones (Zero Arterial Calcification)</span>
+            </div>
+            <ul class="pair-list">
+                <li><strong>The Science:</strong> Calcium cannot cross the gut lining without Vitamin D3 (which synthesizes calbindin transport proteins). Magnesium acts as the enzymatic cofactor that converts D3 into active Calcitriol. Without Magnesium, Calcium deposits in arteries instead of bones.</li>
+                <li><strong>Plate Hack:</strong> Eating small fish with bones (like <em>Natholi / Kozhuva</em>) alongside tender coconut water gives you the complete triad naturally.</li>
+            </ul>
+        </div>
+
+        <!-- The Antagonisms (What NOT to pair) -->
+        <div class="pair-card searchable" style="border-color: #482323; background: #161010;">
+            <div class="pair-header">
+                <span class="pair-badge-minus">Absorption Blockers</span>
+                <span class="pair-title" style="color: #ffb0b0;">⚠️ Crucial Anti-Nutrient Traps (What NOT to Eat Together)</span>
+            </div>
+            <ul class="pair-list">
+                <li><strong style="color: #ff9d9d;">❌ Iron + Tannins (Chai / Filter Coffee):</strong> Tannins and polyphenols in tea and coffee bind tightly to iron in the duodenum, wiping out <strong>60%–70% of iron absorption</strong>. Never drink tea/coffee immediately after lunch or dinner — maintain a strict 60-minute window!</li>
+                <li><strong style="color: #ff9d9d;">❌ Iron + High-Dose Calcium:</strong> Calcium and non-heme iron share and compete for the exact same DMT-1 transporter in the gut. Avoid drinking large glasses of milk or swallowing calcium tablets at the exact same moment you eat high-iron meals like Kadala or Cheera.</li>
+                <li><strong style="color: #ff9d9d;">❌ Unsoaked Grains & Pulses:</strong> Never boil dry Kadala, Rajma, or Chana directly without soaking. Soaking for 8–12 hours deactivates anti-nutrient phytates and enzyme inhibitors into the water. Always discard the soaking water before cooking!</li>
+            </ul>
+        </div>
+
+        <!-- SECTION 3: KERALA SUPERFOODS & COASTAL TRADITIONS -->
+        <br id="KERALA-SPECIALS">
+        <div class="badge">Section 3</div>
+        <h2>KERALA POWER FOODS & COASTAL TRADITION</h2>
+        <p>Traditional Kerala cuisine from Kannur and coastal Malabar is an extraordinary nutritional powerhouse. Readily available staples that outperform expensive Western imports:</p>
+
+        <div class="card-grid">
+            <div class="kerala-card nutri-card searchable">
+                <h3 class="kerala-title">🐟 Mathi (Sardines) & Ayala (Mackerel)</h3>
+                <ul class="source-list">
+                    <li><strong>Coastal Kings:</strong> Mathi and Ayala are the single cheapest, highest-density sources of active <strong>EPA & DHA Omega-3</strong> on the planet (2.3g per 100g).</li>
+                    <li><strong>B12 & Vitamin D:</strong> 100g Mathi provides <strong>8.9 mcg Vitamin B12 (370% RDA)</strong> and <strong>450 IU Vitamin D3</strong>.</li>
+                    <li><strong>Bone Health:</strong> Eaten fresh or in spicy Malabar curry (with kudampuli and ginger), tiny soft bones provide 380 mg bioavailable calcium.</li>
+                </ul>
+                <div class="nutri-stat">🌴 Beats Norwegian Salmon in Omega-3 at 1/10th the price</div>
+            </div>
+
+            <div class="kerala-card nutri-card searchable">
+                <h3 class="kerala-title">🐟 Natholi / Kozhuva (Anchovies)</h3>
+                <ul class="source-list">
+                    <li><strong>Whole-Bone Calcium Goldmine:</strong> Eaten whole with their soft, edible skeletons, Natholi delivers <strong>500–600 mg bioavailable Calcium per 100g</strong>.</li>
+                    <li><strong>Zero Heavy Metals:</strong> Being near the base of the marine food chain, anchovies have near-zero mercury or microplastic accumulation.</li>
+                    <li><strong>High Phosphorus & Protein:</strong> Ideal for growing children and reversing early bone density loss.</li>
+                </ul>
+                <div class="nutri-stat">🦴 4x more Calcium per serving than Cow's Milk</div>
+            </div>
+
+            <div class="kerala-card nutri-card searchable">
+                <h3 class="kerala-title">🌿 Muringayila (Drumstick Leaves) & Cheera</h3>
+                <ul class="source-list">
+                    <li><strong>Muringayila Thoran:</strong> Revered in Kerala backyards: <strong>28 mg Iron</strong> and <strong>440 mg Calcium</strong> per 100g dry.</li>
+                    <li><strong>Chuvanna Cheera (Red Amaranth):</strong> Packed with dietary nitrates, folate, and anthocyanin antioxidants for healthy vascular blood flow.</li>
+                    <li><strong>Culinary Harmony:</strong> Sautéed with shallots (<em>cheriya ulli</em>) and freshly grated coconut for complete fat-soluble vitamin uptake.</li>
+                </ul>
+                <div class="nutri-stat">🌿 Kerala's backyard nutritional multivitamin</div>
+            </div>
+
+            <div class="kerala-card nutri-card searchable">
+                <h3 class="kerala-title">🌾 Palakkadan Matta Rice (Red Parboiled)</h3>
+                <ul class="source-list">
+                    <li><strong>Unpolished Pericarp:</strong> Unlike polished white rice which strips the bran, Matta retains its rich outer red bran layer.</li>
+                    <li><strong>Low Glycemic Index:</strong> Digested slowly, releasing smooth glucose without the dramatic post-lunch insulin spike of white rice.</li>
+                    <li><strong>Mineral Dense:</strong> High natural magnesium and zinc content, vital for metabolic health and muscle recovery.</li>
+                </ul>
+                <div class="nutri-stat">🌾 Natural low-GI staple grain with intact bran</div>
+            </div>
+
+            <div class="kerala-card nutri-card searchable">
+                <h3 class="kerala-title">🍲 Kadala Curry & Cherupayar</h3>
+                <ul class="source-list">
+                    <li><strong>Black Chickpeas (Kadala):</strong> 1 cup of boiled Kadala provides <strong>15g protein</strong> and <strong>13g fiber</strong> with rich resistant starch.</li>
+                    <li><strong>Cherupayar (Whole Moong):</strong> Steamed green gram with grated coconut delivers slow-burning energy and sustained satiety.</li>
+                    <li><strong>Butyrate Fuel:</strong> Feeds anti-inflammatory colon bacteria and eliminates sugar cravings.</li>
+                </ul>
+                <div class="nutri-stat">💪 Traditional Kerala power fuel with puttu or kanji</div>
+            </div>
+
+            <div class="kerala-card nutri-card searchable">
+                <h3 class="kerala-title">🏺 Pazhamkanji (Fermented Rice Elixir)</h3>
+                <ul class="source-list">
+                    <li><strong>Ancestral Probiotic:</strong> Boiled Matta rice soaked in water overnight in an earthen clay pot (<em>kalam</em>).</li>
+                    <li><strong>15x Iron Boost:</strong> Overnight fermentation by wild lactobacilli multiplies free bioavailable iron by up to <strong>1500%</strong>.</li>
+                    <li><strong>Natural Cooling:</strong> Eaten with shallots, bird's eye chili (<em>kanthari mulaku</em>), and curd to cool intestinal inflammation.</li>
+                </ul>
+                <div class="nutri-stat">🏺 Kerala's legendary gut-healing morning breakfast</div>
+            </div>
+
+            <div class="kerala-card nutri-card searchable">
+                <h3 class="kerala-title">🍌 Puzhungiya Nendran Banana (Ethakka)</h3>
+                <ul class="source-list">
+                    <li><strong>Steamed Nendran Pazham:</strong> Loaded with <strong>450 mg Potassium</strong>, pectin, and Vitamin B6.</li>
+                    <li><strong>Gastric Shield:</strong> Traditional remedy that protects the stomach lining against excess gastric acid and heartburn.</li>
+                    <li><strong>Kannankaya Podi:</strong> Raw banana flour is pure prebiotic resistant starch, used for decades as gentle infant and adult gut nutrition.</li>
+                </ul>
+                <div class="nutri-stat">🍌 Natural potassium powerhouse & gut protector</div>
+            </div>
+
+            <div class="kerala-card nutri-card searchable">
+                <h3 class="kerala-title">🥛 Sambharam (Kerala Spiced Buttermilk)</h3>
+                <ul class="source-list">
+                    <li><strong>Zero-Sugar Electrolyte Tonic:</strong> Fresh churned curd diluted with water, crushed ginger, shallots, green chillies, and curry leaves.</li>
+                    <li><strong>Digestive Enzymes:</strong> Crushed ginger and curry leaves stimulate gastric juices while cooling body temperature.</li>
+                    <li><strong>Probiotic Hydration:</strong> Far superior to sugary packaged drinks or plain tap water.</li>
+                </ul>
+                <div class="nutri-stat">🥛 Replaces commercial soda and energy drinks instantly</div>
+            </div>
+
+            <div class="kerala-card nutri-card searchable">
+                <h3 class="kerala-title">🍈 Raw Green Jackfruit (Pacha Chakka)</h3>
+                <ul class="source-list">
+                    <li><strong>Clinical Diabetes Fighter:</strong> Unripe green jackfruit cooked as <em>Chakka Puzhukku</em> has a low glycemic load and proven HbA1c reduction.</li>
+                    <li><strong>Prebiotic Soluble Fiber:</strong> Unlocks high satiety with minimal calories, binding excess bile and cholesterol in the gut.</li>
+                    <li><strong>Traditional Meal:</strong> Paired with spicy fish curry (Meen Curry) for a balanced low-carb, high-protein meal.</li>
+                </ul>
+                <div class="nutri-stat">🍈 Kerala's clinically proven natural blood sugar stabilizer</div>
+            </div>
+        </div>
+
+        <!-- SECTION 4: MYTHBUSTERS -->
+        <br id="MYTHS">
+        <div class="badge">Section 4</div>
         <h2>TOP 8 NUTRITION MYTHS BUSTED</h2>
         <p>Common myths shared across social media and office WhatsApp groups that sabotage everyday health:</p>
 
@@ -806,7 +1127,7 @@
             </div>
             <ul class="fact-list">
                 <li><strong>Caloric Surplus:</strong> Fat gain is driven by chronic excess calories, not carbohydrates.</li>
-                <li><strong>Brain & Muscle Fuel:</strong> Complex carbs (millets, red rice, oats) provide sustained energy and vital prebiotic fiber.</li>
+                <li><strong>Brain & Muscle Fuel:</strong> Complex carbs (Matta rice, millets, oats) provide sustained energy and vital prebiotic fiber.</li>
                 <li><strong>The Real Culprits:</strong> Ultra-processed refined carbs like bakery maida, sugary beverages, and deep-fried snacks.</li>
             </ul>
         </div>
@@ -826,12 +1147,12 @@
         <div class="myth-card searchable">
             <div class="myth-header">
                 <span class="pill-myth">Myth 3</span>
-                <span class="myth-title">"Desi Ghee clogs arteries and leads straight to heart attacks."</span>
+                <span class="myth-title">"Desi Ghee and Coconut Oil clog arteries and cause heart attacks."</span>
             </div>
             <ul class="fact-list">
-                <li><strong>Gut Healing:</strong> Pure desi ghee is loaded with butyric acid, which repairs and nourishes the intestinal lining.</li>
-                <li><strong>Thermal Stability:</strong> High smoke point prevents toxic lipid peroxidation during Indian cooking.</li>
-                <li><strong>The Real Hazard:</strong> Repeatedly reheated commercial palm oils and trans-fat shortenings used in street frying.</li>
+                <li><strong>Thermal Stability:</strong> Cold-pressed Coconut Oil (<em>Velichenna</em>) and pure Ghee have high smoke points and medium-chain fats (Lauric acid & Butyrate) that support gut mucosal repair.</li>
+                <li><strong>Zero Carcinogenic Polymers:</strong> They do not oxidize into toxic trans-fats at cooking temperatures unlike cheap polyunsaturated refined seed oils.</li>
+                <li><strong>The Real Hazard:</strong> Repeatedly reheated commercial palm oils and trans-fat shortenings used in street deep frying.</li>
             </ul>
         </div>
 
@@ -850,7 +1171,7 @@
         <div class="myth-card searchable">
             <div class="myth-header">
                 <span class="pill-myth">Myth 5</span>
-                <span class="myth-title">"Jaggery (Gur) and Honey are healthy, guilt-free sugar replacements."</span>
+                <span class="myth-title">"Jaggery (Gur / Sarkkara) and Honey are healthy, guilt-free sugar replacements."</span>
             </div>
             <ul class="fact-list">
                 <li><strong>Identical Sugar Content:</strong> Jaggery is ~90% sucrose/glucose, and honey is ~80% fructose/glucose.</li>
@@ -879,7 +1200,7 @@
             <ul class="fact-list">
                 <li><strong>Stomach Acid Reality:</strong> Stomach acid has a pH of 1.5–2.0; alkaline water is neutralized immediately upon swallowing.</li>
                 <li><strong>Hyponatremia Risk:</strong> Guzzling excessive plain water flushes out sodium and potassium, causing brain fog and muscle cramps.</li>
-                <li><strong>Optimal Rule:</strong> 2.5–3.5 liters of filtered mineral-rich water is ideal for most urban adults.</li>
+                <li><strong>Optimal Rule:</strong> 2.5–3.5 liters of filtered mineral-rich water or tender coconut water is ideal for most urban adults.</li>
             </ul>
         </div>
 
@@ -895,9 +1216,9 @@
             </ul>
         </div>
 
-        <!-- SECTION 3: INDIAN & BANGALORE SOURCES -->
+        <!-- SECTION 5: INDIAN & BANGALORE SOURCES -->
         <br id="INDIAN-SOURCES">
-        <div class="badge">Section 3</div>
+        <div class="badge">Section 5</div>
         <h2>NUTRIENT SOURCES: INDIAN CUISINE & BANGALORE REALITY</h2>
         <p>Readily available, affordable everyday foods from your local Darshini, Kirana store, Zepto/Blinkit, or local market:</p>
 
@@ -905,7 +1226,7 @@
             <div class="nutri-card searchable">
                 <h3>🍗 Protein Powerhouses</h3>
                 <ul class="source-list">
-                    <li><strong>Desi Staples:</strong> Soya chunks (Nutrela), Paneer, Moong Dal, Chana, Rajma, Sattu, Eggs, Chicken breast.</li>
+                    <li><strong>Desi Staples:</strong> Soya chunks (Nutrela), Paneer, Moong Dal, Chana, Rajma, Sattu, Eggs, Chicken breast, Mathi (Sardines), Ayala (Mackerel).</li>
                     <li><strong>Bangalore Quick Access:</strong> Milky Mist paneer, Epigamia Greek curd (10–15g protein), Zepto organic tofu.</li>
                     <li><strong>Darshini Order:</strong> Tandoori chicken or double-egg bhurji with minimal oil.</li>
                 </ul>
@@ -915,9 +1236,9 @@
             <div class="nutri-card searchable">
                 <h3>🌾 Fiber & Clean Carbohydrates</h3>
                 <ul class="source-list">
-                    <li><strong>Desi Staples:</strong> Ragi (Ragi Mudde, Ragi Dosa), Jowar, Bajra, Red Matta rice, Poha, Palak, Bhindi, Methi.</li>
+                    <li><strong>Desi Staples:</strong> Ragi (Ragi Mudde, Ragi Dosa), Kerala Matta rice, Jowar, Bajra, Poha, Palak, Bhindi, Methi, Pacha Chakka (Jackfruit).</li>
                     <li><strong>Bangalore Quick Access:</strong> Fresh Chakki ragi flour, steel-cut oats, chia seeds, EatFit millet bowls.</li>
-                    <li><strong>Local Superfood:</strong> Drumstick greens (Moringa) in South Indian sambar.</li>
+                    <li><strong>Local Superfood:</strong> Drumstick greens (Muringayila) in South Indian sambar and thoran.</li>
                 </ul>
                 <div class="nutri-stat">🌾 Ragi has 344mg Calcium/100g — Beats Milk!</div>
             </div>
@@ -925,17 +1246,17 @@
             <div class="nutri-card searchable">
                 <h3>🥥 Healthy Fats & Omega-3</h3>
                 <ul class="source-list">
-                    <li><strong>Desi Staples:</strong> Desi cow ghee, cold-pressed groundnut/mustard/coconut oil, sesame seeds (til), walnuts.</li>
-                    <li><strong>Bangalore Quick Access:</strong> Fresh tender coconut (yelaneeru), raw pumpkin seeds on quick delivery.</li>
-                    <li><strong>Fish Counters:</strong> Indian Mackerel (Bangda) and Sardines — highest EPA/DHA omega-3 per rupee.</li>
+                    <li><strong>Desi Staples:</strong> Desi cow ghee, cold-pressed coconut oil (velichenna), mustard/groundnut oil, sesame seeds (til), walnuts.</li>
+                    <li><strong>Bangalore Quick Access:</strong> Fresh tender coconut (yelaneeru / karikku), raw pumpkin seeds on quick delivery.</li>
+                    <li><strong>Fish Counters:</strong> Mathi (Sardines) and Ayala (Mackerel) — highest EPA/DHA omega-3 per rupee.</li>
                 </ul>
-                <div class="nutri-stat">🐟 Bangda is South India's cheapest Omega-3</div>
+                <div class="nutri-stat">🐟 Mathi & Ayala are South India's cheapest Omega-3</div>
             </div>
 
             <div class="nutri-card searchable">
                 <h3>🍋 Iron & Vitamin C Absorption</h3>
                 <ul class="source-list">
-                    <li><strong>Desi Staples:</strong> Moringa leaves, Palak, Beetroot, Bajra, Poha, Amla (Indian gooseberry).</li>
+                    <li><strong>Desi Staples:</strong> Muringayila, Cheera thoran, Beetroot, Bajra, Poha, Nellikka (Amla), Lemon.</li>
                     <li><strong>Bioavailability Rule:</strong> Squeezing half a fresh lemon (Vitamin C) on dal triples non-heme iron uptake!</li>
                     <li><strong>The Iron Killer:</strong> Drinking cutting chai or filter coffee with meals blocks up to 70% of iron.</li>
                 </ul>
@@ -946,8 +1267,8 @@
                 <h3>⚡ Techie Vitamin D & B12 Crisis</h3>
                 <ul class="source-list">
                     <li><strong>The IT Corridor Dilemma:</strong> 85%+ of Bangalore techies are deficient due to AC offices and window UV filters.</li>
-                    <li><strong>Vitamin D3 Fix:</strong> 15 mins midday sunlight (11 AM–1 PM) or doctor-prescribed 60k IU supplement.</li>
-                    <li><strong>Vitamin B12 Fix:</strong> Dahi, eggs, paneer, or sublingual methylcobalamin tablets for strict vegetarians.</li>
+                    <li><strong>Vitamin D3 Fix:</strong> 15 mins midday sunlight (11 AM–1 PM), Mathi/Ayala fish, or doctor-prescribed 60k IU supplement.</li>
+                    <li><strong>Vitamin B12 Fix:</strong> Dahi, eggs, paneer, sardines, or sublingual methylcobalamin tablets for strict vegetarians.</li>
                 </ul>
                 <div class="nutri-stat">🔋 B12 + D3 cures chronic 3 PM brain fog</div>
             </div>
@@ -955,18 +1276,18 @@
             <div class="nutri-card searchable">
                 <h3>🥥 Magnesium & Potassium (Anti-Stress)</h3>
                 <ul class="source-list">
-                    <li><strong>Bangalore Street Hero:</strong> <em>Yelaneeru</em> (Tender Coconut) on every corner — natural isotonic electrolytes.</li>
-                    <li><strong>Other Top Picks:</strong> Nanjangud bananas, soaked almonds, dark green leafy vegetables.</li>
+                    <li><strong>Bangalore Street Hero:</strong> <em>Yelaneeru / Karikku</em> (Tender Coconut) on every corner — natural isotonic electrolytes.</li>
+                    <li><strong>Other Top Picks:</strong> Nendran bananas, soaked almonds, dark green leafy vegetables.</li>
                     <li><strong>Physical Benefits:</strong> Eliminates restless legs, tight neck muscles, and workday tension.</li>
                 </ul>
                 <div class="nutri-stat">🌴 Replaces chemical energy drinks instantly</div>
             </div>
         </div>
 
-        <!-- SECTION 4: THE BALANCED INDIAN PLATE -->
+        <!-- SECTION 6: THE BALANCED INDIAN PLATE -->
         <br id="BALANCED-PLATE">
-        <div class="badge">Section 4</div>
-        <h2>THE BALANCED INDIAN PLATE</h2>
+        <div class="badge">Section 6</div>
+        <h2>THE BALANCED INDIAN & KERALA PLATE</h2>
         <p>Most traditional Indian plates are 75% rice/roti and only 10% protein. Flip the formula to thrive without obsessive calorie counting:</p>
 
         <div class="plate-box searchable">
@@ -975,7 +1296,7 @@
                     <span class="plate-pct">50%</span>
                     <div class="plate-label">Vegetables & Fiber</div>
                     <ul class="plate-list">
-                        <li>Palak, Bhindi, Methi, Moringa drumsticks.</li>
+                        <li>Muringayila, Cheera, Bhindi, Palak Thoran.</li>
                         <li>Fresh cucumber, tomato, carrot salad.</li>
                         <li>Slows glucose absorption by up to 35%.</li>
                     </ul>
@@ -984,8 +1305,8 @@
                     <span class="plate-pct">25%</span>
                     <div class="plate-label">Quality Protein</div>
                     <ul class="plate-list">
-                        <li>Paneer, Tofu, Soya chunks, Eggs, Chicken.</li>
-                        <li>Sprouted moong, thick dal, or fish.</li>
+                        <li>Mathi / Ayala fish curry, Chicken, Eggs.</li>
+                        <li>Paneer, Tofu, Soya chunks, or Kadala curry.</li>
                         <li>Preserves lean muscle and controls cravings.</li>
                     </ul>
                 </div>
@@ -993,27 +1314,27 @@
                     <span class="plate-pct">25%</span>
                     <div class="plate-label">Complex Carbs</div>
                     <ul class="plate-list">
-                        <li>Ragi Mudde, Jowar / Bajra roti.</li>
-                        <li>Red Matta rice or whole wheat phulka.</li>
+                        <li>Kerala Matta rice, Ragi Mudde, Jowar roti.</li>
+                        <li>Steamed Kappa (small portion) or Whole wheat.</li>
                         <li>Delivers sustained, even mental energy.</li>
                     </ul>
                 </div>
             </div>
             <p style="text-align: center; color: #aaa; margin: 12px 0 0 0; font-size: 0.9rem;">
-                <strong>Side Additions:</strong> 1 bowl of fresh Curd / Spiced Majjige (Buttermilk) + 1 teaspoon pure Desi Ghee.
+                <strong>Side Additions:</strong> 1 glass of fresh Sambharam (Spiced Buttermilk) or Curd + 1 tsp cold-pressed coconut oil or ghee.
             </p>
         </div>
 
-        <!-- SECTION 5: BANGALORE LIFE HACKS -->
+        <!-- SECTION 7: BANGALORE LIFE HACKS -->
         <br id="BLR-HACKS">
-        <div class="badge">Section 5</div>
+        <div class="badge">Section 7</div>
         <h2>BANGALORE URBAN LIFE & TECH WORKER HACKS</h2>
 
         <div class="bangalore-callout searchable">
             <h4>🛵 The Swiggy / Zomato Ordering Filter</h4>
             <ul class="callout-list">
                 <li><strong style="color: #ff9d9d;">Avoid:</strong> "Makhani", "Lababdar", and "Shahi" curries — emulsified with cheap palm oil, heavy cashews, and refined sugar.</li>
-                <li><strong style="color: #a6df90;">Order Instead:</strong> Tandoori Chicken/Paneer, Yellow Dal Tadka, Grilled Fish, steamed Idli-Sambar, or protein millet bowls (EatFit / Curefoods).</li>
+                <li><strong style="color: #a6df90;">Order Instead:</strong> Kerala Fish Curry (Meen Mulakittathu), Tandoori Chicken/Paneer, Yellow Dal Tadka, Grilled Fish, steamed Idli-Sambar, or protein millet bowls.</li>
                 <li><strong>Restaurant Hack:</strong> Add "Less oil / no butter on roti" in your delivery cooking instructions.</li>
             </ul>
         </div>
@@ -1022,7 +1343,7 @@
             <h4>☕ The 4 PM Chai-Samosa Slump Fix</h4>
             <ul class="callout-list">
                 <li><strong style="color: #ff9d9d;">The Problem:</strong> Deep-fried bajjis and sugary filter coffee spark a 5:30 PM insulin crash and brain fog.</li>
-                <li><strong style="color: #a6df90;">Smart Swap 1:</strong> Spiced Majjige (buttermilk with curry leaves, crushed ginger, and rock salt) — gut cooling and probiotic.</li>
+                <li><strong style="color: #a6df90;">Smart Swap 1:</strong> Sambharam / Spiced Majjige (buttermilk with curry leaves, crushed ginger, and rock salt) — gut cooling and probiotic.</li>
                 <li><strong style="color: #a6df90;">Smart Swap 2:</strong> Roasted makhana (foxnuts) or roasted black chana — high fiber, slow-burning fuel.</li>
             </ul>
         </div>
@@ -1035,9 +1356,9 @@
             </ul>
         </div>
 
-        <!-- SECTION 6: DOS AND DON'TS -->
+        <!-- SECTION 8: DOS AND DON'TS -->
         <br id="DOS-DONTS">
-        <div class="badge">Section 6</div>
+        <div class="badge">Section 8</div>
         <h2>PRACTICAL DOS & DON'TS</h2>
 
         <div class="dos-donts-grid">
@@ -1045,19 +1366,19 @@
                 <h3>✅ THE DO'S</h3>
                 <div class="checklist-item">
                     <span class="check-icon" style="color: #a6df90;">✔</span>
-                    <div><strong>Frontload Protein at Breakfast:</strong> Start with eggs, paneer bhurji, or sprouted moong cheela to extinguish 11 AM sugar cravings.</div>
+                    <div><strong>Frontload Protein at Breakfast:</strong> Start with eggs, paneer bhurji, or Kadala/Cherupayar to extinguish 11 AM sugar cravings.</div>
                 </div>
                 <div class="checklist-item">
                     <span class="check-icon" style="color: #a6df90;">✔</span>
-                    <div><strong>Squeeze Lemon on Meals:</strong> Vitamin C triples plant-based non-heme iron absorption from dals and leafy greens.</div>
+                    <div><strong>Squeeze Lemon on Meals:</strong> Vitamin C triples plant-based non-heme iron absorption from dals, Kadala, and leafy greens.</div>
                 </div>
                 <div class="checklist-item">
                     <span class="check-icon" style="color: #a6df90;">✔</span>
-                    <div><strong>Eat Greens & Salad First:</strong> Consuming fiber before rice or rotis slows gastric emptying and reduces post-meal glucose spikes by up to 35%.</div>
+                    <div><strong>Eat Greens & Salad First:</strong> Consuming fiber before rice slows gastric emptying and reduces post-meal glucose spikes by up to 35%.</div>
                 </div>
                 <div class="checklist-item">
                     <span class="check-icon" style="color: #a6df90;">✔</span>
-                    <div><strong>Hydrate with Minerals:</strong> Sip tender coconut water or majjige with rock salt rather than chugging plain filtered water mindlessly.</div>
+                    <div><strong>Hydrate with Minerals:</strong> Sip tender coconut water (karikku) or sambharam with rock salt rather than chugging plain water mindlessly.</div>
                 </div>
                 <div class="checklist-item">
                     <span class="check-icon" style="color: #a6df90;">✔</span>
@@ -1081,18 +1402,18 @@
                 </div>
                 <div class="checklist-item">
                     <span class="check-icon" style="color: #ff9d9d;">✖</span>
-                    <div><strong>Don't Fall for "Zero Sugar" Jaggery Snacks:</strong> Jaggery sweets spike blood glucose and insulin almost just as sharply as white table sugar.</div>
+                    <div><strong>Don't Fall for "Zero Sugar" Jaggery Snacks:</strong> Sarkkara/Jaggery sweets spike blood glucose and insulin almost just as sharply as white table sugar.</div>
                 </div>
                 <div class="checklist-item">
                     <span class="check-icon" style="color: #ff9d9d;">✖</span>
-                    <div><strong>Don't Rely Solely on Plain Dal for Protein:</strong> A standard bowl of watery dal contains only 3–5g protein and 20g carbs. Add paneer, soya, or curd to balance it.</div>
+                    <div><strong>Don't Rely Solely on Plain Dal for Protein:</strong> A standard bowl of watery dal contains only 3–5g protein and 20g carbs. Add fish, paneer, soya, or curd to balance it.</div>
                 </div>
             </div>
         </div>
 
-        <!-- SECTION 7: HUMAN BASELINE & CALCULATOR -->
+        <!-- SECTION 9: HUMAN BASELINE & CALCULATOR -->
         <br id="BASELINE-CALC">
-        <div class="badge">Section 7</div>
+        <div class="badge">Section 9</div>
         <h2>THE HUMAN BASELINE & CUSTOM CALCULATOR</h2>
         <p>Nutrient requirements are not arbitrary numbers. They are calibrated against official medical reference standards (ICMR-National Institute of Nutrition 2020 & WHO):</p>
 
@@ -1135,9 +1456,9 @@
             </div>
         </div>
 
-        <!-- SECTION 8: QUICK REFERENCE CHEAT SHEET -->
+        <!-- SECTION 10: QUICK REFERENCE CHEAT SHEET -->
         <br id="CHEAT-SHEET">
-        <div class="badge">Section 8</div>
+        <div class="badge">Section 10</div>
         <h2>QUICK NUTRIENT REFERENCE CHEAT SHEET</h2>
         <p>A fast lookup summary for optimal daily intake and smart urban food choices:</p>
 
@@ -1147,7 +1468,7 @@
                     <tr>
                         <th>Nutrient</th>
                         <th>Baseline RDA (65kg Male / 55kg Female)</th>
-                        <th>Top Indian Sources</th>
+                        <th>Top Indian & Kerala Sources</th>
                         <th>Bangalore City Quick Access</th>
                         <th>Golden Pro-Tip</th>
                     </tr>
@@ -1156,77 +1477,77 @@
                     <tr>
                         <td><strong>Protein</strong></td>
                         <td>65g (male) / 55g (female)<br><small style="color:#aaa;">(Scales 1.2–1.6g/kg if active)</small></td>
-                        <td>Soya chunks, Paneer, Dals, Sattu, Eggs, Fish</td>
-                        <td>Milky Mist paneer, Greek yogurt, Zepto tofu, Tandoori</td>
-                        <td>Soya chunks have 52% protein — highest value per ₹.</td>
+                        <td>Soya chunks, Mathi (Sardines), Ayala, Paneer, Kadala, Eggs</td>
+                        <td>Milky Mist paneer, Greek yogurt, Zepto tofu, Coastal fish</td>
+                        <td>Soya chunks (52%) & Mathi (20%) give highest protein value per ₹.</td>
                     </tr>
                     <tr>
                         <td><strong>Fiber</strong></td>
                         <td>30 – 38 g (male) / 25 – 30 g (female)</td>
-                        <td>Ragi, Jowar, Poha, Palak, Bhindi, Methi, Guava</td>
+                        <td>Ragi, Matta rice, Pacha Chakka, Cheera, Poha, Guava</td>
                         <td>Chakki Ragi flour, Red rice, Chia seeds, Sprouts</td>
-                        <td>Eat raw salad 5 minutes before your main grain meal.</td>
+                        <td>Raw salad or Cheera thoran 5 mins before rice cuts glucose spike.</td>
                     </tr>
                     <tr>
                         <td><strong>Calcium</strong></td>
                         <td>1000 mg</td>
-                        <td>Ragi (Finger Millet), Curd, Sesame seeds (Til)</td>
+                        <td>Natholi (Anchovies with bone), Sesame seeds, Ragi, Curd</td>
                         <td>Fresh Dahi, Milky Mist curd, Ragi Dosa/Mudde</td>
-                        <td>Ragi has 344mg Ca/100g — beats cow milk!</td>
+                        <td>Natholi has 550mg & Ragi has 344mg Ca/100g — both beat milk!</td>
                     </tr>
                     <tr>
                         <td><strong>Iron</strong></td>
                         <td>19 mg (male) / 29 mg (female)</td>
-                        <td>Moringa leaves, Palak, Beetroot, Bajra, Poha</td>
+                        <td>Muringayila, Cheera, Kadala, Beetroot, Bajra, Poha</td>
                         <td>Fresh local greens, Drumstick sambar, Poha</td>
-                        <td>Always pair with lemon (Vit C); avoid tea with meals.</td>
+                        <td>Always pair with lemon/amla (Vit C); avoid tea with meals.</td>
                     </tr>
                     <tr>
                         <td><strong>Vitamin D3</strong></td>
                         <td>600 – 2000 IU</td>
-                        <td>Midday sunlight, Fortified milk, Egg yolks</td>
+                        <td>Midday sunlight, Mathi (Sardines), Fortified milk, Egg yolks</td>
                         <td>15 min midday sunlight walk or 60k IU supplement</td>
                         <td>85% of techies lack D3; window glass blocks UVB.</td>
                     </tr>
                     <tr>
                         <td><strong>Vitamin B12</strong></td>
                         <td>2.4 mcg</td>
-                        <td>Curd, Paneer, Eggs, Chicken, Fish</td>
-                        <td>Dairy products; sublingual methylcobalamin</td>
-                        <td>Strict vegetarians must supplement to prevent neuropathy.</td>
+                        <td>Mathi, Ayala, Chicken liver, Curd, Paneer, Eggs</td>
+                        <td>Coastal fish counters; sublingual methylcobalamin</td>
+                        <td>100g Mathi gives 370% of your daily B12 requirement!</td>
                     </tr>
                     <tr>
                         <td><strong>Magnesium</strong></td>
                         <td>400 mg (male) / 320 mg (female)</td>
-                        <td>Pumpkin seeds, Almonds, Spinach, Bananas</td>
-                        <td>Tender coconut (Yelaneeru), Nanjangud bananas</td>
+                        <td>Pumpkin seeds, Kerala Matta rice, Almonds, Spinach</td>
+                        <td>Tender coconut (Yelaneeru / Karikku), Bananas</td>
                         <td>Relaxes muscle spasms and significantly improves sleep.</td>
                     </tr>
                     <tr>
                         <td><strong>Potassium</strong></td>
                         <td>3500 mg</td>
-                        <td>Tender coconut, Bananas, Spinach, Boiled potatoes</td>
+                        <td>Tender coconut (Karikku), Nendran bananas, Spinach, Potatoes</td>
                         <td>Street tender coconut stall, Local produce</td>
-                        <td>1 tender coconut gives ~650mg natural potassium.</td>
+                        <td>1 tender coconut gives ~700mg natural potassium.</td>
                     </tr>
                     <tr>
                         <td><strong>Omega-3</strong></td>
                         <td>1.1 – 1.6 g (EPA/DHA & ALA)</td>
-                        <td>Flaxseeds (Alsi), Walnuts, Mackerel (Bangda)</td>
+                        <td>Mathi (Sardines), Ayala (Mackerel), Flaxseeds, Walnuts</td>
                         <td>Local coastal fish counters, raw walnuts, chia seeds</td>
-                        <td>Bangda (Mackerel) is the top local superfood for heart.</td>
+                        <td>Mathi & Ayala give active EPA+DHA directly (no conversion needed).</td>
                     </tr>
                     <tr>
                         <td><strong>Vitamin C</strong></td>
                         <td>65 – 80 mg</td>
-                        <td>Amla (Gooseberry), Guava, Capsicum, Lemon</td>
-                        <td>Fresh nimbu, local fruits, papaya</td>
-                        <td>1 Amla provides ~300mg Vitamin C — 400% of daily RDA!</td>
+                        <td>Nellikka (Amla), Guava, Capsicum, Lemon, Kudampuli</td>
+                        <td>Fresh nimbu, local fruits, amla chammandi</td>
+                        <td>1 Nellikka provides ~300mg Vitamin C — 400% of daily RDA!</td>
                     </tr>
                     <tr>
                         <td><strong>Zinc</strong></td>
                         <td>12 – 17 mg</td>
-                        <td>Pumpkin seeds, Cashews, Chicken, Chana, Paneer</td>
+                        <td>Pumpkin seeds, Cashews, Chicken, Sprouted Kadala, Paneer</td>
                         <td>Zepto seeds, dairy, local poultry</td>
                         <td>Essential for testosterone, immunity, and skin barrier.</td>
                     </tr>
@@ -1234,11 +1555,11 @@
             </table>
         </div>
 
-        <!-- SECTION 9: TOP 5 FOODS PER NUTRIENT -->
+        <!-- SECTION 11: TOP 5 FOODS PER NUTRIENT -->
         <br id="TOP-FOODS">
-        <div class="badge">Section 9</div>
+        <div class="badge">Section 11</div>
         <h2>TOP 5 NUTRIENT-DENSE FOODS PER NUTRIENT</h2>
-        <p>A granular breakdown of the 5 richest Indian and city-available foods for each essential nutrient, exact amounts, and percentage of daily requirements (calibrated for a 65 kg adult male / 55 kg adult female):</p>
+        <p>A granular breakdown of the 5 richest Indian, Kerala, and city-available foods for each essential nutrient, exact amounts, and percentage of daily requirements (calibrated for a 65 kg adult male / 55 kg adult female):</p>
 
         <!-- 1. Protein -->
         <div class="nutrient-top5-card searchable">
@@ -1254,7 +1575,7 @@
                         <th>Measure / Serving</th>
                         <th>Protein Content</th>
                         <th>% Baseline RDA</th>
-                        <th>Indian Culinary Context</th>
+                        <th>Culinary Context</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -1270,7 +1591,7 @@
                         <td>100g (cooked)</td>
                         <td class="nutrient-amount">31.0 g</td>
                         <td><span class="rda-pct">48% – 56%</span></td>
-                        <td>Lean, complete amino acid profile; tandoori or home curry.</td>
+                        <td>Lean, complete amino acid profile; tandoori or Malabar curry.</td>
                     </tr>
                     <tr>
                         <td><span class="food-rank">#3</span> <strong>Roasted Bengal Gram (Bhuna Chana / Sattu)</strong></td>
@@ -1280,18 +1601,18 @@
                         <td>Cheap, shelf-stable snack or sattu drink with roasted cumin & lemon.</td>
                     </tr>
                     <tr>
-                        <td><span class="food-rank">#4</span> <strong>Paneer (Cottage Cheese)</strong></td>
+                        <td><span class="food-rank">#4</span> <strong>Mathi (Sardines) / Ayala (Mackerel)</strong></td>
+                        <td>100g (cleaned)</td>
+                        <td class="nutrient-amount">20.5 g</td>
+                        <td><span class="rda-pct">32% – 37%</span></td>
+                        <td>Coastal staple; complete protein paired with massive Omega-3 & B12.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#5</span> <strong>Paneer (Cottage Cheese)</strong></td>
                         <td>100g</td>
                         <td class="nutrient-amount">18.3 g</td>
                         <td><span class="rda-pct">28% – 33%</span></td>
                         <td>Rich in casein protein and calcium; pan-tossed paneer bhurji.</td>
-                    </tr>
-                    <tr>
-                        <td><span class="food-rank">#5</span> <strong>Whole Eggs</strong></td>
-                        <td>2 Large Eggs (~100g)</td>
-                        <td class="nutrient-amount">13.0 g</td>
-                        <td><span class="rda-pct">20% – 24%</span></td>
-                        <td>Gold standard biological value (BV 100); contains choline and D3.</td>
                     </tr>
                 </tbody>
             </table>
@@ -1311,7 +1632,7 @@
                         <th>Measure / Serving</th>
                         <th>Fiber Content</th>
                         <th>% Baseline RDA</th>
-                        <th>Indian Culinary Context</th>
+                        <th>Culinary Context</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -1320,7 +1641,7 @@
                         <td>100g (approx 2 tbsp = 28g)</td>
                         <td class="nutrient-amount">34.4 g (9.6g / 2 tbsp)</td>
                         <td><span class="rda-pct">110% (32% per serving)</span></td>
-                        <td>Soak in water or buttermilk; gelatinous soluble fiber heals gut.</td>
+                        <td>Soak in water or sambharam; gelatinous soluble fiber heals gut.</td>
                     </tr>
                     <tr>
                         <td><span class="food-rank">#2</span> <strong>Flaxseeds (Alsi)</strong></td>
@@ -1330,25 +1651,25 @@
                         <td>Roast and powder; mix into roti dough, dal, or curd.</td>
                     </tr>
                     <tr>
-                        <td><span class="food-rank">#3</span> <strong>Ragi (Finger Millet) / Rajma</strong></td>
+                        <td><span class="food-rank">#3</span> <strong>Boiled Kadala (Black Chana)</strong></td>
+                        <td>1 Cup Cooked (~170g)</td>
+                        <td class="nutrient-amount">12.8 g</td>
+                        <td><span class="rda-pct">40% – 50%</span></td>
+                        <td>Kerala classic Kadala curry; high resistant starch feeds gut flora.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#4</span> <strong>Ragi (Finger Millet) / Rajma</strong></td>
                         <td>100g (raw grain/bean)</td>
                         <td class="nutrient-amount">11.5 g</td>
                         <td><span class="rda-pct">35% – 42%</span></td>
                         <td>Ragi mudde or rajma curry; low glycemic index keeps you full.</td>
                     </tr>
                     <tr>
-                        <td><span class="food-rank">#4</span> <strong>Rolled Oats</strong></td>
-                        <td>100g (dry)</td>
-                        <td class="nutrient-amount">10.6 g</td>
-                        <td><span class="rda-pct">32% – 38%</span></td>
-                        <td>Loaded with Beta-Glucan, proven to lower LDL blood cholesterol.</td>
-                    </tr>
-                    <tr>
-                        <td><span class="food-rank">#5</span> <strong>Guava (Amrood)</strong></td>
+                        <td><span class="food-rank">#5</span> <strong>Guava (Amrood / Pera)</strong></td>
                         <td>1 Medium Fruit (~150g)</td>
                         <td class="nutrient-amount">8.1 g (5.4g / 100g)</td>
                         <td><span class="rda-pct">25% – 30%</span></td>
-                        <td>Cheap, widespread Indian street fruit; eat with skin and seeds.</td>
+                        <td>Cheap, widespread local fruit; eat with skin and seeds.</td>
                     </tr>
                 </tbody>
             </table>
@@ -1368,44 +1689,44 @@
                         <th>Measure / Serving</th>
                         <th>Calcium Content</th>
                         <th>% Baseline RDA</th>
-                        <th>Indian Culinary Context</th>
+                        <th>Culinary Context</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><span class="food-rank">#1</span> <strong>Sesame Seeds (Til)</strong></td>
+                        <td><span class="food-rank">#1</span> <strong>Sesame Seeds (Til / Ellu)</strong></td>
                         <td>100g (approx 1 tbsp = 15g)</td>
                         <td class="nutrient-amount">975 mg (146 mg / tbsp)</td>
                         <td><span class="rda-pct">98% (15% per tbsp)</span></td>
-                        <td>Til laddoos, sesame chutney, or sprinkled over vegetable stir-fries.</td>
+                        <td>Ellunda (sesame jaggery balls), chutney, or sprinkled on salads.</td>
                     </tr>
                     <tr>
-                        <td><span class="food-rank">#2</span> <strong>Paneer (Cottage Cheese)</strong></td>
+                        <td><span class="food-rank">#2</span> <strong>Natholi / Kozhuva (Anchovies)</strong></td>
+                        <td>100g (eaten with soft bones)</td>
+                        <td class="nutrient-amount">550 mg</td>
+                        <td><span class="rda-pct">55%</span></td>
+                        <td>Whole small fish with edible bone matrix; superior bioavailable calcium.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#3</span> <strong>Paneer (Cottage Cheese)</strong></td>
                         <td>100g</td>
                         <td class="nutrient-amount">480 mg</td>
                         <td><span class="rda-pct">48%</span></td>
                         <td>Dairy calcium with high bioavailability; pairs protein + calcium.</td>
                     </tr>
                     <tr>
-                        <td><span class="food-rank">#3</span> <strong>Moringa Leaves (Drumstick Greens)</strong></td>
+                        <td><span class="food-rank">#4</span> <strong>Muringayila (Drumstick Leaves)</strong></td>
                         <td>100g (fresh)</td>
                         <td class="nutrient-amount">440 mg</td>
                         <td><span class="rda-pct">44%</span></td>
-                        <td>South Indian tree superfood; cooked into dal, sambar, or poriyal.</td>
+                        <td>South Indian tree superfood; cooked into dal, sambar, or thoran.</td>
                     </tr>
                     <tr>
-                        <td><span class="food-rank">#4</span> <strong>Ragi (Finger Millet)</strong></td>
+                        <td><span class="food-rank">#5</span> <strong>Ragi (Finger Millet / Koovarakam)</strong></td>
                         <td>100g (raw flour)</td>
                         <td class="nutrient-amount">344 mg</td>
                         <td><span class="rda-pct">34%</span></td>
-                        <td>Karnataka staple (Mudde / Roti); contains 3x more calcium than milk.</td>
-                    </tr>
-                    <tr>
-                        <td><span class="food-rank">#5</span> <strong>Homemade Curd (Dahi)</strong></td>
-                        <td>1 Medium Bowl (200g)</td>
-                        <td class="nutrient-amount">320 mg (160 mg / 100g)</td>
-                        <td><span class="rda-pct">32%</span></td>
-                        <td>Lactic acid in curd enhances intestinal calcium absorption.</td>
+                        <td>Ragi kurukku / puttu; contains 3x more calcium than cow's milk.</td>
                     </tr>
                 </tbody>
             </table>
@@ -1425,7 +1746,7 @@
                         <th>Measure / Serving</th>
                         <th>Iron Content</th>
                         <th>% Baseline RDA</th>
-                        <th>Indian Culinary Context</th>
+                        <th>Culinary Context</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -1437,32 +1758,32 @@
                         <td>Soak in warm water with lemon or milk; number one remedy for low hemoglobin.</td>
                     </tr>
                     <tr>
-                        <td><span class="food-rank">#2</span> <strong>Moringa Leaves (Drumstick greens)</strong></td>
+                        <td><span class="food-rank">#2</span> <strong>Muringayila (Drumstick greens)</strong></td>
                         <td>100g (dried / cooked)</td>
                         <td class="nutrient-amount">28.2 mg (dry) / 4.0mg (fresh)</td>
                         <td><span class="rda-pct">97% (men) | 65% (women)</span></td>
-                        <td>Incorporate fresh leaves into sambar or rasam twice a week.</td>
+                        <td>Muringayila thoran with shallots; pair with lemon for 3x iron uptake.</td>
                     </tr>
                     <tr>
-                        <td><span class="food-rank">#3</span> <strong>Poha (Flattened Beaten Rice)</strong></td>
+                        <td><span class="food-rank">#3</span> <strong>Poha (Flattened Beaten Rice / Aval)</strong></td>
                         <td>100g (dry)</td>
                         <td class="nutrient-amount">20.0 mg</td>
                         <td><span class="rda-pct">100% (men) | 69% (women)</span></td>
                         <td>Made on iron rollers; cook with peanuts, mustard seeds, and fresh lemon.</td>
                     </tr>
                     <tr>
-                        <td><span class="food-rank">#4</span> <strong>Bajra (Pearl Millet)</strong></td>
-                        <td>100g</td>
-                        <td class="nutrient-amount">8.0 mg</td>
-                        <td><span class="rda-pct">42% (men) | 28% (women)</span></td>
-                        <td>Traditional winter roti in North & Western India; rich in trace minerals.</td>
-                    </tr>
-                    <tr>
-                        <td><span class="food-rank">#5</span> <strong>Boiled Black Chana (Bengal Gram)</strong></td>
+                        <td><span class="food-rank">#4</span> <strong>Boiled Black Chana (Kadala)</strong></td>
                         <td>1 Cup Cooked (~170g)</td>
                         <td class="nutrient-amount">7.6 mg (4.5 mg / 100g)</td>
                         <td><span class="rda-pct">40% (men) | 26% (women)</span></td>
-                        <td>Boiled chana chaat with onions, tomatoes, and generous lemon juice.</td>
+                        <td>Kadala curry or boiled sundal with coconut; soak overnight to remove phytates.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#5</span> <strong>Cheera (Amaranth Greens Thoran)</strong></td>
+                        <td>1 Cup Cooked (~150g)</td>
+                        <td class="nutrient-amount">5.2 mg</td>
+                        <td><span class="rda-pct">27% (men) | 18% (women)</span></td>
+                        <td>Red/Green cheera thoran; pair with raw mango or tomato.</td>
                     </tr>
                 </tbody>
             </table>
@@ -1482,7 +1803,7 @@
                         <th>Measure / Serving</th>
                         <th>Vitamin D Content</th>
                         <th>% Baseline RDA</th>
-                        <th>Indian Culinary Context</th>
+                        <th>Culinary Context</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -1494,11 +1815,11 @@
                         <td>Endogenous skin synthesis via UVB rays; zero cost. Glass windows block 100% of UVB!</td>
                     </tr>
                     <tr>
-                        <td><span class="food-rank">#2</span> <strong>Indian Mackerel (Bangda / Rohu)</strong></td>
+                        <td><span class="food-rank">#2</span> <strong>Mathi (Sardines) / Ayala (Mackerel)</strong></td>
                         <td>100g (cooked)</td>
                         <td class="nutrient-amount">450 IU (11.2 mcg)</td>
                         <td><span class="rda-pct">75%</span></td>
-                        <td>Naturally fatty coastal fish; pan fry with turmeric and chili powder.</td>
+                        <td>Naturally fatty coastal fish; pan fry with turmeric and chili powder or curried.</td>
                     </tr>
                     <tr>
                         <td><span class="food-rank">#3</span> <strong>Sun-Exposed Button Mushrooms</strong></td>
@@ -1508,7 +1829,7 @@
                         <td>Keep fresh mushrooms in direct midday sunlight for 30 mins before cooking!</td>
                     </tr>
                     <tr>
-                        <td><span class="food-rank">#4</span> <strong>Fortified Cow's Milk (Amul / Nandini)</strong></td>
+                        <td><span class="food-rank">#4</span> <strong>Fortified Cow's Milk (Milma / Nandini)</strong></td>
                         <td>1 Big Glass (250 ml)</td>
                         <td class="nutrient-amount">200 IU (5 mcg)</td>
                         <td><span class="rda-pct">33%</span></td>
@@ -1539,7 +1860,7 @@
                         <th>Measure / Serving</th>
                         <th>B12 Content</th>
                         <th>% Baseline RDA</th>
-                        <th>Indian Culinary Context</th>
+                        <th>Culinary Context</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -1551,7 +1872,7 @@
                         <td>Extremely bioavailable; 1 small serving fulfills weekly requirement.</td>
                     </tr>
                     <tr>
-                        <td><span class="food-rank">#2</span> <strong>Indian Mackerel / Sardines</strong></td>
+                        <td><span class="food-rank">#2</span> <strong>Mathi (Sardines) & Ayala (Mackerel)</strong></td>
                         <td>100g</td>
                         <td class="nutrient-amount">8.9 mcg</td>
                         <td><span class="rda-pct">370%</span></td>
@@ -1565,7 +1886,7 @@
                         <td>Easily absorbed through egg yolk proteins; boiled or omelette.</td>
                     </tr>
                     <tr>
-                        <td><span class="food-rank">#4</span> <strong>Homemade Curd (Dahi)</strong></td>
+                        <td><span class="food-rank">#4</span> <strong>Homemade Curd (Dahi) / Sambharam</strong></td>
                         <td>1 Bowl (200g)</td>
                         <td class="nutrient-amount">0.9 mcg (0.45 mcg / 100g)</td>
                         <td><span class="rda-pct">38%</span></td>
@@ -1596,7 +1917,7 @@
                         <th>Measure / Serving</th>
                         <th>Magnesium Content</th>
                         <th>% Baseline RDA</th>
-                        <th>Indian Culinary Context</th>
+                        <th>Culinary Context</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -1612,24 +1933,24 @@
                         <td>100g (approx 10–12 almonds = 20g)</td>
                         <td class="nutrient-amount">270 mg (54 mg / serving)</td>
                         <td><span class="rda-pct">68% (15% per serving)</span></td>
-                        <td>Traditional Indian morning habit; peel skin after soaking overnight.</td>
+                        <td>Traditional morning habit; peel skin after soaking overnight.</td>
                     </tr>
                     <tr>
-                        <td><span class="food-rank">#3</span> <strong>Dark Chocolate (70–85% Cocoa)</strong></td>
-                        <td>100g (approx 3 squares = 30g)</td>
-                        <td class="nutrient-amount">228 mg (68 mg / serving)</td>
-                        <td><span class="rda-pct">57% (18% per serving)</span></td>
-                        <td>Satisfies sweet tooth while delivering magnesium and flavonoids.</td>
-                    </tr>
-                    <tr>
-                        <td><span class="food-rank">#4</span> <strong>Cooked Spinach (Palak)</strong></td>
+                        <td><span class="food-rank">#3</span> <strong>Cooked Spinach / Cheera (Amaranth)</strong></td>
                         <td>1 Cup Cooked (~180g)</td>
                         <td class="nutrient-amount">157 mg (87 mg / 100g)</td>
                         <td><span class="rda-pct">40% – 50%</span></td>
                         <td>Magnesium sits at the exact biochemical core of chlorophyll.</td>
                     </tr>
                     <tr>
-                        <td><span class="food-rank">#5</span> <strong>Tender Coconut Water (Yelaneeru)</strong></td>
+                        <td><span class="food-rank">#4</span> <strong>Kerala Matta Rice (Cooked)</strong></td>
+                        <td>1 Cup Cooked (~190g)</td>
+                        <td class="nutrient-amount">84 mg</td>
+                        <td><span class="rda-pct">21% – 26%</span></td>
+                        <td>Intact red pericarp bran retains 3x more magnesium than polished white rice.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#5</span> <strong>Tender Coconut Water (Karikku)</strong></td>
                         <td>1 Fresh Coconut (~250 ml)</td>
                         <td class="nutrient-amount">65 mg (25 mg / 100ml)</td>
                         <td><span class="rda-pct">16% – 20%</span></td>
@@ -1653,44 +1974,44 @@
                         <th>Measure / Serving</th>
                         <th>Potassium Content</th>
                         <th>% Baseline RDA</th>
-                        <th>Indian Culinary Context</th>
+                        <th>Culinary Context</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><span class="food-rank">#1</span> <strong>Tender Coconut Water (Yelaneeru)</strong></td>
+                        <td><span class="food-rank">#1</span> <strong>Tender Coconut Water (Karikku / Yelaneeru)</strong></td>
                         <td>1 Whole Coconut (~280 ml)</td>
                         <td class="nutrient-amount">700 mg (250 mg / 100ml)</td>
                         <td><span class="rda-pct">20%</span></td>
-                        <td>Bangalore street lifesaver; beats bananas in fluid potassium per calorie.</td>
+                        <td>Street lifesaver; beats bananas in fluid potassium per calorie.</td>
                     </tr>
                     <tr>
                         <td><span class="food-rank">#2</span> <strong>Boiled Potatoes (with Skin)</strong></td>
                         <td>1 Large Potato (~200g)</td>
                         <td class="nutrient-amount">1,070 mg (535 mg / 100g)</td>
                         <td><span class="rda-pct">30%</span></td>
-                        <td>Boiled aloo with peel is an extraordinarily rich potassium source.</td>
+                        <td>Boiled potato with peel is an extraordinarily rich potassium source.</td>
                     </tr>
                     <tr>
-                        <td><span class="food-rank">#3</span> <strong>Cooked Spinach (Palak)</strong></td>
+                        <td><span class="food-rank">#3</span> <strong>Cooked Spinach / Cheera</strong></td>
                         <td>1 Cup Cooked (~180g)</td>
                         <td class="nutrient-amount">840 mg (466 mg / 100g)</td>
                         <td><span class="rda-pct">24%</span></td>
-                        <td>Palak dal or steamed greens; balances restaurant sodium intake.</td>
+                        <td>Cheera thoran balances sodium intake and regulates blood pressure.</td>
                     </tr>
                     <tr>
-                        <td><span class="food-rank">#4</span> <strong>Cooked Rajma / Toor Dal</strong></td>
+                        <td><span class="food-rank">#4</span> <strong>Cooked Kadala / Rajma</strong></td>
                         <td>1 Cup Cooked (~180g)</td>
                         <td class="nutrient-amount">750 mg (420 mg / 100g)</td>
                         <td><span class="rda-pct">21%</span></td>
                         <td>Staple legume broths provide foundational intracellular potassium.</td>
                     </tr>
                     <tr>
-                        <td><span class="food-rank">#5</span> <strong>Bananas (Nanjangud / Robusta)</strong></td>
-                        <td>1 Large Banana (~120g)</td>
-                        <td class="nutrient-amount">450 mg (358 mg / 100g)</td>
-                        <td><span class="rda-pct">13%</span></td>
-                        <td>Readily available across all Indian fruit stalls; perfect pre-workout fuel.</td>
+                        <td><span class="food-rank">#5</span> <strong>Nendran Banana (Puzhungiya Ethakka)</strong></td>
+                        <td>1 Medium Banana (~130g)</td>
+                        <td class="nutrient-amount">480 mg (370 mg / 100g)</td>
+                        <td><span class="rda-pct">14%</span></td>
+                        <td>Steamed Kerala Nendran is rich in potassium and soothing pectin fiber.</td>
                     </tr>
                 </tbody>
             </table>
@@ -1710,30 +2031,30 @@
                         <th>Measure / Serving</th>
                         <th>Omega-3 Content</th>
                         <th>% Baseline RDA</th>
-                        <th>Indian Culinary Context</th>
+                        <th>Culinary Context</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><span class="food-rank">#1</span> <strong>Flaxseeds (Alsi)</strong></td>
+                        <td><span class="food-rank">#1</span> <strong>Mathi (Sardines)</strong></td>
+                        <td>100g (cooked)</td>
+                        <td class="nutrient-amount">2.3 g Active EPA + DHA</td>
+                        <td><span class="rda-pct">150% – 200%</span></td>
+                        <td>Kerala coastal superstar; direct anti-inflammatory EPA/DHA for brain and heart.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#2</span> <strong>Ayala (Mackerel)</strong></td>
+                        <td>100g (cooked)</td>
+                        <td class="nutrient-amount">2.2 g Active EPA + DHA</td>
+                        <td><span class="rda-pct">140% – 190%</span></td>
+                        <td>Rich in cardioprotective marine lipids; prepare as traditional Meen Mulakittathu.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="food-rank">#3</span> <strong>Flaxseeds (Alsi)</strong></td>
                         <td>1 Tablespoon (~10g)</td>
                         <td class="nutrient-amount">2.3 g ALA (22.8g / 100g)</td>
                         <td><span class="rda-pct">160%</span></td>
                         <td>Must be ground into powder for digestion; store in fridge to prevent oxidation.</td>
-                    </tr>
-                    <tr>
-                        <td><span class="food-rank">#2</span> <strong>Indian Mackerel (Bangda)</strong></td>
-                        <td>100g (cooked)</td>
-                        <td class="nutrient-amount">2.3 g Active EPA + DHA</td>
-                        <td><span class="rda-pct">150%</span></td>
-                        <td>Superstar South Indian coastal fish; direct anti-inflammatory EPA/DHA.</td>
-                    </tr>
-                    <tr>
-                        <td><span class="food-rank">#3</span> <strong>Chia Seeds</strong></td>
-                        <td>1 Tablespoon (~12g)</td>
-                        <td class="nutrient-amount">2.1 g ALA (17.8g / 100g)</td>
-                        <td><span class="rda-pct">140%</span></td>
-                        <td>Gel-forming seeds; blend into smoothies or stir into curd.</td>
                     </tr>
                     <tr>
                         <td><span class="food-rank">#4</span> <strong>Walnuts (Akhrot)</strong></td>
@@ -1743,11 +2064,11 @@
                         <td>Nut resembling human brain; protects cerebral vasculature and memory.</td>
                     </tr>
                     <tr>
-                        <td><span class="food-rank">#5</span> <strong>Sardines (Mathi / Tarli)</strong></td>
-                        <td>100g</td>
-                        <td class="nutrient-amount">1.4 g Active EPA + DHA</td>
-                        <td><span class="rda-pct">100%</span></td>
-                        <td>Small, short-lived fish with near-zero mercury buildup; very affordable.</td>
+                        <td><span class="food-rank">#5</span> <strong>Chia Seeds</strong></td>
+                        <td>1 Tablespoon (~12g)</td>
+                        <td class="nutrient-amount">2.1 g ALA (17.8g / 100g)</td>
+                        <td><span class="rda-pct">140%</span></td>
+                        <td>Gel-forming seeds; blend into smoothies or stir into sambharam/curd.</td>
                     </tr>
                 </tbody>
             </table>
@@ -1767,23 +2088,23 @@
                         <th>Measure / Serving</th>
                         <th>Vitamin C Content</th>
                         <th>% Baseline RDA</th>
-                        <th>Indian Culinary Context</th>
+                        <th>Culinary Context</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><span class="food-rank">#1</span> <strong>Indian Gooseberry (Amla)</strong></td>
+                        <td><span class="food-rank">#1</span> <strong>Nellikka (Indian Gooseberry / Amla)</strong></td>
                         <td>1 Single Amla (~50g)</td>
                         <td class="nutrient-amount">300 mg (600 mg / 100g)</td>
                         <td><span class="rda-pct">400%</span></td>
-                        <td>King of Vitamin C; heat-stable due to natural tannins. Amla juice or raw bite.</td>
+                        <td>King of Vitamin C; heat-stable due to natural tannins. Nellikka chammandi or raw bite.</td>
                     </tr>
                     <tr>
-                        <td><span class="food-rank">#2</span> <strong>Guava (Amrood)</strong></td>
+                        <td><span class="food-rank">#2</span> <strong>Guava (Amrood / Pera)</strong></td>
                         <td>1 Medium Fruit (~100g)</td>
                         <td class="nutrient-amount">228 mg</td>
                         <td><span class="rda-pct">300%</span></td>
-                        <td>Contains 4x more Vitamin C than oranges; available year-round.</td>
+                        <td>Contains 4x more Vitamin C than oranges; available year-round across Kerala.</td>
                     </tr>
                     <tr>
                         <td><span class="food-rank">#3</span> <strong>Capsicum / Bell Peppers (Yellow/Green)</strong></td>
@@ -1793,14 +2114,14 @@
                         <td>Add raw or lightly sautéed in stir-fries to preserve heat-sensitive Vitamin C.</td>
                     </tr>
                     <tr>
-                        <td><span class="food-rank">#4</span> <strong>Fresh Lemon (Nimbu)</strong></td>
+                        <td><span class="food-rank">#4</span> <strong>Fresh Lemon (Cherunaranga)</strong></td>
                         <td>1 Whole Lemon (~50g)</td>
                         <td class="nutrient-amount">27 mg (53 mg / 100g)</td>
                         <td><span class="rda-pct">35%</span></td>
-                        <td>Squeeze directly on warm dal/sabzi; triples absorption of plant iron.</td>
+                        <td>Squeeze directly on warm dal/Kadala; triples absorption of plant iron.</td>
                     </tr>
                     <tr>
-                        <td><span class="food-rank">#5</span> <strong>Papaya</strong></td>
+                        <td><span class="food-rank">#5</span> <strong>Papaya (Kappanga / Omakka)</strong></td>
                         <td>1 Cup Cubes (~145g)</td>
                         <td class="nutrient-amount">88 mg (62 mg / 100g)</td>
                         <td><span class="rda-pct">110%</span></td>
@@ -1824,7 +2145,7 @@
                         <th>Measure / Serving</th>
                         <th>Zinc Content</th>
                         <th>% Baseline RDA</th>
-                        <th>Indian Culinary Context</th>
+                        <th>Culinary Context</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -1836,7 +2157,7 @@
                         <td>Number one vegetarian zinc source; excellent for male reproductive health.</td>
                     </tr>
                     <tr>
-                        <td><span class="food-rank">#2</span> <strong>Cashews (Kaju) / Sesame Seeds</strong></td>
+                        <td><span class="food-rank">#2</span> <strong>Cashews (Kashuvandi) / Sesame Seeds</strong></td>
                         <td>100g</td>
                         <td class="nutrient-amount">5.8 mg</td>
                         <td><span class="rda-pct">38% – 48%</span></td>
@@ -1850,14 +2171,14 @@
                         <td>Animal zinc is absorbed without phytate interference.</td>
                     </tr>
                     <tr>
-                        <td><span class="food-rank">#4</span> <strong>Paneer (Cottage Cheese)</strong></td>
+                        <td><span class="food-rank">#4</span> <strong>Paneer / Whole Milk (Milma)</strong></td>
                         <td>100g</td>
                         <td class="nutrient-amount">2.7 mg</td>
                         <td><span class="rda-pct">18% – 22%</span></td>
                         <td>Provides bioavailable dairy zinc alongside calcium and protein.</td>
                     </tr>
                     <tr>
-                        <td><span class="food-rank">#5</span> <strong>Sprouted Bengal Gram (Chana)</strong></td>
+                        <td><span class="food-rank">#5</span> <strong>Sprouted Kadala (Black Chana)</strong></td>
                         <td>100g (sprouted)</td>
                         <td class="nutrient-amount">2.5 mg</td>
                         <td><span class="rda-pct">17% – 20%</span></td>
