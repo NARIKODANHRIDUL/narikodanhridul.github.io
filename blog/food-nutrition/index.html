@@ -744,27 +744,35 @@
 </head>
 
 <body>
+    <!-- Dimming overlay for mobile -->
+    <div class="sidenav-overlay" id="sidenavOverlay" onclick="closeNav()"></div>
+
     <!-- Side navigation -->
     <div class="sidenav" id="mySidenav">
-        <h1 style="margin-left: 15px; font-size: 22px;">Index</h1>
-        <hr><a onclick="closeNav()" href="#SEARCH-SECTION">SEARCH</a>
-        <hr><a onclick="closeNav()" href="#OVERVIEW">OVERVIEW</a>
-        <hr><a onclick="closeNav()" href="#BLUEPRINT">NUTRIENT BLUEPRINT</a>
-        <hr><a onclick="closeNav()" href="#ABSORPTION-SYNERGY">ABSORPTION PAIRS ("EAT THIS + THAT")</a>
-        <hr><a onclick="closeNav()" href="#KERALA-SPECIALS">KERALA SUPERFOODS</a>
-        <hr><a onclick="closeNav()" href="#MYTHS">MYTHS BUSTED</a>
-        <hr><a onclick="closeNav()" href="#INDIAN-SOURCES">INDIAN & BLR SOURCES</a>
-        <hr><a onclick="closeNav()" href="#BALANCED-PLATE">BALANCED PLATE</a>
-        <hr><a onclick="closeNav()" href="#BLR-HACKS">BANGALORE LIFE HACKS</a>
-        <hr><a onclick="closeNav()" href="#DOS-DONTS">DOS & DON'TS</a>
-        <hr><a onclick="closeNav()" href="#BASELINE-CALC">HUMAN BASELINE & CALC</a>
-        <hr><a onclick="closeNav()" href="#CHEAT-SHEET">QUICK CHEAT SHEET</a>
-        <hr><a onclick="closeNav()" href="#TOP-FOODS">TOP 5 FOODS PER NUTRIENT</a>
-        <hr>
+        <div class="sidenav-header">
+            <a href="../../extra/index.html" class="sidenav-back">← All Blogs</a>
+            <button class="sidenav-close-btn" onclick="closeNav()" aria-label="Close Navigation">✕</button>
+        </div>
+        <div class="sidenav-title">
+            <span class="nav-indicator-dot"></span> Contents
+        </div>
+        <a href="#SEARCH-SECTION">Search & Filter</a>
+        <a href="#OVERVIEW">Overview</a>
+        <a href="#BLUEPRINT">Nutrient Blueprint</a>
+        <a href="#ABSORPTION-SYNERGY">Absorption Pairs ("Eat This + That")</a>
+        <a href="#KERALA-SPECIALS">Kerala Traditional Superfoods</a>
+        <a href="#MYTHS">Nutrient Myths Busted</a>
+        <a href="#INDIAN-SOURCES">Indian & BLR Food Sources</a>
+        <a href="#BALANCED-PLATE">The Balanced Plate Formula</a>
+        <a href="#BLR-HACKS">Bangalore City Lifestyle Hacks</a>
+        <a href="#DOS-DONTS">Daily Dos & Don'ts</a>
+        <a href="#BASELINE-CALC">Human Baseline & Calculator</a>
+        <a href="#CHEAT-SHEET">Quick Cheat Sheet</a>
+        <a href="#TOP-FOODS">Top 5 Foods Per Nutrient</a>
     </div>
 
     <div class="main">
-        <button class="openbtn" onclick="toggleNav()">☰</button>
+        <button class="openbtn" onclick="toggleNav()" aria-label="Toggle Navigation">☰</button>
 
         <div class="badge">Nutrition & Health</div>
         <div class="mainHeading">FOOD & NUTRIENTS</div>

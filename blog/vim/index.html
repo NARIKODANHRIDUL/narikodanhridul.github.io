@@ -11,41 +11,47 @@
 </head>
 
 <body>
+    <div class="sidenav-overlay" id="sidenavOverlay" onclick="closeNav()"></div>
     <div class="sidenav" id="mySidenav">
-        <h1 style="margin-left: 15px; font-size: 22px;">Index</h1>
-        <hr><a onClick="closeNav()" href="#Basic Navigation">Basic Navigation</a>
-        <ul style="list-style-type: none;">
-            <li><a onClick="closeNav()" href="#Moving the Cursor">Moving the Cursor</a></li>
-            <li><a onClick="closeNav()" href="#Jumping between Lines">Jumping between Lines</a></li>
-            <li><a onClick="closeNav()" href="#Scrolling">Scrolling</a></li>
+        <div class="sidenav-header">
+            <a href="../../extra/index.html" class="sidenav-back">← All Blogs</a>
+            <button class="sidenav-close-btn" onclick="closeNav()" aria-label="Close Navigation">✕</button>
+        </div>
+        <div class="sidenav-title">
+            <span class="nav-indicator-dot"></span> Contents
+        </div>
+        <a href="#Basic Navigation">Basic Navigation</a>
+        <ul>
+            <li><a href="#Moving the Cursor">Moving the Cursor</a></li>
+            <li><a href="#Jumping between Lines">Jumping between Lines</a></li>
+            <li><a href="#Scrolling">Scrolling</a></li>
         </ul>
-        <hr><a onClick="closeNav()" href="#Editing Text">Editing Text</a>
-        <ul style="list-style-type: none;">
-            <li><a onClick="closeNav()" href="#Entering Insert Mode">Entering Insert Mode</a></li>
-            <li><a onClick="closeNav()" href="#Exiting from any Mode">Exiting from any Mode</a></li>
-            <li><a onClick="closeNav()" href="#Deleting Text">Deleting Text</a></li>
-            <li><a onClick="closeNav()" href="#Undo and Redo">Undo and Redo</a></li>
+        <a href="#Editing Text">Editing Text</a>
+        <ul>
+            <li><a href="#Entering Insert Mode">Entering Insert Mode</a></li>
+            <li><a href="#Exiting from any Mode">Exiting from any Mode</a></li>
+            <li><a href="#Deleting Text">Deleting Text</a></li>
+            <li><a href="#Undo and Redo">Undo and Redo</a></li>
         </ul>
-        <hr><a onClick="closeNav()" href="#Saving and Quitting">Saving and Quitting</a>
-        <hr><a onClick="closeNav()" href="#Advanced Techniques">Advanced Techniques</a>
-        <ul style="list-style-type: none;">
-            <li><a onClick="closeNav()" href="#Searching">Searching</a></li>
-            <li><a onClick="closeNav()" href="#Search and Replace">Search & Replace (Regex)</a></li>
-            <li><a onClick="closeNav()" href="#Text Objects">Text Objects (The Grammar)</a></li>
-            <li><a onClick="closeNav()" href="#Macros and Dot Command">Macros & Dot Command</a></li>
-            <li><a onClick="closeNav()" href="#Copying, Cutting, and Pasting">Copying, Cutting, and Pasting</a></li>
-            <li><a onClick="closeNav()" href="#Registers">Registers</a></li>
-            <li><a onClick="closeNav()" href="#Splitting Screen">Splitting Screen</a></li>
-            <li><a onClick="closeNav()" href="#Buffers and Tabs">Buffers & Tabs</a></li>
-            <li><a onClick="closeNav()" href="#Code Folding">Code Folding</a></li>
+        <a href="#Saving and Quitting">Saving and Quitting</a>
+        <a href="#Advanced Techniques">Advanced Techniques</a>
+        <ul>
+            <li><a href="#Searching">Searching</a></li>
+            <li><a href="#Search and Replace">Search & Replace (Regex)</a></li>
+            <li><a href="#Text Objects">Text Objects (The Grammar)</a></li>
+            <li><a href="#Macros and Dot Command">Macros & Dot Command</a></li>
+            <li><a href="#Copying, Cutting, and Pasting">Copy, Cut & Paste</a></li>
+            <li><a href="#Registers">Registers</a></li>
+            <li><a href="#Splitting Screen">Splitting Screen</a></li>
+            <li><a href="#Buffers and Tabs">Buffers & Tabs</a></li>
+            <li><a href="#Code Folding">Code Folding</a></li>
         </ul>
-        <hr><a onClick="closeNav()" href="#Visual Mode">Visual Mode</a>
-        <hr><a onClick="closeNav()" href="#Vimrc File">Vimrc Configuration</a>
-        <hr>
+        <a href="#Visual Mode">Visual Mode</a>
+        <a href="#Vimrc File">Vimrc Configuration</a>
     </div>
     
     <div class="main">
-        <button class="openbtn" onclick="toggleNav()">☰</button>
+        <button class="openbtn" onclick="toggleNav()" aria-label="Toggle Navigation">☰</button>
         <div class="mainHeading">VIM EDITOR</div>
         <h1>MASTERING VIM: THE DEFINITIVE GUIDE</h1>
         <p>Vim ("Vi IMproved") is a modal, keystroke-driven text editor built for high-velocity software engineering and system administration. Unlike typical graphical editors, Vim treats editing as a language composed of verbs (operators), counts, and nouns (motions/objects). Once internalized into muscle memory, your hands never leave the home row.</p>

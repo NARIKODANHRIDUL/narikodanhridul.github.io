@@ -11,25 +11,31 @@
 </head>
 
 <body>
+    <div class="sidenav-overlay" id="sidenavOverlay" onclick="closeNav()"></div>
     <div class="sidenav" id="mySidenav">
-        <h1 style="margin-left: 15px; font-size: 22px;">Index</h1>
-        <hr><a onclick="closeNav()" href="#Key Points">Key Points</a>
-        <hr><a onclick="closeNav()" href="#Escape sequences and Color Codes">Escape Sequences & Color Codes</a>
-        <ul style="list-style-type: none;">
-            <li><a onclick="closeNav()" href="#Commonly Used Escape Sequence">Commonly Used Escape Sequences</a></li>
-            <li><a onclick="closeNav()" href="#Graphics Redention Parameter">Graphics Rendition Parameters</a></li>
-            <li><a onclick="closeNav()" href="#Background and Text Color">Background & Text Colors</a></li>
-            <li><a onclick="closeNav()" href="#Format">RGB TrueColor Format</a></li>
+        <div class="sidenav-header">
+            <a href="../../extra/index.html" class="sidenav-back">← All Blogs</a>
+            <button class="sidenav-close-btn" onclick="closeNav()" aria-label="Close Navigation">✕</button>
+        </div>
+        <div class="sidenav-title">
+            <span class="nav-indicator-dot"></span> Contents
+        </div>
+        <a href="#Key Points">Key Points</a>
+        <a href="#Escape sequences and Color Codes">Escape Sequences & Colors</a>
+        <ul>
+            <li><a href="#Commonly Used Escape Sequence">Escape Sequences</a></li>
+            <li><a href="#Graphics Redention Parameter">Rendition Parameters</a></li>
+            <li><a href="#Background and Text Color">Background & Text Colors</a></li>
+            <li><a href="#Format">RGB TrueColor Format</a></li>
         </ul>
-        <hr><a onclick="closeNav()" href="#PS1 Examples">PS1 Examples</a>
-        <hr><a onclick="closeNav()" href="#Dynamic Git and Exit Status">Git Branch & Exit Status in PS1</a>
-        <hr><a onclick="closeNav()" href="#Fancy Letters">Fancy Characters</a>
-        <hr><a onclick="closeNav()" href="#Resources">Resources</a>
-        <hr>
+        <a href="#PS1 Examples">PS1 Examples</a>
+        <a href="#Dynamic Git and Exit Status">Git Branch & Exit Status</a>
+        <a href="#Fancy Letters">Fancy Characters</a>
+        <a href="#Resources">Resources</a>
     </div>
     
     <div class="main">
-        <button class="openbtn" onclick="toggleNav()">☰</button>
+        <button class="openbtn" onclick="toggleNav()" aria-label="Toggle Navigation">☰</button>
         <div class="mainHeading">SHELL PROMPT</div>
         <h1>SHELL PROMPT CUSTOMISATION USING <strong>PS1</strong></h1>
         <p>In Bash, your command line prompt is controlled by special shell environment variables: <code>PS1</code>, <code>PS2</code>, <code>PS3</code>, and <code>PS4</code>. The <code>PS1</code> (Prompt String 1) variable defines the primary interactive prompt you see every time you type a command. Customizing <code>PS1</code> turns an uninspiring terminal into an informative, aesthetically pleasing dashboard.</p>

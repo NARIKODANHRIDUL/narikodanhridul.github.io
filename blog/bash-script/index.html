@@ -11,26 +11,32 @@
 </head>
 
 <body>
+    <div class="sidenav-overlay" id="sidenavOverlay" onclick="closeNav()"></div>
     <div class="sidenav" id="mySidenav">
-        <h1 style="margin-left: 15px; font-size: 22px;">Index</h1>
-        <hr><a onclick="closeNav()" href="#SETTING-UP">SETTING UP & SHEBANG</a>
-        <hr><a onclick="closeNav()" href="#VARIABLES">VARIABLES & SPECIAL PARAMS</a>
-        <hr><a onclick="closeNav()" href="#CLI-ARGS">CLI ARGUMENTS & GETOPTS</a>
-        <hr><a onclick="closeNav()" href="#PARAMETER-EXPANSION">PARAMETER EXPANSION</a>
-        <hr><a onclick="closeNav()" href="#REDIRECTIONS">I/O, PIPES & HEREDOCS</a>
-        <hr><a onclick="closeNav()" href="#ARITHMETIC">ARITHMETIC</a>
-        <hr><a onclick="closeNav()" href="#CONDITIONALS">CONDITIONALS & TESTS</a>
-        <hr><a onclick="closeNav()" href="#LOOPS">LOOPS (FOR, WHILE, UNTIL)</a>
-        <hr><a onclick="closeNav()" href="#ARRAYS">ARRAYS & HASHMAPS</a>
-        <hr><a onclick="closeNav()" href="#FUNCTIONS">FUNCTIONS & SCOPING</a>
-        <hr><a onclick="closeNav()" href="#DEFENSIVE-BASH">STRICT MODE & TRAPS</a>
-        <hr><a onclick="closeNav()" href="#FILE-OPS">FILE & DIRECTORY OPS</a>
-        <hr><a onclick="closeNav()" href="#PRODUCTION-EXAMPLE">PRODUCTION SCRIPT</a>
-        <hr>
+        <div class="sidenav-header">
+            <a href="../../extra/index.html" class="sidenav-back">← All Blogs</a>
+            <button class="sidenav-close-btn" onclick="closeNav()" aria-label="Close Navigation">✕</button>
+        </div>
+        <div class="sidenav-title">
+            <span class="nav-indicator-dot"></span> Contents
+        </div>
+        <a href="#SETTING-UP">Setting Up & Shebang</a>
+        <a href="#VARIABLES">Variables & Special Params</a>
+        <a href="#CLI-ARGS">CLI Arguments & Getopts</a>
+        <a href="#PARAMETER-EXPANSION">Parameter Expansion</a>
+        <a href="#REDIRECTIONS">I/O, Pipes & Heredocs</a>
+        <a href="#ARITHMETIC">Arithmetic</a>
+        <a href="#CONDITIONALS">Conditionals & Tests</a>
+        <a href="#LOOPS">Loops (For, While, Until)</a>
+        <a href="#ARRAYS">Arrays & Hashmaps</a>
+        <a href="#FUNCTIONS">Functions & Scoping</a>
+        <a href="#DEFENSIVE-BASH">Strict Mode & Traps</a>
+        <a href="#FILE-OPS">File & Directory Ops</a>
+        <a href="#PRODUCTION-EXAMPLE">Production Script</a>
     </div>
 
     <div class="main">
-        <button class="openbtn" onclick="toggleNav()">☰</button>
+        <button class="openbtn" onclick="toggleNav()" aria-label="Toggle Navigation">☰</button>
         <div class="mainHeading">BASH SCRIPT</div>
         <h1>THE DEFINITIVE GUIDE TO MODERN BASH SCRIPTING</h1>
         <p>Bash (Bourne Again Shell) is the universal command language of Unix-like systems. From rapid task automation, hardware security research, and CTF exploit tooling to robust DevOps deployment pipelines, mastering Bash empowers you to manipulate processes, files, and streams with unmatched speed and control.</p>
