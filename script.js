@@ -61,7 +61,7 @@ function openNav() {
     if (overlay) {
         overlay.classList.add("active");
     }
-    if (window.innerWidth <= 900) {
+    if (window.innerWidth <= 1024) {
         document.body.style.overflow = "hidden";
         document.addEventListener("click", closeNavOutside);
     }
@@ -103,11 +103,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const sidenav = document.getElementById("mySidenav");
     if (!sidenav) return;
 
-    // Auto-close drawer on mobile when clicking any anchor link inside sidenav
+    // Auto-close drawer on mobile/tablet when clicking any anchor link inside sidenav
     const links = sidenav.querySelectorAll("a");
     links.forEach(link => {
         link.addEventListener("click", () => {
-            if (window.innerWidth <= 900) {
+            if (window.innerWidth <= 1024) {
                 closeNav();
             }
         });

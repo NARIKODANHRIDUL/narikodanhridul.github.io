@@ -6,6 +6,13 @@
   scroll-behavior: smooth;
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: hidden;
+  width: 100%;
+}
+
 body::-webkit-scrollbar {
   width: 8px;
   height: 10px;
@@ -30,42 +37,55 @@ body {
   font-family: 'Poppins', sans-serif;
   color: antiquewhite;
   background-color: #000;
-  width: 100vw;
+  width: 100%;
+  max-width: 100%;
   box-sizing: border-box;
-  overflow-x: hidden;   
+  overflow-x: hidden;
+  position: relative;
 }
 
 .mainHeading {
-  font-size: 80px;
+  font-size: clamp(2.5rem, 7vw, 75px);
   font-family: 'Staatliches', cursive;
-  line-height: 80px;
+  line-height: 1.1;
   margin-top: 10px;
   letter-spacing: 1px;
 }
 
 h1 {
-  line-height: 32px;
+  line-height: 1.3;
   margin: 0px;
   padding: 0px;
-  font-size: 1.8rem;
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
 }
 
 h2 {
-  line-height: 28px;
-  color: #fff;
-  margin-top: 30px;
+  font-size: clamp(1.15rem, 3vw, 1.4rem);
+  color: #a6df90;
+  margin-top: 28px;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
 }
 
 h3 {
-  line-height: 1.4;
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  color: #c4f3b0;
+  margin-top: 20px;
+  margin-bottom: 6px;
+}
+
+p {
+  line-height: 1.6;
   color: #cec;
-  margin-top: 18px;
+  margin-top: 14px;
+  font-size: 0.95rem;
 }
 
 /* Copy Container */
 .copy-container {
   display: flex;
-  width: 95vw;
+  width: 100%;
+  max-width: 100%;
   overflow: hidden;
   flex-direction: row;
   align-items: center;
@@ -76,7 +96,7 @@ h3 {
   padding: 5px;
   border-radius: 10px;
   width: fit-content;
-  max-width: 90vw;
+  max-width: 100%;
   white-space: nowrap;
   overflow-x: auto;
   scrollbar-width: thin;
@@ -95,12 +115,14 @@ h3 {
 
 .code {
   background-color: #171717; 
-  width: fit-content;
-  max-width: 95vw;
-  min-width: 600px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
   border-radius: 10px;
   border: 1px solid #282828;
-  margin: 10px 0;
+  margin: 14px 0;
+  overflow: hidden;
 }
 
 .codeHead {
@@ -121,119 +143,136 @@ pre {
   margin: 0px;
   overflow-x: auto;
   font-family: 'Space Mono', monospace; 
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   color: #ded;
   line-height: 1.5;
 }
 
 .codeContent {
   margin: 4px 6px;
-  padding: 4px 8px;
+  padding: 6px 10px;
   border-radius: 8px;
   background-color: #161616;
-  overflow: auto;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 table {
   border-radius: 14px;
   padding: 5px;
-  min-width: 600px;
-  overflow-y: hidden;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   background-color: #111;
   border-collapse: collapse;
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 16px 0;
+}
+
+tr {
+  padding: 10px;
+}
+
+tr:nth-child(even) {
+  background-color: #1d1d1d;
 }
 
 th {
-  background-color: #1c221b; 
-  color: #a6df90; 
-  padding: 12px 14px; 
-  text-align: left; 
-  border-radius: 0;
+  text-align: left;
+  border-radius: 10px;
+  padding: 10px 14px;
+  background-color: #222;
+  font-size: 0.88rem;
 }
 
 td {
-  border-radius: 0;
-  background-color: #111;
-  padding: 10px 14px; 
-  text-align: left; 
-  font-size: 0.9rem;
+  padding: 8px 12px;
+  font-size: 0.85rem;
 }
 
-a {
-  color: #888;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-a:hover {
+code {
+  font-family: 'Space Mono', monospace;
+  background-color: #1a1a1a;
   color: #a6df90;
-  text-decoration: underline;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.88em;
 }
 
-img {
-  border-radius: 15px;
+strong {
+  color: #fff;
 }
 
-button img {
-  height: 20px;
-  opacity: 0.7;
+hr {
+  border: 0;
+  height: 1px;
+  background: #252525;
+  margin: 24px 0;
 }
 
+/* Copy Button Styling */
 .copy-button {
-  background-color: #90b781;
-  color: #111;
-  border: none;
-  font-weight: 600;
+  background-color: #222;
   display: flex;
-  border-radius: 8px;
-  padding: 4px 8px;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  border-radius: 6px;
+  border: 1px solid #333;
+  padding: 3px 6px;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: all 0.2s ease;
 }
 
 .copy-button:hover {
-  background-color: #a6df90;
-  transform: scale(1.05);
+  background-color: #2e2e2e;
+  border-color: #a6df90;
+}
+
+.copy-button img {
+  height: 14px;
+  filter: invert(70%);
 }
 
 .tool-tip {
   visibility: hidden;
-  width: 0px;
-  color: #222;
-  font-size: 10px;
-}
-
-.copy-button:focus .tool-tip {
-  scale: 1.1;
-  visibility: visible;
-  width: auto;
-  margin-left: 5px;
-  margin-right: 5px;
-  transition: 0.1s;
+  opacity: 0;
+  color: #a6df90;
+  font-size: 11px;
+  font-family: 'Space Mono', monospace;
+  margin-left: 6px;
+  transition: opacity 0.2s ease;
 }
 
 /* ==========================================================================
    MODERN SIDEBAR NAVIGATION (DOCS-STYLE)
+   Responsive-First: Off-canvas drawer by default, docked only on wide screens
    ========================================================================== */
 .sidenav {
   height: 100vh;
-  width: 280px;
+  width: min(300px, 85vw);
+  max-width: 85vw;
   position: fixed;
   z-index: 100;
   top: 0;
   left: 0;
-  background: rgba(12, 15, 12, 0.95);
+  background: rgba(12, 15, 12, 0.96);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-right: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.4);
+  box-shadow: 10px 0 40px rgba(0, 0, 0, 0.7);
   overflow-y: auto;
   overflow-x: hidden;
   padding: 24px 14px 40px 14px;
   box-sizing: border-box;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), width 0.25s ease;
+  transform: translateX(-100%);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sidenav.open {
+  transform: translateX(0);
 }
 
 .sidenav::-webkit-scrollbar {
@@ -288,11 +327,11 @@ button img {
 }
 
 .sidenav-close-btn {
-  display: none;
+  display: block;
   background: transparent;
   border: none;
   color: #888;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   cursor: pointer;
   padding: 4px 8px;
   border-radius: 6px;
@@ -384,15 +423,18 @@ button img {
 
 /* Main Content Area */
 .main {
-  margin-left: 280px;
-  padding: 10px 40px 60px 40px;
-  max-width: 1100px;
-  transition: margin-left 0.25s ease;
+  margin-left: 0;
+  padding: 70px 20px 60px 20px;
+  width: 100%;
+  max-width: 1000px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  transition: margin-left 0.25s ease, padding 0.25s ease;
 }
 
 /* Floating Mobile Menu Button */
 .openbtn {
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   position: fixed;
@@ -401,7 +443,7 @@ button img {
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: rgba(16, 20, 16, 0.88);
+  background: rgba(16, 20, 16, 0.92);
   border: 1px solid rgba(166, 223, 144, 0.35);
   color: #a6df90;
   backdrop-filter: blur(12px);
@@ -424,8 +466,8 @@ button img {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: rgba(0, 0, 0, 0.65);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
@@ -439,39 +481,29 @@ button img {
   opacity: 1;
 }
 
-/* Responsive Media Queries */
-@media only screen and (max-width: 1114px) {
-  .code {
-    min-width: 90vw !important;
-    width: 90vw;
-  }
-}
-
-@media only screen and (max-width: 900px) {
-  .main {
-    margin-left: 0;
-    padding: 60px 20px 40px 20px;
-  }
-
+/* ==========================================================================
+   DESKTOP DOCKED SIDEBAR (Only on wide screens > 1024px)
+   ========================================================================== */
+@media screen and (min-width: 1025px) {
   .sidenav {
-    transform: translateX(-100%);
-    width: 290px;
-  }
-
-  .sidenav.open {
+    width: 280px;
+    max-width: 280px;
     transform: translateX(0);
-  }
-
-  .openbtn {
-    display: flex;
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.4);
   }
 
   .sidenav-close-btn {
-    display: block;
+    display: none;
   }
 
-  table {
-    min-width: 100px;
-    width: 95vw;
+  .openbtn {
+    display: none !important;
+  }
+
+  .main {
+    margin-left: 280px;
+    width: calc(100% - 280px);
+    max-width: 1100px;
+    padding: 24px 44px 60px 44px;
   }
 }

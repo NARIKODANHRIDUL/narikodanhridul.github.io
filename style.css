@@ -1,3 +1,10 @@
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
 @import url('https://fonts.googleapis.com/css2?family=B612+Mono&family=Gabarito:wght@600&family=Passion+One&family=Poppins:wght@300;400;700;800&family=Preahvihear&family=Roboto+Mono&family=Rowdies&family=Rubik+Wet+Paint&family=Space+Mono&family=Syne+Mono&display=swap');
 /* font-family: 'B612 Mono', monospace;
   font-family: 'Poppins', sans-serif;
@@ -46,7 +53,7 @@ body {
     padding: 0px 0px;
     color: antiquewhite;
     background-color: #333;
-    width: 100vw;
+    width: 100%; max-width: 100%; box-sizing: border-box;
     box-sizing: border-box;
     overflow-x: hidden;   
 }
@@ -72,14 +79,14 @@ ol{
     justify-content: center;
     align-items: center;
     font-size: 50px;
-    width: 100vw;
+    width: 100%; max-width: 100%; box-sizing: border-box;
     
 }
 
 .topDiv img {
     filter: drop-shadow(0px 0px 20px rgba(17, 0, 0, 0.5))grayscale();
     /* height: 550px; */
-    width: 550px;
+    width: min(500px, 90vw); max-width: 100%; height: auto;
     justify-content: end;
     align-items: end;
     bottom: 0px;
@@ -202,14 +209,14 @@ ol{
     flex-wrap: wrap;
     justify-content: center;
     text-align: start;
-    columns: 600px 2;
-    font-size: 2vw;
+    /* columns removed for responsive flex */
+    font-size: clamp(1.4rem, 2.5vw, 2.5rem); max-width: 620px;
     margin: 10px;
 }
 
 .intro div {
     padding: 0px;
-    width: 47vw;
+    width: 100%; max-width: 100%;
 }
 
 .introDesc{
@@ -218,7 +225,7 @@ ol{
 
 .mecontainer{
   vertical-align: bottom;
-  height: 550px;width: 550px;
+  width: min(500px, 90vw); max-width: 100%; height: auto; aspect-ratio: 1/1;
   position: relative;
 }
 
@@ -241,7 +248,7 @@ ol{
   /* background-color: #333 ; */
   /* height: 500px; */
   padding: 20px 20px;
-  width: 100vw;
+  width: 100%; max-width: 100%; box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -253,7 +260,7 @@ ol{
   top: 0px;
   left: 10px;
   font-family: 'Staatliches', cursive;
-  font-size: 150px;
+  font-size: clamp(2.8rem, 14vw, 140px); white-space: nowrap; pointer-events: none; max-width: 100%; overflow: hidden; line-height: 1;
   color: rgba(204, 255, 204, 0.151);
   
 }
@@ -270,7 +277,7 @@ ol{
   flex-direction: column;
   overflow: hidden;
   background-color: #222;
-  width: 300px;
+  width: min(300px, calc(100vw - 32px)); max-width: 100%;
   height: 300px;
   margin: 10px;
   padding: 10px;
@@ -282,10 +289,10 @@ ol{
 }
 
 #bios{
-  width: 620px;
+  width: min(620px, calc(100vw - 32px)); max-width: 100%;
 }
 #longcard{
-  width: 405px;
+  width: min(405px, calc(100vw - 32px)); max-width: 100%;
   height: auto;
   padding: 15px;
 }
@@ -454,7 +461,7 @@ ol{
   margin: 20px 0px;
   display: flex;
   justify-content: space-evenly;
-  width: 600px;
+  width: min(600px, calc(100% - 20px)); max-width: 100%;
   height: 180px;
 }
 
@@ -550,7 +557,7 @@ hr{
     display: flex;
     flex-direction: column;
     padding: 10px;
-    width: 100vw;
+    width: 100%; max-width: 100%; box-sizing: border-box;
     background: #222;
     color: aliceblue;
     justify-content: center;
@@ -560,7 +567,7 @@ hr{
 
 .movingdotbox{
   height: 20px;
-  width: 400px;
+  width: min(400px, 90vw); max-width: 100%;
   /* background-color: red; */
   display: flex;
   align-items: center;
@@ -643,7 +650,7 @@ hr{
   #bios{
     /* background-color: aqua; */
     height: 480px;
-    width: 300px;
+    width: min(300px, calc(100vw - 32px)); max-width: 100%;
   }
   
 
@@ -657,7 +664,7 @@ hr{
   }
 
   .mecontainer{
-    width: 100vem;
+    width: min(320px, 90vw); height: min(320px, 90vw);
   }
   .coding{
     min-width: 120px;
