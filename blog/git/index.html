@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="lORx1_5INaOkYprqHs1zZeleoQ080VWsUrxp-5coH4A" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../../resources/sparkle.png" sizes="192x192" />
+    <title>Git | The Software Engineer's Definitive Guide</title>
+
+    <style>
+        /* Specific page styling */
+        :root {
+            --accent-green: #90b781;
+            --accent-green-bright: #a6df90;
+            --accent-orange: #f08c3a;
+            --accent-cyan: #56c2d6;
+            --card-bg: #141414;
+            --card-border: #262626;
+            --pill-bg: #1c2619;
+            --text-sub: #b0b0b0;
+        }
+
+        .hero-banner {
+            width: 100%;
+            max-width: 950px;
+            margin: 15px 0 25px 0;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--card-border);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+
+        .hero-banner img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+
+        .tagline {
+            font-size: 1.15rem;
+            color: #dedede;
+            line-height: 1.6;
+            max-width: 950px;
+            margin-bottom: 25px;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--pill-bg);
+            color: var(--accent-green-bright);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            border: 1px solid rgba(144, 183, 129, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Interactive Search Section */
+        .search-container {
+            background: linear-gradient(145deg, #181c17 0%, #10130f 100%);
+            border: 1px solid #2d3b2a;
+            border-radius: 14px;
+            padding: 12px 16px;
+            width: 100%;
+            max-width: 950px;
+            box-sizing: border-box;
+            margin: 20px 0 30px 0;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 10px;
+            z-index: 10;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            overflow: hidden;
+        }
+
+        .search-input-box {
+            display: flex;
+            align-items: center;
+            background: #0a0c0a;
+            border: 1px solid #334430;
+            border-radius: 10px;
+            padding: 8px 12px;
+            gap: 8px;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .search-input-box:focus-within {
+            border-color: var(--accent-green-bright);
+            box-shadow: 0 0 12px rgba(166, 223, 144, 0.25);
+        }
+
+        .search-icon {
+            font-size: 1rem;
+            opacity: 0.8;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+
+        .search-input-box input {
+            flex: 1 1 0%;
+            min-width: 0;
+            width: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #fff;
+            font-size: 0.95rem;
+            font-family: 'Poppins', sans-serif;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            padding: 2px 0;
+            box-sizing: border-box;
+        }
+
+        .search-input-box input::placeholder {
+            color: #777;
+            font-size: 0.88rem;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .clear-btn {
+            background: transparent;
+            border: none;
+            color: #888;
+            font-size: 1.1rem;
+            cursor: pointer;
+            padding: 0 4px;
+            flex-shrink: 0;
+            display: none;
+            line-height: 1;
+        }
+
+        .clear-btn:hover {
+            color: #fff;
+        }
+
+        .search-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+            gap: 10px;
+        }
+
+        .search-count {
+            font-size: 0.82rem;
+            color: #88c070;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .quick-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .quick-tag {
+            background: #192318;
+            border: 1px solid #2b3d29;
+            color: #c4e4b7;
+            font-size: 0.75rem;
+            padding: 3px 9px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .quick-tag:hover, .quick-tag.active {
+            background: var(--accent-green);
+            color: #000;
+            font-weight: 700;
+        }
+
+        /* FAQ Accordion / Cards */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+            margin: 20px 0;
+            max-width: 950px;
+        }
+
+        .faq-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 16px 20px;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .faq-card:hover {
+            border-color: #3b5037;
+            transform: translateY(-2px);
+        }
+
+        .faq-q {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #a6df90;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .faq-q .q-badge {
+            background: rgba(166, 223, 144, 0.15);
+            color: #a6df90;
+            font-size: 0.72rem;
+            padding: 2px 7px;
+            border-radius: 6px;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .faq-a {
+            font-size: 0.92rem;
+            line-height: 1.6;
+            color: #dedede;
+        }
+
+        .faq-a p {
+            margin: 6px 0;
+        }
+
+        /* Visual ASCII comparison tree */
+        .git-tree-box {
+            background: #0d110e;
+            border: 1px solid #293826;
+            border-radius: 10px;
+            padding: 14px 18px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.86rem;
+            color: #a6df90;
+            line-height: 1.5;
+            overflow-x: auto;
+            margin: 14px 0;
+        }
+
+        /* Comparison columns */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+            gap: 16px;
+            margin: 18px 0;
+            max-width: 950px;
+        }
+
+        .comparison-card {
+            background: #141614;
+            border: 1px solid #273325;
+            border-radius: 12px;
+            padding: 18px;
+        }
+
+        .comparison-card h3 {
+            margin-top: 0;
+            font-size: 1.15rem;
+        }
+
+        .comparison-card.merge h3 {
+            color: var(--accent-cyan);
+        }
+
+        .comparison-card.rebase h3 {
+            color: var(--accent-orange);
+        }
+
+        .table-responsive {
+            max-width: 950px;
+            overflow-x: auto;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Dimming overlay for mobile drawer -->
+    <div class="sidenav-overlay" id="sidenavOverlay" onclick="closeNav()"></div>
+
+    <!-- Side navigation -->
+    <div class="sidenav" id="mySidenav">
+        <div class="sidenav-header">
+            <a href="../../extra/index.html" class="sidenav-back">← All Blogs</a>
+            <button class="sidenav-close-btn" onclick="closeNav()" aria-label="Close Navigation">✕</button>
+        </div>
+        <div class="sidenav-title">
+            <span class="nav-indicator-dot"></span> Contents
+        </div>
+        <a href="#SEARCH-SECTION">Search & Filter</a>
+        <a href="#MENTAL-MODEL">The Git Mental Model</a>
+        <a href="#DAILY-ESSENTIALS">Daily Essentials & Workflow</a>
+        <a href="#BRANCHING">Branching & Remote Sync</a>
+        <a href="#MERGE-VS-REBASE">Merge vs. Rebase Visualized</a>
+        <a href="#INTERACTIVE-REBASE">Interactive Rebase (Squash)</a>
+        <a href="#RESOLVING-CONFLICTS">Resolving Merge Conflicts</a>
+        <a href="#UNDO-AND-RECOVERY">Undo, Restore & Reset</a>
+        <a href="#REFLOG">The Safety Net: git reflog</a>
+        <a href="#STASH-AND-CHERRYPICK">Stash & Cherry-Pick</a>
+        <a href="#INSPECT-AND-DIFF">Inspect, Diff & Bisect</a>
+        <a href="#TAGS-AND-RELEASES">Tags & Releases</a>
+        <a href="#FAQ">Software Engineer's FAQ</a>
+    </div>
+
+    <div class="main">
+        <button class="openbtn" onclick="toggleNav()" aria-label="Toggle Navigation">☰</button>
+
+        <div class="badge">DevOps & Version Control</div>
+        <div class="mainHeading">GIT MASTERCLASS</div>
+        <h1>THE SOFTWARE ENGINEER'S DEFINITIVE GUIDE TO GIT</h1>
+
+        <div class="hero-banner">
+            <img src="../../resources/git.png" alt="Git Definitive Guide for Software Engineers">
+        </div>
+
+        <p class="tagline">
+            Git is not just a tool to upload code to GitHub with <code>git add . && git commit -m "update" && git push</code>. It is a distributed, content-addressable directed acyclic graph (DAG) of snapshots. When you understand how commits, branches, and the HEAD pointer work under the hood, you gain complete superpower over your codebase: clean branch histories, fearless rebasing, effortless conflict resolution, and the ability to time-travel and rescue lost work from any disaster.
+        </p>
+
+        <!-- INTERACTIVE SEARCH BAR -->
+        <div class="search-container" id="SEARCH-SECTION">
+            <div class="search-input-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="gitSearch" placeholder="Search Git commands, rebase, merge, undo, or FAQs (e.g., 'rebase', 'squash', 'amend', 'delete commit')..." autocomplete="off">
+                <button class="clear-btn" id="clearSearchBtn" title="Clear search">✕</button>
+            </div>
+            <div class="search-meta">
+                <div class="search-count" id="searchCount">Displaying all sections</div>
+                <div class="quick-tags">
+                    <span class="quick-tag active" data-filter="all">All</span>
+                    <span class="quick-tag" data-filter="rebase">Rebase</span>
+                    <span class="quick-tag" data-filter="merge">Merge</span>
+                    <span class="quick-tag" data-filter="undo">Undo & Reset</span>
+                    <span class="quick-tag" data-filter="branch">Branching</span>
+                    <span class="quick-tag" data-filter="stash">Stash</span>
+                    <span class="quick-tag" data-filter="reflog">Reflog</span>
+                    <span class="quick-tag" data-filter="faq">FAQ</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 1: THE GIT MENTAL MODEL -->
+        <br id="MENTAL-MODEL">
+        <div class="blog-section" data-keywords="mental model trees staging index working directory commit hash sha head detached head">
+            <h2>1. THE GIT MENTAL MODEL: THE 4 TREES & COMMITS</h2>
+            <p>Most developers struggle with Git because they try to memorize commands without understanding where their code actually lives. Git manages code across four distinct zones:</p>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr><th>Zone</th><th>Where It Lives</th><th>What It Represents</th><th>Key Commands</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>1. Working Directory</strong></td><td>Local Disk files</td><td>Your active uncommitted files that you edit in your IDE.</td><td><code>git status</code>, <code>git diff</code></td></tr>
+                        <tr><td><strong>2. Staging Area (Index)</strong></td><td><code>.git/index</code></td><td>The staging staging dock; exact snapshot queued for the next commit.</td><td><code>git add</code>, <code>git restore --staged</code></td></tr>
+                        <tr><td><strong>3. Local Repository</strong></td><td><code>.git/objects</code></td><td>Permanent commits recorded into your local branch history (<code>HEAD</code>).</td><td><code>git commit</code>, <code>git reset</code>, <code>git log</code></td></tr>
+                        <tr><td><strong>4. Remote Repository</strong></td><td>GitHub / GitLab</td><td>The shared remote source of truth for the entire team.</td><td><code>git push</code>, <code>git fetch</code>, <code>git pull</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tip-box">
+                <strong>💡 What is a Commit really?</strong> A commit is NOT a diff/patch! It is a complete <em>snapshot</em> of your repository files at that exact instant, stored as a 40-character SHA-1 (or SHA-256) hash. Each commit points to its parent commit(s), author name, email, timestamp, and commit message.
+            </div>
+
+            <h3>What is the <code>HEAD</code> Pointer?</h3>
+            <p><code>HEAD</code> is simply a pointer to the branch or commit you are currently looking at on your local machine. Normally, <code>HEAD</code> points to a branch name (e.g. <code>HEAD -> main</code>).</p>
+            <div class="warning-box">
+                <strong>⚠️ What is a "Detached HEAD"?</strong> If you run <code>git checkout &lt;commit-hash&gt;</code>, <code>HEAD</code> now points directly to a commit instead of a branch. If you make commits in this state, they will be orphaned when you switch away!
+                <br>
+                <em>How to fix it:</em> Simply create a new branch from this point: <code>git switch -c my-rescued-work</code>.
+            </div>
+        </div>
+
+        <!-- SECTION 2: DAILY ESSENTIALS -->
+        <br id="DAILY-ESSENTIALS">
+        <div class="blog-section" data-keywords="daily essentials init clone status add commit push pull fetch config workflow">
+            <h2>2. DAILY ESSENTIALS: THE CLEAN DEVELOPER WORKFLOW</h2>
+            <p>The standard loop every software engineer uses multiple times per day:</p>
+
+            <div class="code">
+                <div class="codeHead">
+                    bash
+                    <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png"><span class="tool-tip">Copied!</span></button>
+                </div>
+                <div class="codeContent">
+                    <code><pre># 1. One-time Setup: Identity & modern defaults
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+git config --global init.defaultBranch main
+
+# Automatically set upstream branch on first push (No more typing --set-upstream!):
+git config --global push.autoSetupRemote true
+
+# 2. Start a new repo or clone an existing one
+git init
+git clone https://github.com/user/repo.git
+
+# 3. Check current state (Use short format for clean readability!)
+git status -s
+
+# 4. Interactive Staging: Review line-by-line before committing (Super Pro Tip!)
+git add -p file.js   # Interactively choose chunks (hunks) of code to stage
+
+# 5. Commit with atomic, descriptive messages
+git commit -m "feat(auth): implement JWT token refresh handler"
+
+# 6. Fetch updates without touching your working files
+git fetch origin
+
+# 7. Pull changes with rebase instead of messy merge commits
+git pull --rebase origin main
+
+# 8. Push to remote
+git push</pre></code>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3: BRANCHING -->
+        <br id="BRANCHING">
+        <div class="blog-section" data-keywords="branching branch switch checkout create delete remote tracking prune">
+            <h2>3. BRANCHING & REMOTE SYNCHRONIZATION</h2>
+            <p>Branches are ultra-lightweight in Git — literally just a 41-byte text file containing the SHA hash of the latest commit. Creating a branch costs virtually zero memory and milliseconds of time.</p>
+
+            <div class="tip-box">
+                <strong>💡 Modern Tip:</strong> Stop using <code>git checkout</code> for branches. Since Git 2.23, Git split the confusing overloaded <code>checkout</code> command into <code>git switch</code> (for branches) and <code>git restore</code> (for files).
+            </div>
+
+            <div class="code">
+                <div class="codeHead">
+                    bash
+                    <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png"><span class="tool-tip">Copied!</span></button>
+                </div>
+                <div class="codeContent">
+                    <code><pre># 1. List all local and remote branches
+git branch -a
+
+# 2. Create and switch to a new feature branch
+git switch -c feature/payment-gateway
+# (Legacy alternative: git checkout -b feature/payment-gateway)
+
+# 3. Switch back to main
+git switch main
+
+# 4. Rename a branch
+git branch -m old-name new-name             # Rename currently active branch
+git branch -m <old-name> <new-name>         # Rename another branch
+
+# 5. Delete a branch safely (only if merged)
+git branch -d feature/login
+
+# 6. Force-delete an unmerged branch (careful!)
+git branch -D feature/abandoned-experiment
+
+# 7. Delete a branch on the REMOTE server (GitHub)
+git push origin --delete feature/login
+
+# 8. Prune stale remote tracking branches (Clean up deleted PR branches locally)
+git remote prune origin  # or: git fetch -p</pre></code>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 4: MERGE VS REBASE -->
+        <br id="MERGE-VS-REBASE">
+        <div class="blog-section" data-keywords="merge rebase difference compare visual history linear fast forward 3-way conflict">
+            <h2>4. MERGE VS. REBASE: THE DEFINITIVE COMPARISON</h2>
+            <p>This is the #1 question software engineers argue about. Both merge and rebase combine changes from one branch into another, but they do it in fundamentally different ways.</p>
+
+            <div class="comparison-grid">
+                <div class="comparison-card merge">
+                    <h3>🔀 Git Merge (The Non-Destructive Stitch)</h3>
+                    <p>Integrates history by creating a new <strong>Merge Commit</strong> with two parents. It never touches or rewrites past commits.</p>
+                    <ul>
+                        <li><strong>Pros:</strong> 100% preserves original history, timestamps, and commit order. Perfect audit trail.</li>
+                        <li><strong>Cons:</strong> Creates cluttered "railroad track" graphs with dozens of noisy <em>"Merge branch 'main' into feature"</em> bubbles.</li>
+                    </ul>
+                </div>
+                <div class="comparison-card rebase">
+                    <h3>⚡ Git Rebase (The Linear History Rewriter)</h3>
+                    <p>Lifts your feature commits and replays them one-by-one onto the tip of target branch (<code>main</code>), creating brand new commit hashes.</p>
+                    <ul>
+                        <li><strong>Pros:</strong> Produces a completely straight, linear, immaculate git log. Easy to trace bugs with <code>git bisect</code>.</li>
+                        <li><strong>Cons:</strong> Rewrites commit hashes. Requires force pushing if already pushed to remote.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Visual History Comparison</h3>
+            <div class="git-tree-box">
+Original:
+main:      A --- B --- C
+                  feature:           D --- E
+
+After 'git merge main':
+main:      A --- B --- C ---------
+                  \               feature:           D --- E ------- M  (New merge commit M created)
+
+After 'git rebase main':
+main:      A --- B --- C
+                        feature:                 D' --- E'   (Commits replayed on top of C with new hashes!)
+            </div>
+
+            <div class="warning-box">
+                <strong>🚨 The Golden Rule of Rebasing:</strong>
+                <br>
+                <strong>NEVER</strong> rebase commits that exist on a public shared branch (like <code>main</code> or <code>develop</code>). Only rebase your local private feature branches before opening or merging a Pull Request!
+            </div>
+        </div>
+
+        <!-- SECTION 5: INTERACTIVE REBASE -->
+        <br id="INTERACTIVE-REBASE">
+        <div class="blog-section" data-keywords="interactive rebase squash fixup reword drop reorder clean commits pull request">
+            <h2>5. INTERACTIVE REBASE: SQUASH, REWORD & CLEAN COMMITS</h2>
+            <p>During a normal workday, you might create messy commits: <em>"wip"</em>, <em>"fix typo"</em>, <em>"try again"</em>, <em>"tests pass finally"</em>. Before submitting a PR to code review, professional engineers use <strong>Interactive Rebase</strong> to squash those into one beautiful, atomic commit.</p>
+
+            <div class="code">
+                <div class="codeHead">
+                    bash
+                    <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png"><span class="tool-tip">Copied!</span></button>
+                </div>
+                <div class="codeContent">
+                    <code><pre># Interactively review and modify the last 4 commits:
+git rebase -i HEAD~4</pre></code>
+                </div>
+            </div>
+
+            <p>Git opens your text editor with a list of commands. You simply change the word in front of the commit:</p>
+
+            <div class="git-tree-box">
+pick e3a12f1 feat(ui): build login screen component
+squash 4b29f03 fix button alignment
+squash 8d1c720 update padding
+reword 9f3a11b add unit tests for login validation
+
+# Commands:
+# p, pick &lt;commit&gt; = use commit
+# r, reword &lt;commit&gt; = use commit, but edit the commit message
+# e, edit &lt;commit&gt; = use commit, but stop for amending
+# s, squash &lt;commit&gt; = meld into previous commit and combine commit messages
+# f, fixup &lt;commit&gt; = like "squash", but discard this commit's log message
+# d, drop &lt;commit&gt; = remove commit completely
+            </div>
+
+            <p>Save and close the file. Git will prompt you for a single unified commit message. Now your 4 messy commits are fused into 2 clean, atomic commits!</p>
+        </div>
+
+        <!-- SECTION 6: RESOLVING CONFLICTS -->
+        <br id="RESOLVING-CONFLICTS">
+        <div class="blog-section" data-keywords="merge conflict resolve rebase conflict markers head abort continue">
+            <h2>6. STEP-BY-STEP MERGE & REBASE CONFLICT RESOLUTION</h2>
+            <p>Merge conflicts occur when two branches modify the exact same lines of code in a file. Git refuses to guess which version is correct, giving you full control.</p>
+
+            <div class="code">
+                <div class="codeHead">
+                    bash
+                    <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png"><span class="tool-tip">Copied!</span></button>
+                </div>
+                <div class="codeContent">
+                    <code><pre># Step 1: Start the rebase or merge
+git rebase main
+# Git pauses: "CONFLICT (content): Merge conflict in src/app.js"
+
+# Step 2: Check which files are in conflict
+git status
+# Conflicted files show as: "both modified: src/app.js"
+
+# Step 3: Open the conflicted file. You will see Git conflict markers:
+<<<<<<< HEAD (Current branch code)
+const API_URL = "https://api.v2.company.com";
+=======
+const API_URL = "https://api.gateway.company.com";
+>>>>>>> incoming commit
+
+# Step 4: Delete the markers (<<<<<<<, =======, >>>>>>>) and keep the desired code.
+
+# Step 5: Stage the resolved file
+git add src/app.js
+
+# Step 6: Continue the rebase (DO NOT COMMIT!)
+git rebase --continue
+
+# If you ever get stuck or panicking, abort and return safely to before the rebase:
+git rebase --abort   # (Or: git merge --abort)</pre></code>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 7: UNDO & RECOVERY -->
+        <br id="UNDO-AND-RECOVERY">
+        <div class="blog-section" data-keywords="undo restore reset revert soft mixed hard discard unstage uncommitted changes">
+            <h2>7. UNDO, REWIND & DISASTER RECOVERY</h2>
+            <p>Every developer makes mistakes. Git provides three levels of undo tools depending on what you want to rewind:</p>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr><th>Scenario</th><th>Command</th><th>Effect</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Unstage a file (keep local edits)</td><td><code>git restore --staged file.js</code></td><td>Removes file from staging area without touching your code.</td></tr>
+                        <tr><td>Discard all uncommitted edits in a file</td><td><code>git restore file.js</code></td><td>Replaces file on disk with the clean version from HEAD.</td></tr>
+                        <tr><td>Discard ALL uncommitted changes everywhere</td><td><code>git restore . && git clean -fd</code></td><td>Reverts all tracked files and deletes untracked files/folders.</td></tr>
+                        <tr><td>Amend the last commit</td><td><code>git commit --amend --no-edit</code></td><td>Appends newly staged files into the previous commit.</td></tr>
+                        <tr><td>Undo commit, keep changes staged</td><td><code>git reset --soft HEAD~1</code></td><td>Moves branch pointer back 1 commit; all code remains staged.</td></tr>
+                        <tr><td>Undo commit, keep changes unstaged</td><td><code>git reset --mixed HEAD~1</code></td><td>Default reset. Code remains in working directory as unstaged edits.</td></tr>
+                        <tr><td>Destroy last commit and changes</td><td><code>git reset --hard HEAD~1</code></td><td>Obliterates commit and wipes working directory to previous commit.</td></tr>
+                        <tr><td>Safely undo a published remote commit</td><td><code>git revert &lt;commit-hash&gt;</code></td><td>Creates a brand new commit that reverses the changes. Safe for team repos!</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- SECTION 8: REFLOG -->
+        <br id="REFLOG">
+        <div class="blog-section" data-keywords="reflog safety net recover deleted branch lost commit hard reset emergency">
+            <h2>8. THE ULTIMATE SAFETY NET: <code>git reflog</code></h2>
+            <p>Have you ever run <code>git reset --hard</code> by accident, or deleted a branch before pushing, and felt your heart drop into your stomach? <strong>Don't panic.</strong> In Git, almost nothing is truly lost for at least 30 to 90 days.</p>
+
+            <div class="tip-box">
+                <strong>🛡️ The Reflog Guarantee:</strong> Git keeps a local chronological audit log (Reference Log) of every single time your <code>HEAD</code> pointer moved — every checkout, commit, reset, rebase, and merge.
+            </div>
+
+            <div class="code">
+                <div class="codeHead">
+                    bash
+                    <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png"><span class="tool-tip">Copied!</span></button>
+                </div>
+                <div class="codeContent">
+                    <code><pre># 1. View your local history tape
+git reflog
+
+# Outputs something like:
+# 3b4a2e1 HEAD@{0}: reset: moving to HEAD~1
+# a7f8902 HEAD@{1}: commit: implement payment webhook (YOUR LOST WORK!)
+# 9c1234e HEAD@{2}: checkout: moving from main to feature/pay
+
+# 2. Resurrect your lost commit by creating a branch pointing directly to it:
+git switch -c recovered-work a7f8902
+
+# Boom! All your "deleted" code is back safely.</pre></code>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 9: STASH & CHERRYPICK -->
+        <br id="STASH-AND-CHERRYPICK">
+        <div class="blog-section" data-keywords="stash cherry-pick pop apply list drop save uncommitted switch branch urgent hotfix">
+            <h2>9. STASHING & CHERRY-PICKING</h2>
+            <p>Real-world engineering often interrupts your work with emergency hotfixes or context switches.</p>
+
+            <h3>Git Stash: The Temporary Pocket</h3>
+            <p>Allows you to cleanly stash away your dirty uncommitted changes, switch to another branch, and restore them later:</p>
+
+            <div class="code">
+                <div class="codeHead">
+                    bash
+                    <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png"><span class="tool-tip">Copied!</span></button>
+                </div>
+                <div class="codeContent">
+                    <code><pre># Stash with a descriptive note (including untracked new files):
+git stash push -u -m "wip: auth middleware refactor"
+
+# Working directory is now completely clean! Switch and fix that production bug:
+git switch hotfix/critical-bug
+# ... fix bug, commit, and push ...
+
+# Return to your feature branch and pop your stashed changes back:
+git switch feature/auth
+git stash pop
+
+# Other helpful stash commands:
+git stash list      # View all saved stashes
+git stash apply     # Restore stash without removing it from the stash stack
+git stash drop      # Discard a specific stash
+git stash clear     # Delete all stashes</pre></code>
+                </div>
+            </div>
+
+            <h3>Git Cherry-Pick: Steal a Specific Commit</h3>
+            <p>Grab a specific bugfix or feature commit from another branch without merging the entire branch:</p>
+
+            <div class="code">
+                <div class="codeHead">
+                    bash
+                    <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png"><span class="tool-tip">Copied!</span></button>
+                </div>
+                <div class="codeContent">
+                    <code><pre># Apply commit 8f2c3b1 onto your currently checked-out branch:
+git cherry-pick 8f2c3b1
+
+# Cherry-pick without immediately committing (lets you inspect edits first):
+git cherry-pick -n 8f2c3b1</pre></code>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 10: INSPECT & DIFF -->
+        <br id="INSPECT-AND-DIFF">
+        <div class="blog-section" data-keywords="inspect diff blame bisect debug log graph history find author bug">
+            <h2>10. CODE ARCHAEOLOGY: LOG, DIFF, BLAME & BISECT</h2>
+            <p>Reading code history and finding when regressions were introduced is a superpower:</p>
+
+            <div class="code">
+                <div class="codeHead">
+                    bash
+                    <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png"><span class="tool-tip">Copied!</span></button>
+                </div>
+                <div class="codeContent">
+                    <code><pre># 1. Gorgeous one-line commit tree with visual branch lines
+git log --oneline --graph --decorate --all
+
+# 2. View line-by-line diff between working tree and staged code
+git diff            # What you haven't staged yet
+git diff --staged   # What is staged for next commit
+
+# 3. View diff between two branches
+git diff main..feature/auth
+
+# 4. Git Blame: Find who modified lines 20-35 of a file and in which commit
+git blame -L 20,35 src/payment.js
+
+# 5. Git Bisect: Binary search to find the EXACT commit that broke production
+git bisect start
+git bisect bad                 # Current commit is broken
+git bisect good v1.2.0         # v1.2.0 was known to be working
+
+# Git checks out intermediate commits. Test each one:
+git bisect good   # (or: git bisect bad)
+# After ~7 steps in a 1,000-commit history, Git identifies the exact culprit commit!</pre></code>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 11: TAGS & RELEASES -->
+        <br id="TAGS-AND-RELEASES">
+        <div class="blog-section" data-keywords="tags releases semver semantic versioning push tags annotated lightweight">
+            <h2>11. TAGGING & SOFTWARE RELEASES</h2>
+            <p>Tags bookmark specific milestones (releases, semantic versions like <code>v1.0.0</code>) in your commit history:</p>
+
+            <div class="code">
+                <div class="codeHead">
+                    bash
+                    <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png"><span class="tool-tip">Copied!</span></button>
+                </div>
+                <div class="codeContent">
+                    <code><pre># Create an annotated release tag (Recommended for releases)
+git tag -a v1.0.0 -m "Release version 1.0.0: Production deployment"
+
+# List tags matching pattern
+git tag -l "v1.*"
+
+# Push a specific tag to remote
+git push origin v1.0.0
+
+# Push all local tags to remote
+git push origin --tags
+
+# Delete a tag locally and remotely
+git tag -d v1.0.0
+git push origin --delete v1.0.0</pre></code>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 12: FAQ -->
+        <br id="FAQ">
+        <div class="blog-section" data-keywords="faq frequently asked questions how to delete commit rebase change branch name amend push pull unstage">
+            <h2>12. SOFTWARE ENGINEER'S FREQUENTLY ASKED QUESTIONS (FAQ)</h2>
+            <p>Practical solutions to the exact situations software engineers encounter on the job:</p>
+
+            <div class="faq-grid" id="faqGrid">
+                
+                <!-- FAQ 1 -->
+                <div class="faq-card" data-keywords="how to rebase feature branch update sync with main">
+                    <div class="faq-q">
+                        <span class="q-badge">FAQ 01</span> How can I rebase my feature branch on top of the latest main?
+                    </div>
+                    <div class="faq-a">
+                        <p>First, fetch the latest commits from your remote repository, then rebase:</p>
+                        <div class="code"><div class="codeContent"><code><pre>git fetch origin
+git switch feature/my-feature
+git rebase origin/main</pre></code></div></div>
+                        <p>If conflicts occur, resolve them, run <code>git add &lt;file&gt;</code>, and run <code>git rebase --continue</code>.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="faq-card" data-keywords="delete commit without losing code uncommit undo changes">
+                    <div class="faq-q">
+                        <span class="q-badge">FAQ 02</span> How can I delete or undo a commit without losing my code?
+                    </div>
+                    <div class="faq-a">
+                        <p>Use a <strong>soft reset</strong>. This undoes the commit but leaves all your modified code staged in your index, ready to re-commit:</p>
+                        <div class="code"><div class="codeContent"><code><pre>git reset --soft HEAD~1</pre></code></div></div>
+                        <p>If you want the changes to remain on your disk but unstaged, use <code>git reset --mixed HEAD~1</code> (or simply <code>git reset HEAD~1</code>).</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="faq-card" data-keywords="change commit id hash why hash changes reword rebase">
+                    <div class="faq-q">
+                        <span class="q-badge">FAQ 03</span> Can I change a commit ID, and why did my commit hash change after rebasing?
+                    </div>
+                    <div class="faq-a">
+                        <p>You <strong>cannot manually edit a commit ID</strong> because in Git, the commit ID is a cryptographic hash computed from the tree contents, author, timestamp, commit message, and parent commit hash. If you change even a single character in the message or 1 byte of code, the hash mathematically changes to a completely new ID!</p>
+                        <p>When you rebase, Git replays your changes with new parent pointers, so rebasing automatically generates brand new commit IDs.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="faq-card" data-keywords="rename branch change branch name local remote">
+                    <div class="faq-q">
+                        <span class="q-badge">FAQ 04</span> How can I rename a branch (both locally and on remote GitHub)?
+                    </div>
+                    <div class="faq-a">
+                        <p>Follow these 3 simple commands:</p>
+                        <div class="code"><div class="codeContent"><code><pre># 1. Rename locally (switch to it first):
+git switch old-branch-name
+git branch -m new-branch-name
+
+# 2. Push new branch and set upstream tracking:
+git push -u origin new-branch-name
+
+# 3. Delete old branch from GitHub:
+git push origin --delete old-branch-name</pre></code></div></div>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="faq-card" data-keywords="change last commit message amend add forgotten files">
+                    <div class="faq-q">
+                        <span class="q-badge">FAQ 05</span> How can I change the last commit message or add forgotten files?
+                    </div>
+                    <div class="faq-a">
+                        <p>Use <code>--amend</code>:</p>
+                        <div class="code"><div class="codeContent"><code><pre># To change just the commit message:
+git commit --amend -m "feat: updated message"
+
+# To add a forgotten file into the previous commit:
+git add forgotten_file.js
+git commit --amend --no-edit</pre></code></div></div>
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="faq-card" data-keywords="discard all changes uncommitted clean working directory revert">
+                    <div class="faq-q">
+                        <span class="q-badge">FAQ 06</span> How do I discard all local uncommitted changes and return to a clean state?
+                    </div>
+                    <div class="faq-a">
+                        <p>To wipe all modifications to tracked files and delete any newly created untracked files:</p>
+                        <div class="code"><div class="codeContent"><code><pre># Revert all modified files back to HEAD:
+git restore .
+
+# Delete all untracked files and new directories:
+git clean -fd</pre></code></div></div>
+                    </div>
+                </div>
+
+                <!-- FAQ 7 -->
+                <div class="faq-card" data-keywords="recover deleted branch lost commit reflog emergency restore">
+                    <div class="faq-q">
+                        <span class="q-badge">FAQ 07</span> I accidentally deleted a branch or ran git reset --hard! How do I recover it?
+                    </div>
+                    <div class="faq-a">
+                        <p>Use <code>git reflog</code> to find the commit hash before the mistake:</p>
+                        <div class="code"><div class="codeContent"><code><pre>git reflog
+# Find the hash, e.g. b4c1809 HEAD@{1}: commit: my feature
+git switch -c recovered-branch b4c1809</pre></code></div></div>
+                    </div>
+                </div>
+
+                <!-- FAQ 8 -->
+                <div class="faq-card" data-keywords="unstage file git add undo unstage staged">
+                    <div class="faq-q">
+                        <span class="q-badge">FAQ 08</span> How do I unstage a file I accidentally added with git add?
+                    </div>
+                    <div class="faq-a">
+                        <p>Use <code>git restore --staged</code> (leaves your file edits intact on disk):</p>
+                        <div class="code"><div class="codeContent"><code><pre>git restore --staged filename.js
+
+# Or to unstage all files at once:
+git restore --staged .</pre></code></div></div>
+                    </div>
+                </div>
+
+                <!-- FAQ 9 -->
+                <div class="faq-card" data-keywords="squash commits into one pull request interactive rebase clean history">
+                    <div class="faq-q">
+                        <span class="q-badge">FAQ 09</span> How do I squash multiple messy commits into one single clean commit?
+                    </div>
+                    <div class="faq-a">
+                        <p>Run interactive rebase for the last N commits:</p>
+                        <div class="code"><div class="codeContent"><code><pre>git rebase -i HEAD~3</pre></code></div></div>
+                        <p>In the text editor, keep the first commit as <code>pick</code>, and change the remaining commits to <code>squash</code> (or <code>s</code>) or <code>fixup</code> (or <code>f</code> to discard extra messages). Save and close!</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 10 -->
+                <div class="faq-card" data-keywords="git pull vs git fetch difference">
+                    <div class="faq-q">
+                        <span class="q-badge">FAQ 10</span> What is the difference between git pull and git fetch?
+                    </div>
+                    <div class="faq-a">
+                        <p><code>git fetch</code> downloads the latest commits and branches from the remote server into your <code>.git</code> repository, but <strong>does not alter</strong> your local working files.</p>
+                        <p><code>git pull</code> is a two-step shorthand: it runs <code>git fetch</code> followed immediately by <code>git merge FETCH_HEAD</code> (or <code>git rebase</code> if configured), merging remote changes directly into your active branch.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 11 -->
+                <div class="faq-card" data-keywords="git reset vs git revert difference undo remote">
+                    <div class="faq-q">
+                        <span class="q-badge">FAQ 11</span> What is the difference between git reset and git revert?
+                    </div>
+                    <div class="faq-a">
+                        <p><code>git reset</code> rewinds history by moving the branch pointer backward. It deletes or unstages commits. Use it for <strong>local, unpushed commits</strong> only.</p>
+                        <p><code>git revert</code> creates a <strong>new commit</strong> that inverses the changes of an older commit. It does not rewrite history, making it 100% safe to use on public/shared remote branches.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 12 -->
+                <div class="faq-card" data-keywords="remove file tracking git rm cached ignore env gitignore">
+                    <div class="faq-q">
+                        <span class="q-badge">FAQ 12</span> How do I stop tracking a file (.env or secrets) without deleting it from disk?
+                    </div>
+                    <div class="faq-a">
+                        <p>Use <code>git rm --cached</code>:</p>
+                        <div class="code"><div class="codeContent"><code><pre>git rm --cached .env
+echo ".env" >> .gitignore
+git commit -m "chore: stop tracking .env file"</pre></code></div></div>
+                    </div>
+                </div>
+
+                <!-- FAQ 13 -->
+                <div class="faq-card" data-keywords="force with lease vs force push safe rebase overwrite">
+                    <div class="faq-q">
+                        <span class="q-badge">FAQ 13</span> Why should I use git push --force-with-lease instead of --force?
+                    </div>
+                    <div class="faq-a">
+                        <p><code>git push --force</code> blindly overwrites the remote branch. If your teammate pushed commits to that branch in the meantime, their code is instantly destroyed!</p>
+                        <p><code>git push --force-with-lease</code> checks whether anyone else has pushed new commits to the remote branch before overwriting. If new commits exist, it aborts safely and prevents data loss.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 14 -->
+                <div class="faq-card" data-keywords="checkout single file from another branch pull file commit">
+                    <div class="faq-q">
+                        <span class="q-badge">FAQ 14</span> How can I pull/checkout a single file from another branch?
+                    </div>
+                    <div class="faq-a">
+                        <p>Use <code>git restore --source</code> (or <code>git checkout</code>):</p>
+                        <div class="code"><div class="codeContent"><code><pre>git restore --source=main src/config.json
+# (Legacy equivalent: git checkout main -- src/config.json)</pre></code></div></div>
+                    </div>
+                </div>
+
+                <!-- FAQ 15 -->
+                <div class="faq-card" data-keywords="change author name email past commits amend rebase">
+                    <div class="faq-q">
+                        <span class="q-badge">FAQ 15</span> How do I change the author name and email of my last commit?
+                    </div>
+                    <div class="faq-a">
+                        <p>Run:</p>
+                        <div class="code"><div class="codeContent"><code><pre>git commit --amend --author="New Name <newemail@example.com>" --no-edit</pre></code></div></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="end"> --- End of Blog --- </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../../script.js"></script>
+    <script>
+        // Interactive Git Blog Search & Filtering Engine
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('gitSearch');
+            const clearBtn = document.getElementById('clearSearchBtn');
+            const searchCount = document.getElementById('searchCount');
+            const quickTags = document.querySelectorAll('.quick-tag');
+            const sections = document.querySelectorAll('.blog-section');
+            const faqCards = document.querySelectorAll('.faq-card');
+
+            function performSearch() {
+                const query = searchInput.value.toLowerCase().trim();
+                clearBtn.style.display = query.length > 0 ? 'inline-block' : 'none';
+
+                let matchedSections = 0;
+                let matchedFaqs = 0;
+
+                // Filter blog sections
+                sections.forEach(sec => {
+                    const text = (sec.innerText + ' ' + (sec.getAttribute('data-keywords') || '')).toLowerCase();
+                    if (!query || text.includes(query)) {
+                        sec.style.display = '';
+                        matchedSections++;
+                    } else {
+                        sec.style.display = 'none';
+                    }
+                });
+
+                // Filter FAQ cards specifically
+                faqCards.forEach(card => {
+                    const text = (card.innerText + ' ' + (card.getAttribute('data-keywords') || '')).toLowerCase();
+                    if (!query || text.includes(query)) {
+                        card.style.display = '';
+                        matchedFaqs++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Update counter
+                if (!query) {
+                    searchCount.innerText = 'Displaying all sections';
+                } else {
+                    searchCount.innerText = `Matched ${matchedSections} sections (${matchedFaqs} FAQs)`;
+                }
+            }
+
+            searchInput.addEventListener('input', performSearch);
+
+            clearBtn.addEventListener('click', () => {
+                searchInput.value = '';
+                quickTags.forEach(t => t.classList.remove('active'));
+                quickTags[0].classList.add('active');
+                performSearch();
+                searchInput.focus();
+            });
+
+            quickTags.forEach(tag => {
+                tag.addEventListener('click', () => {
+                    quickTags.forEach(t => t.classList.remove('active'));
+                    tag.classList.add('active');
+                    const filter = tag.getAttribute('data-filter');
+                    if (filter === 'all') {
+                        searchInput.value = '';
+                    } else {
+                        searchInput.value = filter;
+                    }
+                    performSearch();
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
