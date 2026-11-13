@@ -213,6 +213,37 @@ hr {
   margin: 24px 0;
 }
 
+/* Tip & Callout Boxes */
+.tip-box {
+  background: rgba(166, 223, 144, 0.08);
+  border-left: 4px solid #a6df90;
+  border-radius: 8px;
+  padding: 12px 18px;
+  margin: 16px 0;
+  color: #d8edd1;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.tip-box strong {
+  color: #a6df90;
+}
+
+.warning-box {
+  background: rgba(255, 123, 123, 0.08);
+  border-left: 4px solid #ff7b7b;
+  border-radius: 8px;
+  padding: 12px 18px;
+  margin: 16px 0;
+  color: #f7d7d7;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.warning-box strong {
+  color: #ff7b7b;
+}
+
 /* Copy Button Styling */
 .copy-button {
   background-color: #222;
