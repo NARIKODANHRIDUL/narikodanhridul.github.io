@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="lORx1_5INaOkYprqHs1zZeleoQ080VWsUrxp-5coH4A" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../../resources/sparkle.png" sizes="192x192" />
+    <title>Mutual Funds Explained | CAGR, XIRR, Active vs Passive & Cap Allocations</title>
+
+    <style>
+        :root {
+            --accent-green: #90b781;
+            --accent-green-bright: #a6df90;
+            --accent-gold: #f59e0b;
+            --accent-cyan: #38bdf8;
+            --card-bg: #141714;
+            --card-border: #243522;
+            --pill-bg: #1c2619;
+            --text-sub: #b0b0b0;
+        }
+
+        .hero-banner {
+            width: 100%;
+            max-width: 950px;
+            margin: 15px 0 25px 0;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--card-border);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+
+        .hero-banner img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+
+        .tagline {
+            font-size: 1.15rem;
+            color: #dedede;
+            line-height: 1.6;
+            max-width: 950px;
+            margin-bottom: 25px;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--pill-bg);
+            color: var(--accent-green-bright);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            border: 1px solid rgba(144, 183, 129, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Search Bar */
+        .search-container {
+            background: linear-gradient(145deg, #181c17 0%, #10130f 100%);
+            border: 1px solid #2d3b2a;
+            border-radius: 14px;
+            padding: 12px 16px;
+            width: 100%;
+            max-width: 950px;
+            box-sizing: border-box;
+            margin: 20px 0 30px 0;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 10px;
+            z-index: 10;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            overflow: hidden;
+        }
+
+        .search-input-box {
+            display: flex;
+            align-items: center;
+            background: #0a0c0a;
+            border: 1px solid #334430;
+            border-radius: 10px;
+            padding: 8px 12px;
+            gap: 8px;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .search-input-box:focus-within {
+            border-color: var(--accent-green-bright);
+            box-shadow: 0 0 12px rgba(166, 223, 144, 0.25);
+        }
+
+        .search-icon {
+            font-size: 1rem;
+            opacity: 0.8;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+
+        .search-input-box input {
+            flex: 1 1 0%;
+            min-width: 0;
+            width: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #fff;
+            font-size: 0.95rem;
+            font-family: 'Poppins', sans-serif;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            padding: 2px 0;
+            box-sizing: border-box;
+        }
+
+        .search-input-box input::placeholder {
+            color: #777;
+            font-size: 0.88rem;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .clear-btn {
+            background: transparent;
+            border: none;
+            color: #888;
+            font-size: 1.1rem;
+            cursor: pointer;
+            padding: 0 4px;
+            flex-shrink: 0;
+            display: none;
+            line-height: 1;
+        }
+
+        .clear-btn:hover {
+            color: #fff;
+        }
+
+        .search-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+            gap: 10px;
+        }
+
+        .search-count {
+            font-size: 0.82rem;
+            color: #88c070;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .quick-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .quick-tag {
+            background: #192318;
+            border: 1px solid #2b3d29;
+            color: #c4e4b7;
+            font-size: 0.75rem;
+            padding: 3px 9px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .quick-tag:hover, .quick-tag.active {
+            background: var(--accent-green);
+            color: #000;
+            font-weight: 700;
+        }
+
+        /* Metric Cards Grid */
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+            gap: 16px;
+            margin: 20px 0;
+            max-width: 950px;
+        }
+
+        .metric-card {
+            background: #131713;
+            border: 1px solid #253623;
+            border-radius: 14px;
+            padding: 18px 20px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-green);
+        }
+
+        .metric-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .metric-badge {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72rem;
+            padding: 2px 7px;
+            border-radius: 6px;
+            background: rgba(166, 223, 144, 0.15);
+            color: var(--accent-green-bright);
+        }
+
+        .metric-summary {
+            font-size: 0.92rem;
+            line-height: 1.55;
+            color: #ccc;
+        }
+
+        .formula-box {
+            background: #0d120e;
+            border: 1px solid #243522;
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.84rem;
+            color: var(--accent-gold);
+            margin: 8px 0;
+        }
+
+        .table-responsive {
+            max-width: 950px;
+            overflow-x: auto;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Mobile drawer backdrop -->
+    <div class="sidenav-overlay" id="sidenavOverlay" onclick="closeNav()"></div>
+
+    <!-- Side navigation -->
+    <div class="sidenav" id="mySidenav">
+        <div class="sidenav-header">
+            <a href="../index.html" class="sidenav-back">← All Blogs</a>
+            <button class="sidenav-close-btn" onclick="closeNav()" aria-label="Close Navigation">✕</button>
+        </div>
+        <div class="sidenav-title">
+            <span class="nav-indicator-dot"></span> Contents
+        </div>
+        <a href="#SEARCH-SECTION">Search & Filter</a>
+        <a href="#RETURNS-CAGR-XIRR">1. Return Metrics: CAGR vs. XIRR</a>
+        <a href="#FUND-METRICS">2. Fund Health: NAV, TER & Direct</a>
+        <a href="#ACTIVE-VS-PASSIVE">3. Active vs. Passive (Index Funds)</a>
+        <a href="#MARKET-CAPS">4. Market Caps: Large, Mid, Small</a>
+        <a href="#STRATEGIES">5. Strategies: Flexi vs. Multi Cap</a>
+        <a href="#CORE-PORTFOLIO">6. The 3-Fund Core Portfolio</a>
+    </div>
+
+    <div class="main">
+        <button class="openbtn" onclick="toggleNav()" aria-label="Toggle Navigation">☰</button>
+
+        <div class="badge">Personal Finance & Investing</div>
+        <div class="mainHeading">MUTUAL FUNDS 101</div>
+        <h1>THE NO-NONSENSE INVESTOR CHEAT SHEET: CAGR, XIRR, CAP ALLOCATION & FUND PICKS</h1>
+
+        <div class="hero-banner">
+            <img src="../../resources/mutual-funds.png" alt="Mutual Funds Guide: CAGR, XIRR, Cap Allocation">
+        </div>
+
+        <p class="tagline">
+            Financial institutions love drowning retail investors in dense acronyms—CAGR, XIRR, TER, Alpha, Flexicap—to justify selling high-commission regular plans. Here is the crisp, engineer-friendly breakdown of every mutual fund concept you need to know to build real long-term wealth, with zero unnecessary fluff.
+        </p>
+
+        <!-- INTERACTIVE SEARCH BAR -->
+        <div class="search-container" id="SEARCH-SECTION">
+            <div class="search-input-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="mfSearch" placeholder="Search terms, CAGR, XIRR, Flexi Cap, Large Cap, Direct vs Regular..." autocomplete="off">
+                <button class="clear-btn" id="clearSearchBtn" title="Clear search">✕</button>
+            </div>
+            <div class="search-meta">
+                <div class="search-count" id="searchCount">Displaying all sections</div>
+                <div class="quick-tags">
+                    <span class="quick-tag active" data-filter="all">All</span>
+                    <span class="quick-tag" data-filter="cagr">CAGR</span>
+                    <span class="quick-tag" data-filter="xirr">XIRR</span>
+                    <span class="quick-tag" data-filter="passive">Active vs Passive</span>
+                    <span class="quick-tag" data-filter="large cap">Large Cap</span>
+                    <span class="quick-tag" data-filter="flexi cap">Flexi Cap</span>
+                    <span class="quick-tag" data-filter="direct">Direct vs Regular</span>
+                    <span class="quick-tag" data-filter="ter">Expense Ratio</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 1: RETURN METRICS -->
+        <br id="RETURNS-CAGR-XIRR">
+        <div class="blog-section" data-keywords="cagr xirr absolute returns calculation formula sip lumpsum difference">
+            <h2>1. RETURN METRICS: CAGR VS. XIRR (WHY SIMPLE AVERAGE LIES)</h2>
+            <p>
+                How much money did your investment actually generate? Depending on whether you invested in a single lumpsum or a monthly SIP, using the wrong formula produces wildly misleading numbers.
+            </p>
+
+            <div class="metric-grid">
+                <!-- CAGR -->
+                <div class="metric-card">
+                    <div class="metric-title">
+                        <span>CAGR (Compound Annual Growth Rate)</span>
+                        <span class="metric-badge">Lumpsum Only</span>
+                    </div>
+                    <div class="formula-box">CAGR = (End Value / Start Value)^(1 / Years) - 1</div>
+                    <div class="metric-summary">
+                        <p><strong>In Simple Words:</strong> The smoothed annual rate at which a <em>single one-time deposit</em> grew over multiple years.</p>
+                        <p><strong>Example:</strong> You invest ₹1,00,000 on Jan 1, 2020. On Jan 1, 2025 (5 years later), it becomes ₹2,00,000. Your CAGR is <strong>14.87% per year</strong>.</p>
+                        <p><strong>Crucial Rule:</strong> Only valid for lumpsum investments with one cash-in and one cash-out. <em>Never use CAGR for SIPs!</em></p>
+                    </div>
+                </div>
+
+                <!-- XIRR -->
+                <div class="metric-card">
+                    <div class="metric-title">
+                        <span>XIRR (Extended Internal Rate of Return)</span>
+                        <span class="metric-badge">SIPs & Multiple Cashflows</span>
+                    </div>
+                    <div class="formula-box">XIRR: Aggregated rate where Net Present Value (NPV) = 0</div>
+                    <div class="metric-summary">
+                        <p><strong>In Simple Words:</strong> The true annual return for <strong>SIPs</strong>, staggered investments, or funds with multiple partial withdrawals.</p>
+                        <p><strong>Why CAGR Fails for SIP:</strong> If you invest ₹10,000 every month for 3 years (36 installments), your 1st installment stayed invested for 36 months, but your 36th installment stayed invested for only 30 days! CAGR treats all money as if it entered on Day 1.</p>
+                        <p><strong>Crucial Rule:</strong> XIRR weighs every single deposit and withdrawal against its exact date stamp. When checking your SIP performance in Groww, Zerodha Coin, or Kuvera, <strong>always look at XIRR</strong>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Absolute Return vs Annualized -->
+            <div class="tip-box">
+                <strong>💡 What is Absolute Return?</strong>
+                <br>
+                Absolute Return is simply $rac{	ext{Current Value} - 	ext{Invested Amount}}{	ext{Invested Amount}} 	imes 100$.
+                <br>
+                If ₹1,00,000 becomes ₹1,50,000, the absolute gain is <strong>50%</strong>. But if that 50% took 10 years to achieve, your annualized CAGR was only a miserable <strong>4.14%</strong> (worse than a bank savings account!). Only use Absolute Return for timeframes under 1 year.
+            </div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr><th>Metric</th><th>Best For</th><th>Takes Time Into Account?</th><th>Handles Staggered Cash In/Out?</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Absolute Return</strong></td><td>Short term (&lt; 1 Year)</td><td>❌ No</td><td>❌ No</td></tr>
+                        <tr><td><strong>CAGR</strong></td><td>One-time Lumpsum (&gt; 1 Year)</td><td>✔️ Yes (Annualized)</td><td>❌ No</td></tr>
+                        <tr><td><strong>XIRR</strong></td><td>SIPs & Staggered Deposits</td><td>✔️ Yes (Exact Date-Weighted)</td><td>✔️ Yes (The Gold Standard)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- SECTION 2: FUND METRICS -->
+        <br id="FUND-METRICS">
+        <div class="blog-section" data-keywords="nav ter expense ratio direct regular tracking error alpha beta sharpe exit load">
+            <h2>2. FUND HEALTH METRICS: NAV, TER & THE DIRECT PLAN ADVANTAGE</h2>
+
+            <div class="metric-grid">
+                <!-- NAV -->
+                <div class="metric-card">
+                    <div class="metric-title">
+                        <span>NAV (Net Asset Value)</span>
+                        <span class="metric-badge">Per-Unit Price</span>
+                    </div>
+                    <div class="metric-summary">
+                        <p><strong>What it is:</strong> The market value of 1 mutual fund unit ($(	ext{Total Assets} - 	ext{Expenses}) / 	ext{Total Units}$). Updated every evening after market close.</p>
+                        <p><strong>The #1 Rookie Myth:</strong> <em>"Fund A has NAV ₹15, Fund B has NAV ₹150. Fund A is cheaper, so I'll get more profit!"</em></p>
+                        <p><strong>Reality:</strong> Totally false! If you invest ₹15,000 in both, and both portfolios grow by 20%, you make exactly <strong>₹3,000 profit in both</strong>. High NAV just means the fund has been around longer.</p>
+                    </div>
+                </div>
+
+                <!-- TER -->
+                <div class="metric-card">
+                    <div class="metric-title">
+                        <span>TER (Total Expense Ratio)</span>
+                        <span class="metric-badge">Annual Fee %</span>
+                    </div>
+                    <div class="metric-summary">
+                        <p><strong>What it is:</strong> The annual management fee deducted daily from the fund's NAV by the AMC (fund house).</p>
+                        <p><strong>The Silent Wealth Killer:</strong> A 1% extra expense ratio sounds small, but over a 25-year compounding horizon, <strong>it eats away 25% to 30% of your total final corpus!</strong></p>
+                        <p><strong>Benchmark:</strong> Nifty 50 Index funds charge ~0.05% - 0.20%. Active funds charge ~0.70% - 1.50%.</p>
+                    </div>
+                </div>
+
+                <!-- Direct vs Regular -->
+                <div class="metric-card">
+                    <div class="metric-title">
+                        <span>Direct vs. Regular Plans</span>
+                        <span class="metric-badge">Broker Commission</span>
+                    </div>
+                    <div class="metric-summary">
+                        <p><strong>Regular Plan:</strong> Bought through a bank relationship manager or middleman agent. They pocket a 0.5% - 1.5% commission every single year from your money!</p>
+                        <p><strong>Direct Plan:</strong> Bought directly from the AMC or via platforms like Coin, Groww, INDmoney. Zero commission paid to middlemen.</p>
+                        <p><strong>Golden Rule:</strong> Always, without exception, verify your fund name says <strong>"Direct - Growth"</strong>!</p>
+                    </div>
+                </div>
+
+                <!-- Alpha & Beta -->
+                <div class="metric-card">
+                    <div class="metric-title">
+                        <span>Alpha & Beta</span>
+                        <span class="metric-badge">Risk & Edge</span>
+                    </div>
+                    <div class="metric-summary">
+                        <p><strong>Alpha:</strong> The extra percentage return generated by the fund manager above the benchmark index. (Alpha &gt; 0 means the manager beat the market).</p>
+                        <p><strong>Beta:</strong> Volatility compared to the market. Beta 1.0 = moves exactly with Nifty. Beta 0.8 = swings less violently. Beta 1.3 = hyper-volatile.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3: ACTIVE VS PASSIVE -->
+        <br id="ACTIVE-VS-PASSIVE">
+        <div class="blog-section" data-keywords="active vs passive index fund etf spiva manager fees outperformance">
+            <h2>3. ACTIVE VS. PASSIVE FUNDS: THE BRUTAL REALITY</h2>
+            <p>
+                The fundamental philosophy battle of modern asset allocation:
+            </p>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr><th>Dimension</th><th>Passive Funds (Index Funds / ETFs)</th><th>Active Funds</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Investment Strategy</strong></td><td>Blindly mirrors an index (e.g., Nifty 50, S&P 500)</td><td>Human fund manager actively picks and times stocks</td></tr>
+                        <tr><td><strong>Expense Ratio (TER)</strong></td><td>Ultra-low (0.05% - 0.25%)</td><td>High (0.75% - 1.50%)</td></tr>
+                        <tr><td><strong>Human Bias & Ego</strong></td><td>Zero (Rules-based mechanical rebalancing)</td><td>High (Subject to manager mistakes or fund manager exits)</td></tr>
+                        <tr><td><strong>SPIVA Report Reality</strong></td><td>Guaranteed to match the benchmark market return</td><td><strong>Over 85% of active large-cap managers fail to beat Nifty 50 over 10 years!</strong></td></tr>
+                        <tr><td><strong>Best Used For</strong></td><td>Large Cap equity (India & US exposure)</td><td>Mid Cap and Small Cap spaces where inefficiencies exist</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- SECTION 4: MARKET CAPS -->
+        <br id="MARKET-CAPS">
+        <div class="blog-section" data-keywords="market cap classification large cap mid cap small cap sebi ranking volatility">
+            <h2>4. MARKET CAP CLASSIFICATIONS (SEBI OFFICIAL RULES)</h2>
+            <p>
+                In India, SEBI strictly categorizes all listed stocks by market capitalization:
+            </p>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr><th>Category</th><th>SEBI Ranking</th><th>Real-World Examples</th><th>Risk Profile</th><th>Expected 10Y CAGR</th><th>Ideal Investment Horizon</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Large Cap</strong></td><td>Top 1 to 100</td><td>Reliance, TCS, HDFC Bank, Infosys</td><td>Low (Blue-chip corporate giants, stable balance sheets)</td><td>11% - 13%</td><td>5+ Years</td></tr>
+                        <tr><td><strong>Mid Cap</strong></td><td>Rank 101 to 250</td><td>Trent, Persistent, Polycab, Federal Bank</td><td>Moderate (High-growth sector leaders, higher price swings)</td><td>13% - 16%</td><td>7+ Years</td></tr>
+                        <tr><td><strong>Small Cap</strong></td><td>Rank 251 and beyond</td><td>Emerging startups, niche manufacturing, micro-caps</td><td>Very High (Prone to 30%-50% drawdown during bear markets!)</td><td>15% - 19%</td><td>8 - 10+ Years</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ The Small Cap Warning:</strong> Small caps deliver astronomical gains in bull markets, but when a bear market arrives, they crash hardest and can remain flat for 3 to 4 years. Never put money into Small Cap funds if you need that cash within the next 7 years!
+            </div>
+        </div>
+
+        <!-- SECTION 5: STRATEGIES -->
+        <br id="STRATEGIES">
+        <div class="blog-section" data-keywords="flexi cap multi cap elss tax saving balanced advantage hybrid debt liquid strategies">
+            <h2>5. DIVERSIFIED STRATEGIES: FLEXI CAP VS. MULTI CAP VS. HYBRID</h2>
+
+            <div class="metric-grid">
+                <!-- Flexi Cap -->
+                <div class="metric-card">
+                    <div class="metric-title">
+                        <span>Flexi Cap Fund</span>
+                        <span class="metric-badge">All-Weather Equity</span>
+                    </div>
+                    <div class="metric-summary">
+                        <p><strong>How it works:</strong> The fund manager has <strong>100% freedom</strong> to invest across Large, Mid, and Small caps in any proportion.</p>
+                        <p><strong>Why it's great:</strong> During market bubbles, the manager can retreat into safe Large Caps (e.g. 70% large). In bull markets, they can hunt for Small/Mid cap alpha.</p>
+                        <p><strong>Verdict:</strong> The #1 single core equity fund recommendation for most working software engineers.</p>
+                    </div>
+                </div>
+
+                <!-- Multi Cap -->
+                <div class="metric-card">
+                    <div class="metric-title">
+                        <span>Multi Cap Fund</span>
+                        <span class="metric-badge">Fixed 25x3 Rule</span>
+                    </div>
+                    <div class="metric-summary">
+                        <p><strong>How it works:</strong> SEBI mandates at least <strong>25% in Large Cap, 25% in Mid Cap, and 25% in Small Cap</strong> at all times!</p>
+                        <p><strong>The catch:</strong> Even if small caps are in a dangerous overvalued bubble, the manager is legally forced to hold 25% small caps.</p>
+                        <p><strong>Verdict:</strong> Choose Flexi Cap over Multi Cap for better risk management.</p>
+                    </div>
+                </div>
+
+                <!-- ELSS -->
+                <div class="metric-card">
+                    <div class="metric-title">
+                        <span>ELSS (Tax Saving Equity)</span>
+                        <span class="metric-badge">Section 80C</span>
+                    </div>
+                    <div class="metric-summary">
+                        <p><strong>How it works:</strong> Equity fund qualifying for tax deductions up to ₹1.5 Lakh under Section 80C (Old Tax Regime).</p>
+                        <p><strong>Lock-in:</strong> <strong>3 Years</strong> (shortest lock-in among all 80C instruments like PPF's 15 years or FD's 5 years).</p>
+                        <p><strong>Note:</strong> Irrelevant if you are on the New Tax Regime.</p>
+                    </div>
+                </div>
+
+                <!-- Balanced Advantage -->
+                <div class="metric-card">
+                    <div class="metric-title">
+                        <span>Balanced Advantage (BAF)</span>
+                        <span class="metric-badge">Equity + Debt Dynamic</span>
+                    </div>
+                    <div class="metric-summary">
+                        <p><strong>How it works:</strong> Uses mathematical P/E models to automatically sell stocks and buy safe bonds when the market is overvalued, and buys stocks when the market crashes.</p>
+                        <p><strong>Verdict:</strong> Ideal for conservative investors or money needed in 3 to 5 years.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 6: CORE PORTFOLIO -->
+        <br id="CORE-PORTFOLIO">
+        <div class="blog-section" data-keywords="core portfolio software engineer asset allocation how to choose fund decision rules">
+            <h2>6. THE SOFTWARE ENGINEER'S 3-FUND CORE PORTFOLIO</h2>
+            <p>
+                You do NOT need 15 different mutual funds. More funds just create overlapping stock holdings, higher paperwork, and index-like returns with active-fund fees. A clean, battle-tested 3-fund setup:
+            </p>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr><th>Pillar</th><th>Fund Type</th><th>Recommended Allocation</th><th>Purpose</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>1. Bedrock Index</strong></td><td>Nifty 50 Index Fund (Direct - Growth)</td><td>40% - 50%</td><td>Guaranteed top 50 corporate India exposure at rock-bottom 0.1% expense ratio. Zero manager risk.</td></tr>
+                        <tr><td><strong>2. Dynamic Alpha</strong></td><td>Flexi Cap Fund (Direct - Growth)</td><td>30% - 40%</td><td>Allows an experienced fund manager to capture high-growth mid-cap and tech opportunities.</td></tr>
+                        <tr><td><strong>3. High-Beta Rocket</strong></td><td>Mid Cap or Small Cap Fund (Direct)</td><td>10% - 20%</td><td>Long-term wealth accelerator for a 10+ year retirement / FIRE horizon.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tip-box">
+                <strong>🛡️ Emergency Fund Rule:</strong> Before starting any equity SIP, keep 6 months of your mandatory living expenses parked in a safe <strong>Liquid Mutual Fund</strong> or high-interest bank FD. Never put emergency reserves into equity mutual funds!
+            </div>
+        </div>
+
+        <div class="end"> --- End of Blog --- </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../../script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('mfSearch');
+            const clearBtn = document.getElementById('clearSearchBtn');
+            const searchCount = document.getElementById('searchCount');
+            const quickTags = document.querySelectorAll('.quick-tag');
+            const sections = document.querySelectorAll('.blog-section');
+
+            function performSearch() {
+                const query = searchInput.value.toLowerCase().trim();
+                clearBtn.style.display = query.length > 0 ? 'inline-block' : 'none';
+
+                let matchedSections = 0;
+
+                sections.forEach(sec => {
+                    const text = (sec.innerText + ' ' + (sec.getAttribute('data-keywords') || '')).toLowerCase();
+                    if (!query || text.includes(query)) {
+                        sec.style.display = '';
+                        matchedSections++;
+                    } else {
+                        sec.style.display = 'none';
+                    }
+                });
+
+                if (!query) {
+                    searchCount.innerText = 'Displaying all sections';
+                } else {
+                    searchCount.innerText = `Matched ${matchedSections} sections`;
+                }
+            }
+
+            searchInput.addEventListener('input', performSearch);
+
+            clearBtn.addEventListener('click', () => {
+                searchInput.value = '';
+                quickTags.forEach(t => t.classList.remove('active'));
+                quickTags[0].classList.add('active');
+                performSearch();
+                searchInput.focus();
+            });
+
+            quickTags.forEach(tag => {
+                tag.addEventListener('click', () => {
+                    quickTags.forEach(t => t.classList.remove('active'));
+                    tag.classList.add('active');
+                    const filter = tag.getAttribute('data-filter');
+                    if (filter === 'all') {
+                        searchInput.value = '';
+                    } else {
+                        searchInput.value = filter;
+                    }
+                    performSearch();
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

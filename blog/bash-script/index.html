@@ -589,7 +589,7 @@ echo "${GREETING//World/Bash}"  # Replaces all matches -> "Hello Bash Bash"</pre
             <div class="codeContent">
                 <code><pre># Generate a multi-line configuration file with variable interpolation
 TARGET_IP="192.168.1.50"
-cat <<EOF > /tmp/target.conf
+cat &lt;&lt;EOF > /tmp/target.conf
 # Auto-generated configuration
 Host: target-node
 IP: ${TARGET_IP}
@@ -817,8 +817,8 @@ SOURCE_DIR=""
 RETENTION_DAYS=7
 
 usage() {
-    cat <<EOF
-Usage: $0 -s <source_directory> [-d <backup_destination>] [-r <retention_days>]
+    cat &lt;&lt;EOF
+Usage: $0 -s &lt;source_directory&gt; [-d &lt;backup_destination&gt;] [-r &lt;retention_days&gt;]
 Options:
   -s  Source directory to back up (Mandatory)
   -d  Destination backup directory (Default: /tmp/backups)
