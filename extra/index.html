@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+    <div style="padding: 20px 24px 0 24px; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: flex-start;">
+        <button class="bttn" onclick='window.location.href = "../index.html"' style="cursor: pointer; display: inline-flex; align-items: center; gap: 8px; font-size: 15px; padding: 8px 18px;">
+            <span>← Home</span>
+        </button>
+    </div>
     <div class="container">
 
         <div class="heading">Blogs</div>
@@ -40,11 +45,7 @@
                 <div class="cardHeader">All Blogs</div>
                 <div class="cardSubHeader">Archive & Directory</div>
                 <div class="imgcontainer">
-                    <div style="width: 280px; height: 180px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(circle at center, #1b261a 0%, #0d120d 100%);">
-                        <span style="font-size: 3rem; margin-bottom: 8px;">📚</span>
-                        <span style="color: #a6df90; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.5px;">VIEW ALL BLOGS</span>
-                        <span style="color: #888; font-size: 0.82rem; margin-top: 4px;">7 In-Depth Articles →</span>
-                    </div>
+                    <img src="../resources/all-blogs.png" width="280px" alt="All Blogs" style="border-radius: 20px; object-fit: cover;">
                     <div class="details">Browse all 7 technical publications: Git, IPC SPM/CPM, Mutual Funds, Bash, Shell Prompt, Vim, and Nutrition.</div>
                     <button class="overlay-button" onclick='event.stopPropagation(); window.location.href = "blogs"'>View All</button> 
                 </div>
@@ -111,5 +112,10 @@
         </div>
     </div>
     
+    <div style="text-align: center; margin: 40px 0 60px 0;">
+        <button class="bttn" onclick='window.location.href = "../index.html"' style="cursor: pointer; display: inline-flex; align-items: center; gap: 8px; font-size: 16px; padding: 10px 24px;">
+            <span>← Back to Home</span>
+        </button>
+    </div>
 </body>
 </html>

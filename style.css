@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=B612+Mono&family=Gabarito:wght@600&family=Passion+One&family=Poppins:wght@300;400;700;800&family=Preahvihear&family=Roboto+Mono&family=Rowdies&family=Rubik+Wet+Paint&family=Space+Mono&family=Syne+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&family=Handjet:wght@600&family=Rowdies:wght@300&family=Russo+One&family=Staatliches&display=swap');
+
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
@@ -5,7 +8,6 @@ html {
   width: 100%;
   max-width: 100%;
 }
-@import url('https://fonts.googleapis.com/css2?family=B612+Mono&family=Gabarito:wght@600&family=Passion+One&family=Poppins:wght@300;400;700;800&family=Preahvihear&family=Roboto+Mono&family=Rowdies&family=Rubik+Wet+Paint&family=Space+Mono&family=Syne+Mono&display=swap');
 /* font-family: 'B612 Mono', monospace;
   font-family: 'Poppins', sans-serif;
   font-family: 'Preahvihear', sans-serif;
@@ -16,8 +18,6 @@ html {
   font-family: 'Gabarito', cursive;
   font-family: 'Space Mono', monospace;
  */
-
-  @import url('https://fonts.googleapis.com/css2?family=Exo+2&family=Handjet:wght@600&family=Rowdies:wght@300&family=Russo+One&family=Staatliches&display=swap');
 
   /* font-family: 'Exo 2', sans-serif;
   font-family: 'Handjet', cursive; pixellated
