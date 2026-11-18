@@ -311,7 +311,7 @@
         <a href="#INTERACTIVE-REBASE">Interactive Rebase (Squash)</a>
         <a href="#RESOLVING-CONFLICTS">Resolving Merge Conflicts</a>
         <a href="#UNDO-AND-RECOVERY">Undo, Restore & Reset</a>
-        <a href="#REFLOG">The Safety Net: git reflog</a>
+        <a href="#REFLOG">The Safety Net: Bringing Back Lost Work (git reflog)</a>
         <a href="#STASH-AND-CHERRYPICK">Stash & Cherry-Pick</a>
         <a href="#INSPECT-AND-DIFF">Inspect, Diff & Bisect</a>
         <a href="#TAGS-AND-RELEASES">Tags & Releases</a>
@@ -330,7 +330,7 @@
         </div>
 
         <p class="tagline">
-            Git is not just a tool to upload code to GitHub with <code>git add . && git commit -m "update" && git push</code>. It is a distributed, content-addressable directed acyclic graph (DAG) of snapshots. When you understand how commits, branches, and the HEAD pointer work under the hood, you gain complete superpower over your codebase: clean branch histories, fearless rebasing, effortless conflict resolution, and the ability to time-travel and rescue lost work from any disaster.
+            Git is much more than just typing <code>git add</code>, <code>commit</code>, and <code>push</code>. Think of Git as a reliable time machine that saves clean snapshots of your project as you code. Once you understand how commits and branches work, you can combine your work easily, fix code conflicts with confidence, and bring back lost work if anything goes wrong.
         </p>
 
         <!-- INTERACTIVE SEARCH BAR -->
@@ -359,7 +359,7 @@
         <br id="MENTAL-MODEL">
         <div class="blog-section" data-keywords="mental model trees staging index working directory commit hash sha head detached head">
             <h2>1. THE GIT MENTAL MODEL: THE 4 TREES & COMMITS</h2>
-            <p>Most developers struggle with Git because they try to memorize commands without understanding where their code actually lives. Git manages code across four distinct zones:</p>
+            <p>Most people struggle with Git because they try to memorize commands without knowing where files actually live. Git organizes your code into four simple areas:</p>
 
             <div class="table-responsive">
                 <table>
@@ -486,8 +486,8 @@ git remote prune origin  # or: git fetch -p</pre></code>
 
             <div class="comparison-grid">
                 <div class="comparison-card merge">
-                    <h3>🔀 Git Merge (The Non-Destructive Stitch)</h3>
-                    <p>Integrates history by creating a new <strong>Merge Commit</strong> with two parents. It never touches or rewrites past commits.</p>
+                    <h3>🔀 Git Merge (The Safe Combination)</h3>
+                    <p>Combines branches by creating a new <strong>Merge Commit</strong>. It never changes or deletes your past commits.</p>
                     <ul>
                         <li><strong>Pros:</strong> 100% preserves original history, timestamps, and commit order. Perfect audit trail.</li>
                         <li><strong>Cons:</strong> Creates cluttered "railroad track" graphs with dozens of noisy <em>"Merge branch 'main' into feature"</em> bubbles.</li>
@@ -621,7 +621,7 @@ git rebase --abort   # (Or: git merge --abort)</pre></code>
                         <tr><td>Amend the last commit</td><td><code>git commit --amend --no-edit</code></td><td>Appends newly staged files into the previous commit.</td></tr>
                         <tr><td>Undo commit, keep changes staged</td><td><code>git reset --soft HEAD~1</code></td><td>Moves branch pointer back 1 commit; all code remains staged.</td></tr>
                         <tr><td>Undo commit, keep changes unstaged</td><td><code>git reset --mixed HEAD~1</code></td><td>Default reset. Code remains in working directory as unstaged edits.</td></tr>
-                        <tr><td>Destroy last commit and changes</td><td><code>git reset --hard HEAD~1</code></td><td>Obliterates commit and wipes working directory to previous commit.</td></tr>
+                        <tr><td>Destroy last commit and changes</td><td><code>git reset --hard HEAD~1</code></td><td>Completely removes the commit and deletes any uncommitted changes.</td></tr>
                         <tr><td>Safely undo a published remote commit</td><td><code>git revert &lt;commit-hash&gt;</code></td><td>Creates a brand new commit that reverses the changes. Safe for team repos!</td></tr>
                     </tbody>
                 </table>

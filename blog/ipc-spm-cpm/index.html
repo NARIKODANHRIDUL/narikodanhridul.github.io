@@ -298,7 +298,7 @@
         <a href="#PICTORIAL-WALKTHROUGH">6. Pictorial Walkthrough & Handshake</a>
         <a href="#COMPARISON-TABLES">7. Comprehensive Comparison Tables</a>
         <a href="#C-IMPLEMENTATION">8. Embedded C Code Implementation</a>
-        <a href="#RACE-CONDITIONS">9. Edge Cases & Memory Barriers</a>
+        <a href="#RACE-CONDITIONS">9. Safe Programming: Memory Barriers & Common Mistakes</a>
     </div>
 
     <div class="main">
@@ -313,7 +313,7 @@
         </div>
 
         <p class="tagline">
-            In modern multi-core SoCs, automotive microcontrollers (AUTOSAR), and heterogeneous DSP/FPGA platforms, relying on traditional OS network sockets or non-deterministic shared L2/L3 caches introduces fatal latency spikes and non-deterministic behavior. High-performance real-time Inter-Process Communication (IPC) is built on direct hardware memory tiers: local <strong>Scratchpad Memory (SPM)</strong> for zero-wait-state processing, and shared <strong>Common Packet Memory (CPM)</strong> for lock-free circular packet exchange governed by strict <strong>Full Checks</strong> and <strong>Empty Checks</strong>.
+            When a computer chip has two or more processor cores running together, they need a fast way to talk to each other without slowing down. Normal computer methods like operating system sockets or big shared caches are too slow and unpredictable for real-time systems like cars or robots. Instead, hardware designers use two smart memory areas: <strong>Scratchpad Memory (SPM)</strong> (a core's private, super-fast notepad) and <strong>Common Packet Memory (CPM)</strong> (a shared mailbox where messages are exchanged safely using simple <strong>Full Checks</strong> and <strong>Empty Checks</strong>).
         </p>
 
         <!-- INTERACTIVE SEARCH BAR -->
@@ -343,14 +343,14 @@
         <div class="blog-section" data-keywords="architecture foundations ipc inter process communication multicore rtos embedded hardware determinism">
             <h2>1. ARCHITECTURAL FOUNDATIONS OF MULTI-CORE IPC</h2>
             <p>
-                When two independent processing cores (such as an ARM Cortex-A application core and a Cortex-M real-time core, or twin DSPs) must exchange streaming data packets, traditional operating system pipes and Unix domain sockets are far too slow. They involve context switches, kernel interrupts, and page translation overhead.
+                When two processor cores (like a phone's main CPU and its real-time sensor chip) need to share data fast, normal operating system pipes are far too slow. They waste time switching modes and jumping through operating system layers.
             </p>
             <p>
-                Instead, embedded systems implement <strong>Shared Memory Message Passing IPC</strong> using physical on-chip SRAM partitions. The core paradigm separates memory into two functional layers:
+                Instead, embedded chips use fast on-chip memory split into two simple parts:
             </p>
             <ul>
-                <li><strong>SPM (Scratchpad Memory):</strong> Private, core-local, single-cycle SRAM tightly bound to each core's local bus.</li>
-                <li><strong>CPM (Common Packet Memory):</strong> Centrally accessible, multi-ported SRAM where circular message queues (FIFOs) reside.</li>
+                <li><strong>SPM (Scratchpad Memory):</strong> A private, super-fast memory area connected directly to each core. It has zero waiting time.</li>
+                <li><strong>CPM (Common Packet Memory):</strong> A shared mailbox memory where both cores can read and write messages in order (First In, First Out).</li>
             </ul>
 
             <!-- PICTORIAL ARCHITECTURE DIAGRAM -->
@@ -420,7 +420,7 @@
                         <tr><td><strong>Access Latency</strong></td><td>Strictly deterministic (1 clock cycle)</td><td>Arbitrated (3 - 12 cycles depending on bus load)</td></tr>
                         <tr><td><strong>Bus Traffic</strong></td><td>Isolated local core bus (No contention)</td><td>System Crossbar / Interconnect (Shared)</td></tr>
                         <tr><td><strong>Role in IPC</strong></td><td>Packet assembly, staging, and final processing</td><td>Transit staging: FIFO Ring Buffer / Mailbox</td></tr>
-                        <tr><td><strong>Coherency Hazard</strong></td><td>None (Single owner)</td><td>Requires explicit memory barriers (DMB/DSB)</td></tr>
+                        <tr><td><strong>Data Conflict Risk</strong></td><td>None (Single owner)</td><td>Requires memory barrier commands (DMB/DSB) to ensure safety</td></tr>
                         <tr><td><strong>Capacity</strong></td><td>Typically smaller (e.g. 16KB - 64KB per core)</td><td>Medium shared pool (e.g. 128KB - 1MB)</td></tr>
                     </tbody>
                 </table>
@@ -644,7 +644,7 @@
         <div class="blog-section" data-keywords="c code implementation embedded drivers volatile ring buffer ipc_send ipc_receive mutex barrier">
             <h2>8. EMBEDDED C IMPLEMENTATION: DRIVER & BUFFER LOGIC</h2>
             <p>
-                Here is a production-grade C implementation of an IPC ring buffer designed for bare-metal or RTOS multi-core controllers. Notice the strict usage of <code>volatile</code> and memory barrier intrinsics:
+                Here is a production-grade C implementation of an IPC ring buffer designed for bare-metal or RTOS multi-core controllers. Notice how we use <code>volatile</code> and memory barrier commands so the computer never skips writes or reads old cached data:
             </p>
 
             <div class="code">
@@ -756,9 +756,9 @@ bool ipc_receiver_get_packet(IpcPacket_t *spm_dest) {
             </div>
 
             <div class="warning-box">
-                <strong>⚠️ Hazard 2: Cache Coherency & Stale Reads</strong>
+                <strong>⚠️ Problem 2: Cache Memory & Stale (Old) Reads</strong>
                 <br>
-                If the CPM memory region is marked as <em>Cacheable</em>, the Receiver core might read the <code>Head</code> pointer or packet from its own stale local L1 cache instead of the physical CPM SRAM!
+                If the shared CPM memory is saved in a local core cache, the receiver core might read an old saved copy from its own cache instead of the fresh data in shared memory!
                 <br>
                 <em>Remedy:</em> Map the shared CPM region as <strong>Device Memory / Non-Cacheable (Strongly Ordered)</strong> via the MPU/MMU, or explicitly execute cache invalidation instructions (<code>DC IVAC</code>) prior to reading.
             </div>

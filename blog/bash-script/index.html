@@ -521,7 +521,7 @@ $VERBOSE && echo "[INFO] Verbose mode enabled."</pre></code>
         <!-- SECTION 7: PARAMETER EXPANSION -->
         <br id="PARAMETER-EXPANSION">
         <h2>7. PARAMETER EXPANSION & STRING HACKS (PURE BASH)</h2>
-        <p>Avoid spawning external subshells like <code>sed</code>, <code>awk</code>, or <code>cut</code> for simple string parsing. Bash's native parameter expansion runs orders of magnitude faster in memory:</p>
+        <p>You do not need to call slow extra programs like <code>sed</code> or <code>awk</code> just to edit text. Bash has built-in text shortcuts that run much faster:</p>
 
         <div class="code">
             <div class="codeHead">
@@ -724,8 +724,8 @@ fi</pre></code>
 
         <!-- SECTION 12: DEFENSIVE BASH & STRICT MODE -->
         <br id="DEFENSIVE-BASH">
-        <h2>12. DEFENSIVE BASH: STRICT MODE & SIGNAL TRAPS</h2>
-        <p>Production Bash scripts should never fail silently. Adopting <strong>Unofficial Bash Strict Mode</strong> (<code>set -euo pipefail</code>) ensures immediate execution termination when an error occurs, uninitialized variables are accessed, or pipeline steps fail.</p>
+        <h2>12. SAFE BASH: STRICT MODE & CLEANUP TRAPS</h2>
+        <p>Real-world scripts should never hide errors. Adding <strong>Strict Mode</strong> (<code>set -euo pipefail</code>) makes Bash stop immediately whenever a command fails, a variable is missing, or a pipe step breaks. This prevents dangerous bugs.</p>
 
         <div class="code">
             <div class="codeHead">
@@ -789,7 +789,7 @@ done < "data.csv"</pre></code>
         <!-- SECTION 14: PRODUCTION SCRIPT -->
         <br id="PRODUCTION-EXAMPLE">
         <h2>14. REAL-WORLD PRODUCTION SCRIPT: SYSTEM BACKUP & HEALTH MONITOR</h2>
-        <p>Here is an end-to-end, production-grade automation script incorporating command-line flags, strict mode, colored status reporting, temporary storage, and signal trapping:</p>
+        <p>Here is a complete, beginner-friendly backup script that uses options, safe error handling, clean status messages, and automatic cleanup:</p>
 
         <div class="code">
             <div class="codeHead">
