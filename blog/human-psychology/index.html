@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="lORx1_5INaOkYprqHs1zZeleoQ080VWsUrxp-5coH4A" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../../resources/sparkle.png" sizes="192x192" />
+    <title>Human Psychology: 45 Laws & Theories Explained Simply | Narikodan Hridul</title>
+
+    <style>
+        :root {
+            --accent-green: #90b781;
+            --accent-green-bright: #a6df90;
+            --accent-cyan: #38bdf8;
+            --accent-gold: #f59e0b;
+            --card-bg: #141714;
+            --card-border: #243522;
+            --pill-bg: #1c2619;
+            --text-sub: #b0b0b0;
+        }
+
+        .hero-banner {
+            width: 100%;
+            max-width: 950px;
+            margin: 15px 0 25px 0;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--card-border);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+
+        .hero-banner img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+
+        .tagline {
+            font-size: 1.12rem;
+            color: #dedede;
+            line-height: 1.6;
+            max-width: 950px;
+            margin-bottom: 25px;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--pill-bg);
+            color: var(--accent-green-bright);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            border: 1px solid rgba(144, 183, 129, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Interactive Search Section */
+        .search-container {
+            background: linear-gradient(145deg, #181c17 0%, #10130f 100%);
+            border: 1px solid #2d3b2a;
+            border-radius: 14px;
+            padding: 12px 16px;
+            width: 100%;
+            max-width: 950px;
+            box-sizing: border-box;
+            margin: 20px 0 30px 0;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 10px;
+            z-index: 10;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            overflow: hidden;
+        }
+
+        .search-input-box {
+            display: flex;
+            align-items: center;
+            background: #0a0c0a;
+            border: 1px solid #334430;
+            border-radius: 10px;
+            padding: 8px 12px;
+            gap: 8px;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .search-input-box:focus-within {
+            border-color: var(--accent-green-bright);
+            box-shadow: 0 0 12px rgba(166, 223, 144, 0.25);
+        }
+
+        .search-icon {
+            font-size: 1rem;
+            opacity: 0.8;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+
+        .search-input-box input {
+            flex: 1 1 0%;
+            min-width: 0;
+            width: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #fff;
+            font-size: 0.95rem;
+            font-family: 'Poppins', sans-serif;
+            text-overflow: ellipsis;
+        }
+
+        .clear-btn {
+            background: none;
+            border: none;
+            color: #888;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 2px 6px;
+            border-radius: 50%;
+            display: none;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .clear-btn:hover {
+            color: #fff;
+            background: #252e23;
+        }
+
+        .search-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 0.82rem;
+            color: #90b781;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .quick-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .quick-tag {
+            background: #192217;
+            border: 1px solid #293826;
+            color: #b0d8a4;
+            padding: 3px 10px;
+            border-radius: 14px;
+            font-size: 0.78rem;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+            user-select: none;
+        }
+
+        .quick-tag:hover,
+        .quick-tag.active {
+            background: var(--accent-green-bright);
+            color: #0b110a;
+            font-weight: 600;
+            border-color: var(--accent-green-bright);
+        }
+
+        /* Theory Cards Grid */
+        .theories-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            max-width: 950px;
+            margin: 20px 0;
+        }
+
+        .theory-card {
+            background: #141714;
+            border: 1px solid #233422;
+            border-radius: 14px;
+            padding: 20px 22px;
+            transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        .theory-card:hover {
+            border-color: var(--accent-green-bright);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+            transform: translateY(-2px);
+        }
+
+        .theory-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .theory-title-group {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .theory-number {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.82rem;
+            color: var(--accent-green-bright);
+            margin-bottom: 2px;
+            font-weight: 700;
+        }
+
+        .theory-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+            margin: 0 0 4px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .theory-subtitle {
+            font-size: 0.88rem;
+            color: #9cb894;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .theory-category {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 12px;
+            background: #1c2619;
+            color: var(--accent-green-bright);
+            border: 1px solid rgba(166, 223, 144, 0.25);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .theory-explanation {
+            font-size: 0.95rem;
+            color: #d1d5db;
+            line-height: 1.58;
+            margin: 12px 0;
+        }
+
+        .theory-example {
+            background: rgba(166, 223, 144, 0.06);
+            border-left: 3px solid var(--accent-green-bright);
+            border-radius: 6px;
+            padding: 10px 14px;
+            margin: 12px 0;
+            font-size: 0.9rem;
+            color: #dcfce7;
+            line-height: 1.5;
+        }
+
+        .theory-example strong {
+            color: #fff;
+        }
+
+        .theory-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px solid #1e2b1d;
+        }
+
+        .theory-takeaway {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            flex: 1;
+            min-width: 220px;
+            line-height: 1.45;
+        }
+
+        .theory-takeaway strong {
+            color: var(--accent-gold);
+        }
+
+        .more-info-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #1a2418;
+            color: var(--accent-green-bright);
+            border: 1px solid rgba(166, 223, 144, 0.4);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.84rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .more-info-btn:hover {
+            background: var(--accent-green-bright);
+            color: #0b110a;
+            border-color: var(--accent-green-bright);
+            transform: translateY(-1px);
+        }
+
+        .category-section-title {
+            font-size: 1.4rem;
+            color: var(--accent-green-bright);
+            border-bottom: 2px solid #233422;
+            padding-bottom: 8px;
+            margin: 35px 0 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .no-results {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+            color: #888;
+            font-size: 1.1rem;
+            background: #141714;
+            border: 1px dashed #243522;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Mobile drawer backdrop -->
+    <div class="sidenav-overlay" id="sidenavOverlay" onclick="closeNav()"></div>
+
+    <!-- Side navigation -->
+    <div class="sidenav" id="mySidenav">
+        <div class="sidenav-header">
+            <a href="../../extra/blogs/" class="sidenav-back">← All Blogs</a>
+            <button class="sidenav-close-btn" onclick="closeNav()" aria-label="Close Navigation">✕</button>
+        </div>
+        <div class="sidenav-title">
+            <span class="nav-indicator-dot"></span> Contents
+        </div>
+        <a href="#SEARCH-SECTION">🔍 Search & Filter</a>
+        <a href="#CATEGORY-DECISION">1. Decision Making & Biases</a>
+        <a href="#CATEGORY-SOCIAL">2. Social Psychology & Groups</a>
+        <a href="#CATEGORY-HABITS">3. Habits, Work & Motivation</a>
+        <a href="#CATEGORY-MEMORY">4. Memory, Perception & Mind</a>
+        <a href="#CATEGORY-EMOTION">5. Emotion, Stress & Resilience</a>
+    </div>
+
+    <div class="main">
+        <button class="openbtn" onclick="toggleNav()" aria-label="Toggle Navigation">☰</button>
+
+        <div class="badge">Behavioral Science & Mental Models</div>
+        <div class="mainHeading">HUMAN PSYCHOLOGY</div>
+        <h1>45 ESSENTIAL LAWS, THEORIES & COGNITIVE BIASES EXPLAINED SIMPLY</h1>
+
+        <div class="hero-banner">
+            <img src="../../resources/human-psychology.png" alt="Human Psychology Laws and Theories">
+        </div>
+
+        <p class="tagline">
+            Why do we buy things we don't need? Why do we procrastinate on easy tasks, follow crowds blindly, and convince ourselves we're always right? Here is your complete, bite-sized reference guide to <strong>45 famous psychological theories, behavioral laws, and cognitive mental models</strong>. Each is explained in simple English with one relatable real-life example and a direct <strong>More Info</strong> link.
+        </p>
+
+        <!-- INTERACTIVE SEARCH BAR -->
+        <div class="search-container" id="SEARCH-SECTION">
+            <div class="search-input-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="psychSearch" placeholder="Search by name, law, example, bias, keyword..." autocomplete="off">
+                <button class="clear-btn" id="clearSearchBtn" title="Clear search">✕</button>
+            </div>
+            <div class="search-meta">
+                <div class="search-count" id="searchCount">Displaying all 45 theories & laws</div>
+                <div class="quick-tags">
+                    <span class="quick-tag active" data-filter="all">All (45)</span>
+                    <span class="quick-tag" data-filter="decision">Decision Making</span>
+                    <span class="quick-tag" data-filter="social">Social & Groups</span>
+                    <span class="quick-tag" data-filter="habits">Habits & Work</span>
+                    <span class="quick-tag" data-filter="memory">Memory & Mind</span>
+                    <span class="quick-tag" data-filter="emotion">Emotion & Stress</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="no-results" id="noResults">
+            No psychology laws found matching your search. Try searching for "bias", "memory", "social", or "stress".
+        </div>
+
+        <div class="theories-grid" id="theoriesContainer">
+
+            <br id="CATEGORY-DECISION">
+            <div class="category-section-title" data-category-heading="decision making">
+                <span>🧠 1. Decision Making & Cognitive Biases</span>
+            </div>
+    
+            <div class="theory-card" id="confirmation-bias" data-category="decision making" data-keywords="confirmation bias only believing what already fits our beliefs decision making our brains love being right. we naturally search for, notice, and remember facts that confirm what we already believe, while completely ignoring evidence that proves us wrong. if you believe a certain diet is healthy, you will read every article praising it and skip articles pointing out its health risks. actively ask yourself: 'what evidence would prove my belief wrong?'">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#01</div>
+                        <h2 class="theory-title">Confirmation Bias</h2>
+                        <p class="theory-subtitle">Only Believing What Already Fits Our Beliefs</p>
+                    </div>
+                    <span class="theory-category">Decision Making</span>
+                </div>
+                <p class="theory-explanation">
+                    Our brains love being right. We naturally search for, notice, and remember facts that confirm what we already believe, while completely ignoring evidence that proves us wrong.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> If you believe a certain diet is healthy, you will read every article praising it and skip articles pointing out its health risks.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Actively ask yourself: 'What evidence would prove my belief wrong?'
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Confirmation_bias" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="anchoring-effect" data-category="decision making" data-keywords="anchoring effect getting trapped by the first number you hear decision making when making decisions, our mind relies heavily on the very first piece of information offered (the 'anchor'), even if that number is completely random or irrelevant. a store tags a jacket as '$200' with a line crossed through it, selling it for '$80'. you feel like you got a bargain, even if the jacket is only worth $50. always research true market value before entering any price negotiation.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#02</div>
+                        <h2 class="theory-title">Anchoring Effect</h2>
+                        <p class="theory-subtitle">Getting Trapped by the First Number You Hear</p>
+                    </div>
+                    <span class="theory-category">Decision Making</span>
+                </div>
+                <p class="theory-explanation">
+                    When making decisions, our mind relies heavily on the very first piece of information offered (the 'anchor'), even if that number is completely random or irrelevant.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> A store tags a jacket as '$200' with a line crossed through it, selling it for '$80'. You feel like you got a bargain, even if the jacket is only worth $50.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Always research true market value before entering any price negotiation.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Anchoring_(cognitive_bias)" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="sunk-cost-fallacy" data-category="decision making" data-keywords="sunk cost fallacy holding on just because you already invested decision making we hate wasting money, time, or effort that we already spent. so we continue doing something bad or painful just because we don't want our past investment to feel wasted. sitting through a boring 3-hour movie until the bitter end simply because you already paid $15 for the cinema ticket. money and time already spent are gone forever. only judge future value.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#03</div>
+                        <h2 class="theory-title">Sunk Cost Fallacy</h2>
+                        <p class="theory-subtitle">Holding on Just Because You Already Invested</p>
+                    </div>
+                    <span class="theory-category">Decision Making</span>
+                </div>
+                <p class="theory-explanation">
+                    We hate wasting money, time, or effort that we already spent. So we continue doing something bad or painful just because we don't want our past investment to feel wasted.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> Sitting through a boring 3-hour movie until the bitter end simply because you already paid $15 for the cinema ticket.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Money and time already spent are gone forever. Only judge future value.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Sunk_cost" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="loss-aversion" data-category="decision making" data-keywords="loss aversion (prospect theory) losing $100 hurts twice as much as winning $100 feels good decision making daniel kahneman and amos tversky showed that the emotional pain of losing something is twice as strong as the joy of gaining the exact same thing. you feel far more angry and frustrated losing $50 from your wallet than you feel joyful finding a $50 note on the sidewalk. fear of loss often prevents people from taking smart, calculated risks in career and life.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#04</div>
+                        <h2 class="theory-title">Loss Aversion (Prospect Theory)</h2>
+                        <p class="theory-subtitle">Losing $100 Hurts Twice as Much as Winning $100 Feels Good</p>
+                    </div>
+                    <span class="theory-category">Decision Making</span>
+                </div>
+                <p class="theory-explanation">
+                    Daniel Kahneman and Amos Tversky showed that the emotional pain of losing something is twice as strong as the joy of gaining the exact same thing.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> You feel far more angry and frustrated losing $50 from your wallet than you feel joyful finding a $50 note on the sidewalk.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Fear of loss often prevents people from taking smart, calculated risks in career and life.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Loss_aversion" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="availability-heuristic" data-category="decision making" data-keywords="availability heuristic confusing 'memorable' with 'common' decision making if something can easily be recalled from memory (because it was dramatic, scary, or on the news), we mistakenly assume it happens all the time. after watching news reports about a plane crash, people get terrified of flying and drive long distances instead, even though driving is statistically 100 times more dangerous. don't judge safety or likelihood by dramatic headlines; check actual statistics.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#05</div>
+                        <h2 class="theory-title">Availability Heuristic</h2>
+                        <p class="theory-subtitle">Confusing 'Memorable' with 'Common'</p>
+                    </div>
+                    <span class="theory-category">Decision Making</span>
+                </div>
+                <p class="theory-explanation">
+                    If something can easily be recalled from memory (because it was dramatic, scary, or on the news), we mistakenly assume it happens all the time.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> After watching news reports about a plane crash, people get terrified of flying and drive long distances instead, even though driving is statistically 100 times more dangerous.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Don't judge safety or likelihood by dramatic headlines; check actual statistics.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Availability_heuristic" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="framing-effect" data-category="decision making" data-keywords="the framing effect how you word a choice dictates the answer decision making people react differently to the exact same information depending on whether it is presented as a gain (positive) or a loss (negative). patients prefer surgery with a '90% survival rate' over surgery with a '10% mortality rate', even though both numbers mean the exact same thing. reframe problems in both positive and negative lights before making up your mind.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#06</div>
+                        <h2 class="theory-title">The Framing Effect</h2>
+                        <p class="theory-subtitle">How You Word a Choice Dictates the Answer</p>
+                    </div>
+                    <span class="theory-category">Decision Making</span>
+                </div>
+                <p class="theory-explanation">
+                    People react differently to the exact same information depending on whether it is presented as a gain (positive) or a loss (negative).
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> Patients prefer surgery with a '90% survival rate' over surgery with a '10% mortality rate', even though both numbers mean the exact same thing.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Reframe problems in both positive and negative lights before making up your mind.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Framing_effect_(psychology)" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="dunning-kruger-effect" data-category="decision making" data-keywords="dunning-kruger effect beginners feel like experts; experts feel inadequate decision making people with very little knowledge in a field vastly overestimate their competence, while genuine experts tend to underestimate their abilities and assume everyone knows what they know. someone watches a 10-minute youtube video on cryptocurrency and starts advising their family like a seasoned wall street trader. true mastery starts with the humility to admit how much you still don't know.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#07</div>
+                        <h2 class="theory-title">Dunning-Kruger Effect</h2>
+                        <p class="theory-subtitle">Beginners Feel Like Experts; Experts Feel Inadequate</p>
+                    </div>
+                    <span class="theory-category">Decision Making</span>
+                </div>
+                <p class="theory-explanation">
+                    People with very little knowledge in a field vastly overestimate their competence, while genuine experts tend to underestimate their abilities and assume everyone knows what they know.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> Someone watches a 10-minute YouTube video on cryptocurrency and starts advising their family like a seasoned Wall Street trader.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> True mastery starts with the humility to admit how much you still don't know.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="hicks-law" data-category="decision making" data-keywords="hick's law more options = slower decisions decision making the time it takes to make a decision increases logarithmically with the number and complexity of choices available. too many choices leads to decision paralysis. a restaurant menu with 120 items leaves customers stressed and undecided, while a minimalist menu with 5 chef specials gets orders in seconds. simplify choices for yourself and your customers. remove friction to take action.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#08</div>
+                        <h2 class="theory-title">Hick's Law</h2>
+                        <p class="theory-subtitle">More Options = Slower Decisions</p>
+                    </div>
+                    <span class="theory-category">Decision Making</span>
+                </div>
+                <p class="theory-explanation">
+                    The time it takes to make a decision increases logarithmically with the number and complexity of choices available. Too many choices leads to decision paralysis.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> A restaurant menu with 120 items leaves customers stressed and undecided, while a minimalist menu with 5 chef specials gets orders in seconds.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Simplify choices for yourself and your customers. Remove friction to take action.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Hick%27s_law" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="decoy-effect" data-category="decision making" data-keywords="the decoy effect (asymmetric dominance) adding a bad third option to force your choice decision making when choosing between two items, introducing a third, poorly priced 'decoy' makes one of the original items look like an irresistible bargain. small popcorn: $3, medium popcorn: $6.50, large popcorn: $7. almost everyone buys the large, because the medium was deliberately priced high to act as bait. spot the decoy when purchasing subscriptions or meals to avoid paying for excess.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#09</div>
+                        <h2 class="theory-title">The Decoy Effect (Asymmetric Dominance)</h2>
+                        <p class="theory-subtitle">Adding a Bad Third Option to Force Your Choice</p>
+                    </div>
+                    <span class="theory-category">Decision Making</span>
+                </div>
+                <p class="theory-explanation">
+                    When choosing between two items, introducing a third, poorly priced 'decoy' makes one of the original items look like an irresistible bargain.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> Small Popcorn: $3, Medium Popcorn: $6.50, Large Popcorn: $7. Almost everyone buys the Large, because the Medium was deliberately priced high to act as bait.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Spot the decoy when purchasing subscriptions or meals to avoid paying for excess.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Decoy_effect" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="gamblers-fallacy" data-category="decision making" data-keywords="the gambler's fallacy believing past random events change future odds decision making the false belief that if an independent random event happens frequently in a row, the opposite outcome is 'due' to happen soon. a coin lands on 'heads' 5 times in a row, so a gambler bets their savings on 'tails', ignoring that the odds are still exactly 50/50. random processes have no memory. every roll or coin flip is completely independent.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#10</div>
+                        <h2 class="theory-title">The Gambler's Fallacy</h2>
+                        <p class="theory-subtitle">Believing Past Random Events Change Future Odds</p>
+                    </div>
+                    <span class="theory-category">Decision Making</span>
+                </div>
+                <p class="theory-explanation">
+                    The false belief that if an independent random event happens frequently in a row, the opposite outcome is 'due' to happen soon.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> A coin lands on 'Heads' 5 times in a row, so a gambler bets their savings on 'Tails', ignoring that the odds are still exactly 50/50.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Random processes have no memory. Every roll or coin flip is completely independent.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Gambler%27s_fallacy" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <br id="CATEGORY-SOCIAL">
+            <div class="category-section-title" data-category-heading="social & groups">
+                <span>👥 2. Social Psychology & Group Dynamics</span>
+            </div>
+    
+            <div class="theory-card" id="bystander-effect" data-category="social & groups" data-keywords="the bystander effect the more people watching, the less anyone helps social & groups individuals are much less likely to offer help to a victim when other people are present. everyone assumes someone else will call for help or step in. a person collapses on a busy city street with hundreds of pedestrians, and people just walk past assuming another person already called the ambulance. in an emergency, point directly at one specific person: 'you in the blue shirt, call 911!'">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#11</div>
+                        <h2 class="theory-title">The Bystander Effect</h2>
+                        <p class="theory-subtitle">The More People Watching, the Less Anyone Helps</p>
+                    </div>
+                    <span class="theory-category">Social & Groups</span>
+                </div>
+                <p class="theory-explanation">
+                    Individuals are much less likely to offer help to a victim when other people are present. Everyone assumes someone else will call for help or step in.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> A person collapses on a busy city street with hundreds of pedestrians, and people just walk past assuming another person already called the ambulance.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> In an emergency, point directly at one specific person: 'You in the blue shirt, call 911!'
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Bystander_effect" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="halo-effect" data-category="social & groups" data-keywords="the halo effect one attractive trait makes us think everything is great social & groups when we notice one positive quality in someone (such as physical attractiveness or charisma), our brain automatically assumes they are also kind, honest, and intelligent. a well-dressed, handsome job applicant is immediately perceived as trustworthy and hardworking during an interview, even before answering a single technical question. separate appearance and charming presentation from competence and character.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#12</div>
+                        <h2 class="theory-title">The Halo Effect</h2>
+                        <p class="theory-subtitle">One Attractive Trait Makes Us Think Everything is Great</p>
+                    </div>
+                    <span class="theory-category">Social & Groups</span>
+                </div>
+                <p class="theory-explanation">
+                    When we notice one positive quality in someone (such as physical attractiveness or charisma), our brain automatically assumes they are also kind, honest, and intelligent.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> A well-dressed, handsome job applicant is immediately perceived as trustworthy and hardworking during an interview, even before answering a single technical question.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Separate appearance and charming presentation from competence and character.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Halo_effect" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="social-proof" data-category="social & groups" data-keywords="social proof when unsure, we copy what others are doing social & groups in unfamiliar or ambiguous situations, people look to others for cues on how to behave, assuming that the crowd must know the right thing to do. in a new city, tourists always choose the restaurant with a line out the door over the empty restaurant next door. popular doesn't always mean correct. think independently before following the herd.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#13</div>
+                        <h2 class="theory-title">Social Proof</h2>
+                        <p class="theory-subtitle">When Unsure, We Copy What Others Are Doing</p>
+                    </div>
+                    <span class="theory-category">Social & Groups</span>
+                </div>
+                <p class="theory-explanation">
+                    In unfamiliar or ambiguous situations, people look to others for cues on how to behave, assuming that the crowd must know the right thing to do.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> In a new city, tourists always choose the restaurant with a line out the door over the empty restaurant next door.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Popular doesn't always mean correct. Think independently before following the herd.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Social_proof" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="pygmalion-effect" data-category="social & groups" data-keywords="the pygmalion effect (rosenthal effect) high expectations lead to higher performance social & groups when a leader, teacher, or coach genuinely expects great things from someone, that person unconsciously adopts those standards and improves their real-world results. teachers were told randomly chosen students were 'blooming geniuses'. one year later, those students showed dramatic, measurable iq gains because teachers gave them more encouragement. believe in your team and students; your genuine belief elevates their performance.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#14</div>
+                        <h2 class="theory-title">The Pygmalion Effect (Rosenthal Effect)</h2>
+                        <p class="theory-subtitle">High Expectations Lead to Higher Performance</p>
+                    </div>
+                    <span class="theory-category">Social & Groups</span>
+                </div>
+                <p class="theory-explanation">
+                    When a leader, teacher, or coach genuinely expects great things from someone, that person unconsciously adopts those standards and improves their real-world results.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> Teachers were told randomly chosen students were 'blooming geniuses'. One year later, those students showed dramatic, measurable IQ gains because teachers gave them more encouragement.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Believe in your team and students; your genuine belief elevates their performance.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Pygmalion_effect" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="reciprocity-norm" data-category="social & groups" data-keywords="rule of reciprocity the irresistible urge to return a favor social & groups human society is built on mutual aid. when someone does something nice or gives us an unsolicited gift, we feel a deep psychological pressure to repay them. charities that include free address labels or a small keychain in their donation letters receive double the donations of letters sent without a gift. give value first without expecting an immediate return; reciprocity will follow.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#15</div>
+                        <h2 class="theory-title">Rule of Reciprocity</h2>
+                        <p class="theory-subtitle">The Irresistible Urge to Return a Favor</p>
+                    </div>
+                    <span class="theory-category">Social & Groups</span>
+                </div>
+                <p class="theory-explanation">
+                    Human society is built on mutual aid. When someone does something nice or gives us an unsolicited gift, we feel a deep psychological pressure to repay them.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> Charities that include free address labels or a small keychain in their donation letters receive double the donations of letters sent without a gift.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Give value first without expecting an immediate return; reciprocity will follow.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Reciprocity_(social_psychology)" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="fundamental-attribution-error" data-category="social & groups" data-keywords="fundamental attribution error they are mean; i was just stressed social & groups we blame other people's mistakes on their bad character ('he cut me off because he's a jerk!'), but we blame our own mistakes on external bad luck ('i cut him off because i was rushing to hospital!'). a coworker is late to a meeting and you think they are lazy and irresponsible. when you are late, you blame traffic. give others the same benefit of the doubt you always grant yourself.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#16</div>
+                        <h2 class="theory-title">Fundamental Attribution Error</h2>
+                        <p class="theory-subtitle">They Are Mean; I Was Just Stressed</p>
+                    </div>
+                    <span class="theory-category">Social & Groups</span>
+                </div>
+                <p class="theory-explanation">
+                    We blame other people's mistakes on their bad character ('He cut me off because he's a jerk!'), but we blame our own mistakes on external bad luck ('I cut him off because I was rushing to hospital!').
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> A coworker is late to a meeting and you think they are lazy and irresponsible. When you are late, you blame traffic.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Give others the same benefit of the doubt you always grant yourself.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Fundamental_attribution_error" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="spotlight-effect" data-category="social & groups" data-keywords="the spotlight effect nobody is staring at you as much as you think social & groups we tend to believe that everyone is noticing our clothes, small flaws, mistakes, and awkward moments, when in reality most people are too busy worrying about themselves. you spill a drop of coffee on your shirt and spend the whole party feeling mortified, yet not a single person at the party even noticed it. liberate yourself: everyone is the main character in their own story, not yours.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#17</div>
+                        <h2 class="theory-title">The Spotlight Effect</h2>
+                        <p class="theory-subtitle">Nobody is Staring at You as Much as You Think</p>
+                    </div>
+                    <span class="theory-category">Social & Groups</span>
+                </div>
+                <p class="theory-explanation">
+                    We tend to believe that everyone is noticing our clothes, small flaws, mistakes, and awkward moments, when in reality most people are too busy worrying about themselves.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> You spill a drop of coffee on your shirt and spend the whole party feeling mortified, yet not a single person at the party even noticed it.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Liberate yourself: everyone is the main character in their own story, not yours.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Spotlight_effect" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="door-in-the-face" data-category="social & groups" data-keywords="door-in-the-face technique ask for something impossible, then ask for what you want social & groups the persuader starts by making a huge request that the person will surely refuse ('slam the door'). then they follow up with their real, smaller request, which now sounds completely reasonable. 'can you volunteer 10 hours every week for a year?' 'no way!' 'okay, could you just donate $10 today?' 'sure, i can do that.' recognize when a seller or negotiator is anchoring high just to make their target deal look cheap.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#18</div>
+                        <h2 class="theory-title">Door-in-the-Face Technique</h2>
+                        <p class="theory-subtitle">Ask for Something Impossible, Then Ask for What You Want</p>
+                    </div>
+                    <span class="theory-category">Social & Groups</span>
+                </div>
+                <p class="theory-explanation">
+                    The persuader starts by making a huge request that the person will surely refuse ('slam the door'). Then they follow up with their real, smaller request, which now sounds completely reasonable.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> 'Can you volunteer 10 hours every week for a year?' 'No way!' 'Okay, could you just donate $10 today?' 'Sure, I can do that.'
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Recognize when a seller or negotiator is anchoring high just to make their target deal look cheap.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Door-in-the-face_technique" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="foot-in-the-door" data-category="social & groups" data-keywords="foot-in-the-door technique start with a tiny favor to win a big one later social & groups getting a person to agree to a small, effortless request first dramatically increases the likelihood that they will later agree to a much larger, related request. first asking neighbors to sign a petition for safe driving (small). two weeks later, asking to put a huge billboard on their lawn (big) — agreement tripled! build commitments gradually; micro-actions create momentum.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#19</div>
+                        <h2 class="theory-title">Foot-in-the-Door Technique</h2>
+                        <p class="theory-subtitle">Start with a Tiny Favor to Win a Big One Later</p>
+                    </div>
+                    <span class="theory-category">Social & Groups</span>
+                </div>
+                <p class="theory-explanation">
+                    Getting a person to agree to a small, effortless request first dramatically increases the likelihood that they will later agree to a much larger, related request.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> First asking neighbors to sign a petition for safe driving (small). Two weeks later, asking to put a huge billboard on their lawn (big) — agreement tripled!
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Build commitments gradually; micro-actions create momentum.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Foot-in-the-door_technique" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="in-group-bias" data-category="social & groups" data-keywords="in-group bias (us vs. them) giving unfair favor to your own tribe social & groups humans form group identities over anything (sports, politics, programming languages) and naturally favor people in their own group while distrusting outsiders. in an office, employees from the engineering department immediately defend each other and critique the marketing team without reviewing the actual facts. focus on shared common goals across departments and groups to dismantle tribal friction.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#20</div>
+                        <h2 class="theory-title">In-Group Bias (Us vs. Them)</h2>
+                        <p class="theory-subtitle">Giving Unfair Favor to Your Own Tribe</p>
+                    </div>
+                    <span class="theory-category">Social & Groups</span>
+                </div>
+                <p class="theory-explanation">
+                    Humans form group identities over anything (sports, politics, programming languages) and naturally favor people in their own group while distrusting outsiders.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> In an office, employees from the engineering department immediately defend each other and critique the marketing team without reviewing the actual facts.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Focus on shared common goals across departments and groups to dismantle tribal friction.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/In-group_favoritism" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <br id="CATEGORY-HABITS">
+            <div class="category-section-title" data-category-heading="habits & motivation">
+                <span>⚡ 3. Habits, Work & Motivation Laws</span>
+            </div>
+    
+            <div class="theory-card" id="parkinsons-law" data-category="habits & motivation" data-keywords="parkinson's law work expands to fill whatever time you give it habits & motivation if you give yourself 2 weeks to finish a 2-hour report, the task will mentally expand in complexity and stress until it eats up the entire 2 weeks. a student given 30 days for an essay waits until day 29 to write it in an all-nighter, producing the exact same quality as if given 48 hours. set short, tight deadlines. force simplicity and speed by constraining time.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#21</div>
+                        <h2 class="theory-title">Parkinson's Law</h2>
+                        <p class="theory-subtitle">Work Expands to Fill Whatever Time You Give It</p>
+                    </div>
+                    <span class="theory-category">Habits & Motivation</span>
+                </div>
+                <p class="theory-explanation">
+                    If you give yourself 2 weeks to finish a 2-hour report, the task will mentally expand in complexity and stress until it eats up the entire 2 weeks.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> A student given 30 days for an essay waits until day 29 to write it in an all-nighter, producing the exact same quality as if given 48 hours.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Set short, tight deadlines. Force simplicity and speed by constraining time.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Parkinson%27s_law" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="yerkes-dodson-law" data-category="habits & motivation" data-keywords="yerkes-dodson law the sweet spot between boredom and panic habits & motivation performance increases with physiological or mental arousal (pressure), but only up to an optimal peak. too little stress causes laziness; too much stress causes burnout and choking. an athlete with zero adrenaline plays sluggishly. an athlete with optimal pressure plays with hyper-focus. an athlete overwhelmed by panic makes clumsy errors. manage stress to stay in the 'goldilocks zone' of peak focus.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#22</div>
+                        <h2 class="theory-title">Yerkes-Dodson Law</h2>
+                        <p class="theory-subtitle">The Sweet Spot Between Boredom and Panic</p>
+                    </div>
+                    <span class="theory-category">Habits & Motivation</span>
+                </div>
+                <p class="theory-explanation">
+                    Performance increases with physiological or mental arousal (pressure), but only up to an optimal peak. Too little stress causes laziness; too much stress causes burnout and choking.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> An athlete with zero adrenaline plays sluggishly. An athlete with optimal pressure plays with hyper-focus. An athlete overwhelmed by panic makes clumsy errors.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Manage stress to stay in the 'Goldilocks zone' of peak focus.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Yerkes%E2%80%93Dodson_law" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="operant-conditioning" data-category="habits & motivation" data-keywords="operant conditioning rewards repeat behavior; punishments stop it habits & motivation b.f. skinner demonstrated that behaviors followed by positive reinforcement (rewards) become habits, while behaviors followed by negative consequences die out. social media apps use variable rewards (random likes, notifications) like slot machines to keep users endlessly pulling down to refresh their feed. design your habits by rewarding yourself immediately after completing difficult tasks.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#23</div>
+                        <h2 class="theory-title">Operant Conditioning</h2>
+                        <p class="theory-subtitle">Rewards Repeat Behavior; Punishments Stop It</p>
+                    </div>
+                    <span class="theory-category">Habits & Motivation</span>
+                </div>
+                <p class="theory-explanation">
+                    B.F. Skinner demonstrated that behaviors followed by positive reinforcement (rewards) become habits, while behaviors followed by negative consequences die out.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> Social media apps use variable rewards (random likes, notifications) like slot machines to keep users endlessly pulling down to refresh their feed.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Design your habits by rewarding yourself immediately after completing difficult tasks.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Operant_conditioning" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="zeigarnik-effect" data-category="habits & motivation" data-keywords="the zeigarnik effect unfinished tasks keep buzzing in your head habits & motivation our brain remembers uncompleted or interrupted tasks much better than completed ones. an open loop creates mental tension that refuses to go away until resolved. tv shows always end on a cliffhanger so your brain cannot stop thinking about the next episode all week. to beat procrastination, just start for 2 minutes. once the task is open, your brain wants to finish it.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#24</div>
+                        <h2 class="theory-title">The Zeigarnik Effect</h2>
+                        <p class="theory-subtitle">Unfinished Tasks Keep Buzzing in Your Head</p>
+                    </div>
+                    <span class="theory-category">Habits & Motivation</span>
+                </div>
+                <p class="theory-explanation">
+                    Our brain remembers uncompleted or interrupted tasks much better than completed ones. An open loop creates mental tension that refuses to go away until resolved.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> TV shows always end on a cliffhanger so your brain cannot stop thinking about the next episode all week.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> To beat procrastination, just start for 2 minutes. Once the task is open, your brain wants to finish it.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Zeigarnik_effect" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="maslows-hierarchy" data-category="habits & motivation" data-keywords="maslow's hierarchy of needs you can't write poetry when you're starving habits & motivation human needs are arranged in a pyramid: physiological survival (food, water) comes first, followed by safety, love, self-esteem, and finally self-actualization. an employee terrified of losing their job (safety) cannot be motivated by high-minded corporate vision statements (self-actualization). take care of your basic sleep, food, and security before expecting peak creative genius.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#25</div>
+                        <h2 class="theory-title">Maslow's Hierarchy of Needs</h2>
+                        <p class="theory-subtitle">You Can't Write Poetry When You're Starving</p>
+                    </div>
+                    <span class="theory-category">Habits & Motivation</span>
+                </div>
+                <p class="theory-explanation">
+                    Human needs are arranged in a pyramid: physiological survival (food, water) comes first, followed by safety, love, self-esteem, and finally self-actualization.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> An employee terrified of losing their job (safety) cannot be motivated by high-minded corporate vision statements (self-actualization).
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Take care of your basic sleep, food, and security before expecting peak creative genius.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Maslow%27s_hierarchy_of_needs" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="flow-state" data-category="habits & motivation" data-keywords="flow state (csikszentmihalyi) complete immersion where time disappears habits & motivation a state of deep, effortless absorption where your skill level perfectly matches the difficulty of the challenge. you lose self-consciousness and time flies by. a programmer writing code for 4 straight hours without realizing the sun went down, completely locked in the rhythm. find flow by picking tasks slightly above your current comfort zone without distractions.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#26</div>
+                        <h2 class="theory-title">Flow State (Csikszentmihalyi)</h2>
+                        <p class="theory-subtitle">Complete Immersion Where Time Disappears</p>
+                    </div>
+                    <span class="theory-category">Habits & Motivation</span>
+                </div>
+                <p class="theory-explanation">
+                    A state of deep, effortless absorption where your skill level perfectly matches the difficulty of the challenge. You lose self-consciousness and time flies by.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> A programmer writing code for 4 straight hours without realizing the sun went down, completely locked in the rhythm.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Find flow by picking tasks slightly above your current comfort zone without distractions.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Flow_(psychology)" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="hawthorne-effect" data-category="habits & motivation" data-keywords="the hawthorne effect people work better when being observed habits & motivation individuals modify their behavior and increase productivity simply because they know they are being observed and given attention by others. factory workers' productivity jumped when researchers observed them, whether the factory lights were turned brighter or dimmer. use accountability partners or public study sessions to instantly boost productivity.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#27</div>
+                        <h2 class="theory-title">The Hawthorne Effect</h2>
+                        <p class="theory-subtitle">People Work Better When Being Observed</p>
+                    </div>
+                    <span class="theory-category">Habits & Motivation</span>
+                </div>
+                <p class="theory-explanation">
+                    Individuals modify their behavior and increase productivity simply because they know they are being observed and given attention by others.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> Factory workers' productivity jumped when researchers observed them, whether the factory lights were turned brighter or dimmer.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Use accountability partners or public study sessions to instantly boost productivity.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Hawthorne_effect" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="goodharts-law" data-category="habits & motivation" data-keywords="goodhart's law when a measure becomes a target, it ceases to be a good measure habits & motivation whenever you turn a simple performance metric into an explicit goal with rewards, people will find shortcuts to game the metric rather than doing genuine good work. a software team evaluated on 'number of lines of code written' begins writing bloated, copy-pasted code instead of clean, efficient solutions. align incentives with actual qualitative outcomes rather than easily gamed numbers.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#28</div>
+                        <h2 class="theory-title">Goodhart's Law</h2>
+                        <p class="theory-subtitle">When a Measure Becomes a Target, It Ceases to Be a Good Measure</p>
+                    </div>
+                    <span class="theory-category">Habits & Motivation</span>
+                </div>
+                <p class="theory-explanation">
+                    Whenever you turn a simple performance metric into an explicit goal with rewards, people will find shortcuts to game the metric rather than doing genuine good work.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> A software team evaluated on 'number of lines of code written' begins writing bloated, copy-pasted code instead of clean, efficient solutions.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Align incentives with actual qualitative outcomes rather than easily gamed numbers.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Goodhart%27s_law" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="murphys-law" data-category="habits & motivation" data-keywords="murphy's law anything that can go wrong, will go wrong habits & motivation a philosophical and psychological adage about defensive thinking: given enough time and attempts, any vulnerability or potential point of failure will eventually fail. if you don't take a backup of your hard drive, the day your computer crashes will be the exact night before your final university thesis is due. build redundancy, have backups, and prepare for unexpected emergencies before they happen.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#29</div>
+                        <h2 class="theory-title">Murphy's Law</h2>
+                        <p class="theory-subtitle">Anything That Can Go Wrong, Will Go Wrong</p>
+                    </div>
+                    <span class="theory-category">Habits & Motivation</span>
+                </div>
+                <p class="theory-explanation">
+                    A philosophical and psychological adage about defensive thinking: given enough time and attempts, any vulnerability or potential point of failure will eventually fail.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> If you don't take a backup of your hard drive, the day your computer crashes will be the exact night before your final university thesis is due.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Build redundancy, have backups, and prepare for unexpected emergencies before they happen.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Murphy%27s_law" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="self-determination-theory" data-category="habits & motivation" data-keywords="self-determination theory autonomy, competence, and relatedness habits & motivation deci and ryan's theory proved that lasting human motivation doesn't come from carrots and sticks. it requires 3 psychological needs: feeling in control (autonomy), feeling capable (competence), and feeling connected (relatedness). open-source contributors write millions of lines of free software because they love the freedom to choose their tasks and build mastery with peers. if you are unmotivated, check which leg of the stool is missing: autonomy, competence, or connection.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#30</div>
+                        <h2 class="theory-title">Self-Determination Theory</h2>
+                        <p class="theory-subtitle">Autonomy, Competence, and Relatedness</p>
+                    </div>
+                    <span class="theory-category">Habits & Motivation</span>
+                </div>
+                <p class="theory-explanation">
+                    Deci and Ryan's theory proved that lasting human motivation doesn't come from carrots and sticks. It requires 3 psychological needs: feeling in control (Autonomy), feeling capable (Competence), and feeling connected (Relatedness).
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> Open-source contributors write millions of lines of free software because they love the freedom to choose their tasks and build mastery with peers.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> If you are unmotivated, check which leg of the stool is missing: autonomy, competence, or connection.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Self-determination_theory" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <br id="CATEGORY-MEMORY">
+            <div class="category-section-title" data-category-heading="memory & mind">
+                <span>🧩 4. Memory, Perception & Learning</span>
+            </div>
+    
+            <div class="theory-card" id="millers-law" data-category="memory & mind" data-keywords="miller's law the magic number 7 (plus or minus 2) memory & mind george miller discovered that human short-term working memory can only hold about 7 items (±2) at a single time before information starts dropping out. phone numbers are divided into chunks (e.g. 555-019-2834) because memorizing 10 random continuous digits all at once overwhelms working memory. chunk complex information into groups of 3 to 5 items for easy recall.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#31</div>
+                        <h2 class="theory-title">Miller's Law</h2>
+                        <p class="theory-subtitle">The Magic Number 7 (Plus or Minus 2)</p>
+                    </div>
+                    <span class="theory-category">Memory & Mind</span>
+                </div>
+                <p class="theory-explanation">
+                    George Miller discovered that human short-term working memory can only hold about 7 items (±2) at a single time before information starts dropping out.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> Phone numbers are divided into chunks (e.g. 555-019-2834) because memorizing 10 random continuous digits all at once overwhelms working memory.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Chunk complex information into groups of 3 to 5 items for easy recall.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/The_Magical_Number_Seven,_Plus_or_Minus_Two" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="ebbinghaus-curve" data-category="memory & mind" data-keywords="ebbinghaus forgetting curve memory vanishes fast without spaced repetition memory & mind without active review, humans forget over 50% of newly learned information within 1 hour, and up to 70% within 24 hours. repeating it at increasing intervals flattens the curve. cramming for an exam the night before lets you pass tomorrow, but two weeks later you won't remember 90% of the material. use spaced repetition flashcards (day 1, day 3, day 7, day 30) for lifelong memory.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#32</div>
+                        <h2 class="theory-title">Ebbinghaus Forgetting Curve</h2>
+                        <p class="theory-subtitle">Memory Vanishes Fast Without Spaced Repetition</p>
+                    </div>
+                    <span class="theory-category">Memory & Mind</span>
+                </div>
+                <p class="theory-explanation">
+                    Without active review, humans forget over 50% of newly learned information within 1 hour, and up to 70% within 24 hours. Repeating it at increasing intervals flattens the curve.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> Cramming for an exam the night before lets you pass tomorrow, but two weeks later you won't remember 90% of the material.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Use spaced repetition flashcards (Day 1, Day 3, Day 7, Day 30) for lifelong memory.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Forgetting_curve" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="serial-position-effect" data-category="memory & mind" data-keywords="serial position effect remembering the first and the last memory & mind when given a list, people remember the first few items (primacy effect) and the last few items (recency effect), while the middle items become a foggy blur. in a 10-person job interview schedule, candidates who interview first or last are remembered far better than those interviewed in the middle of the afternoon. put your most important points at the very beginning and very end of presentations.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#33</div>
+                        <h2 class="theory-title">Serial Position Effect</h2>
+                        <p class="theory-subtitle">Remembering the First and the Last</p>
+                    </div>
+                    <span class="theory-category">Memory & Mind</span>
+                </div>
+                <p class="theory-explanation">
+                    When given a list, people remember the first few items (Primacy Effect) and the last few items (Recency Effect), while the middle items become a foggy blur.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> In a 10-person job interview schedule, candidates who interview first or last are remembered far better than those interviewed in the middle of the afternoon.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Put your most important points at the very beginning and very end of presentations.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Serial-position_effect" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="peak-end-rule" data-category="memory & mind" data-keywords="the peak-end rule we judge memories by the climax and the ending memory & mind people don't judge an experience by its average moment. we remember only two points: the most intense emotional moment (the peak) and how it ended. a 7-day vacation with 5 rainy days will be remembered fondly if day 6 had an amazing scuba dive (peak) and the last evening dinner was magical (end). end meetings, dates, and experiences on a deliberate high note.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#34</div>
+                        <h2 class="theory-title">The Peak-End Rule</h2>
+                        <p class="theory-subtitle">We Judge Memories by the Climax and the Ending</p>
+                    </div>
+                    <span class="theory-category">Memory & Mind</span>
+                </div>
+                <p class="theory-explanation">
+                    People don't judge an experience by its average moment. We remember only two points: the most intense emotional moment (the peak) and how it ended.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> A 7-day vacation with 5 rainy days will be remembered fondly if day 6 had an amazing scuba dive (peak) and the last evening dinner was magical (end).
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> End meetings, dates, and experiences on a deliberate high note.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Peak%E2%80%93end_rule" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="mere-exposure-effect" data-category="memory & mind" data-keywords="mere-exposure effect familiarity breeds liking memory & mind people develop a preference for things merely because they are familiar with them. the more times we see someone or hear a song, the more we naturally like it. a pop song sounds weird the first time you hear it, but after the radio plays it 15 times, you find yourself tapping your foot and singing along. consistency in branding and showing up builds trust without needing a hard sell.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#35</div>
+                        <h2 class="theory-title">Mere-Exposure Effect</h2>
+                        <p class="theory-subtitle">Familiarity Breeds Liking</p>
+                    </div>
+                    <span class="theory-category">Memory & Mind</span>
+                </div>
+                <p class="theory-explanation">
+                    People develop a preference for things merely because they are familiar with them. The more times we see someone or hear a song, the more we naturally like it.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> A pop song sounds weird the first time you hear it, but after the radio plays it 15 times, you find yourself tapping your foot and singing along.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Consistency in branding and showing up builds trust without needing a hard sell.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Mere-exposure_effect" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="cognitive-dissonance" data-category="memory & mind" data-keywords="cognitive dissonance the mental pain when actions clash with beliefs memory & mind leon festinger showed that holding two contradictory beliefs (or acting against your values) causes uncomfortable mental distress. to stop the pain, we invent excuses. a person who knows smoking causes cancer tells themselves: 'my grandfather smoked and lived to 90, so it's probably fine for me!' when you catch yourself rationalizing, pause and face the uncomfortable truth.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#36</div>
+                        <h2 class="theory-title">Cognitive Dissonance</h2>
+                        <p class="theory-subtitle">The Mental Pain When Actions Clash with Beliefs</p>
+                    </div>
+                    <span class="theory-category">Memory & Mind</span>
+                </div>
+                <p class="theory-explanation">
+                    Leon Festinger showed that holding two contradictory beliefs (or acting against your values) causes uncomfortable mental distress. To stop the pain, we invent excuses.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> A person who knows smoking causes cancer tells themselves: 'My grandfather smoked and lived to 90, so it's probably fine for me!'
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> When you catch yourself rationalizing, pause and face the uncomfortable truth.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Cognitive_dissonance" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="fitts-law" data-category="memory & mind" data-keywords="fitts's law bigger and closer targets are hit faster memory & mind the time required to rapidly move to a target area is a function of the distance to the target and the width of the target. smartphone apps place the primary action button (like 'call' or 'send') large and right at the bottom where your thumb naturally rests. make desired actions huge and close at hand; make destructive actions small and far away.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#37</div>
+                        <h2 class="theory-title">Fitts's Law</h2>
+                        <p class="theory-subtitle">Bigger and Closer Targets Are Hit Faster</p>
+                    </div>
+                    <span class="theory-category">Memory & Mind</span>
+                </div>
+                <p class="theory-explanation">
+                    The time required to rapidly move to a target area is a function of the distance to the target and the width of the target.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> Smartphone apps place the primary action button (like 'Call' or 'Send') large and right at the bottom where your thumb naturally rests.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Make desired actions huge and close at hand; make destructive actions small and far away.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Fitts%27s_law" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="weber-fechner-law" data-category="memory & mind" data-keywords="weber-fechner law perception is relative, not absolute memory & mind the noticeable change in a stimulus is a constant ratio of the original stimulus. our senses detect percentage differences, not raw amounts. if you hold a 100g weight, adding 10g is noticeable. but if you hold a 20kg barbell, adding 10g is completely imperceptible. people will drive 15 minutes to save $10 on a $25 toaster, but won't drive 15 minutes to save $10 on a $1,000 laptop.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#38</div>
+                        <h2 class="theory-title">Weber-Fechner Law</h2>
+                        <p class="theory-subtitle">Perception is Relative, Not Absolute</p>
+                    </div>
+                    <span class="theory-category">Memory & Mind</span>
+                </div>
+                <p class="theory-explanation">
+                    The noticeable change in a stimulus is a constant ratio of the original stimulus. Our senses detect percentage differences, not raw amounts.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> If you hold a 100g weight, adding 10g is noticeable. But if you hold a 20kg barbell, adding 10g is completely imperceptible.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> People will drive 15 minutes to save $10 on a $25 toaster, but won't drive 15 minutes to save $10 on a $1,000 laptop.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Weber%E2%80%93Fechner_law" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="schema-theory" data-category="memory & mind" data-keywords="schema theory the mental templates that guide our world memory & mind schemas are mental building blocks of knowledge that categorize information. when you enter a classroom or hospital, you instantly know how to act without thinking. when someone mentions a 'birthday party', your mind instantly pictures cake, candles, gifts, and singing, even without anyone describing them. new ideas are learned best when anchored to a schema people already understand.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#39</div>
+                        <h2 class="theory-title">Schema Theory</h2>
+                        <p class="theory-subtitle">The Mental Templates That Guide Our World</p>
+                    </div>
+                    <span class="theory-category">Memory & Mind</span>
+                </div>
+                <p class="theory-explanation">
+                    Schemas are mental building blocks of knowledge that categorize information. When you enter a classroom or hospital, you instantly know how to act without thinking.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> When someone mentions a 'birthday party', your mind instantly pictures cake, candles, gifts, and singing, even without anyone describing them.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> New ideas are learned best when anchored to a schema people already understand.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Schema_(psychology)" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="false-memory-effect" data-category="memory & mind" data-keywords="false memory effect memories can be altered and invented memory & mind elizabeth loftus showed that human memory is not a video recording. it is a creative reconstruction that can easily be contaminated by suggestive questions and imagination. witnesses asked 'how fast were cars going when they smashed into each other?' remembered broken glass that was never actually present at the accident scene. never rely solely on memory for vital details; keep written logs and receipts.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#40</div>
+                        <h2 class="theory-title">False Memory Effect</h2>
+                        <p class="theory-subtitle">Memories Can Be Altered and Invented</p>
+                    </div>
+                    <span class="theory-category">Memory & Mind</span>
+                </div>
+                <p class="theory-explanation">
+                    Elizabeth Loftus showed that human memory is not a video recording. It is a creative reconstruction that can easily be contaminated by suggestive questions and imagination.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> Witnesses asked 'How fast were cars going when they smashed into each other?' remembered broken glass that was never actually present at the accident scene.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Never rely solely on memory for vital details; keep written logs and receipts.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/False_memory" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <br id="CATEGORY-EMOTION">
+            <div class="category-section-title" data-category-heading="emotion & stress">
+                <span>🌱 5. Emotion, Stress & Resilience</span>
+            </div>
+    
+            <div class="theory-card" id="learned-helplessness" data-category="emotion & stress" data-keywords="learned helplessness giving up when you believe you have no control emotion & stress martin seligman discovered that when humans or animals endure repeated painful events with no way to escape, they eventually stop trying to escape even when the door is opened. a student who fails multiple math exams concludes 'i am born bad at math' and stops studying altogether, even when given an easy tutor. break the helplessness cycle by scoring small, guaranteed micro-victories to regain your agency.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#41</div>
+                        <h2 class="theory-title">Learned Helplessness</h2>
+                        <p class="theory-subtitle">Giving Up When You Believe You Have No Control</p>
+                    </div>
+                    <span class="theory-category">Emotion & Stress</span>
+                </div>
+                <p class="theory-explanation">
+                    Martin Seligman discovered that when humans or animals endure repeated painful events with no way to escape, they eventually stop trying to escape even when the door is opened.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> A student who fails multiple math exams concludes 'I am born bad at math' and stops studying altogether, even when given an easy tutor.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Break the helplessness cycle by scoring small, guaranteed micro-victories to regain your agency.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Learned_helplessness" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="negativity-bias" data-category="emotion & stress" data-keywords="negativity bias bad news weighs 3x more than good news emotion & stress for ancestral survival, avoiding a predator was more important than finding sweet fruit. so our brains evolved to react much more strongly to negative events than positive ones. you receive 10 glowing compliments and 1 mild criticism at work. you spend the whole weekend ruminating on the single criticism. deliberately celebrate wins and give yourself 5 positive reminders to balance 1 critique.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#42</div>
+                        <h2 class="theory-title">Negativity Bias</h2>
+                        <p class="theory-subtitle">Bad News Weighs 3x More Than Good News</p>
+                    </div>
+                    <span class="theory-category">Emotion & Stress</span>
+                </div>
+                <p class="theory-explanation">
+                    For ancestral survival, avoiding a predator was more important than finding sweet fruit. So our brains evolved to react much more strongly to negative events than positive ones.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> You receive 10 glowing compliments and 1 mild criticism at work. You spend the whole weekend ruminating on the single criticism.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Deliberately celebrate wins and give yourself 5 positive reminders to balance 1 critique.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Negativity_bias" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="hedonic-treadmill" data-category="emotion & stress" data-keywords="the hedonic treadmill happiness always returns to baseline emotion & stress humans quickly adapt to major positive or negative life events. after the initial thrill of a promotion or a new car, your happiness quickly returns to your default set point. lottery winners experience a surge of ecstasy for a few months, but studies show their daily happiness returns to normal within a year. lasting fulfillment comes from purpose, growth, and relationships, not endless material upgrades.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#43</div>
+                        <h2 class="theory-title">The Hedonic Treadmill</h2>
+                        <p class="theory-subtitle">Happiness Always Returns to Baseline</p>
+                    </div>
+                    <span class="theory-category">Emotion & Stress</span>
+                </div>
+                <p class="theory-explanation">
+                    Humans quickly adapt to major positive or negative life events. After the initial thrill of a promotion or a new car, your happiness quickly returns to your default set point.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> Lottery winners experience a surge of ecstasy for a few months, but studies show their daily happiness returns to normal within a year.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Lasting fulfillment comes from purpose, growth, and relationships, not endless material upgrades.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Hedonic_treadmill" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="impostor-syndrome" data-category="emotion & stress" data-keywords="impostor syndrome feeling like a fake despite proven success emotion & stress high-achieving individuals often doubt their accomplishments and suffer a persistent internalized fear of being exposed as an unqualified 'fraud'. a brilliant software engineer who built complex features doubts their skills and believes they only got the job through luck or timing. almost everyone at the top feels this way. self-doubt is often proof that you care about high standards.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#44</div>
+                        <h2 class="theory-title">Impostor Syndrome</h2>
+                        <p class="theory-subtitle">Feeling Like a Fake Despite Proven Success</p>
+                    </div>
+                    <span class="theory-category">Emotion & Stress</span>
+                </div>
+                <p class="theory-explanation">
+                    High-achieving individuals often doubt their accomplishments and suffer a persistent internalized fear of being exposed as an unqualified 'fraud'.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> A brilliant software engineer who built complex features doubts their skills and believes they only got the job through luck or timing.
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> Almost everyone at the top feels this way. Self-doubt is often proof that you care about high standards.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Impostor_syndrome" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+            <div class="theory-card" id="cognitive-reappraisal" data-category="emotion & stress" data-keywords="cognitive reappraisal changing the meaning changes the emotion emotion & stress an emotion regulation strategy where you consciously reinterpret the meaning of a stressful situation to alter its emotional impact. instead of thinking 'the flight delay ruined my trip and i want to scream!', thinking: 'i finally have 3 quiet hours to read my favorite book.' you cannot always control what happens, but you have 100% control over how you frame it.">
+                <div class="theory-header">
+                    <div class="theory-title-group">
+                        <div class="theory-number">#45</div>
+                        <h2 class="theory-title">Cognitive Reappraisal</h2>
+                        <p class="theory-subtitle">Changing the Meaning Changes the Emotion</p>
+                    </div>
+                    <span class="theory-category">Emotion & Stress</span>
+                </div>
+                <p class="theory-explanation">
+                    An emotion regulation strategy where you consciously reinterpret the meaning of a stressful situation to alter its emotional impact.
+                </p>
+                <div class="theory-example">
+                    <strong>🎯 Everyday Example:</strong> Instead of thinking 'The flight delay ruined my trip and I want to scream!', thinking: 'I finally have 3 quiet hours to read my favorite book.'
+                </div>
+                <div class="theory-footer">
+                    <div class="theory-takeaway">
+                        <strong>💡 Key Lesson:</strong> You cannot always control what happens, but you have 100% control over how you frame it.
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Cognitive_reappraisal" target="_blank" rel="noopener noreferrer" class="more-info-btn">
+                        More Info ↗
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="end">
+            <p>Curated with curiosity by <a href="../../" style="color: var(--accent-green-bright); text-decoration: none; font-weight: bold;">Narikodan Hridul</a>.</p>
+        </div>
+    </div>
+
+    <!-- Client-Side Search & Sidenav Script -->
+    <script>
+        // Sidenav controls
+        function openNav() {
+            document.getElementById("mySidenav").classList.add("open");
+            document.getElementById("sidenavOverlay").classList.add("open");
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").classList.remove("open");
+            document.getElementById("sidenavOverlay").classList.remove("open");
+            document.body.style.overflow = "";
+        }
+
+        function toggleNav() {
+            const nav = document.getElementById("mySidenav");
+            if (nav.classList.contains("open")) {
+                closeNav();
+            } else {
+                openNav();
+            }
+        }
+
+        // Search & Filter Logic
+        const searchInput = document.getElementById('psychSearch');
+        const clearBtn = document.getElementById('clearSearchBtn');
+        const cards = document.querySelectorAll('.theory-card');
+        const categoryTitles = document.querySelectorAll('.category-section-title');
+        const searchCount = document.getElementById('searchCount');
+        const noResults = document.getElementById('noResults');
+        const filterTags = document.querySelectorAll('.quick-tag');
+
+        let currentFilter = 'all';
+
+        function filterTheories() {
+            const query = searchInput.value.toLowerCase().trim();
+            clearBtn.style.display = query.length > 0 ? 'inline-block' : 'none';
+
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const keywords = card.getAttribute('data-keywords') || '';
+                const category = card.getAttribute('data-category') || '';
+
+                const matchesQuery = query === '' || keywords.includes(query);
+                const matchesFilter = currentFilter === 'all' || category.includes(currentFilter);
+
+                if (matchesQuery && matchesFilter) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Update category headers visibility
+            categoryTitles.forEach(header => {
+                const cat = header.getAttribute('data-category-heading');
+                // Check if any card under this category is visible
+                const anyVisible = Array.from(cards).some(c => 
+                    c.getAttribute('data-category').includes(cat) && c.style.display !== 'none'
+                );
+                header.style.display = anyVisible ? 'flex' : 'none';
+            });
+
+            // Update count text
+            if (visibleCount === 0) {
+                noResults.style.display = 'block';
+                searchCount.textContent = 'No matching theories found';
+            } else {
+                noResults.style.display = 'none';
+                searchCount.textContent = `Showing ${visibleCount} of ${cards.length} theories`;
+            }
+        }
+
+        searchInput.addEventListener('input', filterTheories);
+
+        clearBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            filterTheories();
+            searchInput.focus();
+        });
+
+        filterTags.forEach(tag => {
+            tag.addEventListener('click', () => {
+                filterTags.forEach(t => t.classList.remove('active'));
+                tag.classList.add('active');
+                currentFilter = tag.getAttribute('data-filter');
+                filterTheories();
+            });
+        });
+    </script>
+</body>
+</html>
