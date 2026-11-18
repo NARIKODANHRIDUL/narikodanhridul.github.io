@@ -24,6 +24,10 @@ html {
   font-family: 'Rowdies', cursive; 
   font-family: 'Russo One', sans-serif;  heading bold text
   font-family: 'Staatliches', cursive; good for heading - CAPTIAL ONLY*/ 
+:root {
+  --heading-size: clamp(3rem, 14vw, 140px);
+}
+
 * {
   font-family: 'Poppins', sans-serif;
   box-sizing: border-box;  
@@ -247,7 +251,9 @@ ol{
 .boxCollage {
   /* background-color: #333 ; */
   /* height: 500px; */
-  padding: 20px 20px;
+  padding: 0px 10px 20px 10px;
+  position: relative;
+  z-index: 1;
   width: 100%; max-width: 100%; box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
@@ -260,7 +266,7 @@ ol{
   top: 0px;
   left: 10px;
   font-family: 'Staatliches', cursive;
-  font-size: clamp(2.8rem, 14vw, 140px); white-space: nowrap; pointer-events: none; max-width: 100%; overflow: hidden; line-height: 1;
+  font-size: var(--heading-size); white-space: nowrap; pointer-events: none; max-width: 100%; overflow: hidden; line-height: 1;
   color: rgba(204, 255, 204, 0.151);
   
 }
@@ -268,12 +274,13 @@ ol{
  /* background-color: #333 ; */
  position: relative;
  overflow-x: hidden;
- padding-top: 100px ;
+ padding-top: calc(var(--heading-size) * 0.9 - 10px);
 }
 
 
 .card{
   position: relative;
+  z-index: 1;
   flex-direction: column;
   overflow: hidden;
   background-color: #222;
@@ -341,6 +348,7 @@ ol{
 .coding{
   overflow: hidden;
   position: relative;
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -655,12 +663,11 @@ hr{
   
 
   .heading{
-    font-size: 23vw;
-    /* background-color: #669455; */
-    padding-top: 0.3vw;
+    font-size: var(--heading-size);
+    padding-top: 0;
   }
   .container{
-    padding-top: 14vw;
+    padding-top: calc(var(--heading-size) * 0.9 - 10px);
   }
 
   .mecontainer{
