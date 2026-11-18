@@ -7,17 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
     <link rel="stylesheet" href="../style.css">
     <link rel="icon" href="../../resources/sparkle.png" sizes="192x192" />
-    <title>IPC with SPM & CPM | Embedded Multi-Core Communication Guide</title>
+    <title>IPC with SPM & CPM | Simple Multi-Core Communication Guide</title>
 
     <style>
         :root {
             --accent-green: #90b781;
             --accent-green-bright: #a6df90;
-            --accent-cyan: #4ecdc4;
-            --accent-orange: #f39c12;
-            --accent-purple: #9b59b6;
-            --card-bg: #141414;
-            --card-border: #262626;
+            --accent-cyan: #38bdf8;
+            --accent-gold: #f59e0b;
+            --card-bg: #141714;
+            --card-border: #243522;
             --pill-bg: #1c2619;
             --text-sub: #b0b0b0;
         }
@@ -41,7 +40,7 @@
         }
 
         .tagline {
-            font-size: 1.15rem;
+            font-size: 1.12rem;
             color: #dedede;
             line-height: 1.6;
             max-width: 950px;
@@ -187,91 +186,146 @@
             font-weight: 700;
         }
 
-        /* Diagrams & Visual Panels */
-        .diagram-container {
-            background: #0d120e;
-            border: 1px solid #263824;
-            border-radius: 14px;
-            padding: 20px;
-            margin: 20px 0;
+        /* Section Cards */
+        .blog-section {
+            background: #111411;
+            border: 1px solid #202c1f;
+            border-radius: 16px;
+            padding: 26px 28px;
+            margin-bottom: 26px;
             max-width: 950px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-            overflow-x: auto;
+            box-sizing: border-box;
         }
 
-        .diagram-title {
-            font-size: 0.95rem;
-            font-weight: 700;
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(270px, 100%), 1fr));
+            gap: 16px;
+            margin: 18px 0;
+        }
+
+        .concept-card {
+            background: #161c16;
+            border: 1px solid #283a26;
+            border-radius: 12px;
+            padding: 18px 20px;
+        }
+
+        .concept-card h3 {
+            font-size: 1.15rem;
             color: var(--accent-green-bright);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
+            margin-top: 0;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .ascii-art {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.84rem;
-            color: #a6df90;
-            line-height: 1.45;
-            white-space: pre;
+        .concept-card p {
+            font-size: 0.92rem;
+            line-height: 1.55;
+            color: #d1d5db;
             margin: 0;
         }
 
-        /* Dual Column Architecture Comparison */
-        .dual-column {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
-            gap: 16px;
-            margin: 18px 0;
-            max-width: 950px;
-        }
-
-        .column-card {
-            background: #141714;
-            border: 1px solid #283726;
-            border-radius: 12px;
-            padding: 20px;
-        }
-
-        .column-card h3 {
-            margin-top: 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .column-card.sender h3 {
-            color: var(--accent-orange);
-        }
-
-        .column-card.receiver h3 {
-            color: var(--accent-cyan);
-        }
-
-        .step-list {
-            padding-left: 20px;
-            margin: 12px 0;
-        }
-
-        .step-list li {
-            margin-bottom: 10px;
-            line-height: 1.5;
-            color: #dcdcdc;
-            font-size: 0.92rem;
-        }
-
-        .step-list li strong {
-            color: #fff;
-        }
-
+        /* Tables */
         .table-responsive {
-            max-width: 950px;
+            max-width: 100%;
             overflow-x: auto;
             border-radius: 12px;
-            margin: 20px 0;
+            margin: 18px 0;
+            border: 1px solid #233521;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #0f130f;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background: #192418;
+            color: var(--accent-green-bright);
+            padding: 12px 14px;
+            font-weight: 700;
+            border-bottom: 1px solid #2d422a;
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 12px 14px;
+            border-bottom: 1px solid #1a2619;
+            color: #d1d5db;
+            line-height: 1.5;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) {
+            background: #131913;
+        }
+
+        /* Callout Boxes */
+        .tip-box {
+            background: rgba(166, 223, 144, 0.08);
+            border-left: 4px solid var(--accent-green-bright);
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin: 16px 0;
+            color: #d8edd1;
+            font-size: 0.92rem;
+            line-height: 1.55;
+        }
+
+        .warning-box {
+            background: rgba(245, 158, 11, 0.08);
+            border-left: 4px solid var(--accent-gold);
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin: 16px 0;
+            color: #fde68a;
+            font-size: 0.92rem;
+            line-height: 1.55;
+        }
+
+        .formula-card {
+            background: #090c09;
+            border: 1px solid #2c3f2a;
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin: 14px 0;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.95rem;
+            color: var(--accent-green-bright);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .formula-title {
+            font-weight: 700;
+            color: #fff;
+            font-size: 0.88rem;
+        }
+
+        .ascii-art {
+            background: #090c09;
+            border: 1px solid #233421;
+            border-radius: 10px;
+            padding: 14px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            color: #a6df90;
+            overflow-x: auto;
+            line-height: 1.4;
+            margin: 14px 0;
+            white-space: pre;
         }
     </style>
 </head>
@@ -290,489 +344,332 @@
             <span class="nav-indicator-dot"></span> Contents
         </div>
         <a href="#SEARCH-SECTION">Search & Filter</a>
-        <a href="#OVERVIEW">1. Architecture Foundations</a>
-        <a href="#SPM-VS-CPM">2. SPM vs. CPM Memory Models</a>
-        <a href="#RING-BUFFER">3. Circular Ring Buffer & Math</a>
-        <a href="#SENDER-PERSPECTIVE">4. Sender's Perspective & Full Check</a>
-        <a href="#RECEIVER-PERSPECTIVE">5. Receiver's Perspective & Empty Check</a>
-        <a href="#PICTORIAL-WALKTHROUGH">6. Pictorial Walkthrough & Handshake</a>
-        <a href="#COMPARISON-TABLES">7. Comprehensive Comparison Tables</a>
-        <a href="#C-IMPLEMENTATION">8. Embedded C Code Implementation</a>
-        <a href="#RACE-CONDITIONS">9. Safe Programming: Memory Barriers & Common Mistakes</a>
+        <a href="#WHAT-IS-IPC-SPM-CPM">1. What is IPC, SPM & CPM?</a>
+        <a href="#SENDER-PERSPECTIVE">2. Sender: What to Check & Do</a>
+        <a href="#RECEIVER-PERSPECTIVE">3. Receiver: What to Check & Do</a>
+        <a href="#TABLE-RESPONSIBILITIES">4. Table: SPM vs CPM Actions</a>
+        <a href="#FULL-EMPTY-CHECKS">5. Full Check & Empty Check</a>
+        <a href="#TABLE-HEAD-TAIL">6. Table: Head & Tail Updates</a>
+        <a href="#SUMMARY-CHEATSHEET">7. Quick Summary Cheat Sheet</a>
     </div>
 
     <div class="main">
         <button class="openbtn" onclick="toggleNav()" aria-label="Toggle Navigation">☰</button>
 
-        <div class="badge">Embedded Systems & Hardware Architecture</div>
-        <div class="mainHeading">IPC WITH SPM & CPM</div>
-        <h1>INTER-CORE COMMUNICATION: SCRATCHPAD (SPM) & COMMON PACKET MEMORY (CPM)</h1>
+        <div class="badge">Hardware & Embedded Systems</div>
+        <div class="mainHeading">IPC: SPM & CPM EXPLAINED</div>
+        <h1>HOW MULTI-CORE PROCESSORS TALK USING SCRATCHPAD AND COMMON PACKET MEMORY</h1>
 
         <div class="hero-banner">
             <img src="../../resources/ipc-spm-cpm.png" alt="IPC Communication with SPM and CPM Architecture">
         </div>
 
         <p class="tagline">
-            When a computer chip has two or more processor cores running together, they need a fast way to talk to each other without slowing down. Normal computer methods like operating system sockets or big shared caches are too slow and unpredictable for real-time systems like cars or robots. Instead, hardware designers use two smart memory areas: <strong>Scratchpad Memory (SPM)</strong> (a core's private, super-fast notepad) and <strong>Common Packet Memory (CPM)</strong> (a shared mailbox where messages are exchanged safely using simple <strong>Full Checks</strong> and <strong>Empty Checks</strong>).
+            When multiple processor cores live on the same chip, they need to share messages without slowing down or crashing into each other. Here is the simple, complete guide to <strong>IPC (Inter-Process Communication)</strong>, <strong>SPM (Scratchpad Memory)</strong>, and <strong>CPM (Common Packet Memory)</strong>, including exactly what the sender and receiver must check, do, and update. No complicated code required!
         </p>
 
         <!-- INTERACTIVE SEARCH BAR -->
         <div class="search-container" id="SEARCH-SECTION">
             <div class="search-input-box">
                 <span class="search-icon">🔍</span>
-                <input type="text" id="ipcSearch" placeholder="Search IPC concepts, full check, empty check, SPM, CPM, sender, receiver..." autocomplete="off">
+                <input type="text" id="ipcSearch" placeholder="Search full check, empty check, SPM, CPM, sender, receiver, head, tail..." autocomplete="off">
                 <button class="clear-btn" id="clearSearchBtn" title="Clear search">✕</button>
             </div>
             <div class="search-meta">
                 <div class="search-count" id="searchCount">Displaying all sections</div>
                 <div class="quick-tags">
                     <span class="quick-tag active" data-filter="all">All</span>
+                    <span class="quick-tag" data-filter="ipc">IPC</span>
                     <span class="quick-tag" data-filter="spm">SPM</span>
                     <span class="quick-tag" data-filter="cpm">CPM</span>
                     <span class="quick-tag" data-filter="sender">Sender</span>
                     <span class="quick-tag" data-filter="receiver">Receiver</span>
                     <span class="quick-tag" data-filter="full check">Full Check</span>
                     <span class="quick-tag" data-filter="empty check">Empty Check</span>
-                    <span class="quick-tag" data-filter="code">C Code</span>
+                    <span class="quick-tag" data-filter="head">Head & Tail</span>
                 </div>
             </div>
         </div>
 
-        <!-- SECTION 1: ARCHITECTURE FOUNDATIONS -->
-        <br id="OVERVIEW">
-        <div class="blog-section" data-keywords="architecture foundations ipc inter process communication multicore rtos embedded hardware determinism">
-            <h2>1. ARCHITECTURAL FOUNDATIONS OF MULTI-CORE IPC</h2>
+        <!-- SECTION 1: WHAT IS IPC, SPM & CPM -->
+        <br id="WHAT-IS-IPC-SPM-CPM">
+        <div class="blog-section" data-keywords="what is ipc spm cpm basics core scratchpad memory common packet memory differences">
+            <h2>1. WHAT IS IPC, SPM & CPM?</h2>
             <p>
-                When two processor cores (like a phone's main CPU and its real-time sensor chip) need to share data fast, normal operating system pipes are far too slow. They waste time switching modes and jumping through operating system layers.
+                Before looking at checks and pointers, let's understand the basic meaning of each term in plain English:
             </p>
-            <p>
-                Instead, embedded chips use fast on-chip memory split into two simple parts:
-            </p>
-            <ul>
-                <li><strong>SPM (Scratchpad Memory):</strong> A private, super-fast memory area connected directly to each core. It has zero waiting time.</li>
-                <li><strong>CPM (Common Packet Memory):</strong> A shared mailbox memory where both cores can read and write messages in order (First In, First Out).</li>
-            </ul>
 
-            <!-- PICTORIAL ARCHITECTURE DIAGRAM -->
-            <div class="diagram-container">
-                <div class="diagram-title">📊 Figure 1: Hardware IPC Topology (SPM vs. CPM Interconnect)</div>
-                <div class="ascii-art">
-+------------------------------------+          +------------------------------------+
-|            SENDER CORE             |          |           RECEIVER CORE            |
-|       (Core 0 / Producer)          |          |        (Core 1 / Consumer)         |
-|                                    |          |                                    |
-|   +----------------------------+   |          |   +----------------------------+   |
-|   |   Local SPM (Scratchpad)   |   |          |   |   Local SPM (Scratchpad)   |   |
-|   |  - Fast staging buffer     |   |          |   |  - Ingestion workspace     |   |
-|   |  - 1-cycle access latency  |   |          |   |  - 1-cycle access latency  |   |
-|   |  - Zero bus contention     |   |          |   |  - Zero bus contention     |   |
-|   +--------------+-------------+   |          |   +-------------+--------------+   |
-+------------------|-----------------+          +-----------------|------------------+
-                   |                                              |
-             Local Core Bus                                 Local Core Bus
-                   |                                              |
-+------------------v----------------------------------------------v------------------+
-|                             SYSTEM INTERCONNECT / AXI BUS                          |
-+------------------------------------------+-----------------------------------------+
-                                           |
-                                  Shared Memory Port
-                                           |
-                  +------------------------v------------------------+
-                  |         SHARED CPM (Common Packet Memory)       |
-                  |                                                 |
-                  |   +--------+--------+--------+--------+-----+   |
-                  |   | Slot 0 | Slot 1 | Slot 2 | Slot 3 | ... |   |
-                  |   +--------+--------+--------+--------+-----+   |
-                  |        ^                          ^             |
-                  |        | (Tail: Read Ptr)         | (Head: Write|
-                  |        |                          |      Ptr)   |
-                  |   +----+--------------------------+---------+   |
-                  |   | Status Regs: EMPTY FLAG / FULL FLAG     |   |
-                  |   +-----------------------------------------+   |
-                  +-------------------------------------------------+
+            <div class="concept-grid">
+                <!-- IPC -->
+                <div class="concept-card">
+                    <h3>💬 What is IPC?</h3>
+                    <p>
+                        <strong>IPC</strong> stands for <strong>Inter-Process Communication</strong> (or Inter-Core Communication). It simply means: <em>how two or more processor cores on the same chip talk, share data, and send messages to each other</em>.
+                    </p>
+                </div>
+
+                <!-- SPM -->
+                <div class="concept-card">
+                    <h3>📝 What is SPM?</h3>
+                    <p>
+                        <strong>SPM</strong> stands for <strong>Scratchpad Memory</strong>. Think of it as a core's <em>private, personal notepad</em>. It sits right next to the core. Only that core can read and write to it with instant, zero-delay speed. Other cores cannot freely write to it without permission or a dedicated transfer.
+                    </p>
+                </div>
+
+                <!-- CPM -->
+                <div class="concept-card">
+                    <h3>📬 What is CPM?</h3>
+                    <p>
+                        <strong>CPM</strong> stands for <strong>Common Packet Memory</strong>. Think of it as a <em>shared neighborhood mailbox</em> placed right in the middle between both cores. Both the sender and receiver cores can see and access this shared memory directly to drop off and pick up message packets.
+                    </p>
                 </div>
             </div>
-        </div>
 
-        <!-- SECTION 2: SPM VS CPM MEMORY MODELS -->
-        <br id="SPM-VS-CPM">
-        <div class="blog-section" data-keywords="spm cpm scratchpad memory common packet memory sram latency cache deterministic">
-            <h2>2. SPM VS. CPM: THE MEMORY HIERARCHY DICHOTOMY</h2>
-            <p>
-                Why not put everything in one shared memory pool? Because in real-time systems, <strong>bus contention destroys execution predictability</strong>.
-            </p>
-
-            <div class="tip-box">
-                <strong>💡 What is Scratchpad Memory (SPM)?</strong> Unlike hardware caches that automatically fetch cache-lines based on tag matching (introducing jitter and cache misses), an SPM is an explicit SRAM address space managed directly by the software programmer. Access is guaranteed to take <strong>1 CPU cycle</strong>, giving absolute timing determinism.
+            <!-- Conceptual Diagram -->
+            <div class="ascii-art">
+[ CORE A (Sender) ]                             [ CORE B (Receiver) ]
+        |                                                 |
+  +-----------+                                     +-----------+
+  | Core A's  |                                     | Core B's  |
+  | Local SPM |  (Private Notepads)                 | Local SPM |
+  +-----------+                                     +-----------+
+        |                                                 |
+        \===================+=============================/
+                            |
+                 +---------------------+
+                 |         CPM         |
+                 | (Shared Mailbox)    |  <-- Both Cores Can Access!
+                 +---------------------+
             </div>
 
             <div class="tip-box">
-                <strong>💡 What is Common Packet Memory (CPM)?</strong> CPM (also called Common/Circular Packet Memory or Mailbox RAM) is dual-ported or multi-banked SRAM mapped to a common address space accessible by both Core A and Core B. Because concurrent accesses over the bus matrix can suffer arbitration wait-states, software only touches CPM to transfer finalized packets.
-            </div>
-
-            <div class="table-responsive">
-                <table>
-                    <thead>
-                        <tr><th>Property</th><th>SPM (Scratchpad Memory)</th><th>CPM (Common Packet Memory)</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td><strong>Primary Scope</strong></td><td>Private to individual Core</td><td>Shared across communicating Cores</td></tr>
-                        <tr><td><strong>Access Latency</strong></td><td>Strictly deterministic (1 clock cycle)</td><td>Arbitrated (3 - 12 cycles depending on bus load)</td></tr>
-                        <tr><td><strong>Bus Traffic</strong></td><td>Isolated local core bus (No contention)</td><td>System Crossbar / Interconnect (Shared)</td></tr>
-                        <tr><td><strong>Role in IPC</strong></td><td>Packet assembly, staging, and final processing</td><td>Transit staging: FIFO Ring Buffer / Mailbox</td></tr>
-                        <tr><td><strong>Data Conflict Risk</strong></td><td>None (Single owner)</td><td>Requires memory barrier commands (DMB/DSB) to ensure safety</td></tr>
-                        <tr><td><strong>Capacity</strong></td><td>Typically smaller (e.g. 16KB - 64KB per core)</td><td>Medium shared pool (e.g. 128KB - 1MB)</td></tr>
-                    </tbody>
-                </table>
+                <strong>💡 The Big Difference:</strong> In <strong>SPM</strong>, each core works in its own private memory room and copies data across. In <strong>CPM</strong>, both cores meet in a common shared room (the mailbox) to exchange messages!
             </div>
         </div>
 
-        <!-- SECTION 3: RING BUFFER & MATH -->
-        <br id="RING-BUFFER">
-        <div class="blog-section" data-keywords="ring buffer circular fifo queue head tail pointer math modulo wrap around">
-            <h2>3. CIRCULAR RING BUFFER MECHANICS & POINTER MATHEMATICS</h2>
-            <p>
-                Inside the CPM, packets are organized as a bounded <strong>Circular Ring Buffer (FIFO)</strong>. Two pointers coordinate the communication:
-            </p>
-            <ul>
-                <li><code>Head Pointer (Write Index):</code> Owned and incremented strictly by the <strong>Sender</strong>. Points to the slot where the next packet will be deposited.</li>
-                <li><code>Tail Pointer (Read Index):</code> Owned and incremented strictly by the <strong>Receiver</strong>. Points to the slot from which the next packet will be consumed.</li>
-            </ul>
-
-            <!-- PICTORIAL RING BUFFER DIAGRAM -->
-            <div class="diagram-container">
-                <div class="diagram-title">📊 Figure 2: Circular Ring Buffer States in CPM</div>
-                <div class="ascii-art">
-  State 1: EMPTY BUFFER                       State 2: NORMAL TRANSIT
-  [Head == Tail]                              [Head ahead of Tail]
-        +---+                                       +---+
-    0   |   | &lt;-- Head & Tail                   0   | X | 
-        +---+                                       +---+
-    1   |   |                                   1   | X | &lt;-- Head (Next write)
-        +---+                                       +---+
-    2   |   |                                   2   |   | 
-        +---+                                       +---+
-    3   |   |                                   3   | X | &lt;-- Tail (Next read)
-        +---+                                       +---+
-  Condition: No packets to read!              Packets in transit: Slot 3, Slot 0
-  Empty Check TRIGGERS (Receiver waits)       Sender & Receiver proceed normally
-
---------------------------------------------------------------------------------------
-
-  State 3: FULL BUFFER                        State 4: WRAP-AROUND ADVANCE
-  [(Head + 1) % Capacity == Tail]             [Next Ptr = (Ptr + 1) % CAPACITY]
-        +---+                                       Index math:
-    0   | X | &lt;-- Head                              Head = (Head + 1) % 4
-        +---+                                       Tail = (Tail + 1) % 4
-    1   | X | &lt;-- Tail
-        +---+                                       Reserved 1 empty slot to 
-    2   | X |                                       differentiate between
-        +---+                                       100% Full vs 100% Empty!
-    3   | X | 
-        +---+
-  Condition: 0 slots left!
-  Full Check TRIGGERS (Sender blocks)
-                </div>
-            </div>
-
-            <h3>The Pointer Math Formulas</h3>
-            <div class="table-responsive">
-                <table>
-                    <thead>
-                        <tr><th>Metric / Check</th><th>Formula (C Expression)</th><th>Meaning</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td><strong>Next Write Slot</strong></td><td><code>next_head = (head + 1) % CAPACITY;</code></td><td>Advances circular write cursor.</td></tr>
-                        <tr><td><strong>Next Read Slot</strong></td><td><code>next_tail = (tail + 1) % CAPACITY;</code></td><td>Advances circular read cursor.</td></tr>
-                        <tr><td><strong>EMPTY CHECK</strong></td><td><code>is_empty = (head == tail);</code></td><td>Buffer contains 0 unread messages.</td></tr>
-                        <tr><td><strong>FULL CHECK</strong></td><td><code>is_full = ((head + 1) % CAPACITY == tail);</code></td><td>Buffer cannot accept any new message.</td></tr>
-                        <tr><td><strong>Occupied Slots</strong></td><td><code>count = (head - tail + CAPACITY) % CAPACITY;</code></td><td>Exact number of pending packets in CPM.</td></tr>
-                        <tr><td><strong>Available Free Slots</strong></td><td><code>free = CAPACITY - 1 - count;</code></td><td>Available capacity before buffer is full.</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- SECTION 4: SENDER PERSPECTIVE -->
+        <!-- SECTION 2: SENDER PERSPECTIVE -->
         <br id="SENDER-PERSPECTIVE">
-        <div class="blog-section" data-keywords="sender perspective responsibilities full check overflow producer stage spm write cpm barrier doorbell">
-            <h2>4. THE SENDER'S PERSPECTIVE & RESPONSIBILITIES</h2>
+        <div class="blog-section" data-keywords="sender perspective what to check what to do before sending write packets">
+            <h2>2. SENDER'S PERSPECTIVE: WHAT TO CHECK & WHAT TO DO</h2>
             <p>
-                The Sender is the **Producer**. It originates telemetry, sensor frames, or command packets in its private workspace and is held strictly accountable for never corrupting or overflowing the shared queue.
+                When Core A wants to send data to Core B, what are all the things the sender must check and do?
             </p>
 
-            <div class="dual-column">
-                <div class="column-card sender">
-                    <h3>📤 Sender's Step-by-Step Lifecycle</h3>
-                    <ol class="step-list">
-                        <li><strong>Step 1: Staging in Local SPM:</strong> Assemble, compute, and validate the packet checksum inside fast local SPM without touching the shared bus.</li>
-                        <li><strong>Step 2: Perform FULL CHECK:</strong> Read the current <code>Tail</code> pointer from CPM. Verify that <code>(Head + 1) % CAPACITY != Tail</code>.</li>
-                        <li><strong>Step 3: Handle Full Condition:</strong> If full, DO NOT WRITE. Either drop packet, block, or yield CPU to avoid overwriting unread data.</li>
-                        <li><strong>Step 4: Copy Payload to CPM:</strong> Burst transfer the payload from local SPM into <code>CPM_Buffer[Head]</code>.</li>
-                        <li><strong>Step 5: Execute Memory Barrier (DMB):</strong> Force the CPU pipeline and write buffers to flush the payload before updating the pointer!</li>
-                        <li><strong>Step 6: Advance Head Pointer:</strong> Commit <code>Head = (Head + 1) % CAPACITY</code> in CPM header.</li>
-                        <li><strong>Step 7: Ring Doorbell (IPC Interrupt):</strong> Assert hardware mailbox interrupt or inter-core semaphore to alert Receiver Core.</li>
-                    </ol>
-                </div>
+            <h3>A. What the Sender Must Check Before Sending:</h3>
+            <ul>
+                <li><strong>1. The Full Check (Most Important!):</strong> The sender MUST check whether the buffer has free slots. If the buffer is full, the sender must STOP and wait. If it writes to a full buffer, it will overwrite unread messages and destroy data!</li>
+                <li><strong>2. Message Validity & Size:</strong> Check that the data packet is ready, not corrupted, and fits within the allowed slot size (e.g. 64 bytes or 256 bytes).</li>
+                <li><strong>3. Channel Ready State:</strong> Check that the communication channel is initialized and enabled.</li>
+            </ul>
 
-                <div class="column-card">
-                    <h3>🛑 Why the Full Check is Life or Death</h3>
-                    <p>
-                        If the sender fails to execute a strict Full Check:
-                    </p>
-                    <ul>
-                        <li><strong>Buffer Overflow:</strong> The write pointer overtakes the read pointer, trampling across packets the receiver has not yet read.</li>
-                        <li><strong>Corrupted Packets:</strong> The receiver reads a Frankenstein packet: half new data, half old data!</li>
-                        <li><strong>False Empty State:</strong> If Head laps Tail and lands exactly on <code>Head == Tail</code>, the system suddenly believes the buffer is completely empty, losing every single queued message!</li>
-                    </ul>
-                </div>
-            </div>
+            <h3>B. What the Sender Must Do When Sending:</h3>
+            <ul>
+                <li><strong>In SPM:</strong> The sender prepares the message inside its own local SPM. Then it copies the data over to the receiver's SPM area (or triggers a DMA hardware copy).</li>
+                <li><strong>In CPM:</strong> The sender writes the message directly into the next free slot inside the shared CPM memory (at the current <code>Head</code> position).</li>
+                <li><strong>Update the Head Pointer:</strong> Once the data is completely written, the sender increments the <code>Head</code> pointer to point to the next slot: <code>Head = (Head + 1) % Total_Slots</code>.</li>
+                <li><strong>Notify the Receiver:</strong> Send an interrupt signal or set a "Data Ready" flag so the receiver knows a new message has arrived.</li>
+            </ul>
         </div>
 
-        <!-- SECTION 5: RECEIVER PERSPECTIVE -->
+        <!-- SECTION 3: RECEIVER PERSPECTIVE -->
         <br id="RECEIVER-PERSPECTIVE">
-        <div class="blog-section" data-keywords="receiver perspective responsibilities empty check underflow consumer isr interrupt read cpm spm ack">
-            <h2>5. THE RECEIVER'S PERSPECTIVE & RESPONSIBILITIES</h2>
+        <div class="blog-section" data-keywords="receiver perspective what to check what to do before reading read packets">
+            <h2>3. RECEIVER'S PERSPECTIVE: WHAT TO CHECK & WHAT TO DO</h2>
             <p>
-                The Receiver is the **Consumer**. It ingests packets from the CPM, executes business logic, and is responsible for releasing occupied buffer slots back to the sender.
+                When Core B is waiting to receive data from Core A, what are all the things the receiver must check and do?
             </p>
 
-            <div class="dual-column">
-                <div class="column-card receiver">
-                    <h3>📥 Receiver's Step-by-Step Lifecycle</h3>
-                    <ol class="step-list">
-                        <li><strong>Step 1: Wakeup / Interrupt ISR:</strong> Receive IPC doorbell interrupt or poll periodic task scheduler.</li>
-                        <li><strong>Step 2: Perform EMPTY CHECK:</strong> Read <code>Head</code> and <code>Tail</code> from CPM. Verify that <code>Head != Tail</code>.</li>
-                        <li><strong>Step 3: Handle Empty Condition:</strong> If empty, exit immediately. Prevents reading stale or uninitialized memory slots.</li>
-                        <li><strong>Step 4: Ingest Data into Local SPM:</strong> Burst copy packet payload from <code>CPM_Buffer[Tail]</code> into Receiver's local SPM for zero-latency processing.</li>
-                        <li><strong>Step 5: Execute Memory Barrier:</strong> Ensure data read has fully committed before incrementing the tail pointer.</li>
-                        <li><strong>Step 6: Advance Tail Pointer:</strong> Commit <code>Tail = (Tail + 1) % CAPACITY</code>. This instantly frees the slot for the sender!</li>
-                        <li><strong>Step 7: Clear Interrupt / Send ACK:</strong> Clear pending interrupt flag or trigger space-available notification to Sender Core.</li>
-                    </ol>
-                </div>
+            <h3>A. What the Receiver Must Check Before Reading:</h3>
+            <ul>
+                <li><strong>1. The Empty Check (Most Important!):</strong> The receiver MUST check whether there is actually any new data to read. If the buffer is empty (<code>Head == Tail</code>), the receiver must STOP and wait. If it reads from an empty buffer, it will read old, stale junk data!</li>
+                <li><strong>2. Packet Header / Checksum:</strong> Check the packet magic number or checksum to ensure the data is complete and not corrupted.</li>
+            </ul>
 
-                <div class="column-card">
-                    <h3>⚠️ Why the Empty Check is Life or Death</h3>
-                    <p>
-                        If the receiver fails to execute a strict Empty Check:
-                    </p>
-                    <ul>
-                        <li><strong>Buffer Underflow:</strong> The receiver reads stale, garbage, or deallocated memory contents.</li>
-                        <li><strong>Phantom Processing:</strong> Processing the same old command twice (e.g. executing duplicate transactions or duplicate motor impulses).</li>
-                        <li><strong>Synchronization Loss:</strong> Tail advances beyond Head, causing inversion of the queue state.</li>
-                    </ul>
-                </div>
-            </div>
+            <h3>B. What the Receiver Must Do When Receiving:</h3>
+            <ul>
+                <li><strong>In SPM:</strong> The receiver reads the incoming message directly from its own local SPM where it was delivered, and starts processing it immediately.</li>
+                <li><strong>In CPM:</strong> The receiver reads the message packet directly from the shared CPM slot (at the current <code>Tail</code> position), copying it into its private registers or local variables.</li>
+                <li><strong>Process the Data:</strong> Execute whatever work the message asked for (e.g., sensor calculations, motor control, or graphics rendering).</li>
+                <li><strong>Update the Tail Pointer:</strong> Once the message is safely consumed, the receiver increments the <code>Tail</code> pointer: <code>Tail = (Tail + 1) % Total_Slots</code>. This officially frees up the slot so the sender can use it again!</li>
+                <li><strong>Optional Ack / Signal:</strong> If required, notify the sender that the slot is now free.</li>
+            </ul>
         </div>
 
-        <!-- SECTION 6: PICTORIAL WALKTHROUGH & HANDSHAKE -->
-        <br id="PICTORIAL-WALKTHROUGH">
-        <div class="blog-section" data-keywords="pictorial walkthrough timing diagram sequence handshake sender receiver interaction">
-            <h2>6. PICTORIAL WALKTHROUGH: TIMING SEQUENCE & HANDSHAKE</h2>
+        <!-- SECTION 4: TABLE OF RESPONSIBILITIES -->
+        <br id="TABLE-RESPONSIBILITIES">
+        <div class="blog-section" data-keywords="table spm cpm comparison sender receiver checklist actions responsibilities">
+            <h2>4. TABLE: SENDER & RECEIVER IN SPM VS. CPM</h2>
             <p>
-                The complete end-to-end handshake between Sender and Receiver over the shared CPM:
+                Here is the complete side-by-side comparison of sender and receiver actions in both memory models:
             </p>
 
-            <div class="diagram-container">
-                <div class="diagram-title">📊 Figure 3: IPC Execution Timing Sequence Diagram</div>
-                <div class="ascii-art">
-   SENDER CORE (Producer)                  SHARED CPM                      RECEIVER CORE (Consumer)
-             |                                 |                                      |
-1. Stage in SPM                                |                                      |
-2. FULL CHECK ------------------------------> Read Tail                               |
-   [Result: Free slots available]              |                                      |
-3. Write payload ===========================> Store at Slot[Head]                     |
-4. Memory Barrier (DMB)                        |                                      |
-5. Update Head -----------------------------> Head = (Head + 1) % N                    |
-6. Trigger Doorbell (IPC Interrupt) -------------------------------------------------> | (Wakeup / ISR)
-             |                                 |                               7. EMPTY CHECK
-             |                                 |                                  [Result: Packets exist!]
-             |                                 | <=========================== 8. Copy Slot[Tail] to SPM
-             |                                 |                               9. Memory Barrier
-             |                                 | <--------------------------- 10. Advance Tail:
-             |                                 |                                  Tail = (Tail + 1) % N
-             |                                 |                                  (Slot is now FREE!)
-             | <------------------------------------------------------------- 11. Clear IRQ / Send ACK
-             |                                 |                               12. Process payload in SPM
-             v                                 v                                      v
-                </div>
-            </div>
-        </div>
-
-        <!-- SECTION 7: COMPARISON TABLES -->
-        <br id="COMPARISON-TABLES">
-        <div class="blog-section" data-keywords="comparison tables sender vs receiver empty check vs full check responsibilities matrix">
-            <h2>7. COMPREHENSIVE RESPONSIBILITIES & CHECK COMPARISON</h2>
-
-            <h3>Table 1: Sender vs. Receiver Responsibilities Matrix</h3>
             <div class="table-responsive">
                 <table>
                     <thead>
-                        <tr><th>Dimension</th><th>Sender (Producer)</th><th>Receiver (Consumer)</th></tr>
+                        <tr>
+                            <th>Perspective</th>
+                            <th>In SPM (Scratchpad Memory)</th>
+                            <th>In CPM (Common Packet Memory)</th>
+                            <th>Why This is Done</th>
+                        </tr>
                     </thead>
                     <tbody>
-                        <tr><td><strong>Primary Goal</strong></td><td>Safely inject fresh packets into CPM</td><td>Safely extract and consume packets from CPM</td></tr>
-                        <tr><td><strong>Pointer Ownership</strong></td><td>Sole writer of <code>Head Pointer</code></td><td>Sole writer of <code>Tail Pointer</code></td></tr>
-                        <tr><td><strong>Critical Guard Check</strong></td><td><strong>FULL CHECK</strong> before writing</td><td><strong>EMPTY CHECK</strong> before reading</td></tr>
-                        <tr><td><strong>Condition Formula</strong></td><td><code>((Head + 1) % N) == Tail</code></td><td><code>Head == Tail</code></td></tr>
-                        <tr><td><strong>Memory Direction</strong></td><td>Local SPM &rarr; Shared CPM</td><td>Shared CPM &rarr; Local SPM</td></tr>
-                        <tr><td><strong>Barrier Placement</strong></td><td>After payload copy, BEFORE updating Head</td><td>After payload read, BEFORE updating Tail</td></tr>
-                        <tr><td><strong>Interrupt Action</strong></td><td>Fires Doorbell Interrupt to Receiver Core</td><td>Clears Doorbell Interrupt flag upon receipt</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h3>Table 2: Full Check vs. Empty Check</h3>
-            <div class="table-responsive">
-                <table>
-                    <thead>
-                        <tr><th>Feature</th><th>Full Check (Buffer Overflow Guard)</th><th>Empty Check (Buffer Underflow Guard)</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td><strong>Who Executes It?</strong></td><td>Sender Core</td><td>Receiver Core</td></tr>
-                        <tr><td><strong>When Is It Run?</strong></td><td>Immediately before attempting to write payload</td><td>Immediately before attempting to read payload</td></tr>
-                        <tr><td><strong>If Condition Fails (Safe)</strong></td><td>Proceed with write: slot is available</td><td>Proceed with read: fresh message waiting</td></tr>
-                        <tr><td><strong>If Condition Triggers</strong></td><td>Buffer is 100% full: sender must halt or retry</td><td>Buffer is 100% empty: receiver must sleep</td></tr>
-                        <tr><td><strong>Consequence of Skipping</strong></td><td><strong>OVERWRITE HAZARD:</strong> Unprocessed data destroyed</td><td><strong>STALE READ HAZARD:</strong> Reading invalid old data</td></tr>
+                        <tr>
+                            <td><strong>Sender: What to Check</strong></td>
+                            <td>Check if remote core's SPM buffer has space; check if receiver is ready.</td>
+                            <td>Check the <strong>Full Check Condition</strong> in the shared CPM queue.</td>
+                            <td>To prevent writing over unread data (buffer overflow).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sender: What to Do</strong></td>
+                            <td>Builds packet in local SPM &rarr; copies data into receiver's SPM area &rarr; updates local write index.</td>
+                            <td>Writes packet directly into the shared CPM slot &rarr; updates shared <code>Head</code> pointer.</td>
+                            <td>To safely store the new message and advance the write queue.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Receiver: What to Check</strong></td>
+                            <td>Check if new data arrived in its local SPM (via interrupt or flag).</td>
+                            <td>Check the <strong>Empty Check Condition</strong> in the shared CPM queue (<code>Head != Tail</code>).</td>
+                            <td>To prevent reading old, expired junk data (buffer underflow).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Receiver: What to Do</strong></td>
+                            <td>Reads packet from its own local SPM &rarr; processes data &rarr; clears the local flag/slot.</td>
+                            <td>Reads packet from shared CPM slot &rarr; processes data &rarr; updates shared <code>Tail</code> pointer.</td>
+                            <td>To consume the message and mark the slot as free for future writes.</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <!-- SECTION 8: C IMPLEMENTATION -->
-        <br id="C-IMPLEMENTATION">
-        <div class="blog-section" data-keywords="c code implementation embedded drivers volatile ring buffer ipc_send ipc_receive mutex barrier">
-            <h2>8. EMBEDDED C IMPLEMENTATION: DRIVER & BUFFER LOGIC</h2>
+        <!-- SECTION 5: FULL CHECK & EMPTY CHECK -->
+        <br id="FULL-EMPTY-CHECKS">
+        <div class="blog-section" data-keywords="full check empty check condition formula buffer circular queue overflow underflow">
+            <h2>5. FULL CHECK & EMPTY CHECK CONDITIONS</h2>
             <p>
-                Here is a production-grade C implementation of an IPC ring buffer designed for bare-metal or RTOS multi-core controllers. Notice how we use <code>volatile</code> and memory barrier commands so the computer never skips writes or reads old cached data:
+                In both SPM and CPM, messages are usually organized as a <strong>Circular Ring Buffer</strong> (a circular queue of slots, say 8 slots numbered 0 to 7). Two markers keep track of where we are:
             </p>
+            <ul>
+                <li><strong>Head:</strong> Where the sender will write the <em>next</em> message.</li>
+                <li><strong>Tail:</strong> Where the receiver will read the <em>next</em> message.</li>
+            </ul>
 
-            <div class="code">
-                <div class="codeHead">
-                    c
-                    <button class="copy-button" onclick="copy(this)"><img src="../../resources/copy.png"><span class="tool-tip">Copied!</span></button>
-                </div>
-                <div class="codeContent">
-                    <code><pre>#include &lt;stdint.h&gt;
-#include &lt;stdbool.h&gt;
-#include &lt;string.h&gt;
+            <!-- Visual Ring Buffer -->
+            <div class="ascii-art">
+   [Slot 0]  <-- Tail (Receiver reads here)
+   [Slot 1]  (Filled with unread message)
+   [Slot 2]  (Filled with unread message)
+   [Slot 3]  <-- Head (Sender writes next message here)
+   [Slot 4]  (Empty)
+   [Slot 5]  (Empty)
+   [Slot 6]  (Empty)
+   [Slot 7]  (Empty)
+            </div>
 
-#define CPM_QUEUE_CAPACITY 8      // Must be power of 2 for optimal modulo
-#define PACKET_PAYLOAD_SIZE 64    // Fixed 64-byte payload
+            <!-- Full Check Condition -->
+            <h3>🔴 1. The Full Check Condition (Buffer Full)</h3>
+            <p>
+                <strong>When does the sender know the queue is FULL?</strong>
+                <br>
+                When moving the Head forward by one step would make it run into Tail:
+            </p>
+            <div class="formula-card">
+                <span class="formula-title">FULL CHECK FORMULA:</span>
+                <code>(Head + 1) % Buffer_Size == Tail</code>
+            </div>
+            <div class="warning-box">
+                <strong>⚠️ Why Full Check is Critical:</strong> If the sender writes when <code>(Head + 1) % Buffer_Size == Tail</code>, it will overwrite the exact message that the receiver hasn't read yet! The sender must wait until the receiver moves Tail forward.
+            </div>
 
-// Memory barrier macro (ARM architecture example)
-#define MEMORY_BARRIER() __asm__ volatile("dmb ish" ::: "memory")
-
-// Individual message packet structure
-typedef struct {
-    uint32_t message_id;
-    uint32_t payload_len;
-    uint8_t  payload[PACKET_PAYLOAD_SIZE];
-    uint32_t checksum;
-} IpcPacket_t;
-
-// Shared Ring Buffer mapped directly into CPM memory address space
-typedef struct {
-    volatile uint32_t head;       // Owned by Sender
-    volatile uint32_t tail;       // Owned by Receiver
-    IpcPacket_t slots[CPM_QUEUE_CAPACITY];
-} IpcRingBuffer_t;
-
-// Pointer to hardware CPM shared RAM base address (e.g. 0x38000000)
-volatile IpcRingBuffer_t * const g_cpm_channel = (IpcRingBuffer_t *)(0x38000000);
-
-/* ==========================================================================
-   SENDER CORE IMPLEMENTATION (Producer)
-   ========================================================================== */
-bool ipc_sender_send_packet(const IpcPacket_t *spm_packet) {
-    uint32_t current_head = g_cpm_channel->head;
-    uint32_t current_tail = g_cpm_channel->tail;
-    
-    // 1. FULL CHECK: Verify space is available
-    uint32_t next_head = (current_head + 1) % CPM_QUEUE_CAPACITY;
-    if (next_head == current_tail) {
-        // Buffer is FULL! Cannot write.
-        return false; // Error: Buffer overflow avoided
-    }
-    
-    // 2. Copy payload from Local SPM into target CPM slot
-    memcpy((void *)&g_cpm_channel->slots[current_head], spm_packet, sizeof(IpcPacket_t));
-    
-    // 3. MEMORY BARRIER: Ensure payload is fully committed before pointer update
-    MEMORY_BARRIER();
-    
-    // 4. Advance Head pointer in shared CPM
-    g_cpm_channel->head = next_head;
-    MEMORY_BARRIER();
-    
-    // 5. Trigger hardware doorbell interrupt to notify Receiver Core
-    // HW_TRIGGER_IPC_INTERRUPT(CORE_RECEIVER_ID);
-    return true;
-}
-
-/* ==========================================================================
-   RECEIVER CORE IMPLEMENTATION (Consumer)
-   ========================================================================== */
-bool ipc_receiver_get_packet(IpcPacket_t *spm_dest) {
-    uint32_t current_head = g_cpm_channel->head;
-    uint32_t current_tail = g_cpm_channel->tail;
-    
-    // 1. EMPTY CHECK: Verify new messages exist
-    if (current_head == current_tail) {
-        // Buffer is EMPTY! No pending messages.
-        return false; // Underflow avoided: Do not read stale data
-    }
-    
-    // 2. Copy payload from CPM into Receiver's fast local SPM
-    memcpy(spm_dest, (const void *)&g_cpm_channel->slots[current_tail], sizeof(IpcPacket_t));
-    
-    // 3. MEMORY BARRIER: Ensure read completes before updating tail
-    MEMORY_BARRIER();
-    
-    // 4. Advance Tail pointer to release slot back to Sender
-    g_cpm_channel->tail = (current_tail + 1) % CPM_QUEUE_CAPACITY;
-    MEMORY_BARRIER();
-    
-    return true;
-}</pre></code>
-                </div>
+            <!-- Empty Check Condition -->
+            <h3>🟢 2. The Empty Check Condition (Buffer Empty)</h3>
+            <p>
+                <strong>When does the receiver know the queue is EMPTY?</strong>
+                <br>
+                When Head has not moved past Tail, meaning no new unread messages were added:
+            </p>
+            <div class="formula-card">
+                <span class="formula-title">EMPTY CHECK FORMULA:</span>
+                <code>Head == Tail</code>
+            </div>
+            <div class="tip-box">
+                <strong>💡 Why Empty Check is Critical:</strong> If <code>Head == Tail</code>, there are zero new packets. If the receiver tries to read anyway, it will read old data that was already processed. The receiver must wait until the sender writes and moves Head forward.
             </div>
         </div>
 
-        <!-- SECTION 9: EDGE CASES & MEMORY BARRIERS -->
-        <br id="RACE-CONDITIONS">
-        <div class="blog-section" data-keywords="edge cases memory barriers cache coherency race condition false sharing out of order volatile">
-            <h2>9. EDGE CASES, MEMORY BARRIERS & HARDWARE HAZARDS</h2>
+        <!-- SECTION 6: TABLE OF HEAD AND TAIL UPDATES -->
+        <br id="TABLE-HEAD-TAIL">
+        <div class="blog-section" data-keywords="table head tail pointers updates who updates what spm cpm rules">
+            <h2>6. TABLE: WHO UPDATES HEAD & TAIL? (SPM VS. CPM)</h2>
             <p>
-                In high-speed multi-core silicon, subtle hardware mechanics can break seemingly perfect software logic:
+                To avoid confusion and prevent two cores from fighting over the same pointer, there is one strict golden rule:
+                <br>
+                <strong>The Sender ONLY updates Head. The Receiver ONLY updates Tail.</strong>
             </p>
 
-            <div class="warning-box">
-                <strong>⚠️ Hazard 1: Out-of-Order Execution & Missing Barriers</strong>
-                <br>
-                Modern CPUs re-order memory writes to optimize bus throughput. If the Sender executes <code>head = next_head</code> before the payload memory copy has finished draining to the CPM SRAM bus, the Receiver Core will wake up, see the updated <code>head</code>, and read unwritten or corrupt payload bytes!
-                <br>
-                <em>Remedy:</em> Always place a hardware Data Memory Barrier (<code>DMB</code> on ARM, <code>sfence/mfence</code> on x86) between the payload write and the pointer update.
-            </div>
-
-            <div class="warning-box">
-                <strong>⚠️ Problem 2: Cache Memory & Stale (Old) Reads</strong>
-                <br>
-                If the shared CPM memory is saved in a local core cache, the receiver core might read an old saved copy from its own cache instead of the fresh data in shared memory!
-                <br>
-                <em>Remedy:</em> Map the shared CPM region as <strong>Device Memory / Non-Cacheable (Strongly Ordered)</strong> via the MPU/MMU, or explicitly execute cache invalidation instructions (<code>DC IVAC</code>) prior to reading.
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pointer</th>
+                            <th>Who Updates It?</th>
+                            <th>When It Gets Updated</th>
+                            <th>Update Formula</th>
+                            <th>Where It Lives in SPM</th>
+                            <th>Where It Lives in CPM</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>HEAD<br>(Write Pointer)</strong></td>
+                            <td><strong style="color: var(--accent-green-bright);">SENDER ONLY</strong></td>
+                            <td>Immediately AFTER the sender finishes writing a new packet into the buffer.</td>
+                            <td><code>Head = (Head + 1) % Size</code></td>
+                            <td>Stored in sender's local SPM; updated copy is mirrored or sent to receiver.</td>
+                            <td>Stored in shared CPM memory where both cores can see it directly.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>TAIL<br>(Read Pointer)</strong></td>
+                            <td><strong style="color: var(--accent-cyan);">RECEIVER ONLY</strong></td>
+                            <td>Immediately AFTER the receiver finishes reading and consuming a packet.</td>
+                            <td><code>Tail = (Tail + 1) % Size</code></td>
+                            <td>Stored in receiver's local SPM; updated copy is mirrored or sent to sender.</td>
+                            <td>Stored in shared CPM memory where both cores can see it directly.</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
             <div class="tip-box">
-                <strong>💡 Hazard 3: The "Reserved Slot" Rule</strong>
+                <strong>🔑 Golden Rule of Pointers:</strong>
                 <br>
-                Notice why a queue of capacity $N$ can only store $N - 1$ items:
+                • Sender moves <strong>Head</strong> forward to say: <em>"Hey, I just added a new message!"</em>
                 <br>
-                • If $N=8$, and we stored 8 items, <code>head</code> would equal <code>tail</code>!
-                <br>
-                • But <code>head == tail</code> is the exact definition of an <strong>EMPTY</strong> queue!
-                <br>
-                By dedicating 1 slot as a sentinel guard, <code>head == tail</code> strictly means <em>Empty</em>, and <code>(head + 1) % N == tail</code> strictly means <em>Full</em>, eliminating all ambiguity without requiring an extra counter variable.
+                • Receiver moves <strong>Tail</strong> forward to say: <em>"Hey, I just finished reading this slot, you can have it back!"</em>
+            </div>
+        </div>
+
+        <!-- SECTION 7: SUMMARY CHEAT SHEET -->
+        <br id="SUMMARY-CHEATSHEET">
+        <div class="blog-section" data-keywords="summary cheat sheet takeaways quick guide spm cpm review">
+            <h2>7. QUICK SUMMARY CHEAT SHEET</h2>
+            <p>Everything you need to remember in 6 simple points:</p>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr><th>Concept</th><th>Simple Explanation</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>IPC</strong></td><td>How two or more CPU cores on the same chip talk and exchange data.</td></tr>
+                        <tr><td><strong>SPM</strong></td><td>Private, super-fast memory for one core only (like a personal notepad).</td></tr>
+                        <tr><td><strong>CPM</strong></td><td>Shared memory accessible by both cores (like a shared mailbox).</td></tr>
+                        <tr><td><strong>Full Check</strong></td><td>Done by <strong>Sender</strong>: Checks if <code>(Head + 1) % Size == Tail</code> so it doesn't overwrite unread data.</td></tr>
+                        <tr><td><strong>Empty Check</strong></td><td>Done by <strong>Receiver</strong>: Checks if <code>Head == Tail</code> so it doesn't read old empty data.</td></tr>
+                        <tr><td><strong>Who Updates What</strong></td><td>Sender updates <strong>Head</strong>. Receiver updates <strong>Tail</strong>. Neither core ever touches the other's pointer!</td></tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 
