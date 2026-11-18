@@ -130,8 +130,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!sections.length) return;
 
+    let clickedLink = null;
+    let clickTimer = null;
+
+    // Immediately highlight clicked link and preserve active state during scroll
+    hashLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            hashLinks.forEach(l => l.classList.remove("active"));
+            link.classList.add("active");
+            clickedLink = link;
+
+            clearTimeout(clickTimer);
+            clickTimer = setTimeout(() => {
+                clickedLink = null;
+            }, 800);
+        });
+    });
+
     function onScrollSpy() {
-        const scrollPosition = window.scrollY + 140;
+        if (clickedLink) {
+            hashLinks.forEach(l => l.classList.remove("active"));
+            clickedLink.classList.add("active");
+            return;
+        }
+
+        // Check if user is at the bottom of the document
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight || window.innerHeight;
+        const isAtBottom = (window.scrollY + clientHeight) >= (scrollHeight - 60);
+
+        if (isAtBottom && sections.length > 0) {
+            hashLinks.forEach(l => l.classList.remove("active"));
+            sections[sections.length - 1].link.classList.add("active");
+            return;
+        }
+
+        const scrollPosition = window.scrollY + Math.min(220, window.innerHeight * 0.35);
         let currentSection = null;
 
         for (let i = 0; i < sections.length; i++) {
