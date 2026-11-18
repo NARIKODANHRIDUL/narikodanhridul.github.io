@@ -14,7 +14,7 @@
     <div class="sidenav-overlay" id="sidenavOverlay" onclick="closeNav()"></div>
     <div class="sidenav" id="mySidenav">
         <div class="sidenav-header">
-            <a href="../../extra/index.html" class="sidenav-back">← All Blogs</a>
+            <a href="../index.html" class="sidenav-back">← All Blogs</a>
             <button class="sidenav-close-btn" onclick="closeNav()" aria-label="Close Navigation">✕</button>
         </div>
         <div class="sidenav-title">
@@ -371,7 +371,8 @@ echo "Connected! Resuming download."</pre></code>
 # Animated countdown timer
 echo "Initializing security scanner..."
 for i in {5..1}; do
-    echo -ne "🚀 Starting in $i seconds..."
+    echo -ne "🚀 Starting in $i seconds...
+"
     sleep 1
 done
 echo -e "
@@ -381,7 +382,8 @@ echo -e "
 spinner=( '⠋' '⠙' '⠹' '⠸' '⠼' '⠴' '⠦' '⠧' '⠇' '⠏' )
 for i in {1..20}; do
     for s in "${spinner[@]}"; do
-        echo -ne " $s Decrypting payload..."
+        echo -ne " $s Decrypting payload...
+"
         sleep 0.05
     done
 done
