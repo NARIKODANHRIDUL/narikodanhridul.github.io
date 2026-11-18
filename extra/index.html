@@ -12,50 +12,19 @@
     <div class="container">
 
         <div class="heading">Blogs</div>
-            <div style="text-align: center; margin-top: 10px; margin-bottom: 5px;">
-                <a href="../blog"><button class="bttn" style="font-size: 15px; padding: 8px 18px; cursor: pointer;"><span>Explore All Blogs in Blog Hub 🚀</span></button></a>
-            </div>
-            <div class="boxCollage" >
-                
-                <div class="card">
-                    <div class="cardHeader">IPC: SPM & CPM</div>
-                    <div class="cardSubHeader">Hardware & RTOS</div>
-                    <div class="imgcontainer">
-                        <img src="../resources/ipc-spm-cpm.png" width="280px" alt="ipc-spm-cpm.png">
-                        <div class="details">Inter-Process & Inter-Core Communication using Scratchpad (SPM) and Common Packet Memory (CPM) with Full and Empty checks.</div>
-                        <button class="overlay-button" onclick='window.location.href = "../blog/ipc-spm-cpm"'>Open</button> 
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="cardHeader">Bash Scripting</div>
-                    <div class="cardSubHeader">Info</div>
-                    <div class="imgcontainer">
-                        <img src="../resources/bash-script.png" width="280px" alt="chess.jpg">
-                        <div class="details">Bash scripting refers to the process of writing and executing scripts using the Bash(short for "Bourne Again Shell") shell.</div>
-                        <button class="overlay-button" onclick='window.location.href = "../blog/bash-script"'>Open</button> 
-                    </div>
-                </div>
+        <div class="boxCollage">
+            <!-- Blog 1 -->
             <div class="card">
-                <div class="cardHeader">Shell Prompt</div>
-                <div class="cardSubHeader">info</div>
+                <div class="cardHeader">IPC: SPM & CPM</div>
+                <div class="cardSubHeader">Hardware & RTOS</div>
                 <div class="imgcontainer">
-                    <img src="../resources/Shell-prompt.png" width="280px" alt="javelin.png">
-                    <div class="details">A simple guide to customise your shell prompt without any pluggins or downloads</div>
-                    <button class="overlay-button" onclick='window.location.href = "../blog/shell-prompt"'>Open</button> 
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="cardHeader">Vim Editor</div>
-                <div class="cardSubHeader">Info</div>
-                <div class="imgcontainer">
-                    <img src="../resources/vim.png" width="280px" alt="chess.jpg">
-                    <div class="details">he powerful and efficient text editor that can significantly boost your productivity once you get the hang of it.</div>
-                    <button class="overlay-button" onclick='window.location.href = "../blog/vim"'>Open</button> 
+                    <img src="../resources/ipc-spm-cpm.png" width="280px" alt="ipc-spm-cpm.png">
+                    <div class="details">Inter-Process & Inter-Core Communication using Scratchpad (SPM) and Common Packet Memory (CPM) with Full and Empty checks.</div>
+                    <button class="overlay-button" onclick='window.location.href = "../blog/ipc-spm-cpm"'>Open</button> 
                 </div>
             </div>
 
+            <!-- Blog 2 -->
             <div class="card">
                 <div class="cardHeader">Git Guide</div>
                 <div class="cardSubHeader">DevOps & VCS</div>
@@ -66,26 +35,20 @@
                 </div>
             </div>
 
-            <div class="card">
-                <div class="cardHeader">Food & Nutrients</div>
-                <div class="cardSubHeader">Health & Life</div>
+            <!-- Blog 3: View All Button Card -->
+            <div class="card" onclick='window.location.href = "blogs"' style="cursor: pointer;">
+                <div class="cardHeader">All Blogs</div>
+                <div class="cardSubHeader">Archive & Directory</div>
                 <div class="imgcontainer">
-                    <img src="../resources/food-nutrition.png" width="280px" alt="food-nutrition.png">
-                    <div class="details">A crisp, science-backed guide to essential nutrients, common food myths, and Indian & Bangalore urban eating habits.</div>
-                    <button class="overlay-button" onclick='window.location.href = "../blog/food-nutrition"'>Open</button> 
+                    <div style="width: 280px; height: 180px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(circle at center, #1b261a 0%, #0d120d 100%);">
+                        <span style="font-size: 3rem; margin-bottom: 8px;">📚</span>
+                        <span style="color: #a6df90; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.5px;">VIEW ALL BLOGS</span>
+                        <span style="color: #888; font-size: 0.82rem; margin-top: 4px;">7 In-Depth Articles →</span>
+                    </div>
+                    <div class="details">Browse all 7 technical publications: Git, IPC SPM/CPM, Mutual Funds, Bash, Shell Prompt, Vim, and Nutrition.</div>
+                    <button class="overlay-button" onclick='event.stopPropagation(); window.location.href = "blogs"'>View All</button> 
                 </div>
             </div>
-
-            <div class="card">
-                <div class="cardHeader">Mutual Funds</div>
-                <div class="cardSubHeader">Finance & Wealth</div>
-                <div class="imgcontainer">
-                    <img src="../resources/mutual-funds.png" width="280px" alt="mutual-funds.png">
-                    <div class="details">Demystifying CAGR, XIRR, Active vs Passive index funds, TER expense ratios, and market cap strategies.</div>
-                    <button class="overlay-button" onclick='window.location.href = "../blog/mutual-funds"'>Open</button> 
-                </div>
-            </div>
-
         </div>
     </div>
     <div class="container">
