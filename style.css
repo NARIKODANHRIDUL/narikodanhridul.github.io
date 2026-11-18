@@ -224,7 +224,11 @@ ol{
 }
 
 .introDesc{
-  font-size: 60%;
+  font-size: clamp(0.85rem, 1.1vw, 1.05rem);
+  line-height: 1.5;
+  color: #ccc;
+  margin-top: 6px;
+  margin-bottom: 8px;
 }
 
 .mecontainer{
@@ -653,7 +657,8 @@ hr{
   }
 
   .introDesc{
-    font-size: 12px;
+    font-size: 0.85rem;
+    line-height: 1.45;
   }
   #bios{
     /* background-color: aqua; */
