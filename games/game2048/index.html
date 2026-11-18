@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+    <link rel="icon" href="../../resources/sparkle.png" sizes="192x192" />
+    <title>2048: Cyber Edition | Games</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="nav-bar">
+        <a href="../../extra/index.html" class="back-link">← Extras & Games</a>
+        <a href="../../index.html" class="home-link">Home</a>
+    </div>
+
+    <div class="game-wrapper">
+        <div class="game-header">
+            <div class="title-area">
+                <h1>2048</h1>
+                <div class="badge">Cyber Edition</div>
+            </div>
+            <div class="score-container">
+                <div class="score-box">
+                    <span class="score-label">SCORE</span>
+                    <span class="score-val" id="score">0</span>
+                </div>
+                <div class="score-box">
+                    <span class="score-label">BEST</span>
+                    <span class="score-val" id="bestScore">0</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-toolbar">
+            <p class="instructions">Join the numbers and get to the <strong>2048 tile!</strong> Swipe or use arrow keys / WASD.</p>
+            <button class="new-game-btn" id="newGameBtn">New Game</button>
+        </div>
+
+        <!-- Board -->
+        <div class="board-container" id="boardContainer">
+            <div class="grid" id="grid">
+                <!-- 16 cells -->
+                <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+            </div>
+            <div class="tile-container" id="tileContainer"></div>
+
+            <!-- Overlays -->
+            <div class="game-overlay" id="gameOverOverlay">
+                <div class="overlay-content">
+                    <h2 id="overlayTitle">Game Over!</h2>
+                    <p id="overlayMsg">No more moves possible.</p>
+                    <button class="overlay-btn" id="overlayRestartBtn">Try Again</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Touch Controls -->
+        <div class="mobile-controls">
+            <div class="dpad-row">
+                <button class="dpad-btn" id="btnUp" aria-label="Up">▲</button>
+            </div>
+            <div class="dpad-row">
+                <button class="dpad-btn" id="btnLeft" aria-label="Left">◀</button>
+                <div class="dpad-spacer"></div>
+                <button class="dpad-btn" id="btnRight" aria-label="Right">▶</button>
+            </div>
+            <div class="dpad-row">
+                <button class="dpad-btn" id="btnDown" aria-label="Down">▼</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

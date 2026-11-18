@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+    <link rel="icon" href="../../resources/sparkle.png" sizes="192x192" />
+    <title>Cyber Memory Matrix | Games</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="nav-bar">
+        <a href="../../extra/index.html" class="back-link">← Extras & Games</a>
+        <a href="../../index.html" class="home-link">Home</a>
+    </div>
+
+    <div class="game-wrapper">
+        <div class="game-header">
+            <div class="title-area">
+                <h1>CYBER MEMORY</h1>
+                <div class="badge">Hardware Matrix</div>
+            </div>
+            <div class="stats-container">
+                <div class="stat-box">
+                    <span class="stat-label">MOVES</span>
+                    <span class="stat-val" id="moveCount">0</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">TIME</span>
+                    <span class="stat-val" id="timer">00:00</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">PAIRS</span>
+                    <span class="stat-val" id="pairCount">0/8</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-toolbar">
+            <p class="instructions">Flip the cyber cards to find matching hardware & security pairs in the fewest moves!</p>
+            <button class="restart-btn" id="restartBtn">Restart</button>
+        </div>
+
+        <!-- 4x4 Card Grid -->
+        <div class="grid" id="cardGrid"></div>
+
+        <!-- Win Overlay -->
+        <div class="win-overlay" id="winOverlay">
+            <div class="win-card">
+                <div class="win-icon">🎉</div>
+                <h2>SYSTEM UNLOCKED!</h2>
+                <p id="winMessage">You matched all memory sectors in 14 moves!</p>
+                <div class="win-details">
+                    <div>Time: <strong id="finalTime">00:45</strong></div>
+                    <div>Rating: <strong id="starRating">★★★</strong></div>
+                </div>
+                <button class="win-btn" id="playAgainBtn">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
