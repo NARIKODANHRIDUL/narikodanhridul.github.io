@@ -76,26 +76,24 @@ ol{
 
 .topDiv {
     background-color: #222;
-    padding: 0px 10px;
+    padding: 0px 10px 0px 10px;
     overflow: hidden;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    font-size: 50px;
+    align-items: flex-end;
     width: 100%; max-width: 100%; box-sizing: border-box;
     
 }
 
 .topDiv img {
-    filter: drop-shadow(0px 0px 20px rgba(17, 0, 0, 0.5))grayscale();
-    /* height: 550px; */
-    width: min(500px, 90vw); max-width: 100%; height: auto;
-    justify-content: end;
-    align-items: end;
-    bottom: 0px;
-    align-content: end;
-    overflow: hidden;
+    filter: drop-shadow(0px 0px 20px rgba(17, 0, 0, 0.5)) grayscale();
+    width: min(500px, 90vw);
+    max-width: 100%;
+    height: auto;
+    display: block;
+    vertical-align: bottom;
+    margin: 0;
 }
 .eastereggbox{
   background-color: #222;
@@ -216,6 +214,7 @@ ol{
     /* columns removed for responsive flex */
     font-size: clamp(1.4rem, 2.5vw, 2.5rem); max-width: 620px;
     margin: 10px;
+    align-self: center;
 }
 
 .intro div {
@@ -232,9 +231,17 @@ ol{
 }
 
 .mecontainer{
+  align-self: flex-end;
   vertical-align: bottom;
-  width: min(500px, 90vw); max-width: 100%; height: auto; aspect-ratio: 1/1;
+  width: min(500px, 90vw);
+  max-width: 100%;
+  height: auto;
   position: relative;
+  line-height: 0;
+  display: flex;
+  align-items: flex-end;
+  margin: 0;
+  padding: 0;
 }
 
 @keyframes smile{
@@ -243,10 +250,13 @@ ol{
 }
 #mesmile{
   position: absolute;
-  top: 0px;
+  bottom: 0px;
   left: 0px;
+  width: 100%;
+  height: auto;
+  display: block;
   opacity: 100%;
-  filter: drop-shadow(0px 0px 0px rgba(0,0,0, 0))grayscale();
+  filter: drop-shadow(0px 0px 0px rgba(0,0,0, 0)) grayscale();
 }
 #mesmile:hover {
   animation: smile 2s ease 0s forwards;
@@ -676,7 +686,8 @@ hr{
   }
 
   .mecontainer{
-    width: min(320px, 90vw); height: min(320px, 90vw);
+    width: min(320px, 90vw);
+    height: auto;
   }
   .coding{
     min-width: 120px;
