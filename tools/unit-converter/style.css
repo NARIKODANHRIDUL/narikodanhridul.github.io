@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+    --bg-dark: #0d100d;
+    --card-bg: #141814;
+    --card-border: #223321;
+    --accent-green: #90b781;
+    --accent-green-bright: #a6df90;
+    --accent-cyan: #38bdf8;
+    --accent-gold: #f59e0b;
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    min-height: 100vh;
+    padding: 20px 16px 60px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Nav Bar */
+.nav-bar {
+    width: 100%;
+    max-width: 880px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.back-link, .home-link {
+    color: var(--accent-green-bright);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    background: #172016;
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.back-link:hover, .home-link:hover {
+    background: #243522;
+    border-color: var(--accent-green-bright);
+}
+
+/* Header */
+.header-section {
+    text-align: center;
+    max-width: 780px;
+    margin-bottom: 24px;
+}
+
+.header-section h1 {
+    font-size: clamp(1.6rem, 4vw, 2.3rem);
+    color: #fff;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+
+.subtitle {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* Category Tabs */
+.category-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    width: 100%;
+    max-width: 880px;
+    margin-bottom: 20px;
+}
+
+.cat-tab {
+    background: #161c15;
+    border: 1px solid var(--card-border);
+    color: var(--text-muted);
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.cat-tab:hover, .cat-tab.active {
+    background: var(--accent-green-bright);
+    color: #0b110a;
+    border-color: var(--accent-green-bright);
+}
+
+/* Main Converter Card */
+.converter-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 28px 24px;
+    width: 100%;
+    max-width: 880px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    margin-bottom: 24px;
+}
+
+/* Conversion Row */
+.conversion-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.unit-box {
+    flex: 1;
+    min-width: 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.unit-box label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.input-wrap {
+    background: #090c09;
+    border: 1px solid #2e432c;
+    border-radius: 10px;
+    padding: 12px 16px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-wrap:focus-within {
+    border-color: var(--accent-green-bright);
+    box-shadow: 0 0 14px rgba(166, 223, 144, 0.25);
+}
+
+.input-wrap input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: 'Space Mono', monospace;
+    width: 100%;
+}
+
+.unit-select {
+    background: #101510;
+    border: 1px solid var(--card-border);
+    color: var(--accent-green-bright);
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 10px 14px;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Swap Button */
+.swap-btn {
+    background: #172417;
+    border: 1px solid #2e432c;
+    color: var(--accent-cyan);
+    font-size: 1.4rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s, color 0.2s;
+    align-self: center;
+    margin-top: 24px;
+}
+
+.swap-btn:hover {
+    background: var(--accent-cyan);
+    color: #0b110a;
+    transform: rotate(180deg);
+}
+
+/* Formula Banner */
+.formula-banner {
+    background: rgba(166, 223, 144, 0.08);
+    border-left: 4px solid var(--accent-green-bright);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-top: 24px;
+    color: #dcfce7;
+    font-size: 0.92rem;
+    line-height: 1.5;
+}
+
+/* Presets */
+.presets-section {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.presets-title {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.preset-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.chip-btn {
+    background: #141c14;
+    border: 1px solid #263824;
+    color: #b5dab0;
+    padding: 6px 12px;
+    border-radius: 14px;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.chip-btn:hover {
+    background: #253823;
+    border-color: var(--accent-green-bright);
+    color: #fff;
+}
+
+/* Cheat Sheet Card */
+.cheat-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 24px;
+    width: 100%;
+    max-width: 880px;
+}
+
+.cheat-card h3 {
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #233422;
+    padding-bottom: 8px;
+}
+
+.cheat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+}
+
+.cheat-item {
+    background: #0b0e0b;
+    border: 1px solid #213220;
+    border-radius: 8px;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.cheat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.cheat-val {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--accent-green-bright);
+    font-family: 'Space Mono', monospace;
+}

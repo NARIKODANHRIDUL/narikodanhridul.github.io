@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+    <link rel="icon" href="../../resources/sparkle.png" sizes="192x192" />
+    <title>Loan & EMI Calculator | Free Monthly Payment Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="nav-bar">
+        <a href="../../extra/index.html" class="back-link">← Extras & Tools</a>
+        <a href="../../index.html" class="home-link">Home</a>
+    </div>
+
+    <div class="header-section">
+        <h1>LOAN & EMI CALCULATOR</h1>
+        <p class="subtitle">Plan your Home Loan, Car Loan, or Personal Loan. See your monthly EMI, total interest, and visual payment breakdown instantly.</p>
+    </div>
+
+    <!-- Loan Category & Currency Selector -->
+    <div class="top-controls">
+        <div class="loan-types">
+            <button class="loan-type-btn active" data-type="home">🏠 Home Loan</button>
+            <button class="loan-type-btn" data-type="car">🚗 Car Loan</button>
+            <button class="loan-type-btn" data-type="personal">💼 Personal Loan</button>
+        </div>
+        <div class="currency-selector">
+            <label for="currencySelect">Currency:</label>
+            <select id="currencySelect">
+                <option value="₹">₹ INR</option>
+                <option value="$">$ USD</option>
+                <option value="€">€ EUR</option>
+                <option value="£">£ GBP</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="calculator-grid">
+        <!-- Input Form Card -->
+        <div class="card input-card">
+            <!-- Loan Amount -->
+            <div class="input-group">
+                <div class="input-header">
+                    <label for="amountInput">Loan Amount</label>
+                    <div class="input-display">
+                        <span class="currency-symbol">₹</span>
+                        <input type="number" id="amountInput" value="1000000" min="10000" max="100000000" step="10000">
+                    </div>
+                </div>
+                <input type="range" id="amountSlider" min="50000" max="10000000" step="25000" value="1000000" class="slider">
+                <div class="quick-chips" id="amountChips">
+                    <button class="chip" data-val="200000">2 Lakhs</button>
+                    <button class="chip" data-val="500000">5 Lakhs</button>
+                    <button class="chip active" data-val="1000000">10 Lakhs</button>
+                    <button class="chip" data-val="2500000">25 Lakhs</button>
+                    <button class="chip" data-val="5000000">50 Lakhs</button>
+                </div>
+            </div>
+
+            <!-- Interest Rate -->
+            <div class="input-group">
+                <div class="input-header">
+                    <label for="interestInput">Interest Rate (% p.a.)</label>
+                    <div class="input-display">
+                        <input type="number" id="interestInput" value="8.5" min="1" max="30" step="0.1">
+                        <span class="unit-symbol">%</span>
+                    </div>
+                </div>
+                <input type="range" id="interestSlider" min="4" max="24" step="0.1" value="8.5" class="slider">
+                <div class="quick-chips" id="interestChips">
+                    <button class="chip active" data-val="8.5">8.5% (Home)</button>
+                    <button class="chip" data-val="9.0">9.0% (Car)</button>
+                    <button class="chip" data-val="11.5">11.5% (Personal)</button>
+                    <button class="chip" data-val="14.0">14.0% (Gold)</button>
+                </div>
+            </div>
+
+            <!-- Loan Tenure -->
+            <div class="input-group">
+                <div class="input-header">
+                    <label for="tenureInput">Loan Tenure</label>
+                    <div class="tenure-unit-toggle">
+                        <button class="unit-toggle-btn active" id="tenureYearsBtn">Years</button>
+                        <button class="unit-toggle-btn" id="tenureMonthsBtn">Months</button>
+                    </div>
+                    <div class="input-display">
+                        <input type="number" id="tenureInput" value="10" min="1" max="360" step="1">
+                        <span class="unit-symbol" id="tenureUnitLabel">Yr</span>
+                    </div>
+                </div>
+                <input type="range" id="tenureSlider" min="1" max="30" step="1" value="10" class="slider">
+                <div class="quick-chips" id="tenureChips">
+                    <button class="chip" data-val="3">3 Yrs</button>
+                    <button class="chip" data-val="5">5 Yrs</button>
+                    <button class="chip active" data-val="10">10 Yrs</button>
+                    <button class="chip" data-val="15">15 Yrs</button>
+                    <button class="chip" data-val="20">20 Yrs</button>
+                </div>
+            </div>
+
+            <!-- Extra Prepayment Feature -->
+            <div class="prepayment-box">
+                <div class="prepay-header">
+                    <span>💡 Extra Monthly Prepayment (Optional):</span>
+                </div>
+                <div class="prepay-input-row">
+                    <span class="currency-symbol">₹</span>
+                    <input type="number" id="extraPayInput" value="0" min="0" step="500" placeholder="e.g. 2000">
+                    <span class="prepay-tip">Pay extra each month to crush your loan faster!</span>
+                </div>
+                <div id="savingsResult" class="savings-alert" style="display: none;"></div>
+            </div>
+        </div>
+
+        <!-- Result Card -->
+        <div class="card result-card">
+            <div class="emi-output-box">
+                <div class="emi-label">YOUR MONTHLY EMI</div>
+                <div class="emi-amount" id="emiAmount">₹12,399</div>
+                <div class="emi-subtext">per month for <span id="emiTenureMonths">120</span> months</div>
+            </div>
+
+            <!-- Visual Chart -->
+            <div class="chart-container">
+                <div class="donut-chart-wrapper">
+                    <svg viewBox="0 0 36 36" class="donut-chart">
+                        <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                        <path id="donutPrincipal" class="circle-principal" stroke-dasharray="60, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                    </svg>
+                    <div class="chart-center-text">
+                        <span class="chart-percent" id="principalPercent">67%</span>
+                        <span class="chart-label">Principal</span>
+                    </div>
+                </div>
+
+                <div class="chart-legend">
+                    <div class="legend-item">
+                        <span class="legend-color principal-color"></span>
+                        <div class="legend-info">
+                            <span class="legend-name">Principal Amount</span>
+                            <span class="legend-value" id="resPrincipal">₹10,00,000</span>
+                        </div>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color interest-color"></span>
+                        <div class="legend-info">
+                            <span class="legend-name">Total Interest</span>
+                            <span class="legend-value" id="resInterest">₹4,87,834</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary-total-box">
+                <div class="total-label">TOTAL AMOUNT PAYABLE (Principal + Interest)</div>
+                <div class="total-value" id="resTotalPayment">₹14,87,834</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Yearly Amortization Table -->
+    <div class="card schedule-card">
+        <div class="schedule-header">
+            <h3>Yearly Payment Schedule</h3>
+            <button class="toggle-schedule-btn" id="toggleScheduleBtn">Show Breakdown ▼</button>
+        </div>
+        <div class="table-responsive" id="scheduleTableWrapper" style="display: none;">
+            <table id="amortizationTable">
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Opening Balance</th>
+                        <th>EMI Paid</th>
+                        <th>Principal Paid</th>
+                        <th>Interest Paid</th>
+                        <th>Closing Balance</th>
+                    </tr>
+                </thead>
+                <tbody id="scheduleBody">
+                    <!-- Populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

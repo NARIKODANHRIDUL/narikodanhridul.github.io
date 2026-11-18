@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+    <link rel="icon" href="../../resources/sparkle.png" sizes="192x192" />
+    <title>Everyday Unit & Kitchen Converter | Free Practical Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="nav-bar">
+        <a href="../../extra/index.html" class="back-link">← Extras & Tools</a>
+        <a href="../../index.html" class="home-link">Home</a>
+    </div>
+
+    <div class="header-section">
+        <h1>EVERYDAY UNIT CONVERTER</h1>
+        <p class="subtitle">Fast, practical conversions for cooking, height, body weight, land area, temperature, and travel. No confusing clutter.</p>
+    </div>
+
+    <!-- Category Tabs -->
+    <div class="category-tabs">
+        <button class="cat-tab active" data-cat="cooking">🍳 Kitchen & Cooking</button>
+        <button class="cat-tab" data-cat="length">📏 Height & Length</button>
+        <button class="cat-tab" data-cat="weight">⚖️ Weight & Mass</button>
+        <button class="cat-tab" data-cat="temp">🌡️ Temperature</button>
+        <button class="cat-tab" data-cat="area">📐 Land & Room Area</button>
+        <button class="cat-tab" data-cat="speed">🚗 Speed & Travel</button>
+    </div>
+
+    <div class="converter-card">
+        <!-- Interactive Conversion Row -->
+        <div class="conversion-row">
+            <!-- Left Box -->
+            <div class="unit-box">
+                <label for="fromValue" id="fromLabel">You Enter</label>
+                <div class="input-wrap">
+                    <input type="number" id="fromValue" value="1" step="any">
+                </div>
+                <select id="fromUnit" class="unit-select">
+                    <!-- Populated by JS -->
+                </select>
+            </div>
+
+            <!-- Swap Button -->
+            <button class="swap-btn" id="swapBtn" title="Swap Units">⇄</button>
+
+            <!-- Right Box -->
+            <div class="unit-box">
+                <label for="toValue" id="toLabel">Converted Result</label>
+                <div class="input-wrap">
+                    <input type="number" id="toValue" value="0" step="any">
+                </div>
+                <select id="toUnit" class="unit-select">
+                    <!-- Populated by JS -->
+                </select>
+            </div>
+        </div>
+
+        <!-- Formula Callout -->
+        <div class="formula-banner" id="formulaBanner">
+            <strong>💡 Quick Formula:</strong> 1 Cup (US) = 236.59 Milliliters (ml)
+        </div>
+
+        <!-- Quick Preset Chips -->
+        <div class="presets-section">
+            <span class="presets-title">Common Everyday Conversions:</span>
+            <div class="preset-chips" id="presetChips">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Practical Cheat Sheet -->
+    <div class="cheat-card">
+        <h3 id="cheatTitle">🍳 Kitchen & Cooking Quick Cheat Sheet</h3>
+        <div class="cheat-grid" id="cheatGrid">
+            <!-- Populated by JS -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
