@@ -343,6 +343,282 @@
             color: #d1d5db;
             margin: 0;
         }
+    
+        /* Clickable Abbreviation Links in Blog Prose */
+        .abbr-link {
+            color: var(--accent-green-bright);
+            text-decoration: underline dotted #4e7a46 1.5px;
+            text-underline-offset: 3px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            border-radius: 4px;
+            padding: 0 3px;
+        }
+
+        .abbr-link:hover {
+            color: #ffffff;
+            background: rgba(166, 223, 144, 0.25);
+            text-decoration: underline solid var(--accent-green-bright) 1.5px;
+            box-shadow: 0 0 8px rgba(166, 223, 144, 0.3);
+        }
+
+        /* Spot highlight when returning */
+        .last-clicked-spot {
+            animation: spotPulse 3s cubic-bezier(0.1, 0.9, 0.2, 1);
+        }
+
+        @keyframes spotPulse {
+            0% {
+                background: rgba(245, 158, 11, 0.7);
+                color: #ffffff;
+                outline: 3px solid var(--accent-gold);
+                box-shadow: 0 0 18px rgba(245, 158, 11, 0.85);
+            }
+            40% {
+                background: rgba(245, 158, 11, 0.35);
+                outline: 2px solid var(--accent-gold);
+            }
+            100% {
+                background: transparent;
+                outline: none;
+            }
+        }
+
+        /* Glossary Section Styling */
+        .abbr-search-box {
+            display: flex;
+            align-items: center;
+            background: #090c09;
+            border: 1px solid #2f432d;
+            border-radius: 10px;
+            padding: 10px 14px;
+            gap: 10px;
+            margin: 18px 0 20px 0;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .abbr-search-box:focus-within {
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 14px rgba(245, 158, 11, 0.25);
+        }
+
+        .abbr-search-box input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #fff;
+            font-size: 0.95rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .abbr-count-badge {
+            background: #172216;
+            color: var(--accent-green-bright);
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 12px;
+            border: 1px solid #2d422a;
+            white-space: nowrap;
+        }
+
+        .abbr-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(290px, 100%), 1fr));
+            gap: 16px;
+            margin-top: 15px;
+        }
+
+        .abbr-card {
+            background: #0f130f;
+            border: 1px solid #223420;
+            border-radius: 12px;
+            padding: 18px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.25s ease;
+            scroll-margin-top: 90px;
+        }
+
+        .abbr-card:hover {
+            border-color: #3b5a38;
+            background: #131913;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        .abbr-card.highlighted {
+            border-color: var(--accent-gold) !important;
+            background: #1a1e16 !important;
+            box-shadow: 0 0 22px rgba(245, 158, 11, 0.5) !important;
+            animation: cardLuminescence 2.5s ease-out;
+        }
+
+        @keyframes cardLuminescence {
+            0% {
+                box-shadow: 0 0 30px rgba(245, 158, 11, 0.9);
+                transform: scale(1.02);
+            }
+            100% {
+                box-shadow: 0 0 10px rgba(245, 158, 11, 0.2);
+                transform: scale(1);
+            }
+        }
+
+        .abbr-card-top {
+            margin-bottom: 12px;
+        }
+
+        .abbr-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 6px;
+            gap: 8px;
+        }
+
+        .abbr-badge {
+            background: rgba(166, 223, 144, 0.15);
+            color: var(--accent-green-bright);
+            font-size: 1.1rem;
+            font-weight: 800;
+            font-family: 'Space Mono', monospace;
+            padding: 3px 10px;
+            border-radius: 6px;
+            border: 1px solid rgba(166, 223, 144, 0.4);
+            letter-spacing: 0.5px;
+        }
+
+        .abbr-cat {
+            font-size: 0.72rem;
+            color: #9ca3af;
+            background: #151b14;
+            padding: 3px 8px;
+            border-radius: 10px;
+            border: 1px solid #222d21;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .abbr-full-name {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 8px 0 6px 0;
+            line-height: 1.35;
+        }
+
+        .abbr-desc {
+            font-size: 0.88rem;
+            color: #c9d1d9;
+            line-height: 1.55;
+            margin: 0;
+        }
+
+        .abbr-card-footer {
+            margin-top: 14px;
+            padding-top: 10px;
+            border-top: 1px solid #1a2619;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .abbr-back-btn {
+            background: #162015;
+            border: 1px solid #2a3c28;
+            color: var(--accent-gold);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+
+        .abbr-back-btn:hover {
+            background: var(--accent-gold);
+            color: #0b110a;
+            border-color: var(--accent-gold);
+            transform: translateX(-2px);
+        }
+
+        /* Floating Return Toast */
+        .abbr-return-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #141a13;
+            border: 1px solid var(--accent-gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7), 0 0 18px rgba(245, 158, 11, 0.3);
+            border-radius: 12px;
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            z-index: 1000;
+            animation: toastSlideUp 0.3s cubic-bezier(0.1, 0.9, 0.2, 1);
+            backdrop-filter: blur(8px);
+        }
+
+        @keyframes toastSlideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .toast-content {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.86rem;
+            color: #e5e7eb;
+        }
+
+        .toast-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+            box-shadow: 0 0 8px var(--accent-gold);
+        }
+
+        .return-toast-btn {
+            background: var(--accent-gold);
+            color: #0d120c;
+            border: none;
+            font-size: 0.82rem;
+            font-weight: 700;
+            padding: 7px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .return-toast-btn:hover {
+            background: #fbbf24;
+            transform: scale(1.03);
+        }
+
+        .toast-close-btn {
+            background: none;
+            border: none;
+            color: #9ca3af;
+            font-size: 1rem;
+            cursor: pointer;
+            padding: 2px 4px;
+            line-height: 1;
+        }
+
+        .toast-close-btn:hover {
+            color: #fff;
+        }
+
     </style>
 </head>
 
@@ -375,13 +651,14 @@
         <a href="#C-COMPILATION">13. C Compilation for Firmware</a>
         <a href="#LIFECYCLE-FPGA">14. FW Lifecycle & Role of FPGA</a>
         <a href="#FTL-ESSENTIALS">15. FTL & NAND Flash Essentials</a>
+        <a href="#ABBREVIATIONS" style="color: var(--accent-gold); font-weight: 600;">📖 16. Acronyms & Full Forms</a>
     </div>
 
     <div class="main">
         <button class="openbtn" onclick="toggleNav()" aria-label="Toggle Navigation">☰</button>
 
         <div class="badge">Embedded Systems & Silicon Storage</div>
-        <div class="mainHeading">SSD NVMe FIRMWARE DEVELOPMENT</div>
+        <div class="mainHeading">SSD <a href="#abbr-nvme" class="abbr-link" id="ref-nvme-1" data-abbr="NVMe" title="NVMe: Non-Volatile Memory Express — Click to view in Glossary">NVMe</a> FIRMWARE DEVELOPMENT</div>
         <h1>THE DEFINITIVE ARCHITECTURAL GUIDE FROM SILICON HARDWARE TO PROTOCOLS AND FTL</h1>
 
         <div class="hero-banner">
@@ -389,7 +666,7 @@
         </div>
 
         <p class="tagline">
-            An SSD is not just a bunch of flash chips on a green board. It is an ultra-fast, real-time embedded supercomputer running millions of operations every second. Here is the complete, easy-to-understand reference guide for aspiring and practicing <strong>SSD Firmware Developers</strong> — covering everything from PCIe and NVMe to AXI, SRAM/DRAM, interrupts, MSI-X, C compilation, RTL, and FPGA emulation.
+            An SSD is not just a bunch of flash chips on a green board. It is an ultra-fast, real-time embedded supercomputer running millions of operations every second. Here is the complete, easy-to-understand reference guide for aspiring and practicing <strong>SSD Firmware Developers</strong> — covering everything from <a href="#abbr-pcie" class="abbr-link" id="ref-pcie-2" data-abbr="PCIe" title="PCIe: Peripheral Component Interconnect Express — Click to view in Glossary">PCIe</a> and <a href="#abbr-nvme" class="abbr-link" id="ref-nvme-3" data-abbr="NVMe" title="NVMe: Non-Volatile Memory Express — Click to view in Glossary">NVMe</a> to <a href="#abbr-axi" class="abbr-link" id="ref-axi-4" data-abbr="AXI" title="AXI: Advanced eXtensible Interface — Click to view in Glossary">AXI</a>, <a href="#abbr-sram" class="abbr-link" id="ref-sram-5" data-abbr="SRAM" title="SRAM: Static Random-Access Memory — Click to view in Glossary">SRAM</a>/<a href="#abbr-dram" class="abbr-link" id="ref-dram-6" data-abbr="DRAM" title="DRAM: Dynamic Random-Access Memory — Click to view in Glossary">DRAM</a>, interrupts, <a href="#abbr-msix" class="abbr-link" id="ref-msix-7" data-abbr="MSI-X" title="MSI-X: Message Signaled Interrupts (Extended) — Click to view in Glossary">MSI-X</a>, C compilation, <a href="#abbr-rtl" class="abbr-link" id="ref-rtl-8" data-abbr="RTL" title="RTL: Register-Transfer Level — Click to view in Glossary">RTL</a>, and <a href="#abbr-fpga" class="abbr-link" id="ref-fpga-9" data-abbr="FPGA" title="FPGA: Field-Programmable Gate Array — Click to view in Glossary">FPGA</a> emulation.
         </p>
 
         <!-- INTERACTIVE SEARCH BAR -->
@@ -400,14 +677,15 @@
                 <button class="clear-btn" id="clearSearchBtn" title="Clear search">✕</button>
             </div>
             <div class="search-meta">
-                <div class="search-count" id="searchCount">Displaying all 15 chapters</div>
+                <div class="search-count" id="searchCount">Displaying all 16 chapters</div>
                 <div class="quick-tags">
-                    <span class="quick-tag active" data-filter="all">All (15)</span>
+                    <span class="quick-tag active" data-filter="all">All (16)</span>
                     <span class="quick-tag" data-filter="architecture">Architecture</span>
                     <span class="quick-tag" data-filter="memory">Memory & Cache</span>
-                    <span class="quick-tag" data-filter="protocol">PCIe & NVMe</span>
+                    <span class="quick-tag" data-filter="protocol"><a href="#abbr-pcie" class="abbr-link" id="ref-pcie-10" data-abbr="PCIe" title="PCIe: Peripheral Component Interconnect Express — Click to view in Glossary">PCIe</a> & <a href="#abbr-nvme" class="abbr-link" id="ref-nvme-11" data-abbr="NVMe" title="NVMe: Non-Volatile Memory Express — Click to view in Glossary">NVMe</a></span>
                     <span class="quick-tag" data-filter="hardware">Hardware & Buses</span>
                     <span class="quick-tag" data-filter="firmware">Firmware & C</span>
+                    <span class="quick-tag" data-filter="glossary" style="border-color: rgba(245, 158, 11, 0.5); color: #fde68a;">📖 Glossary</span>
                 </div>
             </div>
         </div>
@@ -422,11 +700,11 @@
             <div class="concept-grid">
                 <div class="concept-card">
                     <h4>1. Controller SoC (The Brain)</h4>
-                    <p>An Application-Specific Integrated Circuit (ASIC) containing multi-core CPUs, hardware DMA engines, LDPC error correction, crypto accelerators, and PCIe/NAND controllers.</p>
+                    <p>An Application-Specific Integrated Circuit (<a href="#abbr-asic" class="abbr-link" id="ref-asic-12" data-abbr="ASIC" title="ASIC: Application-Specific Integrated Circuit — Click to view in Glossary">ASIC</a>) containing multi-core CPUs, hardware <a href="#abbr-dma" class="abbr-link" id="ref-dma-13" data-abbr="DMA" title="DMA: Direct Memory Access — Click to view in Glossary">DMA</a> engines, <a href="#abbr-ldpc" class="abbr-link" id="ref-ldpc-14" data-abbr="LDPC" title="LDPC: Low-Density Parity-Check — Click to view in Glossary">LDPC</a> error correction, crypto accelerators, and <a href="#abbr-pcie" class="abbr-link" id="ref-pcie-15" data-abbr="PCIe" title="PCIe: Peripheral Component Interconnect Express — Click to view in Glossary">PCIe</a>/<a href="#abbr-nand" class="abbr-link" id="ref-nand-16" data-abbr="NAND" title="NAND: Not-AND Flash Memory — Click to view in Glossary">NAND</a> controllers.</p>
                 </div>
                 <div class="concept-card">
                     <h4>2. DRAM Cache (The Scratchpad)</h4>
-                    <p>High-speed volatile RAM (e.g., 1GB to 8GB DDR4/LPDDR4) used to hold the full <strong>Logical-to-Physical (L2P)</strong> mapping table and write caching buffers.</p>
+                    <p>High-speed volatile RAM (e.g., 1GB to 8GB DDR4/LPDDR4) used to hold the full <strong>Logical-to-Physical (<a href="#abbr-l2p" class="abbr-link" id="ref-l2p-17" data-abbr="L2P" title="L2P: Logical-to-Physical (Mapping Table) — Click to view in Glossary">L2P</a>)</strong> mapping table and write caching buffers.</p>
                 </div>
                 <div class="concept-card">
                     <h4>3. 3D NAND Flash (The Storage)</h4>
@@ -470,12 +748,12 @@
             </div>
 
             <p>
-                The firmware running on the SoC is conventionally divided into <strong>Three Main Layers</strong>:
+                The firmware running on the <a href="#abbr-soc" class="abbr-link" id="ref-soc-18" data-abbr="SoC" title="SoC: System-on-Chip — Click to view in Glossary">SoC</a> is conventionally divided into <strong>Three Main Layers</strong>:
             </p>
             <ul>
-                <li><strong>Front-End (FE):</strong> Talks to the host PC via PCIe and NVMe. Fetches commands from host memory, validates LBAs, manages queue buffers, and posts completion status.</li>
-                <li><strong>Flash Translation Layer (FTL):</strong> The core intellectual property of the SSD. Converts virtual Logical Block Addresses (LBAs) into physical Flash Pages (PBAs), handles Garbage Collection, Wear Leveling, and Power-Loss recovery.</li>
-                <li><strong>Back-End / NAND Flash Controller (NFC):</strong> Dispatches raw hardware read, program, and erase commands across flash channels, manages channel DMA, and configures hardware error correction (LDPC).</li>
+                <li><strong>Front-End (<a href="#abbr-fe" class="abbr-link" id="ref-fe-19" data-abbr="FE" title="FE: Front-End Subsystem — Click to view in Glossary">FE</a>):</strong> Talks to the host PC via <a href="#abbr-pcie" class="abbr-link" id="ref-pcie-20" data-abbr="PCIe" title="PCIe: Peripheral Component Interconnect Express — Click to view in Glossary">PCIe</a> and <a href="#abbr-nvme" class="abbr-link" id="ref-nvme-21" data-abbr="NVMe" title="NVMe: Non-Volatile Memory Express — Click to view in Glossary">NVMe</a>. Fetches commands from host memory, validates LBAs, manages queue buffers, and posts completion status.</li>
+                <li><strong>Flash Translation Layer (<a href="#abbr-ftl" class="abbr-link" id="ref-ftl-22" data-abbr="FTL" title="FTL: Flash Translation Layer — Click to view in Glossary">FTL</a>):</strong> The core intellectual property of the SSD. Converts virtual Logical Block Addresses (LBAs) into physical Flash Pages (PBAs), handles Garbage Collection, Wear Leveling, and Power-Loss recovery.</li>
+                <li><strong>Back-End / <a href="#abbr-nand" class="abbr-link" id="ref-nand-23" data-abbr="NAND" title="NAND: Not-AND Flash Memory — Click to view in Glossary">NAND</a> Flash Controller (<a href="#abbr-nfc" class="abbr-link" id="ref-nfc-24" data-abbr="NFC" title="NFC: NAND Flash Controller — Click to view in Glossary">NFC</a>):</strong> Dispatches raw hardware read, program, and erase commands across flash channels, manages channel <a href="#abbr-dma" class="abbr-link" id="ref-dma-25" data-abbr="DMA" title="DMA: Direct Memory Access — Click to view in Glossary">DMA</a>, and configures hardware error correction (<a href="#abbr-ldpc" class="abbr-link" id="ref-ldpc-26" data-abbr="LDPC" title="LDPC: Low-Density Parity-Check — Click to view in Glossary">LDPC</a>).</li>
             </ul>
         </div>
 
@@ -484,7 +762,7 @@
         <div class="fw-section" data-category="architecture" data-keywords="cpu microcontroller arm cortex-r risc-v registers pipeline multi-core partitioning">
             <h2>2. Processing Power: CPU vs. Microcontroller</h2>
             <p>
-                In a storage controller SoC, people often use the terms <strong>CPU</strong> and <strong>Microcontroller</strong> interchangeably, but they serve distinct roles in SSD firmware architecture:
+                In a storage controller <a href="#abbr-soc" class="abbr-link" id="ref-soc-27" data-abbr="SoC" title="SoC: System-on-Chip — Click to view in Glossary">SoC</a>, people often use the terms <strong>CPU</strong> and <strong>Microcontroller</strong> interchangeably, but they serve distinct roles in SSD firmware architecture:
             </p>
 
             <div class="table-responsive">
@@ -499,13 +777,13 @@
                     <tbody>
                         <tr>
                             <td><strong>Primary Role</strong></td>
-                            <td>Runs complex FTL algorithms, sorting millions of queues, multi-threaded mapping updates, dynamic wear leveling.</td>
-                            <td>Hard real-time deterministic hardware tasks: PHY calibration, thermal monitoring, NAND channel state machines.</td>
+                            <td>Runs complex <a href="#abbr-ftl" class="abbr-link" id="ref-ftl-28" data-abbr="FTL" title="FTL: Flash Translation Layer — Click to view in Glossary">FTL</a> algorithms, sorting millions of queues, multi-threaded mapping updates, dynamic wear leveling.</td>
+                            <td>Hard real-time deterministic hardware tasks: PHY calibration, thermal monitoring, <a href="#abbr-nand" class="abbr-link" id="ref-nand-29" data-abbr="NAND" title="NAND: Not-AND Flash Memory — Click to view in Glossary">NAND</a> channel state machines.</td>
                         </tr>
                         <tr>
                             <td><strong>Memory Architecture</strong></td>
-                            <td>Has L1 instruction & data caches, tightly-coupled memories (TCM), and interfaces directly to multi-gigabyte external DRAM.</td>
-                            <td>Runs directly from small on-chip ROM or tightly-coupled SRAM with zero wait states. Usually has no external DRAM.</td>
+                            <td>Has L1 instruction & data caches, tightly-coupled memories (<a href="#abbr-tcm" class="abbr-link" id="ref-tcm-30" data-abbr="TCM" title="TCM: Tightly Coupled Memory — Click to view in Glossary">TCM</a>), and interfaces directly to multi-gigabyte external <a href="#abbr-dram" class="abbr-link" id="ref-dram-31" data-abbr="DRAM" title="DRAM: Dynamic Random-Access Memory — Click to view in Glossary">DRAM</a>.</td>
+                            <td>Runs directly from small on-chip ROM or tightly-coupled <a href="#abbr-sram" class="abbr-link" id="ref-sram-32" data-abbr="SRAM" title="SRAM: Static Random-Access Memory — Click to view in Glossary">SRAM</a> with zero wait states. Usually has no external <a href="#abbr-dram" class="abbr-link" id="ref-dram-33" data-abbr="DRAM" title="DRAM: Dynamic Random-Access Memory — Click to view in Glossary">DRAM</a>.</td>
                         </tr>
                         <tr>
                             <td><strong>Execution Pipeline</strong></td>
@@ -517,7 +795,7 @@
             </div>
 
             <div class="tip-box">
-                <strong>💡 Multi-Core Partitioning in SSDs:</strong> Modern NVMe SSD controllers use 4 to 8 CPU cores. Rather than running a single operating system across all cores (which causes locking contention), firmware developers <strong>pin specific firmware tasks to specific cores</strong>: Core 0 handles Front-End PCIe/NVMe, Cores 1 & 2 run the FTL algorithms, and Cores 3 & 4 handle Flash Back-End DMA.
+                <strong>💡 Multi-Core Partitioning in SSDs:</strong> Modern <a href="#abbr-nvme" class="abbr-link" id="ref-nvme-34" data-abbr="NVMe" title="NVMe: Non-Volatile Memory Express — Click to view in Glossary">NVMe</a> SSD controllers use 4 to 8 CPU cores. Rather than running a single operating system across all cores (which causes locking contention), firmware developers <strong>pin specific firmware tasks to specific cores</strong>: Core 0 handles Front-End <a href="#abbr-pcie" class="abbr-link" id="ref-pcie-35" data-abbr="PCIe" title="PCIe: Peripheral Component Interconnect Express — Click to view in Glossary">PCIe</a>/<a href="#abbr-nvme" class="abbr-link" id="ref-nvme-36" data-abbr="NVMe" title="NVMe: Non-Volatile Memory Express — Click to view in Glossary">NVMe</a>, Cores 1 & 2 run the <a href="#abbr-ftl" class="abbr-link" id="ref-ftl-37" data-abbr="FTL" title="FTL: Flash Translation Layer — Click to view in Glossary">FTL</a> algorithms, and Cores 3 & 4 handle Flash Back-End <a href="#abbr-dma" class="abbr-link" id="ref-dma-38" data-abbr="DMA" title="DMA: Direct Memory Access — Click to view in Glossary">DMA</a>.
             </div>
         </div>
 
@@ -531,17 +809,17 @@
 
             <h3>A. SRAM (Static RAM - On-Chip Tightly Coupled Memory)</h3>
             <ul>
-                <li><strong>Where it lives:</strong> Inside the silicon controller SoC itself.</li>
+                <li><strong>Where it lives:</strong> Inside the silicon controller <a href="#abbr-soc" class="abbr-link" id="ref-soc-39" data-abbr="SoC" title="SoC: System-on-Chip — Click to view in Glossary">SoC</a> itself.</li>
                 <li><strong>Characteristics:</strong> Ultra-fast (0 to 1 CPU clock cycle latency). No refresh cycles needed. Extremely expensive per square millimeter of silicon (typically 2MB to 16MB total).</li>
-                <li><strong>Firmware usage:</strong> Stores critical interrupt service routines (ISRs), fast lookup pointer rings, hardware DMA descriptor lists, and Tightly Coupled Memory (ITCM/DTCM) where code must execute with zero cache misses.</li>
+                <li><strong>Firmware usage:</strong> Stores critical interrupt service routines (ISRs), fast lookup pointer rings, hardware <a href="#abbr-dma" class="abbr-link" id="ref-dma-40" data-abbr="DMA" title="DMA: Direct Memory Access — Click to view in Glossary">DMA</a> descriptor lists, and Tightly Coupled Memory (ITCM/DTCM) where code must execute with zero cache misses.</li>
             </ul>
 
             <h3>B. DRAM (Dynamic RAM - External Memory)</h3>
             <ul>
                 <li><strong>Where it lives:</strong> An external DDR4/DDR5 or LPDDR4x chip on the SSD board.</li>
                 <li><strong>Characteristics:</strong> Large capacity (typically 1GB per 1TB of SSD capacity), high bandwidth, but higher latency (~50-100 CPU cycles) and requires constant electrical refresh cycles.</li>
-                <li><strong>Firmware usage:</strong> Holds the complete <strong>Logical-to-Physical (L2P) mapping table</strong> (e.g., 4 bytes per 4KB sector = 1GB of table per 1TB of user storage). Also acts as a write cache buffer before data is programmed into NAND.</li>
-                <li><strong>DRAM-less SSDs & HMB:</strong> Budget SSDs omit external DRAM to save cost. Instead, they use <strong>Host Memory Buffer (HMB)</strong>: the NVMe driver allocates 64MB of the Host PC's own RAM, and the SSD reads/writes its mapping tables over PCIe using DMA!</li>
+                <li><strong>Firmware usage:</strong> Holds the complete <strong>Logical-to-Physical (<a href="#abbr-l2p" class="abbr-link" id="ref-l2p-41" data-abbr="L2P" title="L2P: Logical-to-Physical (Mapping Table) — Click to view in Glossary">L2P</a>) mapping table</strong> (e.g., 4 bytes per 4KB sector = 1GB of table per 1TB of user storage). Also acts as a write cache buffer before data is programmed into <a href="#abbr-nand" class="abbr-link" id="ref-nand-42" data-abbr="NAND" title="NAND: Not-AND Flash Memory — Click to view in Glossary">NAND</a>.</li>
+                <li><strong><a href="#abbr-dram" class="abbr-link" id="ref-dram-43" data-abbr="DRAM" title="DRAM: Dynamic Random-Access Memory — Click to view in Glossary">DRAM</a>-less SSDs & <a href="#abbr-hmb" class="abbr-link" id="ref-hmb-44" data-abbr="HMB" title="HMB: Host Memory Buffer — Click to view in Glossary">HMB</a>:</strong> Budget SSDs omit external <a href="#abbr-dram" class="abbr-link" id="ref-dram-45" data-abbr="DRAM" title="DRAM: Dynamic Random-Access Memory — Click to view in Glossary">DRAM</a> to save cost. Instead, they use <strong>Host Memory Buffer (<a href="#abbr-hmb" class="abbr-link" id="ref-hmb-46" data-abbr="HMB" title="HMB: Host Memory Buffer — Click to view in Glossary">HMB</a>)</strong>: the <a href="#abbr-nvme" class="abbr-link" id="ref-nvme-47" data-abbr="NVMe" title="NVMe: Non-Volatile Memory Express — Click to view in Glossary">NVMe</a> driver allocates 64MB of the Host PC's own RAM, and the SSD reads/writes its mapping tables over <a href="#abbr-pcie" class="abbr-link" id="ref-pcie-48" data-abbr="PCIe" title="PCIe: Peripheral Component Interconnect Express — Click to view in Glossary">PCIe</a> using <a href="#abbr-dma" class="abbr-link" id="ref-dma-49" data-abbr="DMA" title="DMA: Direct Memory Access — Click to view in Glossary">DMA</a>!</li>
             </ul>
 
             <h3>C. CPU Cache: Coherence, Flushing & DMA Hazards</h3>
@@ -549,14 +827,14 @@
                 Cortex-R and RISC-V cores have L1 Instruction and Data caches (typically 32KB/64KB). A cache line is typically <strong>64 bytes</strong>:
             </p>
             <ul>
-                <li><strong>Write-Through:</strong> Writes go to cache and immediately to main DRAM. Safe, but slow.</li>
-                <li><strong>Write-Back:</strong> Writes stay in the cache as "dirty lines" and are only written to DRAM when evicted. Fast, but dangerous during unexpected power loss!</li>
+                <li><strong>Write-Through:</strong> Writes go to cache and immediately to main <a href="#abbr-dram" class="abbr-link" id="ref-dram-50" data-abbr="DRAM" title="DRAM: Dynamic Random-Access Memory — Click to view in Glossary">DRAM</a>. Safe, but slow.</li>
+                <li><strong>Write-Back:</strong> Writes stay in the cache as "dirty lines" and are only written to <a href="#abbr-dram" class="abbr-link" id="ref-dram-51" data-abbr="DRAM" title="DRAM: Dynamic Random-Access Memory — Click to view in Glossary">DRAM</a> when evicted. Fast, but dangerous during unexpected power loss!</li>
             </ul>
 
             <div class="warning-box">
-                <strong>⚠️ The #1 Firmware Cache Bug (DMA Incoherence):</strong> Hardware DMA engines write host data directly into DRAM over the internal AXI bus without going through the CPU cache. If the CPU reads that memory address, it might read stale data from its L1 cache instead of the new data in DRAM! 
+                <strong>⚠️ The #1 Firmware Cache Bug (<a href="#abbr-dma" class="abbr-link" id="ref-dma-52" data-abbr="DMA" title="DMA: Direct Memory Access — Click to view in Glossary">DMA</a> Incoherence):</strong> Hardware <a href="#abbr-dma" class="abbr-link" id="ref-dma-53" data-abbr="DMA" title="DMA: Direct Memory Access — Click to view in Glossary">DMA</a> engines write host data directly into <a href="#abbr-dram" class="abbr-link" id="ref-dram-54" data-abbr="DRAM" title="DRAM: Dynamic Random-Access Memory — Click to view in Glossary">DRAM</a> over the internal <a href="#abbr-axi" class="abbr-link" id="ref-axi-55" data-abbr="AXI" title="AXI: Advanced eXtensible Interface — Click to view in Glossary">AXI</a> bus without going through the CPU cache. If the CPU reads that memory address, it might read stale data from its L1 cache instead of the new data in <a href="#abbr-dram" class="abbr-link" id="ref-dram-56" data-abbr="DRAM" title="DRAM: Dynamic Random-Access Memory — Click to view in Glossary">DRAM</a>! 
                 <br>
-                <strong>The Rule:</strong> Firmware must designate DMA memory buffers as <strong>Non-Cacheable</strong> (via the Memory Protection Unit / MPU), or explicitly execute a <strong>Cache Invalidate</strong> instruction before reading, and a <strong>Cache Clean/Flush</strong> instruction after modifying data that hardware will DMA.
+                <strong>The Rule:</strong> Firmware must designate <a href="#abbr-dma" class="abbr-link" id="ref-dma-57" data-abbr="DMA" title="DMA: Direct Memory Access — Click to view in Glossary">DMA</a> memory buffers as <strong>Non-Cacheable</strong> (via the Memory Protection Unit / MPU), or explicitly execute a <strong>Cache Invalidate</strong> instruction before reading, and a <strong>Cache Clean/Flush</strong> instruction after modifying data that hardware will <a href="#abbr-dma" class="abbr-link" id="ref-dma-58" data-abbr="DMA" title="DMA: Direct Memory Access — Click to view in Glossary">DMA</a>.
             </div>
         </div>
 
@@ -565,7 +843,7 @@
         <div class="fw-section" data-category="protocol" data-keywords="pcie pci express lanes ports physical layer data link transaction tlp root complex endpoint bifurcation dual port">
             <h2>4. PCIe Superhighway: Lanes, Ports & Bifurcation</h2>
             <p>
-                <strong>PCI Express (PCIe)</strong> is the high-speed serialized point-to-point packet network connecting the host computer to the SSD:
+                <strong>PCI Express (<a href="#abbr-pcie" class="abbr-link" id="ref-pcie-59" data-abbr="PCIe" title="PCIe: Peripheral Component Interconnect Express — Click to view in Glossary">PCIe</a>)</strong> is the high-speed serialized point-to-point packet network connecting the host computer to the SSD:
             </p>
 
             <div class="concept-grid">
@@ -601,14 +879,14 @@
             <ul>
                 <li><strong>Throughput (MB/s or GB/s):</strong> Volume of data transferred per second (critical for large sequential video files or backups).</li>
                 <li><strong>IOPS (I/O Operations Per Second):</strong> Number of discrete 4KB read/write requests executed per second (critical for databases and OS booting).</li>
-                <li><strong>Latency (Microseconds - &mu;s):</strong> Time taken from when a command is submitted until completion is signaled. NVMe read latency is typically 60&mu;s to 80&mu;s.</li>
+                <li><strong>Latency (Microseconds - &mu;s):</strong> Time taken from when a command is submitted until completion is signaled. <a href="#abbr-nvme" class="abbr-link" id="ref-nvme-60" data-abbr="NVMe" title="NVMe: Non-Volatile Memory Express — Click to view in Glossary">NVMe</a> read latency is typically 60&mu;s to 80&mu;s.</li>
             </ul>
 
             <div class="table-responsive">
                 <table>
                     <thead>
                         <tr>
-                            <th>PCIe Generation</th>
+                            <th><a href="#abbr-pcie" class="abbr-link" id="ref-pcie-61" data-abbr="PCIe" title="PCIe: Peripheral Component Interconnect Express — Click to view in Glossary">PCIe</a> Generation</th>
                             <th>Raw Gigatransfers (GT/s)</th>
                             <th>Per-Lane Usable Speed</th>
                             <th>x4 Lane Usable Bandwidth (Typical SSD)</th>
@@ -617,21 +895,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>PCIe Gen 3</strong></td>
+                            <td><strong><a href="#abbr-pcie" class="abbr-link" id="ref-pcie-62" data-abbr="PCIe" title="PCIe: Peripheral Component Interconnect Express — Click to view in Glossary">PCIe</a> Gen 3</strong></td>
                             <td>8.0 GT/s</td>
                             <td>~985 MB/s</td>
                             <td>~3,940 MB/s (~3.9 GB/s)</td>
                             <td>~950,000 IOPS</td>
                         </tr>
                         <tr>
-                            <td><strong>PCIe Gen 4</strong></td>
+                            <td><strong><a href="#abbr-pcie" class="abbr-link" id="ref-pcie-63" data-abbr="PCIe" title="PCIe: Peripheral Component Interconnect Express — Click to view in Glossary">PCIe</a> Gen 4</strong></td>
                             <td>16.0 GT/s</td>
                             <td>~1,970 MB/s</td>
                             <td>~7,880 MB/s (~7.8 GB/s)</td>
                             <td>~1,900,000 IOPS</td>
                         </tr>
                         <tr>
-                            <td><strong>PCIe Gen 5</strong></td>
+                            <td><strong><a href="#abbr-pcie" class="abbr-link" id="ref-pcie-64" data-abbr="PCIe" title="PCIe: Peripheral Component Interconnect Express — Click to view in Glossary">PCIe</a> Gen 5</strong></td>
                             <td>32.0 GT/s</td>
                             <td>~3,940 MB/s</td>
                             <td>~15,750 MB/s (~15.7 GB/s)</td>
@@ -646,7 +924,7 @@
                 <br>
                 <code>Theoretical IOPS = Throughput (Bytes per second) / Request Size (Bytes)</code>
                 <br>
-                For PCIe Gen4 x4: <code>7,880,000,000 Bytes/s / 4,096 Bytes &approx; 1,923,000 IOPS</code>. If your SSD firmware cannot hit this, the bottleneck is in your software lock contention, FTL mapping search, or NAND channel parallelism!
+                For <a href="#abbr-pcie" class="abbr-link" id="ref-pcie-65" data-abbr="PCIe" title="PCIe: Peripheral Component Interconnect Express — Click to view in Glossary">PCIe</a> Gen4 x4: <code>7,880,000,000 Bytes/s / 4,096 Bytes &approx; 1,923,000 IOPS</code>. If your SSD firmware cannot hit this, the bottleneck is in your software lock contention, <a href="#abbr-ftl" class="abbr-link" id="ref-ftl-66" data-abbr="FTL" title="FTL: Flash Translation Layer — Click to view in Glossary">FTL</a> mapping search, or <a href="#abbr-nand" class="abbr-link" id="ref-nand-67" data-abbr="NAND" title="NAND: Not-AND Flash Memory — Click to view in Glossary">NAND</a> channel parallelism!
             </div>
         </div>
 
@@ -655,7 +933,7 @@
         <div class="fw-section" data-category="protocol" data-keywords="nvme protocol submission queue completion queue doorbell prp sgl namespaces admin io commands">
             <h2>6. NVMe Protocol: Queues, Doorbells & Commands</h2>
             <p>
-                <strong>NVMe (Non-Volatile Memory Express)</strong> was designed from scratch to replace legacy SATA/AHCI. AHCI supported only 1 queue with 32 commands; NVMe supports up to <strong>64,000 queues</strong> with <strong>64,000 commands per queue</strong>!
+                <strong><a href="#abbr-nvme" class="abbr-link" id="ref-nvme-68" data-abbr="NVMe" title="NVMe: Non-Volatile Memory Express — Click to view in Glossary">NVMe</a> (Non-Volatile Memory Express)</strong> was designed from scratch to replace legacy SATA/AHCI. AHCI supported only 1 queue with 32 commands; <a href="#abbr-nvme" class="abbr-link" id="ref-nvme-69" data-abbr="NVMe" title="NVMe: Non-Volatile Memory Express — Click to view in Glossary">NVMe</a> supports up to <strong>64,000 queues</strong> with <strong>64,000 commands per queue</strong>!
             </p>
 
             <div class="ascii-art">
@@ -683,10 +961,10 @@
 
             <h3>Key NVMe Concepts for Firmware Developers:</h3>
             <ul>
-                <li><strong>Submission Queue (SQ):</strong> A circular ring buffer in Host RAM where the Host writes 64-byte command packets.</li>
-                <li><strong>Completion Queue (CQ):</strong> A circular ring buffer in Host RAM where the SSD writes 16-byte completion entries containing the status code.</li>
+                <li><strong>Submission Queue (<a href="#abbr-sq" class="abbr-link" id="ref-sq-70" data-abbr="SQ" title="SQ: Submission Queue — Click to view in Glossary">SQ</a>):</strong> A circular ring buffer in Host RAM where the Host writes 64-byte command packets.</li>
+                <li><strong>Completion Queue (<a href="#abbr-cq" class="abbr-link" id="ref-cq-71" data-abbr="CQ" title="CQ: Completion Queue — Click to view in Glossary">CQ</a>):</strong> A circular ring buffer in Host RAM where the SSD writes 16-byte completion entries containing the status code.</li>
                 <li><strong>Doorbell Registers:</strong> Memory-Mapped I/O (MMIO) registers residing on the SSD. When the Host writes a new command in Host RAM, it writes the new queue index into the SSD's Doorbell register to wake up the controller.</li>
-                <li><strong>PRP (Physical Region Page) vs. SGL (Scatter Gather List):</strong> Memory pointers inside the 64-byte NVMe command telling the SSD where in Host RAM to fetch or deposit data. PRPs describe memory in fixed page chunks (usually 4KB); SGLs describe variable-length memory segments.</li>
+                <li><strong><a href="#abbr-prp" class="abbr-link" id="ref-prp-72" data-abbr="PRP" title="PRP: Physical Region Page — Click to view in Glossary">PRP</a> (Physical Region Page) vs. <a href="#abbr-sgl" class="abbr-link" id="ref-sgl-73" data-abbr="SGL" title="SGL: Scatter Gather List — Click to view in Glossary">SGL</a> (Scatter Gather List):</strong> Memory pointers inside the 64-byte <a href="#abbr-nvme" class="abbr-link" id="ref-nvme-74" data-abbr="NVMe" title="NVMe: Non-Volatile Memory Express — Click to view in Glossary">NVMe</a> command telling the SSD where in Host RAM to fetch or deposit data. PRPs describe memory in fixed page chunks (usually 4KB); SGLs describe variable-length memory segments.</li>
                 <li><strong>Namespaces:</strong> Logical partitions of the SSD presented to the operating system as independent block storage devices.</li>
             </ul>
         </div>
@@ -702,12 +980,12 @@
             <h3>The Evolution of Interrupts:</h3>
             <ul>
                 <li><strong>Legacy INTx:</strong> Physical electrical wires on the motherboard. Shared across multiple cards. Extremely slow; CPUs waste time checking every card to find out who fired the interrupt.</li>
-                <li><strong>MSI (Message Signaled Interrupts):</strong> No wires. The SSD sends a standard 32-bit PCIe memory write packet to the Host's interrupt controller (APIC). Supports up to 32 vectors, but all must share the same target CPU address.</li>
-                <li><strong>MSI-X (Extended MSI - The Modern NVMe Standard):</strong> Supports up to <strong>2,048 independent interrupt vectors</strong>. Crucially, each vector can target a completely different host memory address and CPU core!</li>
+                <li><strong><a href="#abbr-msi" class="abbr-link" id="ref-msi-75" data-abbr="MSI" title="MSI: Message Signaled Interrupts — Click to view in Glossary">MSI</a> (Message Signaled Interrupts):</strong> No wires. The SSD sends a standard 32-bit <a href="#abbr-pcie" class="abbr-link" id="ref-pcie-76" data-abbr="PCIe" title="PCIe: Peripheral Component Interconnect Express — Click to view in Glossary">PCIe</a> memory write packet to the Host's interrupt controller (APIC). Supports up to 32 vectors, but all must share the same target CPU address.</li>
+                <li><strong><a href="#abbr-msix" class="abbr-link" id="ref-msix-77" data-abbr="MSI-X" title="MSI-X: Message Signaled Interrupts (Extended) — Click to view in Glossary">MSI-X</a> (Extended <a href="#abbr-msi" class="abbr-link" id="ref-msi-78" data-abbr="MSI" title="MSI: Message Signaled Interrupts — Click to view in Glossary">MSI</a> - The Modern <a href="#abbr-nvme" class="abbr-link" id="ref-nvme-79" data-abbr="NVMe" title="NVMe: Non-Volatile Memory Express — Click to view in Glossary">NVMe</a> Standard):</strong> Supports up to <strong>2,048 independent interrupt vectors</strong>. Crucially, each vector can target a completely different host memory address and CPU core!</li>
             </ul>
 
             <div class="tip-box">
-                <strong>⚡ Why MSI-X is Vital for NVMe:</strong> On a 64-core server, the operating system creates 64 separate NVMe I/O Queues. Using MSI-X, Queue 0 interrupts only CPU Core 0, Queue 1 interrupts only Core 1, and so forth. There is <strong>zero lock contention</strong> between CPU cores, allowing SSDs to achieve millions of IOPS without thrashing CPU caches!
+                <strong>⚡ Why <a href="#abbr-msix" class="abbr-link" id="ref-msix-80" data-abbr="MSI-X" title="MSI-X: Message Signaled Interrupts (Extended) — Click to view in Glossary">MSI-X</a> is Vital for <a href="#abbr-nvme" class="abbr-link" id="ref-nvme-81" data-abbr="NVMe" title="NVMe: Non-Volatile Memory Express — Click to view in Glossary">NVMe</a>:</strong> On a 64-core server, the operating system creates 64 separate <a href="#abbr-nvme" class="abbr-link" id="ref-nvme-82" data-abbr="NVMe" title="NVMe: Non-Volatile Memory Express — Click to view in Glossary">NVMe</a> I/O Queues. Using <a href="#abbr-msix" class="abbr-link" id="ref-msix-83" data-abbr="MSI-X" title="MSI-X: Message Signaled Interrupts (Extended) — Click to view in Glossary">MSI-X</a>, Queue 0 interrupts only CPU Core 0, Queue 1 interrupts only Core 1, and so forth. There is <strong>zero lock contention</strong> between CPU cores, allowing SSDs to achieve millions of IOPS without thrashing CPU caches!
             </div>
 
             <h3>Interrupt Coalescing (Aggregation):</h3>
@@ -721,7 +999,7 @@
         <div class="fw-section" data-category="hardware" data-keywords="axi amba bus arm interconnect master slave channels aw w b ar r burst outstanding">
             <h2>8. Inside the Silicon: The AXI Interconnect Bus</h2>
             <p>
-                Once data enters the SSD controller SoC, how does it move between the PCIe module, CPU cores, internal SRAM, and Flash Controllers? It travels across the <strong>AXI (Advanced eXtensible Interface)</strong> bus, the industry standard AMBA bus protocol developed by ARM.
+                Once data enters the SSD controller <a href="#abbr-soc" class="abbr-link" id="ref-soc-84" data-abbr="SoC" title="SoC: System-on-Chip — Click to view in Glossary">SoC</a>, how does it move between the <a href="#abbr-pcie" class="abbr-link" id="ref-pcie-85" data-abbr="PCIe" title="PCIe: Peripheral Component Interconnect Express — Click to view in Glossary">PCIe</a> module, CPU cores, internal <a href="#abbr-sram" class="abbr-link" id="ref-sram-86" data-abbr="SRAM" title="SRAM: Static Random-Access Memory — Click to view in Glossary">SRAM</a>, and Flash Controllers? It travels across the <strong><a href="#abbr-axi" class="abbr-link" id="ref-axi-87" data-abbr="AXI" title="AXI: Advanced eXtensible Interface — Click to view in Glossary">AXI</a> (Advanced eXtensible Interface)</strong> bus, the industry standard AMBA bus protocol developed by ARM.
             </p>
 
             <div class="table-responsive">
@@ -764,7 +1042,7 @@
             </div>
 
             <p>
-                <strong>Why AXI is Essential for SSDs:</strong> It decouples address requests from data transfers, supports out-of-order execution, and handles multiple outstanding transactions. A DMA engine can fire 16 read requests before the first data packet even returns, keeping silicon pipelines 100% saturated.
+                <strong>Why <a href="#abbr-axi" class="abbr-link" id="ref-axi-88" data-abbr="AXI" title="AXI: Advanced eXtensible Interface — Click to view in Glossary">AXI</a> is Essential for SSDs:</strong> It decouples address requests from data transfers, supports out-of-order execution, and handles multiple outstanding transactions. A <a href="#abbr-dma" class="abbr-link" id="ref-dma-89" data-abbr="DMA" title="DMA: Direct Memory Access — Click to view in Glossary">DMA</a> engine can fire 16 read requests before the first data packet even returns, keeping silicon pipelines 100% saturated.
             </p>
         </div>
 
@@ -773,7 +1051,7 @@
         <div class="fw-section" data-category="hardware" data-keywords="spi i2c serial peripheral interface smbus thermal pmic boot rom nor flash nvme-mi">
             <h2>9. Low-Speed Peripheral Buses: SPI & I2C in SSDs</h2>
             <p>
-                While PCIe and AXI handle gigabytes of user data, low-speed serial buses handle hardware bootup, power control, and diagnostics:
+                While <a href="#abbr-pcie" class="abbr-link" id="ref-pcie-90" data-abbr="PCIe" title="PCIe: Peripheral Component Interconnect Express — Click to view in Glossary">PCIe</a> and <a href="#abbr-axi" class="abbr-link" id="ref-axi-91" data-abbr="AXI" title="AXI: Advanced eXtensible Interface — Click to view in Glossary">AXI</a> handle gigabytes of user data, low-speed serial buses handle hardware bootup, power control, and diagnostics:
             </p>
 
             <div class="concept-grid">
@@ -781,13 +1059,13 @@
                     <h4>SPI (Serial Peripheral Interface)</h4>
                     <p><strong>4 Wires:</strong> MOSI, MISO, SCK, CS.<br>
                     <strong>Speed:</strong> 10 MHz to 50+ MHz.<br>
-                    <strong>SSD Role:</strong> Connects the controller to the external <strong>Boot ROM SPI NOR Flash</strong> chip. When the SSD powers on, the silicon execution engine boots from this SPI Flash before DRAM is even initialized.</p>
+                    <strong>SSD Role:</strong> Connects the controller to the external <strong>Boot ROM <a href="#abbr-spi" class="abbr-link" id="ref-spi-92" data-abbr="SPI" title="SPI: Serial Peripheral Interface — Click to view in Glossary">SPI</a> NOR Flash</strong> chip. When the SSD powers on, the silicon execution engine boots from this <a href="#abbr-spi" class="abbr-link" id="ref-spi-93" data-abbr="SPI" title="SPI: Serial Peripheral Interface — Click to view in Glossary">SPI</a> Flash before <a href="#abbr-dram" class="abbr-link" id="ref-dram-94" data-abbr="DRAM" title="DRAM: Dynamic Random-Access Memory — Click to view in Glossary">DRAM</a> is even initialized.</p>
                 </div>
                 <div class="concept-card">
                     <h4>I2C (Inter-Integrated Circuit) & SMBus</h4>
                     <p><strong>2 Wires:</strong> SDA (Data), SCL (Clock).<br>
                     <strong>Speed:</strong> 100 kHz (Standard) to 1 MHz (Fast).<br>
-                    <strong>SSD Role:</strong> Reads temperature from onboard PCB thermal sensors, controls voltage output of the PMIC (Power Management IC), and handles out-of-band management via <strong>NVMe-MI</strong>.</p>
+                    <strong>SSD Role:</strong> Reads temperature from onboard PCB thermal sensors, controls voltage output of the <a href="#abbr-pmic" class="abbr-link" id="ref-pmic-95" data-abbr="PMIC" title="PMIC: Power Management Integrated Circuit — Click to view in Glossary">PMIC</a> (Power Management IC), and handles out-of-band management via <strong><a href="#abbr-nvme" class="abbr-link" id="ref-nvme-96" data-abbr="NVMe" title="NVMe: Non-Volatile Memory Express — Click to view in Glossary">NVMe</a>-MI</strong>.</p>
                 </div>
             </div>
         </div>
@@ -801,14 +1079,14 @@
             </p>
 
             <ol>
-                <li><strong>Host Submission:</strong> Host software writes a 64-byte NVMe Write Command to the Submission Queue in Host DRAM, then writes the updated index to the SSD's <strong>SQ Doorbell</strong>.</li>
-                <li><strong>Front-End Fetch:</strong> Front-End firmware detects the Doorbell write, commands the PCIe DMA engine to fetch the 64-byte command from Host RAM, and parses the LBA.</li>
-                <li><strong>Payload DMA:</strong> The controller's DMA engine pulls the 4KB data payload across PCIe and stores it in the SSD's internal SRAM or DRAM write buffer.</li>
-                <li><strong>AES Encryption:</strong> As data passes through the internal AXI bus, an inline hardware <strong>AES-256 Engine</strong> encrypts the payload on the fly with zero CPU delay.</li>
-                <li><strong>FTL Address Translation:</strong> The FTL core looks up its allocation table, picks an erased physical block, and maps the Logical LBA to a Physical Flash Page (PBA) in its L2P table.</li>
-                <li><strong>LDPC Parity Generation:</strong> The Back-End hardware error correction engine (LDPC encoder) computes parity check bits and appends them to the data block.</li>
-                <li><strong>Flash Programming:</strong> The NAND Flash Controller sends an ONFI/Toggle command over the flash channel to program the voltage levels into the 3D NAND cells.</li>
-                <li><strong>Completion & MSI-X:</strong> Once the NAND signals ready, the controller writes a 16-byte Completion Entry to Host DRAM over PCIe and fires an <strong>MSI-X interrupt</strong> to alert the Host CPU!</li>
+                <li><strong>Host Submission:</strong> Host software writes a 64-byte <a href="#abbr-nvme" class="abbr-link" id="ref-nvme-97" data-abbr="NVMe" title="NVMe: Non-Volatile Memory Express — Click to view in Glossary">NVMe</a> Write Command to the Submission Queue in Host <a href="#abbr-dram" class="abbr-link" id="ref-dram-98" data-abbr="DRAM" title="DRAM: Dynamic Random-Access Memory — Click to view in Glossary">DRAM</a>, then writes the updated index to the SSD's <strong><a href="#abbr-sq" class="abbr-link" id="ref-sq-99" data-abbr="SQ" title="SQ: Submission Queue — Click to view in Glossary">SQ</a> Doorbell</strong>.</li>
+                <li><strong>Front-End Fetch:</strong> Front-End firmware detects the Doorbell write, commands the <a href="#abbr-pcie" class="abbr-link" id="ref-pcie-100" data-abbr="PCIe" title="PCIe: Peripheral Component Interconnect Express — Click to view in Glossary">PCIe</a> <a href="#abbr-dma" class="abbr-link" id="ref-dma-101" data-abbr="DMA" title="DMA: Direct Memory Access — Click to view in Glossary">DMA</a> engine to fetch the 64-byte command from Host RAM, and parses the <a href="#abbr-lba" class="abbr-link" id="ref-lba-102" data-abbr="LBA" title="LBA: Logical Block Address — Click to view in Glossary">LBA</a>.</li>
+                <li><strong>Payload <a href="#abbr-dma" class="abbr-link" id="ref-dma-103" data-abbr="DMA" title="DMA: Direct Memory Access — Click to view in Glossary">DMA</a>:</strong> The controller's <a href="#abbr-dma" class="abbr-link" id="ref-dma-104" data-abbr="DMA" title="DMA: Direct Memory Access — Click to view in Glossary">DMA</a> engine pulls the 4KB data payload across <a href="#abbr-pcie" class="abbr-link" id="ref-pcie-105" data-abbr="PCIe" title="PCIe: Peripheral Component Interconnect Express — Click to view in Glossary">PCIe</a> and stores it in the SSD's internal <a href="#abbr-sram" class="abbr-link" id="ref-sram-106" data-abbr="SRAM" title="SRAM: Static Random-Access Memory — Click to view in Glossary">SRAM</a> or <a href="#abbr-dram" class="abbr-link" id="ref-dram-107" data-abbr="DRAM" title="DRAM: Dynamic Random-Access Memory — Click to view in Glossary">DRAM</a> write buffer.</li>
+                <li><strong><a href="#abbr-aes" class="abbr-link" id="ref-aes-108" data-abbr="AES" title="AES: Advanced Encryption Standard — Click to view in Glossary">AES</a> Encryption:</strong> As data passes through the internal <a href="#abbr-axi" class="abbr-link" id="ref-axi-109" data-abbr="AXI" title="AXI: Advanced eXtensible Interface — Click to view in Glossary">AXI</a> bus, an inline hardware <strong><a href="#abbr-aes" class="abbr-link" id="ref-aes-110" data-abbr="AES" title="AES: Advanced Encryption Standard — Click to view in Glossary">AES</a>-256 Engine</strong> encrypts the payload on the fly with zero CPU delay.</li>
+                <li><strong><a href="#abbr-ftl" class="abbr-link" id="ref-ftl-111" data-abbr="FTL" title="FTL: Flash Translation Layer — Click to view in Glossary">FTL</a> Address Translation:</strong> The <a href="#abbr-ftl" class="abbr-link" id="ref-ftl-112" data-abbr="FTL" title="FTL: Flash Translation Layer — Click to view in Glossary">FTL</a> core looks up its allocation table, picks an erased physical block, and maps the Logical <a href="#abbr-lba" class="abbr-link" id="ref-lba-113" data-abbr="LBA" title="LBA: Logical Block Address — Click to view in Glossary">LBA</a> to a Physical Flash Page (<a href="#abbr-pba" class="abbr-link" id="ref-pba-114" data-abbr="PBA" title="PBA: Physical Block / Page Address — Click to view in Glossary">PBA</a>) in its <a href="#abbr-l2p" class="abbr-link" id="ref-l2p-115" data-abbr="L2P" title="L2P: Logical-to-Physical (Mapping Table) — Click to view in Glossary">L2P</a> table.</li>
+                <li><strong><a href="#abbr-ldpc" class="abbr-link" id="ref-ldpc-116" data-abbr="LDPC" title="LDPC: Low-Density Parity-Check — Click to view in Glossary">LDPC</a> Parity Generation:</strong> The Back-End hardware error correction engine (<a href="#abbr-ldpc" class="abbr-link" id="ref-ldpc-117" data-abbr="LDPC" title="LDPC: Low-Density Parity-Check — Click to view in Glossary">LDPC</a> encoder) computes parity check bits and appends them to the data block.</li>
+                <li><strong>Flash Programming:</strong> The <a href="#abbr-nand" class="abbr-link" id="ref-nand-118" data-abbr="NAND" title="NAND: Not-AND Flash Memory — Click to view in Glossary">NAND</a> Flash Controller sends an ONFI/Toggle command over the flash channel to program the voltage levels into the 3D <a href="#abbr-nand" class="abbr-link" id="ref-nand-119" data-abbr="NAND" title="NAND: Not-AND Flash Memory — Click to view in Glossary">NAND</a> cells.</li>
+                <li><strong>Completion & <a href="#abbr-msix" class="abbr-link" id="ref-msix-120" data-abbr="MSI-X" title="MSI-X: Message Signaled Interrupts (Extended) — Click to view in Glossary">MSI-X</a>:</strong> Once the <a href="#abbr-nand" class="abbr-link" id="ref-nand-121" data-abbr="NAND" title="NAND: Not-AND Flash Memory — Click to view in Glossary">NAND</a> signals ready, the controller writes a 16-byte Completion Entry to Host <a href="#abbr-dram" class="abbr-link" id="ref-dram-122" data-abbr="DRAM" title="DRAM: Dynamic Random-Access Memory — Click to view in Glossary">DRAM</a> over <a href="#abbr-pcie" class="abbr-link" id="ref-pcie-123" data-abbr="PCIe" title="PCIe: Peripheral Component Interconnect Express — Click to view in Glossary">PCIe</a> and fires an <strong><a href="#abbr-msix" class="abbr-link" id="ref-msix-124" data-abbr="MSI-X" title="MSI-X: Message Signaled Interrupts (Extended) — Click to view in Glossary">MSI-X</a> interrupt</strong> to alert the Host CPU!</li>
             </ol>
         </div>
 
@@ -817,10 +1095,10 @@
         <div class="fw-section" data-category="hardware" data-keywords="aes encryption sed self encrypting tcg opal xts-aes crypto erase key management">
             <h2>11. Security & Integrity: AES Hardware Encryption & SED</h2>
             <p>
-                Modern enterprise and consumer drives are <strong>Self-Encrypting Drives (SED)</strong> compliant with TCG Opal standards:
+                Modern enterprise and consumer drives are <strong>Self-Encrypting Drives (<a href="#abbr-sed" class="abbr-link" id="ref-sed-125" data-abbr="SED" title="SED: Self-Encrypting Drive — Click to view in Glossary">SED</a>)</strong> compliant with <a href="#abbr-tcg" class="abbr-link" id="ref-tcg-126" data-abbr="TCG" title="TCG: Trusted Computing Group — Click to view in Glossary">TCG</a> Opal standards:
             </p>
             <ul>
-                <li><strong>XTS-AES 256:</strong> The standard cryptographic cipher for block storage. It prevents identical blocks of plaintext (e.g. repeated zeros) from producing identical ciphertext patterns.</li>
+                <li><strong>XTS-<a href="#abbr-aes" class="abbr-link" id="ref-aes-127" data-abbr="AES" title="AES: Advanced Encryption Standard — Click to view in Glossary">AES</a> 256:</strong> The standard cryptographic cipher for block storage. It prevents identical blocks of plaintext (e.g. repeated zeros) from producing identical ciphertext patterns.</li>
                 <li><strong>Inline Hardware Encryption:</strong> Firmware never encrypts data in C code (that would choke the CPU at 50 MB/s). Instead, an inline silicon crypto engine encrypts data at the full bus rate (15+ GB/s) as it flows from buffer RAM to flash.</li>
                 <li><strong>Instant Cryptographic Erase:</strong> User data is encrypted using a random internal <strong>Media Encryption Key (MEK)</strong>. When a user requests a secure erase or factory reset, firmware simply generates a new random MEK and overwrites the old key. In 50 milliseconds, all terabytes of data on the drive become unrecoverable random noise!</li>
             </ul>
@@ -831,11 +1109,11 @@
         <div class="fw-section" data-category="hardware" data-keywords="rtl register transfer level verilog vvhdl mmio memory mapped io hardware firmware handshake">
             <h2>12. The Silicon-Firmware Bridge: RTL & Hardware Handshakes</h2>
             <p>
-                <strong>RTL (Register-Transfer Level)</strong> is the hardware description code written by silicon chip design engineers using Verilog or VHDL:
+                <strong><a href="#abbr-rtl" class="abbr-link" id="ref-rtl-128" data-abbr="RTL" title="RTL: Register-Transfer Level — Click to view in Glossary">RTL</a> (Register-Transfer Level)</strong> is the hardware description code written by silicon chip design engineers using Verilog or VHDL:
             </p>
             <ul>
-                <li><strong>Memory-Mapped I/O (MMIO):</strong> Hardware engineers map silicon state registers to specific physical memory addresses. In firmware, controlling a motor, flash channel, or PCIe link is as simple as reading or writing to a pointer address.</li>
-                <li><strong>Hardware-Firmware Division of Labor:</strong> Firmware handles <em>complex policies</em> (which block to garbage collect, wear leveling algorithms, error recovery procedures). RTL handles <em>repetitive high-speed execution</em> (computing CRC checksums, DMA transfers, ECC decoding).</li>
+                <li><strong>Memory-Mapped I/O (MMIO):</strong> Hardware engineers map silicon state registers to specific physical memory addresses. In firmware, controlling a motor, flash channel, or <a href="#abbr-pcie" class="abbr-link" id="ref-pcie-129" data-abbr="PCIe" title="PCIe: Peripheral Component Interconnect Express — Click to view in Glossary">PCIe</a> link is as simple as reading or writing to a pointer address.</li>
+                <li><strong>Hardware-Firmware Division of Labor:</strong> Firmware handles <em>complex policies</em> (which block to garbage collect, wear leveling algorithms, error recovery procedures). <a href="#abbr-rtl" class="abbr-link" id="ref-rtl-130" data-abbr="RTL" title="RTL: Register-Transfer Level — Click to view in Glossary">RTL</a> handles <em>repetitive high-speed execution</em> (computing CRC checksums, <a href="#abbr-dma" class="abbr-link" id="ref-dma-131" data-abbr="DMA" title="DMA: Direct Memory Access — Click to view in Glossary">DMA</a> transfers, <a href="#abbr-ecc" class="abbr-link" id="ref-ecc-132" data-abbr="ECC" title="ECC: Error Correction Code — Click to view in Glossary">ECC</a> decoding).</li>
                 <li><strong>Ready/Busy Handshakes:</strong> Firmware writes a command descriptor to an MMIO register, sets a "Start" bit, and either polls a "Busy" bit or waits for a hardware completion interrupt.</li>
             </ul>
         </div>
@@ -861,17 +1139,17 @@
                         <tr>
                             <td><code>.text</code></td>
                             <td>Executable machine instructions (compiled C functions).</td>
-                            <td>Read-Only Flash or copied to fast Instruction TCM (ITCM SRAM).</td>
+                            <td>Read-Only Flash or copied to fast Instruction <a href="#abbr-tcm" class="abbr-link" id="ref-tcm-133" data-abbr="TCM" title="TCM: Tightly Coupled Memory — Click to view in Glossary">TCM</a> (ITCM <a href="#abbr-sram" class="abbr-link" id="ref-sram-134" data-abbr="SRAM" title="SRAM: Static Random-Access Memory — Click to view in Glossary">SRAM</a>).</td>
                         </tr>
                         <tr>
                             <td><code>.rodata</code></td>
                             <td>Read-only constants, string literals, lookup tables.</td>
-                            <td>ROM / SPI Flash or Read-Only RAM.</td>
+                            <td>ROM / <a href="#abbr-spi" class="abbr-link" id="ref-spi-135" data-abbr="SPI" title="SPI: Serial Peripheral Interface — Click to view in Glossary">SPI</a> Flash or Read-Only RAM.</td>
                         </tr>
                         <tr>
                             <td><code>.data</code></td>
                             <td>Global and static variables initialized with a value (e.g. <code>int count = 5;</code>).</td>
-                            <td>Initial values in ROM; copied to SRAM/DRAM at boot.</td>
+                            <td>Initial values in ROM; copied to <a href="#abbr-sram" class="abbr-link" id="ref-sram-136" data-abbr="SRAM" title="SRAM: Static Random-Access Memory — Click to view in Glossary">SRAM</a>/<a href="#abbr-dram" class="abbr-link" id="ref-dram-137" data-abbr="DRAM" title="DRAM: Dynamic Random-Access Memory — Click to view in Glossary">DRAM</a> at boot.</td>
                         </tr>
                         <tr>
                             <td><code>.bss</code></td>
@@ -887,7 +1165,7 @@
                 <li><strong><code>volatile</code>:</strong> Prevents the C compiler optimizer from caching register values in CPU registers. Hardware MMIO registers change outside of C code control (e.g. a hardware status bit). Without <code>volatile</code>, your firmware will get stuck in infinite loops!
                 <br>
                 <code>#define NFC_STATUS_REG (*(volatile uint32_t *)(0x50001020))</code></li>
-                <li><strong><code>__attribute__((packed))</code>:</strong> Tells the compiler not to insert padding bytes into structs. NVMe command packets are strictly 64 bytes; if the compiler inserts 4 bytes of alignment padding, the command will be rejected by the hardware!</li>
+                <li><strong><code>__attribute__((packed))</code>:</strong> Tells the compiler not to insert padding bytes into structs. <a href="#abbr-nvme" class="abbr-link" id="ref-nvme-138" data-abbr="NVMe" title="NVMe: Non-Volatile Memory Express — Click to view in Glossary">NVMe</a> command packets are strictly 64 bytes; if the compiler inserts 4 bytes of alignment padding, the command will be rejected by the hardware!</li>
             </ul>
         </div>
 
@@ -896,37 +1174,37 @@
         <div class="fw-section" data-category="firmware" data-keywords="firmware lifecycle fpga emulation haps dvt qualification bringup tapeout manufacturing multi slot">
             <h2>14. SSD Firmware Lifecycle & The Role of FPGA</h2>
             <p>
-                Building a brand-new SSD takes 2 to 3 years. It costs upwards of $30M to manufacture silicon chip masks (tape-out). If the hardware or firmware has a fatal silicon bug, the company loses tens of millions. This is where <strong>FPGA Emulation</strong> comes in:
+                Building a brand-new SSD takes 2 to 3 years. It costs upwards of $30M to manufacture silicon chip masks (tape-out). If the hardware or firmware has a fatal silicon bug, the company loses tens of millions. This is where <strong><a href="#abbr-fpga" class="abbr-link" id="ref-fpga-139" data-abbr="FPGA" title="FPGA: Field-Programmable Gate Array — Click to view in Glossary">FPGA</a> Emulation</strong> comes in:
             </p>
 
             <div class="concept-grid">
                 <div class="concept-card">
                     <h4>1. Pre-Silicon (FPGA Emulation)</h4>
-                    <p>The silicon team converts the RTL Verilog into bitstreams running on massive multi-million-gate FPGA systems (e.g., Synopsys HAPS or Cadence Palladium). Firmware developers connect these FPGAs via physical PCIe to real PC motherboards and write <strong>90% of the firmware before the physical chip even exists</strong>!</p>
+                    <p>The silicon team converts the <a href="#abbr-rtl" class="abbr-link" id="ref-rtl-140" data-abbr="RTL" title="RTL: Register-Transfer Level — Click to view in Glossary">RTL</a> Verilog into bitstreams running on massive multi-million-gate <a href="#abbr-fpga" class="abbr-link" id="ref-fpga-141" data-abbr="FPGA" title="FPGA: Field-Programmable Gate Array — Click to view in Glossary">FPGA</a> systems (e.g., Synopsys HAPS or Cadence Palladium). Firmware developers connect these FPGAs via physical <a href="#abbr-pcie" class="abbr-link" id="ref-pcie-142" data-abbr="PCIe" title="PCIe: Peripheral Component Interconnect Express — Click to view in Glossary">PCIe</a> to real PC motherboards and write <strong>90% of the firmware before the physical chip even exists</strong>!</p>
                 </div>
                 <div class="concept-card">
                     <h4>2. Post-Silicon Bringup</h4>
-                    <p>When the first physical ASIC returns from the chip foundry (TSMC/Samsung), firmware engineers take to the lab with oscilloscopes, logic analyzers, and JTAG debuggers to bring up clocks, PLLs, and verify hardware communication.</p>
+                    <p>When the first physical <a href="#abbr-asic" class="abbr-link" id="ref-asic-143" data-abbr="ASIC" title="ASIC: Application-Specific Integrated Circuit — Click to view in Glossary">ASIC</a> returns from the chip foundry (TSMC/Samsung), firmware engineers take to the lab with oscilloscopes, logic analyzers, and <a href="#abbr-jtag" class="abbr-link" id="ref-jtag-144" data-abbr="JTAG" title="JTAG: Joint Test Action Group — Click to view in Glossary">JTAG</a> debuggers to bring up clocks, PLLs, and verify hardware communication.</p>
                 </div>
                 <div class="concept-card">
                     <h4>3. DVT & Reliability Testing</h4>
-                    <p>Design Verification Testing subjects drives to extreme temperatures (-40°C to +85°C), vibration, and thousands of consecutive random power cuts (SPOR - Sudden Power Off Recovery) to ensure zero data corruption.</p>
+                    <p>Design Verification Testing subjects drives to extreme temperatures (-40°C to +85°C), vibration, and thousands of consecutive random power cuts (<a href="#abbr-spor" class="abbr-link" id="ref-spor-145" data-abbr="SPOR" title="SPOR: Sudden Power Off Recovery — Click to view in Glossary">SPOR</a> - Sudden Power Off Recovery) to ensure zero data corruption.</p>
                 </div>
             </div>
 
             <div class="tip-box">
-                <strong>🔄 Multi-Slot Firmware Architecture:</strong> Commercial SSDs have multiple firmware slots in SPI flash (e.g., Slot 1 = Active, Slot 2 = Inactive). When an Over-The-Air (OTA) firmware update occurs, the new image is written to the inactive slot and verified with digital signatures. If the update fails or power drops mid-flash, the drive safely falls back to the previous slot without bricking!
+                <strong>🔄 Multi-Slot Firmware Architecture:</strong> Commercial SSDs have multiple firmware slots in <a href="#abbr-spi" class="abbr-link" id="ref-spi-146" data-abbr="SPI" title="SPI: Serial Peripheral Interface — Click to view in Glossary">SPI</a> flash (e.g., Slot 1 = Active, Slot 2 = Inactive). When an Over-The-Air (<a href="#abbr-ota" class="abbr-link" id="ref-ota-147" data-abbr="OTA" title="OTA: Over-The-Air (Firmware Update) — Click to view in Glossary">OTA</a>) firmware update occurs, the new image is written to the inactive slot and verified with digital signatures. If the update fails or power drops mid-flash, the drive safely falls back to the previous slot without bricking!
             </div>
         </div>
 
         <!-- CHAPTER 15: FTL ESSENTIALS -->
         <br id="FTL-ESSENTIALS">
         <div class="fw-section" data-category="firmware" data-keywords="ftl flash translation layer lba pba garbage collection wear leveling bad blocks plp ldpc">
-            <h2>15. The FTL Essentials: Must-Know Flash Storage Physics</h2>
+            <h2>15. The FTL (Flash Translation Layer) Essentials: Must-Know Flash Storage Physics</h2>
             <p>
-                The fundamental reason SSD firmware is so complex comes down to one quirk of NAND flash physics:
+                The fundamental reason SSD firmware is so complex comes down to one quirk of <a href="#abbr-nand" class="abbr-link" id="ref-nand-148" data-abbr="NAND" title="NAND: Not-AND Flash Memory — Click to view in Glossary">NAND</a> flash physics:
                 <br>
-                <strong style="color: var(--accent-gold);">NAND Flash can be READ and WRITTEN in Pages (e.g., 16KB), but can only be ERASED in huge Blocks (e.g., 8MB to 16MB)!</strong>
+                <strong style="color: var(--accent-gold);"><a href="#abbr-nand" class="abbr-link" id="ref-nand-149" data-abbr="NAND" title="NAND: Not-AND Flash Memory — Click to view in Glossary">NAND</a> Flash can be READ and WRITTEN in Pages (e.g., 16KB), but can only be ERASED in huge Blocks (e.g., 8MB to 16MB)!</strong>
                 <br>
                 You cannot overwrite a single page without erasing the entire block first!
             </p>
@@ -934,7 +1212,7 @@
             <div class="concept-grid">
                 <div class="concept-card">
                     <h4>Logical-to-Physical (L2P) Mapping</h4>
-                    <p>When the OS overwrites LBA #100, the SSD writes the new data to a fresh, empty flash page elsewhere and updates its L2P table. The old physical page is marked as "invalid" (stale).</p>
+                    <p>When the OS overwrites <a href="#abbr-lba" class="abbr-link" id="ref-lba-150" data-abbr="LBA" title="LBA: Logical Block Address — Click to view in Glossary">LBA</a> #100, the SSD writes the new data to a fresh, empty flash page elsewhere and updates its <a href="#abbr-l2p" class="abbr-link" id="ref-l2p-151" data-abbr="L2P" title="L2P: Logical-to-Physical (Mapping Table) — Click to view in Glossary">L2P</a> table. The old physical page is marked as "invalid" (stale).</p>
                 </div>
                 <div class="concept-card">
                     <h4>Garbage Collection (GC)</h4>
@@ -942,19 +1220,635 @@
                 </div>
                 <div class="concept-card">
                     <h4>Write Amplification Factor (WAF)</h4>
-                    <p>Because Garbage Collection has to copy existing valid pages, writing 1GB of host data might cause the drive to physically write 1.5GB to flash. <code>WAF = Flash Writes / Host Writes</code>. Good firmware minimizes WAF.</p>
+                    <p>Because Garbage Collection has to copy existing valid pages, writing 1GB of host data might cause the drive to physically write 1.5GB to flash. <code><a href="#abbr-waf" class="abbr-link" id="ref-waf-152" data-abbr="WAF" title="WAF: Write Amplification Factor — Click to view in Glossary">WAF</a> = Flash Writes / Host Writes</code>. Good firmware minimizes <a href="#abbr-waf" class="abbr-link" id="ref-waf-153" data-abbr="WAF" title="WAF: Write Amplification Factor — Click to view in Glossary">WAF</a>.</p>
                 </div>
                 <div class="concept-card">
                     <h4>Wear Leveling (Dynamic & Static)</h4>
-                    <p>NAND cells degrade with every erase cycle (~1,000 to 3,000 cycles for TLC). Wear leveling ensures all blocks age evenly, periodically moving static cold data out of pristine blocks.</p>
+                    <p><a href="#abbr-nand" class="abbr-link" id="ref-nand-154" data-abbr="NAND" title="NAND: Not-AND Flash Memory — Click to view in Glossary">NAND</a> cells degrade with every erase cycle (~1,000 to 3,000 cycles for <a href="#abbr-tlc" class="abbr-link" id="ref-tlc-155" data-abbr="TLC" title="TLC: Triple-Level Cell — Click to view in Glossary">TLC</a>). Wear leveling ensures all blocks age evenly, periodically moving static cold data out of pristine blocks.</p>
                 </div>
                 <div class="concept-card">
                     <h4>Bad Block Management</h4>
-                    <p>Some blocks fail during factory manufacturing or wear out during use. Firmware tracks them in a Bad Block Table (BBT) and dynamically retires defective blocks from the pool.</p>
+                    <p>Some blocks fail during factory manufacturing or wear out during use. Firmware tracks them in a Bad Block Table (<a href="#abbr-bbt" class="abbr-link" id="ref-bbt-156" data-abbr="BBT" title="BBT: Bad Block Table — Click to view in Glossary">BBT</a>) and dynamically retires defective blocks from the pool.</p>
                 </div>
                 <div class="concept-card">
                     <h4>Power Loss Protection (PLP)</h4>
-                    <p>Enterprise SSDs have onboard tantalum capacitors. If power is pulled without warning, the capacitors provide 10 to 30 milliseconds of backup power—just enough time for firmware to flush all volatile DRAM tables and write buffers into NAND!</p>
+                    <p>Enterprise SSDs have onboard tantalum capacitors. If power is pulled without warning, the capacitors provide 10 to 30 milliseconds of backup power—just enough time for firmware to flush all volatile <a href="#abbr-dram" class="abbr-link" id="ref-dram-157" data-abbr="DRAM" title="DRAM: Dynamic Random-Access Memory — Click to view in Glossary">DRAM</a> tables and write buffers into <a href="#abbr-nand" class="abbr-link" id="ref-nand-158" data-abbr="NAND" title="NAND: Not-AND Flash Memory — Click to view in Glossary">NAND</a>!</p>
+                </div>
+            </div>
+        </div>
+
+                <!-- CHAPTER 16: ABBREVIATIONS & FULL FORMS GLOSSARY -->
+        <br id="ABBREVIATIONS">
+        <div class="fw-section" id="abbr-section" data-category="glossary" data-keywords="abbreviations acronyms full forms dictionary ftl flash translation layer nvme pcie axi lba pba l2p sram dram ldpc ecc">
+            <h2>16. SSD, NVMe & Silicon Storage Acronyms & Full Forms Glossary</h2>
+            <p>
+                Every technical abbreviation used in this guide is cataloged below with its official full form, subsystem category, and architectural explanation. Click any abbreviation anywhere in the blog to jump straight to its definition, and use the <strong>"↩ Back to reading line"</strong> button to return instantly to where you left off.
+            </p>
+
+            <div class="abbr-search-box">
+                <span style="font-size: 1.1rem; opacity: 0.8;">⚡</span>
+                <input type="text" id="abbrFilterInput" placeholder="Filter acronyms (e.g. FTL, NVMe, L2P, AXI, MSI-X, LDPC)..." autocomplete="off">
+                <span id="abbrCountBadge" class="abbr-count-badge">46 Acronyms</span>
+            </div>
+
+            <div class="abbr-grid" id="abbrGrid">
+                <div class="abbr-card" id="abbr-ftl" data-abbr="FTL">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">FTL</span>
+                            <span class="abbr-cat">Firmware Core / Middle-Layer</span>
+                        </div>
+                        <h4 class="abbr-full-name">Flash Translation Layer</h4>
+                        <p class="abbr-desc">The central algorithmic 'brain' of SSD firmware. Because NAND flash cannot overwrite existing data without erasing entire multi-megabyte blocks first, the FTL translates the host's virtual Logical Block Addresses (LBAs) into physical Flash Page Addresses (PBAs). It also schedules Garbage Collection, performs Wear Leveling, and coordinates Power-Loss Recovery.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-ftl')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-nvme" data-abbr="NVMe">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">NVMe</span>
+                            <span class="abbr-cat">Host Interface Protocol</span>
+                        </div>
+                        <h4 class="abbr-full-name">Non-Volatile Memory Express</h4>
+                        <p class="abbr-desc">An open, high-performance host controller interface protocol architected specifically for solid-state non-volatile memory over PCIe. Replaces archaic SATA/AHCI by supporting up to 64,000 independent command queues, each capable of handling 64,000 parallel commands directly with multi-core CPUs.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-nvme')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-pcie" data-abbr="PCIe">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">PCIe</span>
+                            <span class="abbr-cat">Physical & Link Interconnect</span>
+                        </div>
+                        <h4 class="abbr-full-name">Peripheral Component Interconnect Express</h4>
+                        <p class="abbr-desc">The high-speed serial point-to-point expansion bus connecting the SSD controller SoC directly to the host CPU and motherboard. High-speed lanes (x2, x4, x8) provide bidirectional throughput using differential signaling across Gen3, Gen4, and Gen5 generations.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-pcie')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-lba" data-abbr="LBA">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">LBA</span>
+                            <span class="abbr-cat">Host Storage Addressing</span>
+                        </div>
+                        <h4 class="abbr-full-name">Logical Block Address</h4>
+                        <p class="abbr-desc">The linear block address (e.g., Sector 0 to 1,000,000) that the host Operating System (Windows, Linux, macOS) uses to read and write data. The host OS only knows LBAs and has zero knowledge of the underlying physical flash memory layout.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-lba')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-pba" data-abbr="PBA">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">PBA</span>
+                            <span class="abbr-cat">NAND Flash Geometry</span>
+                        </div>
+                        <h4 class="abbr-full-name">Physical Block / Page Address</h4>
+                        <p class="abbr-desc">The concrete physical hardware coordinates on the NAND silicon dies: designated by Channel, Chip Enable, Die, Plane, Block, and Page where a given chunk of data is physically trapped in silicon floating gates or charge traps.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-pba')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-l2p" data-abbr="L2P">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">L2P</span>
+                            <span class="abbr-cat">FTL Data Structures</span>
+                        </div>
+                        <h4 class="abbr-full-name">Logical-to-Physical (Mapping Table)</h4>
+                        <p class="abbr-desc">The core lookup table maintained in high-speed RAM that maps each host LBA to its current physical PBA on NAND. Typically requires ~1MB of RAM per 1GB of SSD storage (e.g. 1GB RAM for a 1TB drive, or 4GB for a 4TB drive).</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-l2p')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-sram" data-abbr="SRAM">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">SRAM</span>
+                            <span class="abbr-cat">On-Chip Controller Silicon</span>
+                        </div>
+                        <h4 class="abbr-full-name">Static Random-Access Memory</h4>
+                        <p class="abbr-desc">Ultra-fast, zero-wait-state volatile memory fabricated directly on the SSD controller silicon die. Used for CPU L1 caches, register files, and Tightly Coupled Memory (TCM) to execute time-critical firmware loops and interrupt handlers.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-sram')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-dram" data-abbr="DRAM">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">DRAM</span>
+                            <span class="abbr-cat">External PCB Memory</span>
+                        </div>
+                        <h4 class="abbr-full-name">Dynamic Random-Access Memory</h4>
+                        <p class="abbr-desc">High-density volatile memory (DDR4, DDR5, LPDDR4) mounted on the SSD PCB next to the controller. Firmware uses DRAM as an active scratchpad to store the multi-gigabyte L2P mapping table, command queues, and write staging caches.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-dram')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-axi" data-abbr="AXI">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">AXI</span>
+                            <span class="abbr-cat">Silicon On-Chip Interconnect</span>
+                        </div>
+                        <h4 class="abbr-full-name">Advanced eXtensible Interface</h4>
+                        <p class="abbr-desc">Part of ARM's AMBA specification, AXI is the standard on-chip bus protocol that links together CPU cores, DMA engines, PCIe endpoint controllers, DRAM interfaces, and crypto accelerators inside the SSD controller SoC with separate read and write channels.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-axi')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-msix" data-abbr="MSI-X">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">MSI-X</span>
+                            <span class="abbr-cat">Host-Device Interrupt Handling</span>
+                        </div>
+                        <h4 class="abbr-full-name">Message Signaled Interrupts (Extended)</h4>
+                        <p class="abbr-desc">An advanced interrupt signaling mechanism over PCIe where the SSD notifies the host CPU that a command completed by writing a 32-bit packet directly to host RAM. MSI-X supports up to 2,048 dedicated interrupt vectors, allowing each CPU core its own independent queue interrupt.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-msix')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-msi" data-abbr="MSI">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">MSI</span>
+                            <span class="abbr-cat">Host Interrupt Handling</span>
+                        </div>
+                        <h4 class="abbr-full-name">Message Signaled Interrupts</h4>
+                        <p class="abbr-desc">The predecessor to MSI-X that replaced legacy physical INTx wire pins with in-band PCI memory write messages (up to 32 vectors sharing one base address).</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-msi')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-nand" data-abbr="NAND">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">NAND</span>
+                            <span class="abbr-cat">Non-Volatile Storage Medium</span>
+                        </div>
+                        <h4 class="abbr-full-name">Not-AND Flash Memory</h4>
+                        <p class="abbr-desc">Non-volatile semiconductor storage technology that retains data without power. Electrically configured in series strings (resembling NAND logic gates) with high bit density, grouped into Pages (for reads/writes) and Blocks (for erase operations).</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-nand')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-nfc" data-abbr="NFC">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">NFC</span>
+                            <span class="abbr-cat">Back-End Hardware Engine</span>
+                        </div>
+                        <h4 class="abbr-full-name">NAND Flash Controller</h4>
+                        <p class="abbr-desc">The specialized digital hardware block inside the controller SoC that drives physical ONFI or Toggle DDR bus signals, issues read/program/erase commands across flash channels, and coordinates with hardware ECC engines.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-nfc')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-fe" data-abbr="FE">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">FE</span>
+                            <span class="abbr-cat">Firmware / Hardware Architecture</span>
+                        </div>
+                        <h4 class="abbr-full-name">Front-End Subsystem</h4>
+                        <p class="abbr-desc">The SSD controller subsystem that directly interfaces with the host PC. Manages PCIe PHY link states, parses NVMe 64-byte submission commands, handles Doorbell registers, DMA payload fetching, and posts completion status.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-fe')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-be" data-abbr="BE">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">BE</span>
+                            <span class="abbr-cat">Firmware / Hardware Architecture</span>
+                        </div>
+                        <h4 class="abbr-full-name">Back-End Subsystem</h4>
+                        <p class="abbr-desc">The SSD controller subsystem that interfaces with physical flash dies. Coordinates flash channel arbitration, issues low-level NAND commands, performs read retry calibrations, and schedules erase cycles.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-be')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-sq" data-abbr="SQ">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">SQ</span>
+                            <span class="abbr-cat">NVMe Architecture</span>
+                        </div>
+                        <h4 class="abbr-full-name">Submission Queue</h4>
+                        <p class="abbr-desc">A circular ring buffer residing in host PC memory where the host Operating System posts 64-byte command descriptors instructing the SSD to execute read, write, or admin operations.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-sq')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-cq" data-abbr="CQ">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">CQ</span>
+                            <span class="abbr-cat">NVMe Architecture</span>
+                        </div>
+                        <h4 class="abbr-full-name">Completion Queue</h4>
+                        <p class="abbr-desc">A circular ring buffer residing in host PC memory where the SSD controller posts 16-byte status descriptors when commands have finished processing, signaling command success or error codes.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-cq')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-dma" data-abbr="DMA">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">DMA</span>
+                            <span class="abbr-cat">Hardware Data Transfer Engine</span>
+                        </div>
+                        <h4 class="abbr-full-name">Direct Memory Access</h4>
+                        <p class="abbr-desc">Autonomous hardware engines within the controller SoC that transfer data payloads directly between host PC RAM, SSD DRAM, and flash buffers over high-speed buses without consuming processor CPU instruction cycles.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-dma')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-waf" data-abbr="WAF">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">WAF</span>
+                            <span class="abbr-cat">Flash Endurance Metric</span>
+                        </div>
+                        <h4 class="abbr-full-name">Write Amplification Factor</h4>
+                        <p class="abbr-desc">The ratio of data physically written to NAND flash compared to the data sent by the host system: WAF = (Flash Bytes Written) / (Host Bytes Written). Caused by Garbage Collection having to rewrite existing valid pages. A lower WAF extends SSD lifespan.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-waf')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-gc" data-abbr="GC">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">GC</span>
+                            <span class="abbr-cat">FTL Background Routine</span>
+                        </div>
+                        <h4 class="abbr-full-name">Garbage Collection</h4>
+                        <p class="abbr-desc">The essential background process where firmware identifies flash blocks containing fragmented or stale pages, copies the surviving valid pages to a clean target block, and erases the old block to reclaim free space.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-gc')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-bbt" data-abbr="BBT">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">BBT</span>
+                            <span class="abbr-cat">Defect Management</span>
+                        </div>
+                        <h4 class="abbr-full-name">Bad Block Table</h4>
+                        <p class="abbr-desc">A persistent metadata lookup table stored in reserved non-volatile flash areas that marks factory-defective and runtime-worn flash blocks so firmware never attempts to write to them.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-bbt')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-plp" data-abbr="PLP">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">PLP</span>
+                            <span class="abbr-cat">Hardware & Firmware Reliability</span>
+                        </div>
+                        <h4 class="abbr-full-name">Power Loss Protection</h4>
+                        <p class="abbr-desc">A combination of hardware capacitors and firmware emergency routines that provide 10 to 30 milliseconds of reserve power upon sudden power cut to flush volatile DRAM caches, journal logs, and L2P tables safely to NAND.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-plp')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-spor" data-abbr="SPOR">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">SPOR</span>
+                            <span class="abbr-cat">Boot & Crash Recovery</span>
+                        </div>
+                        <h4 class="abbr-full-name">Sudden Power Off Recovery</h4>
+                        <p class="abbr-desc">The firmware boot initialization algorithm executed when an SSD restarts after an uncontrolled power outage. Scans write journals and flash metadata checkpoints to verify data consistency and rebuild corrupted state.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-spor')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-ecc" data-abbr="ECC">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">ECC</span>
+                            <span class="abbr-cat">Data Integrity</span>
+                        </div>
+                        <h4 class="abbr-full-name">Error Correction Code</h4>
+                        <p class="abbr-desc">Mathematical encoding that appends redundant parity bits to data pages to detect and correct electrical bit errors that occur naturally in flash memory cells over time.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-ecc')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-ldpc" data-abbr="LDPC">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">LDPC</span>
+                            <span class="abbr-cat">Silicon Error Correction Engine</span>
+                        </div>
+                        <h4 class="abbr-full-name">Low-Density Parity-Check</h4>
+                        <p class="abbr-desc">The advanced linear error-correcting code standard used in all modern TLC and QLC SSDs. Uses hard-decision and soft-decision probabilistic decoding to recover corrupted data close to Shannon's theoretical capacity limit.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-ldpc')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-aes" data-abbr="AES">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">AES</span>
+                            <span class="abbr-cat">Hardware Cryptography</span>
+                        </div>
+                        <h4 class="abbr-full-name">Advanced Encryption Standard</h4>
+                        <p class="abbr-desc">A robust symmetric cryptographic cipher (specifically AES-256-XTS) implemented in dedicated hardware pipelines inside the controller SoC to encrypt and decrypt data at full wire speed.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-aes')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-sed" data-abbr="SED">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">SED</span>
+                            <span class="abbr-cat">Hardware Security</span>
+                        </div>
+                        <h4 class="abbr-full-name">Self-Encrypting Drive</h4>
+                        <p class="abbr-desc">An SSD that automatically and transparently encrypts 100% of user data inside the silicon controller using internal hardware cryptographic keys, ensuring data cannot be read if flash chips are physically removed.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-sed')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-tcg" data-abbr="TCG">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">TCG</span>
+                            <span class="abbr-cat">Security Standards</span>
+                        </div>
+                        <h4 class="abbr-full-name">Trusted Computing Group</h4>
+                        <p class="abbr-desc">The international standards consortium that defines specifications for hardware-based security in storage devices, such as the TCG Opal specification (client drives) and TCG Enterprise specification (datacenters).</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-tcg')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-spi" data-abbr="SPI">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">SPI</span>
+                            <span class="abbr-cat">Low-Speed Peripheral Bus</span>
+                        </div>
+                        <h4 class="abbr-full-name">Serial Peripheral Interface</h4>
+                        <p class="abbr-desc">A 4-wire synchronous full-duplex serial communication interface (SCK, MOSI, MISO, CS) used by the SSD controller to read initial bootloader firmware images stored in external SPI NOR flash.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-spi')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-i2c" data-abbr="I2C">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">I2C</span>
+                            <span class="abbr-cat">Low-Speed Peripheral Bus</span>
+                        </div>
+                        <h4 class="abbr-full-name">Inter-Integrated Circuit</h4>
+                        <p class="abbr-desc">A 2-wire serial bus (SCL for clock, SDA for data) used by the SSD controller to communicate with onboard peripheral chips such as Power Management ICs (PMICs) and precision temperature sensors.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-i2c')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-pmic" data-abbr="PMIC">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">PMIC</span>
+                            <span class="abbr-cat">Hardware Power Regulation</span>
+                        </div>
+                        <h4 class="abbr-full-name">Power Management Integrated Circuit</h4>
+                        <p class="abbr-desc">A specialized silicon microchip on the SSD PCB that regulates incoming host power down to the steady, clean low voltages (e.g., 0.9V for core logic, 1.2V for DRAM, 1.8V / 3.3V for flash I/O) required by the drive.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-pmic')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-rtl" data-abbr="RTL">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">RTL</span>
+                            <span class="abbr-cat">Silicon Hardware Design</span>
+                        </div>
+                        <h4 class="abbr-full-name">Register-Transfer Level</h4>
+                        <p class="abbr-desc">Hardware description language code (written in Verilog, SystemVerilog, or VHDL) modeling the flow of digital signals between hardware registers and clock cycles inside the controller SoC before chip fabrication.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-rtl')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-fpga" data-abbr="FPGA">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">FPGA</span>
+                            <span class="abbr-cat">Pre-Silicon Emulation</span>
+                        </div>
+                        <h4 class="abbr-full-name">Field-Programmable Gate Array</h4>
+                        <p class="abbr-desc">Reconfigurable semiconductor hardware systems (such as Synopsys HAPS or Cadence Palladium) used to emulate the SSD controller's RTL design before tape-out, allowing firmware engineers to write and test 90% of firmware ahead of real silicon.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-fpga')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-hmb" data-abbr="HMB">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">HMB</span>
+                            <span class="abbr-cat">NVMe Storage Feature</span>
+                        </div>
+                        <h4 class="abbr-full-name">Host Memory Buffer</h4>
+                        <p class="abbr-desc">A feature introduced in the NVMe specification that enables cost-effective 'DRAM-less' SSDs to borrow a small partition (e.g. 64MB) of host PC RAM over PCIe to cache L2P mapping tables, achieving near-DRAM performance.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-hmb')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-asic" data-abbr="ASIC">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">ASIC</span>
+                            <span class="abbr-cat">Silicon Technology</span>
+                        </div>
+                        <h4 class="abbr-full-name">Application-Specific Integrated Circuit</h4>
+                        <p class="abbr-desc">A customized microchip manufactured for one specific purpose (e.g. the SSD controller) rather than general computing, delivering peak performance and power efficiency.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-asic')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-soc" data-abbr="SoC">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">SoC</span>
+                            <span class="abbr-cat">Silicon Architecture</span>
+                        </div>
+                        <h4 class="abbr-full-name">System-on-Chip</h4>
+                        <p class="abbr-desc">An integrated circuit that packages an entire computing system — multi-core CPUs, caches, bus interconnects, memory controllers, DMA engines, and specialized accelerators — onto a single silicon chip.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-soc')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-tcm" data-abbr="TCM">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">TCM</span>
+                            <span class="abbr-cat">Embedded CPU Architecture</span>
+                        </div>
+                        <h4 class="abbr-full-name">Tightly Coupled Memory</h4>
+                        <p class="abbr-desc">High-speed SRAM placed right alongside the CPU core execution pipeline (Instruction TCM / Data TCM) providing guaranteed single-cycle access latency without cache-miss delays.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-tcm')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-prp" data-abbr="PRP">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">PRP</span>
+                            <span class="abbr-cat">NVMe Host Memory Pointers</span>
+                        </div>
+                        <h4 class="abbr-full-name">Physical Region Page</h4>
+                        <p class="abbr-desc">A 64-bit physical memory pointer or pointer-list mechanism defined in NVMe used by the host system to tell the SSD controller where physical 4KB memory buffers are located in host RAM.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-prp')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-sgl" data-abbr="SGL">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">SGL</span>
+                            <span class="abbr-cat">NVMe Host Memory Pointers</span>
+                        </div>
+                        <h4 class="abbr-full-name">Scatter Gather List</h4>
+                        <p class="abbr-desc">An advanced, flexible memory descriptor structure in NVMe that allows arbitrary byte-aligned memory segments and chained buffers, essential for virtualized and RDMA storage workloads.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-sgl')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-slc" data-abbr="SLC">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">SLC</span>
+                            <span class="abbr-cat">NAND Flash Physics</span>
+                        </div>
+                        <h4 class="abbr-full-name">Single-Level Cell</h4>
+                        <p class="abbr-desc">Flash memory cell holding 1 bit of data (2 voltage states). The fastest and most durable flash (~100,000 erase cycles), often used as high-speed write caching buffers in modern SSDs.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-slc')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-mlc" data-abbr="MLC">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">MLC</span>
+                            <span class="abbr-cat">NAND Flash Physics</span>
+                        </div>
+                        <h4 class="abbr-full-name">Multi-Level Cell</h4>
+                        <p class="abbr-desc">Flash memory cell storing 2 bits of data (4 discrete voltage states) per cell, balancing speed and density (~3,000 to 10,000 erase cycles).</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-mlc')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-tlc" data-abbr="TLC">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">TLC</span>
+                            <span class="abbr-cat">NAND Flash Physics</span>
+                        </div>
+                        <h4 class="abbr-full-name">Triple-Level Cell</h4>
+                        <p class="abbr-desc">Flash memory cell storing 3 bits of data (8 discrete voltage states) per cell. The mainstream standard for consumer and datacenter SSDs (~1,000 to 3,000 erase cycles).</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-tlc')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-qlc" data-abbr="QLC">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">QLC</span>
+                            <span class="abbr-cat">NAND Flash Physics</span>
+                        </div>
+                        <h4 class="abbr-full-name">Quad-Level Cell</h4>
+                        <p class="abbr-desc">Flash memory cell storing 4 bits of data (16 discrete voltage states) per cell. Delivers the highest storage capacity and lowest cost per gigabyte, but requires advanced LDPC error correction due to tighter voltage margins.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-qlc')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-dvt" data-abbr="DVT">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">DVT</span>
+                            <span class="abbr-cat">Quality & Reliability Assurance</span>
+                        </div>
+                        <h4 class="abbr-full-name">Design Verification Testing</h4>
+                        <p class="abbr-desc">A rigorous hardware and firmware qualification stage where drive samples are tested through thousands of power cycles, temperature extremes (-40°C to 85°C), and full-drive endurance writes before shipping.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-dvt')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-ota" data-abbr="OTA">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">OTA</span>
+                            <span class="abbr-cat">Field Deployment</span>
+                        </div>
+                        <h4 class="abbr-full-name">Over-The-Air (Firmware Update)</h4>
+                        <p class="abbr-desc">Remote in-system firmware update mechanism allowing users and datacenter administrators to download and commit signed firmware binary payloads into the SSD while the drive is mounted in a server.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-ota')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
+                </div>
+                <div class="abbr-card" id="abbr-jtag" data-abbr="JTAG">
+                    <div class="abbr-card-top">
+                        <div class="abbr-card-header">
+                            <span class="abbr-badge">JTAG</span>
+                            <span class="abbr-cat">Hardware Debug Interface</span>
+                        </div>
+                        <h4 class="abbr-full-name">Joint Test Action Group</h4>
+                        <p class="abbr-desc">An industry standard hardware debug port (IEEE 1149.1) that gives firmware and silicon engineers direct electrical access to the CPU's internal registers, instruction stepping, and hardware breakpoints in the lab.</p>
+                    </div>
+                    <div class="abbr-card-footer">
+                        <button class="abbr-back-btn" onclick="returnToLastSpot('abbr-jtag')" title="Return to your last reading position">↩ Back to reading line</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1036,6 +1930,109 @@
                 filterSections();
             });
         });
+    
+        // ==========================================
+        // Abbreviation & Reading Return System
+        // ==========================================
+        let lastReadElement = null;
+        let lastReadAbbr = '';
+        let lastReadScrollY = 0;
+
+        function setupAbbreviationLinks() {
+            document.querySelectorAll('.abbr-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    lastReadElement = link;
+                    lastReadAbbr = link.getAttribute('data-abbr') || link.textContent.trim();
+                    lastReadScrollY = window.scrollY;
+
+                    // Mark previous spot
+                    document.querySelectorAll('.last-clicked-spot').forEach(el => el.classList.remove('last-clicked-spot'));
+                    link.classList.add('last-clicked-spot');
+
+                    // Show floating return toast
+                    const toast = document.getElementById('abbrReturnToast');
+                    const toastAbbr = document.getElementById('returnToastAbbr');
+                    if (toast && toastAbbr) {
+                        toastAbbr.textContent = lastReadAbbr;
+                        toast.style.display = 'flex';
+                    }
+
+                    // Ensure glossary section is visible even if filtered
+                    const abbrSection = document.getElementById('abbr-section');
+                    if (abbrSection) abbrSection.style.display = 'block';
+
+                    // Highlight target glossary card
+                    const targetId = link.getAttribute('href').substring(1);
+                    setTimeout(() => {
+                        const targetCard = document.getElementById(targetId);
+                        if (targetCard) {
+                            document.querySelectorAll('.abbr-card').forEach(c => c.classList.remove('highlighted'));
+                            targetCard.classList.add('highlighted');
+                        }
+                    }, 120);
+                });
+            });
+        }
+
+        function returnToLastSpot(sourceCardId) {
+            if (lastReadElement) {
+                const parentSec = lastReadElement.closest('.fw-section');
+                if (parentSec) parentSec.style.display = 'block';
+                lastReadElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                lastReadElement.classList.remove('last-clicked-spot');
+                void lastReadElement.offsetWidth; // Trigger DOM reflow for re-animation
+                lastReadElement.classList.add('last-clicked-spot');
+            } else if (lastReadScrollY > 0) {
+                window.scrollTo({ top: lastReadScrollY, behavior: 'smooth' });
+            } else {
+                window.history.back();
+            }
+            closeReturnToast();
+        }
+
+        function closeReturnToast() {
+            const toast = document.getElementById('abbrReturnToast');
+            if (toast) toast.style.display = 'none';
+        }
+
+        // Filter inside the Glossary section
+        const abbrFilterInput = document.getElementById('abbrFilterInput');
+        const abbrCards = document.querySelectorAll('.abbr-card');
+        const abbrCountBadge = document.getElementById('abbrCountBadge');
+
+        if (abbrFilterInput) {
+            abbrFilterInput.addEventListener('input', () => {
+                const q = abbrFilterInput.value.toLowerCase().trim();
+                let visible = 0;
+                abbrCards.forEach(card => {
+                    const text = card.innerText.toLowerCase();
+                    if (q === '' || text.includes(q)) {
+                        card.style.display = 'flex';
+                        visible++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                if (abbrCountBadge) {
+                    abbrCountBadge.textContent = `${visible} Acronyms`;
+                }
+            });
+        }
+
+        // Initialize abbreviation listeners
+        setupAbbreviationLinks();
+
     </script>
+
+    <!-- Floating Return Toast for Abbreviation Navigation -->
+    <div id="abbrReturnToast" class="abbr-return-toast" style="display: none;">
+        <div class="toast-content">
+            <span class="toast-dot"></span>
+            <span>Jumped from <strong id="returnToastAbbr" style="color: var(--accent-gold);">FTL</strong></span>
+        </div>
+        <button onclick="returnToLastSpot()" class="return-toast-btn" title="Return to the exact line you were reading">↩ Back to reading line</button>
+        <button onclick="closeReturnToast()" class="toast-close-btn" title="Dismiss">✕</button>
+    </div>
+
 </body>
 </html>
